@@ -653,3 +653,8 @@ body:not(.view-board) .zfit { display: none; }
   .mode-row, .mode-row--client { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: 8px; }
   .mode-row > .tok-txt, .mode-row .tok-use { grid-column: 1 / -1; }
 }
+
+/* Client · web board (2026-10-27): the board itself switches to Client mode. */
+.board.client-board { background: var(--color-bg-base-deep); color: var(--color-text-primary); font-family: var(--font-body); }
+.client-board .client-nav { position: relative; }
+.client-board .client-footer { padding-inline: var(--space-24); }
