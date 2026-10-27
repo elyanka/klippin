@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klippin · What changed and why · Client preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@800&display=swap">
+<link rel="stylesheet" href="../handoff/design/tokens/tokens.css">
+<link rel="stylesheet" href="assets/kit.css">
+<link rel="stylesheet" href="assets/present.css">
+</head>
+<body class="side calm">
+<header class="topbar">
+  <a class="brand" href="index.html"><b>Klippin</b><span>Brand &amp; UI Kit</span></a>
+  <nav>
+    <a href="mockups.html">Mockups</a>
+    <a href="changes.html" aria-current="page">Why</a>
+    <a href="rules.html">Rules</a>
+    <a href="foundations.html">Foundations</a>
+    <a href="components.html">Components</a>
+    <a href="landing.html">Landing page</a>
+  </nav>
+</header>
+<nav class="subnav"><b>Why</b><a href="#versions">Three versions</a><a href="#palette">Colour palette</a><a href="#semantics">Colour semantics</a><a href="#depth">Depth</a><a href="#type">Typography</a><a href="#spacing">Spacing and shape</a><a href="#components">Components and icons</a><a href="#copy">Copy formats</a></nav>
+<main class="canvas">
+  <h2 class="column-label">What changed and why<small>Release steps, then seven decisions behind the kit, each next to a mockup crop. Visual only: screens, flows, navigation and copy stay as they are.</small></h2>
+
+  <div class="board-wrap" id="versions">
+    <div class="board-name"><span>Why · Three versions</span><a href="#versions">#</a></div>
+    <section class="board">
+      <div class="page-header">
+        <span class="eyebrow text-label-eyebrow">Why</span>
+        <h1 class="text-display-h1">Three versions, two release steps</h1>
+        <p class="text-body-lead">The Mockups page shows all 184 screens of the Original Screens page three ways: as today, with tokens only, and the full kit.</p>
+      </div>
+      <div class="steps3">
+    <div class="card"><span class="vnum">1</span><span class="text-title-s">Today</span><span class="text-body-s muted">Exported unchanged from the page Original Screens.</span></div>
+    <div class="card"><span class="vnum">2</span><span class="text-title-s">Iteration 1 · tokens</span><span class="text-body-s muted">Same layout, components and copy. Colour variables and fonts point at v2 tokens (mapping on <a class="link" href="foundations.html#colour">Foundations</a>).</span></div>
+    <div class="card"><span class="vnum vnum--brand">3</span><span class="text-title-s">Target · full kit</span><span class="text-body-s muted">Rebuilt from kit components, with the money, status and copy rules applied.</span></div>
+  </div>
+      <div class="section">
+        <div class="section-head"><h2 class="text-display-l">What changes between the versions, and why</h2></div>
+        <div class="lp-changes">
+    <div class="lp-change"><span class="text-body-s-medium">1 → 2 · Tokens: what changes</span><span class="text-body-s muted">Only the colour variables and the two font roles are re-pointed to the v2 tokens (each colour on <a class="link" href="foundations.html#colour">Foundations</a>). Layout, components, copy and flows stay exactly as today.</span><span class="text-body-s-medium" style="margin-top:6px">Why ship this first</span><span class="text-body-s muted">The smallest release that already looks like the brand. For developers it is a theme swap, and the token layer is needed for the kit anyway. Low UX risk, and the palette is checked on real screens before the kit is built on it.</span></div>
+    <div class="lp-change"><span class="text-body-s-medium">2 → 3 · Full kit: what changes</span><span class="text-body-s muted">Every element is replaced by its kit component (buttons, chips, fields, cards, rows, dialogs, navigation), and the rules are applied: orange money, CAPS lifecycle chips, countdown tags, relative dates, 4px spacing, Phosphor icons. Same screens, same flows, same copy (typos fixed).</span><span class="text-body-s-medium" style="margin-top:6px">Why it is the target</span><span class="text-body-s muted">One source for each element instead of the same thing drawn several ways across 184 screens. States (pressed, disabled, error, empty) come with the component. New screens are assembled from the kit, and contrast is fixed where the rules require it.</span></div>
+    <div class="lp-change"><span class="text-body-s-medium">What never changes</span><span class="text-body-s muted">UX and flows, the set of screens and their order, navigation, and what each screen says. Renamings such as Locked → Private are optional copy, not a flow change. Nothing goes live until the client approves; version 1 stays the reference until then.</span></div>
+  </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="palette">
+    <div class="board-name"><span>Why · Colour palette</span><a href="#palette">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Colour palette</h2>
+          <p class="text-title-m">One palette for the app and the website.</p>
+          <ul class="bullets text-body-m"><li>The app moves to the cool greys of the live site, so a clipper going from the web to the app sees one product.</li><li>Two near-identical oranges become one.</li><li>The single blue "info" colour goes; info uses the brand orange.</li><li>Text is a soft off-white, and meta grey moves up one step so it passes 4.5:1 contrast.</li><li>Every colour is a token, so a palette change is a one-place change.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pal"><figure class="crop"><figcaption class="text-caption-medium">Today</figcaption><div class="pal__row"><span class="mini-sw"><span style="background:#0E0E10;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)"></span><span class="text-caption-regular faint">bg</span></span><span class="mini-sw"><span style="background:#161616;box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)"></span><span class="text-caption-regular faint">card</span></span><span class="mini-sw"><span style="background:#2B2B2B"></span><span class="text-caption-regular faint">icon bg</span></span><span class="mini-sw"><span style="background:#FF5A42"></span><span class="text-caption-regular faint">orange 1</span></span><span class="mini-sw"><span style="background:#FD7639"></span><span class="text-caption-regular faint">orange 2</span></span><span class="mini-sw"><span style="background:#1E98FF"></span><span class="text-caption-regular faint">info blue</span></span><span class="mini-sw"><span style="background:#FFFFFF"></span><span class="text-caption-regular faint">text</span></span><span class="mini-sw"><span style="background:#656562"></span><span class="text-caption-regular faint">meta</span></span></div><span class="text-caption-regular faint">Warm, flat greys. Two oranges side by side. One blue.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Kit</figcaption><div class="pal__row"><span class="mini-sw"><span style="background:var(--color-bg-base);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)"></span><span class="text-caption-regular faint">bg/base</span></span><span class="mini-sw"><span style="background:var(--color-bg-surface);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)"></span><span class="text-caption-regular faint">bg/surface</span></span><span class="mini-sw"><span style="background:var(--color-bg-tint);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12)"></span><span class="text-caption-regular faint">bg/tint</span></span><span class="mini-sw"><span style="background:var(--color-brand-primary)"></span><span class="text-caption-regular faint">brand</span></span><span class="mini-sw"><span style="background:var(--color-brand-primary-subtle)"></span><span class="text-caption-regular faint">brand tint</span></span><span class="mini-sw"><span style="background:var(--color-text-primary)"></span><span class="text-caption-regular faint">text</span></span><span class="mini-sw"><span style="background:var(--color-text-tertiary)"></span><span class="text-caption-regular faint">meta</span></span></div><span class="text-caption-regular faint">The landing page's cool greys. One orange. No blue.</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="semantics">
+    <div class="board-name"><span>Why · Colour semantics</span><a href="#semantics">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Colour semantics</h2>
+          <p class="text-title-m">Each colour gets one job.</p>
+          <ul class="bullets text-body-m"><li>One status logic for every entity: grey inactive, amber waiting, green live, red mistake. PAID is the only filled chip.</li><li>Lifecycle is a CAPS chip; membership (Joined, Pending) is a tag with an icon. Different questions, different shapes.</li><li>Orange money means "yours". Totals stay white, zero is grey, cancelled is red with a strikethrough.</li><li>Unread counts are orange, not red, so a badge does not read as an error.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today</figcaption><div class="crop__win" style="width:302px;height:243px"><img src="assets/shots/today/factories.webp" alt="Today" style="left:-6px;top:-210px;width:314px"></div><span class="text-caption-regular faint">"joined" and LIVE share a colour and a shape.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit</figcaption><div class="crop__win" style="width:302px;height:298px"><img src="assets/shots/kit/factories.webp" alt="Full kit" style="left:-6px;top:-218px;width:314px"></div><span class="text-caption-regular faint">Membership tag and lifecycle chip read apart.</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="depth">
+    <div class="board-name"><span>Why · Depth</span><a href="#depth">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Depth</h2>
+          <p class="text-title-m">Four fill steps instead of one card colour.</p>
+          <ul class="bullets text-body-m"><li>Screen, containers, elements, overlays: each step is one shade lighter, so a dropdown can never match what is under it.</li><li>Chips, buttons and selects use a see-through white, so one component works on any surface.</li><li>Only overlays cast a shadow.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today</figcaption><div class="crop__win" style="width:302px;height:284px"><img src="assets/shots/today/dashboard-factories-sort.webp" alt="Today" style="left:-6px;top:-172px;width:314px"></div><span class="text-caption-regular faint">The sort menu has the same fill as the cards under it, and no shadow.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit</figcaption><div class="crop__win" style="width:302px;height:264px"><img src="assets/shots/kit/dashboard-factories-sort.webp" alt="Full kit" style="left:-6px;top:-188px;width:314px"></div><span class="text-caption-regular faint">The menu sits on raised fill with a shadow.</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="type">
+    <div class="board-name"><span>Why · Typography</span><a href="#type">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Typography</h2>
+          <p class="text-title-m">Inter for UI, Space Grotesk for display and money.</p>
+          <ul class="bullets text-body-m"><li>SF Pro is Apple's font. Inter is free and renders the same on iOS, Android and the web.</li><li>Space Grotesk is already the landing page’s display face; the app uses it for headlines and big figures.</li><li>One named scale replaces near-equal sizes (13, 14, 15 for the same meta text). Nothing goes below 12px.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today</figcaption><div class="crop__win" style="width:302px;height:140px"><img src="assets/shots/today/payments.webp" alt="Today" style="left:-6px;top:-84px;width:314px"></div><span class="text-caption-regular faint">"0€" in SF Pro.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit</figcaption><div class="crop__win" style="width:302px;height:136px"><img src="assets/shots/kit/payments.webp" alt="Full kit" style="left:-6px;top:-100px;width:314px"></div><span class="text-caption-regular faint">"€0" in Space Grotesk, dark on orange.</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="spacing">
+    <div class="board-name"><span>Why · Spacing and shape</span><a href="#spacing">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Spacing and shape</h2>
+          <p class="text-title-m">A 4px grid and three radii.</p>
+          <ul class="bullets text-body-m"><li>Gaps of 10, 13, 15 and 18 sit next to each other today. One grid replaces them.</li><li>Radius 8 for chips and small buttons, 12 for fields, cards and large buttons, 16 for sheets.</li><li>Borders sit inside, so a chip with and without one is the same height.</li><li>Touch targets stay 44px even where the visible box is smaller.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Factories</figcaption><div class="crop__win" style="width:302px;height:46px"><img src="assets/shots/today/factories.webp" alt="Today · Factories" style="left:-6px;top:-132px;width:314px"></div></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Factories</figcaption><div class="crop__win" style="width:302px;height:46px"><img src="assets/shots/kit/factories.webp" alt="Full kit · Factories" style="left:-6px;top:-148px;width:314px"></div></figure></div><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Campaign filters</figcaption><div class="crop__win" style="width:302px;height:59px"><img src="assets/shots/today/campaigns-filters.webp" alt="Today · Campaign filters" style="left:-6px;top:-230px;width:314px"></div></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Campaign filters</figcaption><div class="crop__win" style="width:302px;height:59px"><img src="assets/shots/kit/campaigns-filters.webp" alt="Full kit · Campaign filters" style="left:-6px;top:-234px;width:314px"></div></figure></div><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Transaction filters</figcaption><div class="crop__win" style="width:302px;height:58px"><img src="assets/shots/today/payments-history-filters.webp" alt="Today · Transaction filters" style="left:-6px;top:-234px;width:314px"></div><span class="text-caption-regular faint">Three chip rows, three chip heights, three label sizes.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Transaction filters</figcaption><div class="crop__win" style="width:302px;height:94px"><img src="assets/shots/kit/payments-history-filters.webp" alt="Full kit · Transaction filters" style="left:-6px;top:-240px;width:314px"></div><span class="text-caption-regular faint">One filter chip, one height, one gap; the row wraps when it has to.</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="components">
+    <div class="board-name"><span>Why · Components and icons</span><a href="#components">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Components and icons</h2>
+          <p class="text-title-m">Each thing is drawn once, with its states.</p>
+          <ul class="bullets text-body-m"><li>120 components built from the tokens. Today cards, chips and tags are redrawn by hand on each screen, so they drift.</li><li>Three button types in two sizes, with pressed and disabled states.</li><li>One icon set, Phosphor, with a Fill variant for active states, so every icon shares one stroke.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Campaigns</figcaption><div class="crop__win" style="width:302px;height:38px"><img src="assets/shots/today/campaigns.webp" alt="Today · Campaigns" style="left:-6px;top:-244px;width:314px"></div></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Campaigns</figcaption><div class="crop__win" style="width:302px;height:38px"><img src="assets/shots/kit/campaigns.webp" alt="Full kit · Campaigns" style="left:-6px;top:-244px;width:314px"></div></figure></div><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Dashboard</figcaption><div class="crop__win" style="width:302px;height:36px"><img src="assets/shots/today/dash-submissions.webp" alt="Today · Dashboard" style="left:-6px;top:-228px;width:314px"></div></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Dashboard</figcaption><div class="crop__win" style="width:302px;height:36px"><img src="assets/shots/kit/dash-submissions.webp" alt="Full kit · Dashboard" style="left:-6px;top:-238px;width:314px"></div></figure></div><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Transaction</figcaption><div class="crop__win" style="width:302px;height:52px"><img src="assets/shots/today/txn-completed.webp" alt="Today · Transaction" style="left:-6px;top:-120px;width:314px"></div></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Transaction</figcaption><div class="crop__win" style="width:302px;height:36px"><img src="assets/shots/kit/txn-completed.webp" alt="Full kit · Transaction" style="left:-6px;top:-136px;width:314px"></div></figure></div><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today · Challenge</figcaption><div class="crop__win" style="width:302px;height:32px"><img src="assets/shots/today/challenges-completed.webp" alt="Today · Challenge" style="left:-6px;top:-324px;width:314px"></div><span class="text-caption-regular faint">Four screens, four ways to draw a status: dot pill, filled caps, filled sentence case, plain text.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit · Challenge</figcaption><div class="crop__win" style="width:302px;height:44px"><img src="assets/shots/kit/challenges-completed.webp" alt="Full kit · Challenge" style="left:-6px;top:-258px;width:314px"></div><span class="text-caption-regular faint">One status chip component with a variant per state.</span></figure></div><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today</figcaption><div class="crop__win" style="width:302px;height:34px"><img src="assets/shots/today/dash-submissions.webp" alt="Today" style="left:-6px;top:-621px;width:314px"></div><span class="text-caption-regular faint">Mixed glyphs in the bottom nav.</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit</figcaption><div class="crop__win" style="width:302px;height:34px"><img src="assets/shots/kit/dash-submissions.webp" alt="Full kit" style="left:-6px;top:-622px;width:314px"></div><span class="text-caption-regular faint">Phosphor, Fill when active.</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+
+  <div class="board-wrap" id="copy">
+    <div class="board-name"><span>Why · Copy formats</span><a href="#copy">#</a></div>
+    <section class="board">
+      <div class="why">
+        <div class="why__text">
+          <h2 class="text-display-l">Copy formats</h2>
+          <p class="text-title-m">One format for money, dates and countdowns.</p>
+          <ul class="bullets text-body-m"><li>Money as €1,000, never 1000€ or $. Rates as "€2.40 / 1M views".</li><li>Dates relative up to 7 days, then 12.10. Countdowns are tags: "3h left", "Ended 12.10".</li><li>Two optional renamings, copy only: Locked to Private, ONGOING to APPROVED.</li></ul>
+        </div>
+        <div class="why__visual"><div class="pair"><figure class="crop"><figcaption class="text-caption-medium">Today</figcaption><div class="crop__win" style="width:302px;height:232px"><img src="assets/shots/today/payments-history.webp" alt="Today" style="left:-6px;top:-96px;width:314px"></div><span class="text-caption-regular faint">"300$", "+$93", "28 April 2025".</span></figure><figure class="crop"><figcaption class="text-caption-medium">Full kit</figcaption><div class="crop__win" style="width:302px;height:200px"><img src="assets/shots/kit/payments-history.webp" alt="Full kit" style="left:-6px;top:-100px;width:314px"></div><span class="text-caption-regular faint">"€300", "+€93", "28 Apr 2025".</span></figure></div></div>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="assets/icons.js"></script>
+<script src="assets/layout.js"></script>
+</body>
+</html>

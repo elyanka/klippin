@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klippin · Global rules · Client preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@800&display=swap">
+<link rel="stylesheet" href="../handoff/design/tokens/tokens.css">
+<link rel="stylesheet" href="assets/kit.css">
+<link rel="stylesheet" href="assets/present.css">
+</head>
+<body class="side calm">
+<header class="topbar">
+  <a class="brand" href="index.html"><b>Klippin</b><span>Brand &amp; UI Kit</span></a>
+  <nav>
+    <a href="mockups.html">Mockups</a>
+    <a href="changes.html">Why</a>
+    <a href="rules.html" aria-current="page">Rules</a>
+    <a href="foundations.html">Foundations</a>
+    <a href="components.html">Components</a>
+    <a href="landing.html">Landing page</a>
+  </nav>
+</header>
+
+<nav class="subnav"><b>Rules</b><a href="#scope">Scope</a><a href="#status">Status logic</a><a href="#money">Money</a><a href="#time">Time</a><a href="#buttons">Buttons &amp; text on orange</a><a href="#depth">Depth, icons &amp; accessibility</a></nav>
+<main class="canvas">
+  <h2 class="column-label">Rules<small>Six boards. When a screen and these rules disagree, the rules win.</small></h2>
+
+  <!-- Rules · Scope -->
+  <div class="board-wrap" id="scope">
+    <div class="board-name"><span>Rules · Scope</span><a href="#scope">#</a></div>
+    <section class="board">
+      <div class="page-header">
+        <span class="eyebrow text-label-eyebrow">Global rules</span>
+        <h1 class="text-display-h1">Global rules</h1>
+        <p class="text-body-lead">Apply to the clipper app and the website. When a screen and this page disagree, this page wins. The brand guide governs brand expression (logo, voice, marketing); fonts follow these rules.</p>
+      </div>
+      <div class="section">
+        <div class="section-head"><h2 class="text-display-l">Scope</h2></div>
+        <div class="lay-2">
+          <div class="card">
+            <h3 class="text-title-s">Visual only</h3>
+            <ul class="bullets text-body-m">
+              <li>UX and flows do not change. We change how things look: colour, type, spacing, components, chip styling and copy.</li>
+              <li>Renamings (e.g. Locked → Private) are optional copy, never a flow change.</li>
+              <li>Nothing goes into live screens until the client approves.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-title-s">One theme</h3>
+            <ul class="bullets text-body-m">
+              <li>Dark mode only. There are no light tokens for now.</li>
+              <li>Design with semantic tokens (bg/, text/, border/, brand/, status/), never with primitives or raw hex.</li>
+              <li>Shared by app and web. Web adds base-deep/deepest, surface-low/glass and the display hero/h1/stat, body lead/web and eyebrow styles.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Rules · Status logic -->
+  <div class="board-wrap" id="status">
+    <div class="board-name"><span>Rules · Status logic</span><a href="#status">#</a></div>
+    <section class="board">
+      <div class="section">
+        <div class="section-head">
+          <h2 class="text-display-l">Status logic</h2>
+          <p class="text-body-m">One colour logic for every entity. Lifecycle = CAPS chip: coloured 12px icon + label on a subtle fill. Membership = coloured 16px icon + sentence case in a neutral tag. Both use radius/sm (8). PAID is the only filled chip.</p>
+        </div>
+        <div class="lay-1">
+            <div class="card">
+              <h3 class="text-title-s">Lifecycle chips · 24px · radius/sm</h3>
+              <div class="chip-rows">
+              <div class="row"><span class="lbl text-body-s">Submissions</span>
+                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-hourglass"/></svg>In review</span>
+                <span class="chip chip--success text-label-chip"><span class="dot"></span>Ongoing</span>
+                <span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-check"/></svg>Paid</span>
+                <span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-x"/></svg>Rejected</span>
+                <span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-prohibit"/></svg>Cancelled</span></div>
+              <div class="row"><span class="lbl text-body-s">Factories &amp; campaigns</span>
+                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>Upcoming</span>
+                <span class="chip chip--success text-label-chip"><span class="dot"></span>Live</span>
+                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Completed</span>
+                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-archive"/></svg>Archived</span></div>
+              <div class="row"><span class="lbl text-body-s">Tutorials</span>
+                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>New</span>
+                <span class="chip chip--success text-label-chip"><span class="dot"></span>Ongoing</span>
+                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Finished</span></div>
+              <div class="row"><span class="lbl text-body-s">Transactions</span>
+                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>Pending</span>
+                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Completed</span>
+                <span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-prohibit"/></svg>Cancelled</span></div>
+              <div class="row"><span class="lbl text-body-s">Accounts &amp; payout methods</span>
+                <span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-link"/></svg>Connected</span>
+                <span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-seal-check"/></svg>Verified</span>
+                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-star"/></svg>Default</span></div>
+              </div>
+              <p class="legend text-caption-regular"><b class="lg lg--neutral">Grey</b> inactive <b class="lg lg--warning">Amber</b> waiting <b class="lg lg--success">Green</b> active <b class="lg lg--error">Red</b> mistake / violation <b class="lg lg--paid">Brand gradient</b> paid</p>
+              <p class="note text-caption-regular">Contexts reuse the lifecycle colours with their own label, as real variants of the status chip (no free-text labels). Labels are always CAPS. A new context gets a new variant here first.</p>
+              <p class="note text-caption-regular">Icon: dot = live, clock = scheduled / waiting / pending, hourglass = in review, flag = finished, archive, check = paid, cross = rejected, block = cancelled, link = connected, seal = verified, star = default.</p>
+            </div>
+            <div class="lay-2">
+              <div class="card">
+                <h3 class="text-title-s">Membership tags · 28px · radius/sm</h3>
+                <div class="row">
+                  <span class="tag tag--joined text-label-tag"><svg class="i"><use href="#i-user-check"/></svg>Joined</span>
+                  <span class="tag tag--pending text-label-tag"><svg class="i"><use href="#i-clock"/></svg>Pending</span>
+                  <span class="tag tag--open text-label-tag"><svg class="i"><use href="#i-lock-open"/></svg>Open</span>
+                  <span class="tag tag--private text-label-tag"><svg class="i"><use href="#i-lock"/></svg>Private</span>
+                  <span class="tag tag--applied text-label-tag"><svg class="i"><use href="#i-check"/></svg>Applied</span>
+                </div>
+                <p class="note text-caption-regular">Neutral bg/tint tag (not a pill: radius/sm, like chips); the icon carries the colour (green joined and applied, amber pending, white open, grey private). Membership is factory-level, not campaign-level; Applied marks a campaign the clipper applied to (factory seen from Analytics).</p>
+              </div>
+              <div class="card">
+                <h3 class="text-title-s">Progress</h3>
+                <ul class="bullets text-body-m">
+                  <li>Brand fill = money and goals (budget, earnings, prize).</li>
+                  <li>Neutral fill = time and finished things. Exception: media playback (the video scrubber) is orange, because the user controls it.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Rules · Money -->
+  <div class="board-wrap" id="money">
+    <div class="board-name"><span>Rules · Money</span><a href="#money">#</a></div>
+    <section class="board">
+      <div class="section">
+        <div class="section-head"><h2 class="text-display-l">Money</h2></div>
+        <div class="lay-1">
+        <div class="card">
+          <h3 class="text-title-s">Four money colours</h3>
+          <div class="money-tiles">
+            <div class="money-tile"><span class="text-display-l money--brand">€1,240</span><span class="text-body-m-semibold">Orange · emphasised</span><span class="text-caption-regular muted">Money is the point: rewards, earnings, prizes, balance, your own leaderboard amount.</span></div>
+            <div class="money-tile"><span class="text-display-l money--accent">€1,240</span><span class="text-body-m-semibold">White · accented</span><span class="text-caption-regular muted">Stands out without the brand accent: totals and amounts beside an orange figure, stats, other people’s leaderboard amounts.</span></div>
+            <div class="money-tile"><span class="text-display-l money--neutral">€1,240</span><span class="text-body-m-semibold">Grey · neutral</span><span class="text-caption-regular muted">Secondary and zero amounts, payout history, the “/ €500 max” cap on ongoing submissions.</span></div>
+            <div class="money-tile"><span class="text-display-l money--cancelled">€1,240</span><span class="text-body-m-semibold">Red · cancelled</span><span class="text-caption-regular muted">Only for cancelled amounts.</span></div>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="text-title-s">Format &amp; wording</h3>
+          <ul class="bullets text-body-m">
+            <li>Format: euro prefix, comma thousands, dot decimals: €1,000 · €4,812.60. Never $, never a suffix.</li>
+            <li>Rate wording “€2.40 / 1M views”. Do not use the term RPM in the app.</li>
+            <li>Money figures in Space Grotesk Bold. Never green for money.</li>
+            <li>Leaderboard: other rows show amounts in white; the “you” row is a brand tint (surface + orange 28%→6%) with a 1px orange border and an orange amount, so only your amount is orange.</li>
+          </ul>
+        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Rules · Time -->
+  <div class="board-wrap" id="time">
+    <div class="board-name"><span>Rules · Time</span><a href="#time">#</a></div>
+    <section class="board">
+      <div class="section">
+        <div class="section-head"><h2 class="text-display-l">Time</h2></div>
+        <div class="lay-2">
+          <div class="card">
+            <h3 class="text-title-s">Relative dates</h3>
+            <ul class="bullets text-body-m">
+              <li>Just now · 5m ago · 3h ago · 2d ago (up to 7 days), then 12.10 (12.10.2025 for another year).</li>
+              <li>Chat bubbles keep clock time.</li>
+              <li>Absolute dates by context: data rows 12.10.2025 · list group separators “11 June 2025” · chart axes “Sep 12”.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-title-s">Countdown tags</h3>
+            <ul class="bullets text-body-m">
+              <li>Countdown tags: “3h left”, “Starts in 3h”, “Ended 12.10”. Same shape as chips (radius/sm), sentence case; in the kit it is the soft pill inside the campaign card.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Rules · Buttons & text on orange -->
+  <div class="board-wrap" id="buttons">
+    <div class="board-name"><span>Rules · Buttons &amp; text on orange</span><a href="#buttons">#</a></div>
+    <section class="board">
+      <div class="section">
+        <div class="section-head"><h2 class="text-display-l">Buttons &amp; text on orange</h2></div>
+        <div class="lay-1">
+        <div class="card">
+          <h3 class="text-title-s">Buttons · type × state</h3>
+          <div class="matrix">
+            <span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Default</span><span class="text-caption-regular faint">App + web</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Pressed</span><span class="text-caption-regular faint">App + web</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Disabled</span><span class="text-caption-regular faint">App + web</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Hover</span><span class="text-caption-regular" style="color:var(--color-text-brand)">Web only · pointer</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Focus</span><span class="text-caption-regular" style="color:var(--color-text-brand)">Web only · keyboard</span></span>
+
+            <span class="text-body-s muted">Primary L · 44</span>
+            <span><button class="btn btn--primary btn--l">Join</button></span>
+            <span><button class="btn btn--primary btn--l is-pressed">Join</button></span>
+            <span><button class="btn btn--primary btn--l" disabled>Join</button></span>
+            <span><button class="btn btn--primary btn--l is-hover">Join</button></span>
+            <span><button class="btn btn--primary btn--l is-focus">Join</button></span>
+
+            <span class="text-body-s muted">Primary M · 36</span>
+            <span><button class="btn btn--primary btn--m">Join</button></span>
+            <span><button class="btn btn--primary btn--m is-pressed">Join</button></span>
+            <span><button class="btn btn--primary btn--m" disabled>Join</button></span>
+            <span><button class="btn btn--primary btn--m is-hover">Join</button></span>
+            <span><button class="btn btn--primary btn--m is-focus">Join</button></span>
+
+            <span class="text-body-s muted">Secondary L · 44</span>
+            <span><button class="btn btn--secondary btn--l">Details</button></span>
+            <span><button class="btn btn--secondary btn--l is-pressed">Details</button></span>
+            <span><button class="btn btn--secondary btn--l" disabled>Details</button></span>
+            <span><button class="btn btn--secondary btn--l is-hover">Details</button></span>
+            <span><button class="btn btn--secondary btn--l is-focus">Details</button></span>
+
+            <span class="text-body-s muted">Secondary M · 36</span>
+            <span><button class="btn btn--secondary btn--m">Details</button></span>
+            <span><button class="btn btn--secondary btn--m is-pressed">Details</button></span>
+            <span><button class="btn btn--secondary btn--m" disabled>Details</button></span>
+            <span><button class="btn btn--secondary btn--m is-hover">Details</button></span>
+            <span><button class="btn btn--secondary btn--m is-focus">Details</button></span>
+
+            <span class="text-body-s muted">Text L · 32</span>
+            <span><button class="btn btn--text btn--l">See all</button></span>
+            <span><button class="btn btn--text btn--l is-pressed">See all</button></span>
+            <span><button class="btn btn--text btn--l" disabled>See all</button></span>
+            <span><button class="btn btn--text btn--l is-hover">See all</button></span>
+            <span><button class="btn btn--text btn--l is-focus">See all</button></span>
+
+            <span class="text-body-s muted">Text M · 28</span>
+            <span><button class="btn btn--text btn--m">See all</button></span>
+            <span><button class="btn btn--text btn--m is-pressed">See all</button></span>
+            <span><button class="btn btn--text btn--m" disabled>See all</button></span>
+            <span><button class="btn btn--text btn--m is-hover">See all</button></span>
+            <span><button class="btn btn--text btn--m is-focus">See all</button></span>
+          </div>
+        </div>
+        <div class="lay-3">
+          <div class="card">
+            <h3 class="text-title-s">Sizes</h3>
+            <ul class="bullets text-body-m">
+              <li>Sizes: L 44px tall, 20px side padding, radius/md (12), label 18px semibold · M 36px, 16px padding, radius/sm (8), label 14px semibold · icon gap 8px, icons 20 (L) / 16 (M).</li>
+              <li>Text buttons: same label sizes as L / M in brand orange, 8px side padding, radius/sm box (32 / 28px). The touch target is always at least 44px tall, even when the visual box is smaller.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-title-s">States</h3>
+            <ul class="bullets text-body-m">
+              <li>Pressed (agreed): primary +18% black · secondary bg/tint-strong · text brand tint 15%. Disabled: whole button at 40% opacity, all types. The app has no hover or focus (touch).</li>
+              <li>Hover (web): primary switches to gradient/vibrant-orange with a warm glow (0 4 16, orange 35%) · secondary bg/tint-strong + 1px border/glass · text brand tint at 8%.</li>
+              <li>Focus (web, :focus-visible): primary 2px white ring with a 2px dark gap · secondary 2px orange ring with a 2px gap · text 2px orange ring tight to its box (no gap).</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-title-s">Destructive &amp; accessibility</h3>
+            <ul class="bullets text-body-m">
+              <li>Destructive actions: red label and icon in menus and rows. The confirmation that commits them (leave, delete, cancel) uses Danger soft (red-tinted fill, red label), never the orange primary, so it differs from orange by weight, not only by hue. Solid Danger is reserved for rare, irreversible bulk actions.</li>
+              <li>Accessibility exception (deliberate, agreed): white labels on the primary gradient are 2.9–3.2:1 and fail WCAG AA (4.5:1). Kept for the brand look; never reuse white text on orange anywhere else.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <h3 class="text-title-s">Text on orange</h3>
+          <div class="specimens">
+            <div class="specimen"><span class="eyebrow text-label-eyebrow">How it works</span><span class="cap text-caption-regular">Eyebrow (web)</span></div>
+            <div class="specimen"><span class="count-badge text-caption-medium">3</span><span class="cap text-caption-regular">Count badge</span></div>
+            <div class="specimen"><span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-check"/></svg>Paid</span><span class="cap text-caption-regular">PAID chip</span></div>
+            <div class="specimen"><span class="you-row"><span class="text-body-m-semibold">12</span><span class="text-body-m-semibold">You</span><span class="text-display-m">€340</span></span><span class="cap text-caption-regular">Rank badge on the “you” row</span></div>
+            <div class="specimen"><button class="btn btn--primary btn--l">Join the factory</button><span class="cap text-caption-regular">Primary button: white on gradient</span></div>
+          </div>
+          <p class="text-body-s muted" style="max-width:640px">Dark text and icons (text/on-orange) on solid orange: the PAID chip, the rank badge on the leaderboard “you” row, the selected calendar day and the avatar picker check. White on the primary button gradient (client preference) and white checks in radio buttons and checkboxes (more contrast, Elya). Toggle knobs stay white.</p>
+        </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Rules · Depth, icons & accessibility -->
+  <div class="board-wrap" id="depth">
+    <div class="board-name"><span>Rules · Depth, icons &amp; accessibility</span><a href="#depth">#</a></div>
+    <section class="board">
+      <div class="section">
+        <div class="section-head"><h2 class="text-display-l">Depth, icons &amp; accessibility</h2></div>
+        <div class="lay-2">
+          <div class="card">
+            <h3 class="text-title-s">Elevation (4 levels)</h3>
+            <ul class="bullets text-body-m">
+              <li>0 · page: bg/base (app), bg/base-deep (web).</li>
+              <li>1 · containers: bg/surface + border/default.</li>
+              <li>2 · elements on any surface: bg/tint, pressed bg/tint-strong.</li>
+              <li>3 · overlays: bg/raised + border/default + elevation/overlay, over bg/scrim.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3 class="text-title-s">Icons &amp; accessibility</h3>
+            <ul class="bullets text-body-m">
+              <li>Icon sizes: 20 in L buttons, icon buttons and menus · 32 in the bottom nav · 16 in M buttons, membership tags and inline text · 12 in lifecycle chips.</li>
+              <li>White icons on photos get elevation/icon-on-media and a bottom fade.</li>
+              <li>Text never below 12px, except label/eyebrow (11px CAPS, web only). text/tertiary is the lightest text allowed: ≥4.5:1 on bg/base and bg/surface. On raised surfaces (bg/raised, bg/raised-strong) meta text uses text/secondary. text/disabled only for disabled states.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="assets/icons.js"></script>
+<script src="assets/layout.js"></script>
+</body>
+</html>
