@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klippin for Clippers | Clip. Post. Earn.</title>
+<meta name="description" content="Join the Klippin network. Get the app, join a campaign, post your clips and get paid for every verified view. Top clippers earn $12,000+ a month. No audience required.">
+<meta property="og:title" content="Klippin | Clip. Post. Earn.">
+<meta property="og:description" content="Real campaigns from entertainment brands. Paid per verified view. Get the app.">
+<meta name="theme-color" content="#0B0B0C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   KLIPPIN | LP CLIENT v2
+   Palette derived from "graphic charter.png"
+   ============================================================ */
+:root{
+  --bg:#050A18;
+  --bg-deep:#03060F;
+  --bg-2:#070D20;
+  --panel:rgba(255,255,255,.035);
+  --panel-2:rgba(255,255,255,.055);
+  --line:rgba(255,255,255,.09);
+  --line-2:rgba(255,255,255,.17);
+  --txt:#EEF3FF;
+  --txt-dim:#98A5C6;
+  --txt-faint:#6B7896;
+  --glow:#F2F6FF;
+  --accent:#A6BAF2;
+  --accent-2:#7396E2;
+  --accent-3:#3F6CC6;
+  --halo:rgba(150,182,255,.5);
+  /* Brand mark, run monochrome so it sits inside the page palette rather than
+     against it. The supplied asset is an orange gradient (#FF6839 to #FF5346):
+     restore those two values here to switch back, nothing else changes. */
+  --logo-1:#FFFFFF;
+  --logo-2:#C9D8F6;
+  --maxw:1180px;
+  --r:20px;
+  --r-sm:14px;
+  --r-pill:999px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);color:var(--txt);
+  font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+  font-weight:400;line-height:1.6;letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+  overflow-x:hidden;
+}
+img,svg,canvas{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+
+/* ---------- TYPE SCALE ---------- */
+h1,h2,h3{font-weight:700;line-height:1.06;letter-spacing:-.03em}
+h1{font-size:clamp(2.9rem,6.4vw,5rem);font-weight:600}
+h2{font-size:clamp(2rem,3.8vw,3.1rem);font-weight:600}
+h3{font-size:1.1rem;font-weight:600;letter-spacing:-.015em}
+.eyebrow{
+  font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--accent);
+}
+.lead{
+  font-size:clamp(1.02rem,1.35vw,1.15rem);color:var(--txt-dim);
+  max-width:62ch;font-weight:400;
+}
+.grad{
+  background:linear-gradient(96deg,#FFFFFF 0%,#C3D3F7 42%,#8FAAEC 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.num{
+  font-size:clamp(1.6rem,2.4vw,2.05rem);font-weight:700;letter-spacing:-.04em;
+  line-height:1;
+}
+.lbl{font-size:.775rem;color:var(--txt-faint);line-height:1.35;letter-spacing:0}
+
+/* ---------- LAYOUT ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+section.sec{padding:clamp(74px,9vw,124px) 0;position:relative}
+.sec-alt{background:var(--bg-2)}
+.sec-head{max-width:720px;margin:0 auto clamp(44px,5vw,64px);text-align:center}
+.sec-head .eyebrow{display:block;margin-bottom:16px}
+.sec-head h2{margin-bottom:18px;text-wrap:balance}
+/* wider head, so a long title can hold one line */
+.sec-head-wide{max-width:1120px}
+/* one line on desktop, released to normal wrapping on small screens */
+.h2-oneline{white-space:nowrap;font-size:clamp(1.6rem,3.25vw,2.95rem);text-wrap:normal}
+@media(max-width:700px){
+  .h2-oneline{white-space:normal;font-size:clamp(2rem,3.8vw,3.1rem);text-wrap:balance}
+}
+/* the line break is authored, so balancing must not fight it, and the first
+   line has to hold together instead of wrapping on its own */
+.h2-break{text-wrap:normal;font-size:clamp(1.6rem,3.25vw,2.95rem)}
+.h2-break .nb{white-space:nowrap}
+@media(max-width:700px){
+  .h2-break{font-size:clamp(2rem,3.8vw,3.1rem)}
+  .h2-break .nb{white-space:normal}
+}
+.sec-head .lead{margin:0 auto}
+.grid{display:grid;gap:18px}
+.g-3{grid-template-columns:repeat(3,1fr)}
+.g-2{grid-template-columns:repeat(2,1fr)}
+
+/* ---------- BUTTONS ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  padding:13px 26px;border-radius:var(--r-pill);
+  font-size:.925rem;font-weight:600;letter-spacing:-.01em;
+  transition:transform .22s cubic-bezier(.4,0,.2,1),box-shadow .22s,background .22s,border-color .22s;
+  white-space:nowrap;
+}
+.btn-primary{
+  background:linear-gradient(180deg,#FFFFFF 0%,#C9D8F6 100%);
+  color:#060B1A;
+  box-shadow:0 4px 24px rgba(150,182,255,.28),inset 0 -1px 0 rgba(0,0,0,.06);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(150,182,255,.42)}
+.btn-ghost{
+  background:rgba(255,255,255,.055);color:var(--txt);
+  border:1px solid var(--line-2);backdrop-filter:blur(8px);
+}
+.btn-ghost:hover{transform:translateY(-2px);background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.26)}
+.btn-lg{padding:16px 34px;font-size:1rem}
+
+/* ---------- PILL / BADGE ---------- */
+.pill{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 17px;border-radius:var(--r-pill);
+  background:rgba(255,255,255,.045);border:1px solid var(--line);
+  font-size:.78rem;font-weight:500;color:var(--txt-dim);
+  backdrop-filter:blur(8px);letter-spacing:.005em;
+}
+
+/* ---------- NAV ---------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  background:rgba(5,10,24,.72);backdrop-filter:blur(18px) saturate(1.3);
+  border-bottom:1px solid transparent;transition:border-color .3s,background .3s;
+}
+.nav.scrolled{border-bottom-color:var(--line);background:rgba(5,10,24,.9)}
+/* three columns, so the links sit on the optical centre of the bar
+   whatever the width of the logo or of the right-hand group */
+.nav-in{max-width:var(--maxw);margin:0 auto;padding:15px 26px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:20px}
+/* Brand lockup, supplied as SVG. The gradient stops read two CSS variables,
+   so switching the mark to a monochrome version is a one-line change at the
+   top of this file rather than an edit to the paths. */
+.logo{display:inline-flex;align-items:center;line-height:0}
+.logo svg{height:23px;width:auto;flex:none;display:block}
+.logo-foot svg{height:26px}
+@media(max-width:400px){.logo svg{height:20px}}
+.nav-links{display:flex;gap:30px;justify-content:center;font-size:.875rem;font-weight:500;color:var(--txt-dim);white-space:nowrap}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--txt)}
+.nav-right{display:flex;align-items:center;justify-content:flex-end;gap:16px}
+.lang{display:flex;gap:2px;font-size:.75rem;font-weight:600;color:var(--txt-faint);border:1px solid var(--line);border-radius:var(--r-pill);padding:4px}
+.lang button{padding:3px 9px;border-radius:var(--r-pill);transition:.2s}
+.lang button.on{background:rgba(255,255,255,.1);color:var(--txt)}
+.burger{display:none;width:38px;height:38px;align-items:center;justify-content:center;flex-direction:column;gap:5px}
+.burger span{display:block;width:19px;height:1.5px;background:var(--txt);transition:.25s;border-radius:2px}
+body.menu-open .burger span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+body.menu-open .burger span:nth-child(2){opacity:0}
+body.menu-open .burger span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.mobile-menu{display:none;padding:12px 26px 26px;border-top:1px solid var(--line);background:rgba(5,10,24,.98)}
+body.menu-open .mobile-menu{display:block;animation:slideDown .25s ease}
+@keyframes slideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mobile-menu a{display:block;padding:13px 0;font-size:1rem;font-weight:500;border-bottom:1px solid var(--line)}
+.mobile-menu a.btn{display:flex;justify-content:center;margin-top:20px;width:100%;border-bottom:0;padding:15px 26px}
+
+/* ============================================================
+   HERO | the planet horizon (brand signature)
+   ============================================================ */
+.hero{position:relative;padding:clamp(146px,17vw,208px) 0 clamp(74px,8vw,104px);overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+/* faint vertical light columns, as in the charter */
+.hero-bg .cols{
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:min(880px,92vw);height:62%;
+  background:
+    linear-gradient(90deg,transparent 0 6%,rgba(180,205,255,.055) 6% 6.4%,transparent 6.4% 22%,
+    rgba(180,205,255,.075) 22% 22.5%,transparent 22.5% 40%,
+    rgba(180,205,255,.05) 40% 40.4%,transparent 40.4% 59%,
+    rgba(180,205,255,.075) 59% 59.5%,transparent 59.5% 77%,
+    rgba(180,205,255,.055) 77% 77.4%,transparent 77.4% 94%,
+    rgba(180,205,255,.05) 94% 94.4%,transparent 94.4%);
+  mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 88%);
+  -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,.9),transparent 88%);
+}
+/* the planet: a huge circle rising from the bottom with a lit rim */
+.planet{
+  position:absolute;left:50%;top:clamp(88px,10vw,124px);
+  width:min(1960px,186vw);aspect-ratio:1;
+  transform:translateX(-50%);
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(120,160,240,.17) 0%,rgba(10,17,38,.5) 22%,var(--bg-deep) 50%);
+  box-shadow:
+    0 0 0 1px rgba(206,226,255,.42),
+    0 -2px 22px 1px rgba(180,210,255,.4),
+    0 -12px 80px 8px rgba(120,160,245,.26),
+    0 -38px 180px 26px rgba(70,110,215,.15);
+}
+/* floating clipper markers, as in the charter */
+.hero-bg .av{
+  position:absolute;width:34px;height:34px;border-radius:50%;
+  background:linear-gradient(155deg,#31456F,#141F3D);
+  border:1px solid rgba(190,214,255,.34);
+  box-shadow:0 6px 22px rgba(0,0,0,.5),0 0 18px rgba(150,185,255,.16);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.56rem;font-weight:700;color:#C4D6FA;letter-spacing:.04em;
+  animation:float 7s ease-in-out infinite;
+}
+.hero-bg .av.a1{top:14%;left:15%;animation-delay:0s}
+.hero-bg .av.a2{top:20%;left:19.5%;width:29px;height:29px;animation-delay:-2.4s}
+.hero-bg .av.a3{top:27%;left:7.5%;width:31px;height:31px;animation-delay:-4.6s}
+.hero-bg .av.a4{top:17%;right:13%;animation-delay:-1.4s}
+.hero-bg .av.a5{top:25%;right:8.5%;width:29px;height:29px;animation-delay:-3.6s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@media(max-width:900px){.hero-bg .av{display:none}}
+.hero-glowfloor{
+  position:absolute;left:50%;bottom:-10%;transform:translateX(-50%);
+  width:min(760px,88vw);height:300px;
+  background:radial-gradient(ellipse at 50% 100%,rgba(150,185,255,.22),transparent 68%);
+  filter:blur(12px);
+}
+.hero-in{position:relative;z-index:2}
+/* the headline is the whole hero. Nothing competes with it. */
+.hero-h1{
+  font-size:clamp(2.5rem,7.9vw,6.1rem);font-weight:700;letter-spacing:-.03em;line-height:.98;
+  margin:0 auto 30px;text-transform:uppercase;
+  background:linear-gradient(100deg,#FFFFFF 0%,#E4ECFC 38%,#9FB6F0 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.hero .lead{margin:0 auto 34px;text-align:center;font-size:clamp(1.05rem,1.5vw,1.22rem);max-width:50ch;text-wrap:balance}
+.hero-cta{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-bottom:clamp(56px,7vw,88px)}
+.statstrip{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  max-width:830px;margin:0 auto;
+  background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));
+  border:1px solid var(--line);border-radius:var(--r);
+  backdrop-filter:blur(10px);
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+}
+.statstrip .st{padding:24px 14px;text-align:center;position:relative}
+.statstrip .st+.st::before{content:'';position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
+.statstrip .num{margin-bottom:7px}
+/* placeholder marker: visible on purpose, strip before production */
+.ph{
+  -webkit-text-fill-color:#7B8AAE;color:#7B8AAE;background:none;
+  font-size:.5rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+  vertical-align:super;margin-left:3px;
+}
+
+/* ---------- REFERENCES ---------- */
+.refs{padding:clamp(16px,1.6vw,22px) 0 clamp(56px,5.6vw,78px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-deep);overflow:hidden}
+.refs-label{text-align:center;font-size:.8rem;color:var(--txt-faint);letter-spacing:.04em;margin-bottom:18px}
+/* right-to-left logo marquee. Edges fade out so logos enter and leave cleanly. */
+.marquee{
+  position:relative;width:100%;overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);
+}
+.marquee-track{
+  display:flex;width:max-content;
+  animation:scrollLeft 42s linear infinite;
+  will-change:transform;
+}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track .logo-row{
+  display:flex;align-items:center;flex:none;
+  gap:clamp(30px,4.5vw,64px);padding-right:clamp(30px,4.5vw,64px);
+}
+@keyframes scrollLeft{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.logo-slot{
+  flex:none;min-width:150px;height:46px;display:flex;align-items:center;justify-content:center;
+  border:1px dashed rgba(255,255,255,.14);border-radius:10px;
+  font-size:.66rem;letter-spacing:.16em;color:var(--txt-faint);font-weight:600;
+  transition:border-color .25s,color .25s;
+}
+.logo-slot:hover{border-color:rgba(255,255,255,.3);color:var(--txt-dim)}
+@media(prefers-reduced-motion:reduce){
+  .marquee-track{animation:none;justify-content:center;width:100%}
+  .marquee-track .logo-row:last-child{display:none}
+  .marquee-track .logo-row{flex-wrap:wrap;justify-content:center;padding-right:0}
+}
+
+/* ---------- THESIS ---------- */
+.thesis-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+.thesis-cell{background:var(--bg);padding:clamp(28px,3vw,38px)}
+.thesis-cell .n{font-size:.7rem;font-weight:700;letter-spacing:.16em;color:var(--accent);margin-bottom:20px;display:block}
+.thesis-cell h3{margin-bottom:12px}
+.thesis-cell p{font-size:.94rem;color:var(--txt-dim)}
+
+/* ---------- NETWORK / GLOBE ----------
+   Two columns, axes left, globe right, the whole section sized to sit on one
+   screen. The cards are gone: a hairline list is lighter and reads faster. */
+.net-two{display:grid;grid-template-columns:1.04fr .96fr;gap:clamp(28px,3.6vw,58px);align-items:center}
+.sec-head-left{text-align:left;max-width:none;margin:0 0 clamp(20px,2.2vw,28px)}
+.sec-head-left h2{margin-left:0;margin-right:0}
+.sec-head-left .lead{margin-left:0;margin-right:0;max-width:46ch}
+
+.axes{border-top:1px solid var(--line)}
+.axis{
+  position:relative;display:grid;grid-template-columns:auto 1fr;gap:clamp(14px,1.4vw,20px);align-items:start;
+  padding:clamp(17px,1.9vw,23px) 0 clamp(17px,1.9vw,23px) 18px;
+  border-bottom:1px solid var(--line);
+  transition:opacity .3s ease;
+}
+.axis::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:2px;height:0;border-radius:2px;background:var(--accent);
+  transition:height .34s cubic-bezier(.22,1,.36,1);
+}
+.axis:hover::before{height:calc(100% - 34px)}
+.axis .ax-ic{
+  width:38px;height:38px;flex:none;border-radius:11px;margin-top:2px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(150deg,rgba(166,186,242,.14),rgba(63,108,198,.06));
+  border:1px solid rgba(166,186,242,.16);
+  color:var(--txt-dim);
+  transition:color .3s,border-color .3s,background .3s;
+}
+.axis .ax-ic svg{width:19px;height:19px;stroke:currentColor;stroke-width:1.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.axis:hover .ax-ic{color:var(--accent);border-color:rgba(166,186,242,.34);background:linear-gradient(150deg,rgba(166,186,242,.22),rgba(63,108,198,.1))}
+.axis h3{font-size:1.06rem;letter-spacing:-.015em;margin-bottom:6px;transition:color .3s}
+.axis p{font-size:.895rem;color:var(--txt-dim);line-height:1.55}
+/* while one axis is hovered, the other two step back */
+.axes:hover .axis{opacity:.42}
+.axes:hover .axis:hover{opacity:1}
+
+.net-right{display:flex;flex-direction:column;align-items:center}
+.globe-stage{position:relative;display:flex;justify-content:center;width:100%;max-width:600px;margin-inline:auto}
+#globe{width:100%;height:auto;aspect-ratio:1}
+.globe-ring{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:84%;aspect-ratio:1;border-radius:50%;
+  box-shadow:0 -14px 80px 6px rgba(110,150,235,.16);pointer-events:none;
+}
+
+/* ---------- MECHANISM ANIMATION ---------- */
+.mech{
+  position:relative;border:1px solid var(--line);border-radius:var(--r);
+  background:radial-gradient(ellipse at 50% 0%,rgba(60,95,190,.12),transparent 62%),var(--bg-deep);
+  padding:clamp(28px,3.6vw,46px) clamp(20px,3vw,40px);
+  margin-bottom:clamp(40px,5vw,60px);overflow:hidden;
+}
+.mech-grid{display:flex;align-items:center;gap:clamp(6px,1vw,14px)}
+.mech-node{flex:none;display:flex;flex-direction:column;align-items:center}
+.mech-node.clips-node{flex:0 1 auto;min-width:0}
+.mech-col-t{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-faint);text-align:center;margin-bottom:14px;white-space:nowrap}
+/* Three separate source types, not three lines of one thing. Each gets its
+   own tile and its own icon, so the diversity of input is visible at a glance. */
+.src{display:flex;flex-direction:column;gap:9px;width:clamp(112px,11.5vw,142px)}
+.src-item{
+  display:flex;align-items:center;gap:9px;
+  padding:10px 12px;border-radius:10px;
+  background:linear-gradient(150deg,rgba(166,186,242,.22),rgba(20,32,66,.88));
+  border:1px solid rgba(180,205,255,.3);
+  font-size:.68rem;font-weight:600;color:#DCE7FF;letter-spacing:.01em;line-height:1;
+  box-shadow:0 0 22px rgba(120,160,245,.16);
+}
+.src-item svg{width:15px;height:15px;flex:none;stroke:#BFD3FA;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.clippers{display:flex;flex-direction:column;gap:clamp(10px,1.4vw,16px);align-items:center}
+.clip-av{
+  width:clamp(30px,3.6vw,40px);aspect-ratio:1;border-radius:50%;
+  background:linear-gradient(160deg,#2B3D6E,#131E3C);
+  border:1px solid rgba(180,205,255,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.6rem;font-weight:700;color:#B9CCF5;
+}
+.clip-av.lit{animation:avlit 7s infinite}
+@keyframes avlit{0%,72%,100%{box-shadow:none;border-color:rgba(180,205,255,.3)}
+  8%,26%{box-shadow:0 0 20px rgba(150,185,255,.55);border-color:rgba(214,231,255,.85)}}
+.clips{display:grid;grid-template-columns:repeat(4,clamp(30px,4vw,46px));gap:clamp(5px,.7vw,8px)}
+.clip-t{
+  aspect-ratio:9/15;border-radius:6px;border:1px solid rgba(255,255,255,.16);
+  background:linear-gradient(170deg,rgba(255,255,255,.14),rgba(255,255,255,.04));
+  position:relative;overflow:hidden;opacity:0;
+  animation:clipin 7s infinite;
+}
+/* each tile visually differs. That is the point: creation, not duplication */
+/* every tile is visually different. That is the whole point: creation, not duplication */
+.clip-t::before{content:'';position:absolute;background:rgba(190,214,255,.4);border-radius:2px}
+.clip-t:nth-child(4n+1)::before{left:14%;right:14%;top:14%;height:30%}
+.clip-t:nth-child(4n+2)::before{left:24%;right:24%;top:34%;height:22%;border-radius:50%}
+.clip-t:nth-child(4n+3)::before{left:12%;right:48%;top:18%;bottom:32%}
+.clip-t:nth-child(4n+4)::before{left:14%;right:14%;top:46%;height:12%;border-radius:2px}
+.clip-t::after{content:'';position:absolute;left:14%;right:38%;bottom:12%;height:2px;background:rgba(255,255,255,.38);border-radius:2px}
+.clip-t:nth-child(even)::after{right:14%;left:38%}
+@keyframes clipin{0%,8%{opacity:0;transform:scale(.86)}20%,76%{opacity:1;transform:none}90%,100%{opacity:0;transform:scale(.96)}}
+.platforms{display:flex;flex-direction:column;gap:clamp(8px,1.1vw,12px)}
+.plat{
+  padding:9px 13px;border-radius:10px;border:1px solid var(--line);
+  background:rgba(255,255,255,.04);font-size:.76rem;font-weight:600;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;min-width:clamp(104px,11vw,132px);
+}
+.plat .v{font-size:.71rem;color:var(--accent);font-weight:700;font-variant-numeric:tabular-nums}
+.flow{flex:1 1 0;min-width:22px;position:relative;align-self:stretch;display:flex;align-items:center}
+.flow svg{width:100%;height:clamp(70px,10vw,120px);overflow:visible}
+.flow path{stroke:rgba(150,185,255,.34);stroke-width:1.2;fill:none;stroke-dasharray:4 5;animation:dash 2.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.step{border:1px solid var(--line);border-radius:var(--r);padding:clamp(24px,2.6vw,32px);background:var(--panel);position:relative}
+.step .sn{display:flex;align-items:center;gap:11px;font-size:.7rem;font-weight:700;letter-spacing:.15em;color:var(--accent);margin-bottom:18px}
+.step .sn::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--line),transparent)}
+.step h3{margin-bottom:11px}
+.step p{font-size:.92rem;color:var(--txt-dim)}
+
+/* ---------- STANDARD ---------- */
+
+/* ---------- RESULTS ---------- */
+/* ---------- USE CASE CAROUSEL ----------
+   Card design unchanged. The active card sits centred and full size, its
+   neighbours are scaled down and dimmed. Movement is user-driven only:
+   arrows, dots, keyboard, drag. No autoplay. */
+.carousel{margin-bottom:clamp(40px,5vw,58px);outline:none}
+.carousel:focus-visible .car-viewport{box-shadow:0 0 0 2px rgba(166,186,242,.45);border-radius:var(--r)}
+.car-viewport{
+  overflow:hidden;padding:14px 0;
+  mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+}
+/* No arrows, no indicators: the row is dragged. The grab cursor is the
+   only affordance, which is what was asked for. */
+.car-track{
+  display:flex;align-items:stretch;gap:22px;
+  transition:transform .62s cubic-bezier(.22,1,.36,1);
+  will-change:transform;cursor:grab;
+}
+.car-track.dragging{transition:none;cursor:grabbing}
+.case{
+  flex:0 0 min(392px,80vw);
+  border:1px solid var(--line);border-radius:var(--r);padding:clamp(22px,2.4vw,28px);
+  background:linear-gradient(180deg,rgba(255,255,255,.045),rgba(255,255,255,.012));
+  display:flex;flex-direction:column;gap:18px;
+  transform:scale(.9);opacity:.42;
+  transition:transform .62s cubic-bezier(.22,1,.36,1),opacity .62s cubic-bezier(.22,1,.36,1),box-shadow .62s;
+}
+.case.is-active{
+  transform:scale(1);opacity:1;
+  box-shadow:0 26px 70px rgba(0,0,0,.5),0 0 0 1px rgba(166,186,242,.2);
+}
+.case .kind{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+.case .ctx{font-size:.9rem;color:var(--txt-dim)}
+.case .rows{display:flex;flex-direction:column;gap:11px;margin-top:auto}
+.case .r{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:11px;border-bottom:1px solid var(--line)}
+.case .r:last-child{border-bottom:0;padding-bottom:0}
+.case .r .k{font-size:.8rem;color:var(--txt-faint)}
+.case .r .v{font-size:1rem;font-weight:700;letter-spacing:-.02em}
+.case .r.hero-row{background:rgba(166,186,242,.07);margin:0 -12px;padding:12px;border-radius:10px;border-bottom:0}
+.case .r.hero-row .k{color:var(--accent);font-weight:600}
+.case .r.hero-row .v{color:#fff}
+
+.chart-box{margin-top:clamp(22px,2.4vw,34px);border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3vw,38px);background:var(--bg-deep)}
+.chart-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:26px}
+.chart-head h3{font-size:1.22rem;margin-bottom:6px}
+.chart-head p{font-size:.9rem;color:var(--txt-dim);max-width:46ch}
+.legend{display:flex;gap:18px;font-size:.8rem;color:var(--txt-dim)}
+.legend i{display:inline-block;width:16px;height:2px;border-radius:2px;margin-right:7px;vertical-align:middle}
+#remanence{width:100%;height:auto}
+#remanence .ln{fill:none;stroke-width:2.2;stroke-linecap:round;stroke-dasharray:1000;stroke-dashoffset:1000;transition:stroke-dashoffset 2.2s cubic-bezier(.3,0,.2,1)}
+#remanence.on .ln{stroke-dashoffset:0}
+#remanence .ar{opacity:0;transition:opacity 1.4s ease .7s}
+#remanence.on .ar{opacity:1}
+
+/* ---------- WHAT IS INCLUDED ----------
+   Six blocks, three by two, on a grid narrower than the page. Deliberately
+   uniform: same size, same weight, no highlighted cell. The point is the
+   completeness of the list, not a hierarchy inside it. The blocks are kept
+   small and the air is put between them rather than inside them. */
+.incl{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,30px);max-width:960px;margin:0 auto}
+.incl-cell{
+  aspect-ratio:1.16;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:clamp(20px,1.9vw,26px);
+  border:1px solid var(--line);border-radius:var(--r);
+  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.012));
+  transition:transform .28s cubic-bezier(.22,1,.36,1),border-color .28s,box-shadow .28s;
+}
+.incl-cell:hover{
+  transform:translateY(-4px);border-color:var(--line-2);
+  box-shadow:0 20px 50px rgba(0,0,0,.42);
+}
+/* Title first, centered at the top of the card. */
+.incl-cell h3{font-size:.955rem;letter-spacing:-.015em;color:#fff;flex:none}
+/* The icon is the visual centre of the card. Placeholder art for now, so the
+   box keeps a fixed size and the hover stays a pure colour transition: the
+   stroke moves from the dim text tone to the accent. Nothing moves. */
+.incl-ic{
+  flex:1;min-height:0;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(14px,1.6vw,22px) 0;
+}
+.incl-ic svg{
+  width:clamp(54px,5.4vw,74px);height:clamp(54px,5.4vw,74px);
+  stroke:var(--txt-dim);stroke-width:1.35;fill:none;
+  stroke-linecap:round;stroke-linejoin:round;
+  transition:stroke .34s ease,color .34s ease,filter .34s ease;
+  color:var(--txt-dim);
+}
+.incl-cell:hover .incl-ic svg{
+  stroke:var(--accent);color:var(--accent);
+  filter:drop-shadow(0 0 14px rgba(166,186,242,.35));
+}
+.incl-cell p{font-size:.82rem;color:var(--txt-dim);line-height:1.5;flex:none}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:840px;margin:0 auto;border-top:1px solid var(--line)}
+.fq{border-bottom:1px solid var(--line)}
+.fq-q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:23px 4px;text-align:left;font-size:1.02rem;font-weight:600;letter-spacing:-.015em;transition:color .2s}
+.fq-q:hover{color:var(--accent)}
+.fq-plus{flex:none;width:20px;height:20px;position:relative;transition:transform .3s}
+.fq-plus::before,.fq-plus::after{content:'';position:absolute;background:var(--accent);border-radius:2px;top:50%;left:50%}
+.fq-plus::before{width:13px;height:1.6px;transform:translate(-50%,-50%)}
+.fq-plus::after{width:1.6px;height:13px;transform:translate(-50%,-50%);transition:opacity .3s}
+.fq.open .fq-plus{transform:rotate(90deg)}
+.fq.open .fq-plus::after{opacity:0}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .34s cubic-bezier(.4,0,.2,1)}
+.fq-a p{padding:0 4px 24px;font-size:.94rem;color:var(--txt-dim);max-width:72ch}
+.fq-a p+p{padding-top:0;margin-top:-10px}
+.fq-a strong{color:var(--txt);font-weight:600}
+
+/* ---------- VIEWS COUNTER ----------
+   Lives inside the Clipping explained section, not in a section of its own.
+   A LIVE tag, the number, the label under it, no separating rule. Kept
+   deliberately short in height: it has to read as part of the explanation,
+   not as a new block. Note for whoever wires this up: the figure is a
+   computed increment from a fixed starting value, so the LIVE tag only
+   tells the truth once the counter is connected to real reporting data. */
+.counter-strip{
+  position:relative;text-align:center;
+  margin:clamp(34px,3.6vw,50px) auto 0;
+  padding:clamp(14px,1.6vw,20px) 0 0;
+}
+/* LIVE tag above the number: a small dot and four letters, nothing else. */
+.counter-live{
+  position:relative;display:inline-flex;align-items:center;gap:7px;
+  font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--txt-dim);margin-bottom:clamp(8px,.9vw,12px);
+}
+.counter-live i{
+  width:6px;height:6px;border-radius:50%;background:var(--accent);
+  box-shadow:0 0 0 0 rgba(166,186,242,.5);
+  animation:livePulse 2.4s ease-out infinite;
+}
+@keyframes livePulse{
+  0%{box-shadow:0 0 0 0 rgba(166,186,242,.5)}
+  70%{box-shadow:0 0 0 7px rgba(166,186,242,0)}
+  100%{box-shadow:0 0 0 0 rgba(166,186,242,0)}
+}
+.counter-strip::before{
+  content:'';position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);
+  width:min(720px,90vw);height:min(150px,22vw);
+  background:radial-gradient(ellipse,rgba(110,150,240,.11),transparent 68%);
+  filter:blur(16px);pointer-events:none;
+}
+.counter-label{
+  position:relative;
+  font-size:.68rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--txt-faint);margin-top:clamp(9px,1vw,13px);
+}
+.counter-num{
+  position:relative;
+  font-size:clamp(1.9rem,4.6vw,3.5rem);font-weight:700;
+  letter-spacing:-.045em;line-height:1;
+  font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1;
+  background:linear-gradient(96deg,#FFFFFF 0%,#DCE7FC 42%,#93AAEC 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  white-space:nowrap;
+}
+
+/* ---------- FINAL CTA + FORM ---------- */
+.final{position:relative;overflow:hidden;padding:clamp(80px,9vw,120px) 0 clamp(70px,8vw,100px);text-align:center}
+.final::before{
+  content:'';position:absolute;left:50%;top:-30%;transform:translateX(-50%);
+  width:min(900px,110vw);height:520px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(110,150,240,.2),transparent 66%);filter:blur(20px);
+}
+.final-in{position:relative;z-index:2}
+.final h2{margin-bottom:16px}
+.final .lead{margin:0 auto 34px;text-align:center}
+.form{
+  max-width:640px;margin:0 auto;text-align:left;
+  border:1px solid var(--line);border-radius:var(--r);padding:clamp(26px,3vw,36px);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));
+  backdrop-filter:blur(10px);box-shadow:0 26px 80px rgba(0,0,0,.45);
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.fld{display:flex;flex-direction:column;gap:7px}
+.fld.full{grid-column:1/-1}
+.fld label{font-size:.775rem;font-weight:600;color:var(--txt-dim);letter-spacing:.01em}
+.fld label .req{color:var(--accent)}
+.fld input,.fld select,.fld textarea{
+  background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:10px;
+  padding:11px 14px;color:var(--txt);font-family:inherit;font-size:.9rem;
+  transition:border-color .2s,background .2s;width:100%;
+}
+.fld input:focus,.fld select:focus,.fld textarea:focus{
+  outline:none;border-color:rgba(166,186,242,.6);background:rgba(255,255,255,.07);
+}
+.fld input::placeholder,.fld textarea::placeholder{color:var(--txt-faint)}
+.fld select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%236B7896' stroke-width='1.6' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:11px;padding-right:36px;cursor:pointer}
+.fld select option{background:#0A1226;color:var(--txt)}
+.fld textarea{resize:vertical;min-height:86px}
+.form .btn{margin-top:22px;width:100%}
+.form-note{margin-top:15px;font-size:.79rem;color:var(--txt-faint);text-align:center}
+
+/* ---------- FOOTER ---------- */
+.footer{border-top:1px solid var(--line);background:var(--bg-deep);padding:clamp(52px,6vw,72px) 0 30px}
+.f-top{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
+.f-brand .logo{margin-bottom:16px}
+.f-brand p{font-size:.875rem;color:var(--txt-dim);max-width:36ch}
+.f-col h4{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt-faint);margin-bottom:16px}
+.f-col a{display:block;font-size:.88rem;color:var(--txt-dim);padding:5px 0;transition:color .2s}
+.f-col a:hover{color:var(--txt)}
+.f-clipper{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-bottom:26px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.f-clipper span{font-size:.86rem;color:var(--txt-faint)}
+.f-clipper a{font-size:.86rem;font-weight:600;color:var(--accent)}
+.f-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;font-size:.8rem;color:var(--txt-faint)}
+.f-bot .links{display:flex;gap:20px}
+.f-bot a:hover{color:var(--txt-dim)}
+
+/* ---------- REVEAL ---------- */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,0,.2,1),transform .7s cubic-bezier(.2,0,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:1000px){
+  .nav-links{display:none}
+  .nav-in{grid-template-columns:auto 1fr}
+  .burger{display:flex}
+  .g-3,.thesis-grid,.steps{grid-template-columns:1fr}
+  .net-two{grid-template-columns:1fr;gap:clamp(24px,4vw,36px)}
+  .net-right{order:2}
+  .globe-stage{max-width:430px}
+  .incl{grid-template-columns:repeat(2,1fr);max-width:680px}
+  .thesis-grid{gap:1px}
+  .f-top{grid-template-columns:1fr 1fr;gap:30px}
+  .f-brand{grid-column:1/-1}
+  .mech-grid{flex-direction:column;gap:20px;align-items:center}
+  .flow{display:none}
+  .clippers{flex-direction:row}
+  .clips{grid-template-columns:repeat(3,minmax(0,74px))}
+  .platforms{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .gb.a{top:-4%;left:0}.gb.b{top:auto;bottom:34%;right:0}}
+@media(max-width:760px){
+  /* nav collapses to logo + burger only. Everything else lives in the menu. */
+  .nav-in{gap:12px}
+  .nav-right>.btn-primary{display:none}
+  .nav-right>.lang{display:none}
+  .nav-right{margin-left:auto}
+  .mobile-menu .m-lang{display:flex;justify-content:space-between;align-items:center;padding:16px 0 4px}
+  .mobile-menu .m-lang span{font-size:.8rem;color:var(--txt-faint)}
+}
+@media(min-width:761px){.mobile-menu .m-lang{display:none}}
+@media(max-width:640px){
+  .statstrip{grid-template-columns:repeat(2,1fr)}
+  .statstrip .st+.st::before{display:none}
+  .statstrip .st:nth-child(even)::after{content:'';position:absolute;left:0;top:22%;bottom:22%;width:1px;background:var(--line)}
+  .statstrip .st:nth-child(n+3)::before{content:'';display:block;position:absolute;left:14%;right:14%;top:0;width:auto;height:1px;background:var(--line)}
+  .incl{grid-template-columns:1fr;max-width:340px}
+  .incl-cell{aspect-ratio:auto;gap:14px}
+  .form-grid{grid-template-columns:1fr}
+      .f-top{grid-template-columns:1fr}
+  h1{font-size:2.6rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+  #remanence .ln{stroke-dashoffset:0}
+  #remanence .ar{opacity:1}
+}
+</style>
+<style>
+/* ============================================================
+   KLIPPIN | LP CLIPPER v1 : additions
+   Everything above is inherited from the client page so both
+   landing pages share one design system. Only the components
+   specific to the clipper page are declared below.
+   ============================================================ */
+
+/* ---------- HERO / APP ---------- */
+.hero-app{
+  position:relative;padding:calc(90px + clamp(46px,6vw,80px)) 0 clamp(40px,4.2vw,64px);
+  overflow:hidden;
+}
+.hero-app::before{
+  content:'';position:absolute;inset:-20% -10% auto -10%;height:120%;
+  background:
+    radial-gradient(52% 46% at 22% 26%,rgba(115,150,226,.20),transparent 68%),
+    radial-gradient(46% 42% at 82% 20%,rgba(166,186,242,.15),transparent 70%);
+  pointer-events:none;
+}
+.hero-grid{
+  position:relative;display:grid;grid-template-columns:1.02fr .98fr;
+  gap:clamp(30px,4vw,64px);align-items:center;
+}
+.hero-copy .eyebrow{display:block;margin-bottom:18px}
+.hero-app .hero-h1{
+  /* inherits the uppercase treatment and the brand gradient from the client
+     page, so the two hero headlines are visibly the same object */
+  font-size:clamp(3.1rem,7vw,5.4rem);line-height:.94;
+  letter-spacing:-.045em;margin:0 0 22px;text-align:left;
+}
+@media(max-width:960px){.hero-app .hero-h1{text-align:center}}
+.hero-app .hero-h1 .l2{display:block}
+.hero-app .lead{margin-bottom:26px;max-width:46ch}
+.hero-app .lead strong{color:var(--txt);font-weight:600}
+
+/* store buttons */
+.stores{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:14px}
+.store{
+  display:inline-flex;align-items:center;gap:11px;
+  padding:11px 20px 11px 17px;border-radius:14px;
+  background:linear-gradient(180deg,#FFFFFF 0%,#D6E1F8 100%);
+  color:#060B1A;
+  box-shadow:0 4px 24px rgba(150,182,255,.26),inset 0 -1px 0 rgba(0,0,0,.06);
+  transition:transform .22s cubic-bezier(.4,0,.2,1),box-shadow .22s;
+}
+.store:hover{transform:translateY(-2px);box-shadow:0 10px 34px rgba(150,182,255,.42)}
+.store svg{width:23px;height:23px;flex:none}
+.store .st{display:flex;flex-direction:column;line-height:1.12;text-align:left}
+.store .st b{font-size:.98rem;font-weight:700;letter-spacing:-.02em}
+.store .st span{font-size:.63rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;opacity:.62}
+.store-ghost{
+  background:rgba(255,255,255,.055);color:var(--txt);
+  border:1px solid var(--line-2);backdrop-filter:blur(8px);box-shadow:none;
+}
+.store-ghost:hover{background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.26);box-shadow:none}
+.store-ghost .st span{opacity:.72;color:var(--txt-faint)}
+
+.hero-note{
+  display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;
+  font-size:.8rem;color:var(--txt-faint);margin-top:20px;
+}
+.hero-note i{font-style:normal;display:inline-flex;align-items:center;gap:7px}
+.hero-note i::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--accent);flex:none;
+}
+
+/* ---------- PHONE MOCKUP ---------- */
+.phone-stage{
+  position:relative;display:flex;justify-content:center;align-items:center;
+  perspective:1400px;
+}
+.phone-stage::after{
+  content:'';position:absolute;width:78%;height:78%;border-radius:50%;
+  background:radial-gradient(circle,rgba(140,175,255,.28),transparent 66%);
+  filter:blur(48px);z-index:0;
+}
+.phone{
+  position:relative;z-index:1;width:min(310px,84vw);aspect-ratio:310/650;
+  border-radius:46px;padding:11px;
+  background:linear-gradient(155deg,#2A3552 0%,#0B1225 46%,#1C2540 100%);
+  box-shadow:
+    0 46px 90px -22px rgba(0,0,0,.82),
+    0 0 0 1px rgba(255,255,255,.11),
+    inset 0 1px 0 rgba(255,255,255,.24);
+  transform:rotate(-2.2deg);
+}
+.phone-screen{
+  position:relative;height:100%;border-radius:36px;overflow:hidden;
+  background:linear-gradient(178deg,#0B1226 0%,#050A18 62%,#070E1F 100%);
+  display:flex;flex-direction:column;
+}
+.island{
+  position:absolute;top:9px;left:50%;transform:translateX(-50%);
+  width:82px;height:23px;border-radius:999px;background:#02050D;z-index:5;
+}
+.st-bar{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 20px 4px;font-size:.62rem;font-weight:700;color:var(--txt);
+  letter-spacing:-.01em;
+}
+.st-bar .sig{display:flex;gap:3px;align-items:flex-end}
+.st-bar .sig s{display:block;width:2.5px;background:var(--txt);border-radius:1px;text-decoration:none}
+.st-bar .sig s:nth-child(1){height:4px}
+.st-bar .sig s:nth-child(2){height:6px}
+.st-bar .sig s:nth-child(3){height:8px}
+.st-bar .sig s:nth-child(4){height:10px}
+.st-bar .bat{
+  width:18px;height:9px;border-radius:2.5px;border:1px solid rgba(255,255,255,.5);
+  position:relative;
+}
+.st-bar .bat::after{content:'';position:absolute;inset:1.5px;width:70%;background:var(--txt);border-radius:1px}
+
+.app-head{padding:12px 18px 10px}
+.app-bal{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 13px;border-radius:15px;
+  background:linear-gradient(135deg,rgba(115,150,226,.28),rgba(255,255,255,.05));
+  border:1px solid rgba(255,255,255,.12);
+}
+.app-bal .k{display:block;font-size:.55rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+.app-bal .v{display:block;font-size:1.2rem;font-weight:700;letter-spacing:-.035em;line-height:1.15}
+.app-bal .d{display:block;font-size:.54rem;color:var(--txt-faint);letter-spacing:.01em}
+.app-bal .cash{
+  font-size:.63rem;font-weight:700;padding:7px 13px;border-radius:999px;
+  background:linear-gradient(180deg,#FFFFFF,#C9D8F6);color:#060B1A;
+}
+.app-title{
+  display:flex;align-items:baseline;justify-content:space-between;
+  padding:12px 18px 8px;
+}
+.app-title b{font-size:.92rem;font-weight:700;letter-spacing:-.02em}
+.app-title span{font-size:.6rem;color:var(--txt-faint)}
+.chips{display:flex;gap:6px;padding:0 18px 10px;overflow:hidden;flex:none}
+.chip{
+  font-size:.58rem;font-weight:600;padding:5px 11px;border-radius:999px;
+  border:1px solid var(--line);color:var(--txt-faint);white-space:nowrap;
+}
+.chip.on{background:rgba(166,186,242,.16);border-color:rgba(166,186,242,.34);color:var(--txt)}
+.app-list{padding:0 18px;display:flex;flex-direction:column;gap:8px;flex:0 1 auto;min-height:0;overflow:hidden}
+.cmp{
+  flex:none;padding:11px 12px;border-radius:15px;
+  background:rgba(255,255,255,.045);border:1px solid var(--line);
+}
+.cmp-top{display:flex;align-items:center;gap:9px;margin-bottom:9px}
+.cmp-ic{
+  width:31px;height:31px;border-radius:9px;flex:none;
+  background:linear-gradient(140deg,rgba(166,186,242,.32),rgba(63,108,198,.32));
+  display:flex;align-items:center;justify-content:center;
+}
+.cmp-ic svg{width:15px;height:15px;stroke:var(--accent);fill:none;stroke-width:1.9}
+.cmp-nm{flex:1;min-width:0}
+.cmp-nm b{display:block;font-size:.7rem;font-weight:600;letter-spacing:-.015em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cmp-nm span{font-size:.56rem;color:var(--txt-faint)}
+.cmp-rate{font-size:.66rem;font-weight:700;color:var(--accent);white-space:nowrap;letter-spacing:-.02em}
+.cmp-bar{height:3px;border-radius:2px;background:rgba(255,255,255,.09);overflow:hidden;margin-bottom:7px}
+.cmp-bar i{display:block;height:100%;border-radius:2px;background:linear-gradient(90deg,var(--accent-3),var(--accent))}
+.cmp-bot{display:flex;justify-content:space-between;align-items:center;font-size:.55rem;color:var(--txt-faint)}
+.cmp-bot em{font-style:normal;font-weight:700;font-size:.55rem;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:999px}
+.cmp-bot em.open{background:rgba(166,186,242,.15);color:var(--accent)}
+.cmp-bot em.appr{background:rgba(255,255,255,.07);color:var(--txt-faint)}
+.tabbar{
+  display:flex;justify-content:space-around;align-items:center;
+  padding:11px 14px 18px;border-top:1px solid var(--line);margin-top:auto;flex:none;
+}
+.tabbar svg{width:18px;height:18px;stroke:var(--txt-faint);fill:none;stroke-width:1.8}
+.tabbar .on svg{stroke:var(--accent)}
+.tabbar span{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:.5rem;color:var(--txt-faint)}
+.tabbar .on{color:var(--accent)}
+
+/* ---------- COMPACT STAT CARDS ----------
+   Three small cards rather than one full-width band: the numbers stay
+   visible without taking a screen of their own.
+   ---------------------------------------- */
+.mini-band{padding:clamp(6px,1vw,14px) 0 clamp(30px,4vw,52px)}
+.mini-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mini{
+  padding:16px 16px 15px;border-radius:var(--r-sm,10px);
+  background:var(--panel);border:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:center;min-height:104px;min-width:0;
+  transition:border-color .25s,background .25s;
+}
+.mini:hover{border-color:var(--line-2);background:var(--panel-2)}
+.mini-n{
+  font-size:clamp(1.5rem,2.1vw,1.85rem);font-weight:700;letter-spacing:-.045em;
+  line-height:1;margin-bottom:9px;
+}
+.mini-l{font-size:.755rem;color:var(--txt-faint);line-height:1.4;letter-spacing:.005em}
+
+/* ---------- STATS ---------- */
+.stats-band{padding:clamp(46px,5.4vw,72px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stat{text-align:center;padding:6px 10px;position:relative}
+.stat + .stat::before{
+  content:'';position:absolute;left:0;top:12%;height:76%;width:1px;background:var(--line);
+}
+.stat .num{margin-bottom:8px;display:block;font-size:clamp(2rem,3.2vw,2.7rem)}
+.stat .lbl{max-width:22ch;margin:0 auto;font-size:.82rem}
+
+/* ---------- STEPS ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;position:relative}
+.step{
+  position:relative;padding:30px 26px 28px;border-radius:var(--r);
+  background:var(--panel);border:1px solid var(--line);
+  transition:transform .28s cubic-bezier(.4,0,.2,1),border-color .28s,background .28s;
+}
+.step:hover{transform:translateY(-4px);border-color:var(--line-2);background:var(--panel-2)}
+.step-n{
+  font-size:.68rem;font-weight:700;letter-spacing:.2em;color:var(--accent);
+  display:block;margin-bottom:20px;
+}
+.step-ic{
+  width:52px;height:52px;border-radius:15px;margin-bottom:20px;
+  background:linear-gradient(140deg,rgba(166,186,242,.2),rgba(63,108,198,.18));
+  border:1px solid rgba(166,186,242,.22);
+  display:flex;align-items:center;justify-content:center;
+}
+.step-ic svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.step h3{margin-bottom:10px}
+.step p{color:var(--txt-dim);font-size:.93rem;line-height:1.62}
+
+/* ---------- FINAL CTA ---------- */
+.final-clip{text-align:center;position:relative;overflow:hidden}
+.final-clip::before{
+  content:'';position:absolute;inset:auto -10% -60% -10%;height:120%;
+  background:radial-gradient(48% 52% at 50% 100%,rgba(115,150,226,.24),transparent 70%);
+  pointer-events:none;
+}
+.final-clip .wrap{position:relative}
+.final-clip h2{margin:16px auto 18px;max-width:16ch}
+.final-clip .lead{margin:0 auto 30px}
+.final-clip .stores{justify-content:center}
+.final-clip .hero-note{justify-content:center}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:960px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{order:1;text-align:center}
+  .phone-stage{order:2;margin-top:44px}
+  .hero-app .lead{margin-left:auto;margin-right:auto}
+  .stores,.hero-note{justify-content:center}
+  .steps{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr;gap:26px}
+  .stat + .stat::before{display:none}
+  .stat + .stat{border-top:1px solid var(--line);padding-top:24px}
+  .mini-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .hero-h1{font-size:clamp(2.7rem,12vw,3.5rem)}
+  .stores .store{flex:1 1 100%;justify-content:center}
+  .mini{min-height:92px;padding:14px}
+  .stat + .stat::before{display:none}
+}
+</style>
+
+<style>
+/* ============================================================
+   KLIPPIN | CLIPPER REGISTER : DA "C1"
+   ------------------------------------------------------------
+   The client design system is inherited above, then re-tokenised
+   here. Nothing structural changes: same components, same
+   markup, same behaviour. What changes is temperature.
+
+   Four moves, and only four:
+     1. ground      blue-black  ->  neutral near-black
+     2. display     Plus Jakarta Sans -> Space Grotesk
+     3. geometry    pills and 20px -> square-ish 8/10px
+     4. accent      blue -> the orange of the logo asset
+
+   The orange is not a new colour: the supplied logo SVG is a
+   #FF6839 -> #FF5346 gradient. The client page neutralises it to
+   white-blue; here the logo is finally shown in its own colours.
+   The accent is reserved for one thing: money.
+   ============================================================ */
+:root{
+  --bg:#0B0B0C;
+  --bg-deep:#060607;
+  --bg-2:#111113;
+  --panel:rgba(255,255,255,.05);
+  --panel-2:rgba(255,255,255,.075);
+  --line:rgba(255,255,255,.12);
+  --line-2:rgba(255,255,255,.2);
+  --txt:#F7F7F5;
+  --txt-dim:#9C9C99;
+  --txt-faint:#6E6E6B;
+  --glow:#FFFFFF;
+  --accent:#FF6839;
+  --accent-2:#FF5346;
+  --accent-3:#C93A22;
+  --halo:rgba(255,104,57,.45);
+  /* the logo runs in its own colours on this page */
+  --logo-1:#FF6839;
+  --logo-2:#FF5346;
+  --r:10px;
+  --r-sm:8px;
+  --r-pill:9px;
+  --money:#FF7A45;
+  --display:'Space Grotesk','Plus Jakarta Sans',sans-serif;
+}
+
+/* ---------- TYPE ---------- */
+h1,h2,h3,.num,.hero-h1{font-family:var(--display)}
+h1,h2{letter-spacing:-.045em;font-weight:700}
+.num{font-weight:700;letter-spacing:-.05em}
+
+/* the headline drops the blue gradient and goes solid */
+.hero-app .hero-h1{
+  background:none;-webkit-text-fill-color:var(--txt);color:var(--txt);
+  font-weight:700;letter-spacing:-.05em;
+}
+/* used on the final CTA: orange, not blue */
+.grad{
+  background:linear-gradient(100deg,#FF8A5C 0%,#FF6839 46%,#FF5346 100%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+
+/* the eyebrow stops being a blue caption and becomes a label */
+.eyebrow{
+  display:inline-block;padding:5px 10px;border-radius:5px;
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  color:#0B0B0C;font-weight:800;letter-spacing:.14em;font-size:.66rem;
+}
+.sec-head .eyebrow{display:inline-block;margin-bottom:18px}
+
+/* the $$$ that closes the headline. Same gradient as the accent, so the
+   promise and the money are literally the same colour on the page. */
+.hero-h1 .dollars{
+  -webkit-text-fill-color:transparent;color:transparent;
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;
+  letter-spacing:-.02em;
+}
+
+/* ---------- STORE BADGES ----------
+   Official Apple and Google badges: black variant, unmodified, sat on
+   the dark ground. Both companies require their own artwork, so these
+   are placeholders at the correct proportions. Drop the official SVG
+   in and the layout does not move.
+   Apple:  https://developer.apple.com/app-store/marketing/guidelines/
+   Google: https://play.google.com/intl/en_us/badges/
+   ------------------------------------------------------------------ */
+.badge{
+  display:inline-flex;align-items:center;gap:10px;
+  height:54px;padding:0 18px 0 15px;border-radius:9px;
+  background:#000000;border:1px solid rgba(255,255,255,.28);
+  color:#FFFFFF;
+  transition:transform .22s cubic-bezier(.4,0,.2,1),border-color .22s;
+}
+.badge:hover{transform:translateY(-2px);border-color:rgba(255,255,255,.5)}
+.badge-ic{width:26px;height:26px;flex:none}
+.badge-tx{display:flex;flex-direction:column;line-height:1.14;text-align:left}
+.badge-tx span{font-size:.63rem;font-weight:400;letter-spacing:.01em}
+.badge-tx b{font-size:1.14rem;font-weight:600;letter-spacing:-.005em}
+.badge-google .badge-tx span{font-size:.58rem;text-transform:uppercase;letter-spacing:.06em}
+.stores-sec{margin:14px 0 0}
+.final-clip .stores-sec{display:flex;justify-content:center}
+
+/* ---------- BUTTONS ---------- */
+.btn{border-radius:var(--r-sm)}
+.btn-primary{
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  color:#FFFFFF;
+  box-shadow:0 5px 22px -6px rgba(255,104,57,.7),inset 0 -1px 0 rgba(0,0,0,.12);
+}
+.btn-primary:hover{box-shadow:0 12px 32px -8px rgba(255,104,57,.85)}
+.store{
+  border-radius:var(--r-sm);
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));
+  color:#FFFFFF;
+  box-shadow:0 5px 22px -6px rgba(255,104,57,.65),inset 0 -1px 0 rgba(0,0,0,.12);
+}
+.store:hover{box-shadow:0 12px 32px -8px rgba(255,104,57,.8)}
+.store .st span{opacity:.8}
+.store-ghost{
+  background:var(--panel);color:var(--txt);border:1px solid var(--line-2);box-shadow:none;
+}
+.store-ghost:hover{box-shadow:none;background:var(--panel-2)}
+.store-ghost .st span{color:var(--txt-faint);opacity:1}
+
+.hero-copy .eyebrow{display:inline-block}
+
+/* ---------- NAV / LANGUAGE ---------- */
+.nav{background:rgba(11,11,12,.72)}
+.nav.scrolled{background:rgba(11,11,12,.92)}
+.mobile-menu{background:rgba(11,11,12,.98)}
+.lang{border-radius:7px}
+.lang button{border-radius:5px}
+.pill{border-radius:7px}
+
+/* ---------- HERO ---------- */
+.hero-app::before{
+  background:
+    radial-gradient(50% 44% at 20% 24%,rgba(255,104,57,.16),transparent 68%),
+    radial-gradient(44% 40% at 84% 18%,rgba(255,83,70,.11),transparent 70%);
+}
+.phone-stage::after{background:radial-gradient(circle,rgba(255,104,57,.24),transparent 66%)}
+.phone{
+  border-radius:34px;
+  background:linear-gradient(155deg,#3A3A3C 0%,#0B0B0C 48%,#2A2A2C 100%);
+}
+.phone-screen{border-radius:26px;background:linear-gradient(178deg,#141416 0%,#0B0B0C 62%,#0F0F11 100%)}
+.hero-note i::before{background:var(--accent)}
+
+/* ---------- APP SCREEN ---------- */
+.app-bal{
+  border-radius:10px;
+  background:linear-gradient(135deg,rgba(255,104,57,.22),rgba(255,255,255,.045));
+  border-color:rgba(255,138,92,.28);
+}
+.app-bal .k{color:#FFA37D}
+.app-bal .v{font-family:var(--display);color:var(--money)}
+.app-bal .cash{
+  background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#fff;border-radius:6px;
+}
+.chip{border-radius:6px}
+.chip.on{background:rgba(255,104,57,.18);border-color:rgba(255,104,57,.4);color:var(--txt)}
+.cmp{border-radius:10px}
+.cmp-ic{border-radius:7px;background:rgba(255,104,57,.16);border:1px solid rgba(255,104,57,.28)}
+.cmp-ic svg{stroke:#FF9B70}
+.cmp-rate{color:var(--money);font-family:var(--display)}
+.cmp-bar i{background:linear-gradient(90deg,var(--accent-3),var(--accent))}
+.cmp-bot em{border-radius:4px}
+.cmp-bot em.open{background:rgba(255,104,57,.18);color:#FF9B70}
+.tabbar .on svg{stroke:var(--accent)}
+.tabbar .on{color:var(--accent)}
+
+/* money, wherever it appears in running text */
+.money{color:var(--money)}
+
+/* ---------- STATS ---------- */
+.stat .num{color:var(--money)}
+.mini-n{color:var(--money);font-family:var(--display)}
+
+/* ---------- STEPS ---------- */
+.step{border-radius:var(--r)}
+.step-n{color:var(--accent);font-family:var(--display)}
+.step-ic{
+  border-radius:8px;
+  background:rgba(255,255,255,.05);
+  border-color:rgba(255,104,57,.3);
+}
+.step-ic svg{stroke:var(--accent)}
+
+/* ---------- FAQ ---------- */
+.faq .fq-a strong,.faq .fq-a b{color:var(--txt)}
+
+/* ---------- FINAL ---------- */
+.final-clip::before{
+  background:radial-gradient(46% 50% at 50% 100%,rgba(255,104,57,.2),transparent 70%);
+}
+</style>
+
+<style>
+/* ============================================================
+   KLIPPIN | LP CLIPPER : SECTION EARNINGS
+   ------------------------------------------------------------
+   Ce n'est pas une grille tarifaire, c'est une trajectoire. On
+   ne choisit pas son palier, on le traverse. Donc : pas de
+   cartes, pas de fonds, pas de bordures. Une ligne de temps
+   horizontale, trois jalons posés dessus, et une progression
+   lisible dans la couleur : le rail passe du gris a l'orange
+   d'un bout a l'autre, et la ligne du dernier jalon ne s'arrete
+   pas, elle s'efface. Il n'y a pas de plafond.
+   ============================================================ */
+.path{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0 clamp(24px,3.4vw,48px);
+  --rail-gap:clamp(24px,3.4vw,48px);
+  /* cinq lignes partagées : repère, rail, titre, montant, texte.
+     Les trois jalons se calent dessus, donc les paragraphes
+     commencent tous à la même hauteur quelle que soit la longueur
+     du montant au-dessus. */
+  grid-template-rows:auto auto auto auto auto;
+}
+.stage{
+  position:relative;padding-right:8px;
+  display:grid;grid-template-rows:subgrid;grid-row:span 5;
+}
+
+/* le repere de temps, au-dessus du rail */
+.stage-when{
+  display:block;
+  font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--txt-faint);margin-bottom:14px;
+}
+
+/* la ligne de temps et son jalon */
+.stage-mark{
+  position:relative;display:flex;align-items:center;
+  height:13px;margin-bottom:20px;
+}
+.stage-mark .dot{
+  position:relative;z-index:2;display:block;
+  width:13px;height:13px;border-radius:50%;flex:none;
+  background:var(--bg);
+  box-shadow:0 0 0 1.5px rgba(255,255,255,.28) inset;
+}
+.stage-mark::before{
+  content:'';position:absolute;z-index:1;
+  top:50%;left:6px;right:calc(-1 * var(--rail-gap));
+  height:1px;transform:translateY(-50%);
+}
+
+/* la progression se lit dans le rail et dans les jalons */
+.stage:nth-child(1) .stage-mark::before{
+  background:linear-gradient(90deg,rgba(255,255,255,.16),rgba(255,138,92,.3));
+}
+.stage:nth-child(2) .stage-mark::before{
+  background:linear-gradient(90deg,rgba(255,138,92,.3),rgba(255,104,57,.62));
+}
+.stage:nth-child(2) .dot{box-shadow:0 0 0 1.5px rgba(255,138,92,.6) inset}
+/* le dernier ne s'arrete pas : il s'efface */
+.stage-last .stage-mark::before{
+  right:0;
+  background:linear-gradient(90deg,rgba(255,104,57,.62),rgba(255,104,57,0));
+}
+.stage-last .dot{
+  background:linear-gradient(140deg,var(--accent),var(--accent-2));
+  box-shadow:0 0 0 4px rgba(255,104,57,.16),0 0 16px -2px rgba(255,104,57,.75);
+}
+
+/* le contenu du jalon */
+.stage h3{font-size:1.02rem;margin-bottom:9px}
+.stage-amt{
+  font-family:var(--display);
+  font-size:clamp(1.45rem,2.2vw,1.9rem);font-weight:700;letter-spacing:-.045em;
+  line-height:1.12;color:var(--money);margin-bottom:14px;
+}
+.stage-amt span{
+  display:inline;margin-left:7px;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:.8rem;font-weight:500;letter-spacing:0;color:var(--txt-faint);
+  white-space:nowrap;
+}
+/* le dernier palier : Unlimited est l'information, le montant la precise */
+.stage-amt-max{
+  background:linear-gradient(120deg,#FF8A5C,var(--accent),var(--accent-2));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+/* le montant tient sur une ligne dans les trois cas, donc les
+   paragraphes s'alignent même sans subgrid. Le min-height est le
+   filet de sécurité si l'un d'eux venait à passer sur deux lignes
+   sur un navigateur sans subgrid. */
+@supports not (grid-template-rows: subgrid){
+  .stage-amt{min-height:2.2em}
+}
+.stage-txt{font-size:.89rem;color:var(--txt-dim);line-height:1.62;max-width:34ch}
+.stage-txt .money{font-weight:700;color:var(--money)}
+
+/* ---------- le pied de section ---------- */
+.tier-foot{
+  margin-top:clamp(34px,4vw,50px);
+  padding-top:clamp(24px,3vw,32px);border-top:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center;
+}
+.tier-note{font-size:.8rem;color:var(--txt-faint);line-height:1.6;max-width:74ch}
+.tier-kick{
+  font-family:var(--display);
+  font-size:clamp(1rem,1.5vw,1.16rem);font-weight:700;letter-spacing:-.025em;color:var(--txt);
+}
+
+/* ---------- mobile : le rail bascule a la verticale ---------- */
+@media(max-width:820px){
+  .path{grid-template-columns:1fr;gap:0;grid-template-rows:none}
+  .stage{display:block;padding:0 0 30px 30px}
+  .stage-when{margin-bottom:10px}
+  .stage-mark{position:absolute;left:0;top:2px;height:13px;margin:0}
+  /* le rail vertical part du jalon et descend vers le suivant */
+  .stage-mark::before{
+    top:13px;bottom:auto;left:6px;right:auto;
+    width:1px;height:100vh;max-height:220px;transform:none;
+  }
+  .stage:nth-child(1) .stage-mark::before{
+    background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,138,92,.3));
+  }
+  .stage:nth-child(2) .stage-mark::before{
+    background:linear-gradient(180deg,rgba(255,138,92,.3),rgba(255,104,57,.62));
+  }
+  .stage-last{padding-bottom:0}
+  .stage-last .stage-mark::before{
+    max-height:120px;
+    background:linear-gradient(180deg,rgba(255,104,57,.62),rgba(255,104,57,0));
+  }
+  .stage-txt{max-width:none}
+}
+</style>
+
+<style>
+/* ============================================================
+   KLIPPIN | LP CLIPPER : CHIFFRES DU HERO
+   ------------------------------------------------------------
+   Les chiffres ne sont plus une bande à part sous le hero, ils
+   ferment le hero. Un filet, trois groupes centrés, séparés par
+   deux hairlines verticales. Pas de cartes : la section Earnings
+   les a abandonnées, celle-ci fait pareil, et la page gagne une
+   grammaire commune.
+
+   Les nombres sont écrits en entier là où ils impressionnent :
+   20,000+ plutôt que 20K.
+   ============================================================ */
+.hero-stats{
+  position:relative;
+  margin-top:clamp(44px,5.4vw,74px);
+  padding-top:clamp(28px,3.4vw,42px);
+  display:grid;grid-template-columns:repeat(3,1fr);
+  align-items:start;
+}
+/* le filet ne va pas jusqu'aux bords : il s'éteint aux extrémités,
+   pour séparer sans découper la page en tranches */
+.hero-stats::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,
+    rgba(255,255,255,0),
+    rgba(255,255,255,.14) 18%,
+    rgba(255,255,255,.14) 82%,
+    rgba(255,255,255,0));
+}
+.hstat{
+  position:relative;text-align:center;padding:0 14px;
+  display:flex;flex-direction:column;align-items:center;gap:9px;
+}
+/* séparateurs verticaux, courts et centrés */
+.hstat + .hstat::before{
+  content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);
+  width:1px;height:52%;
+  background:linear-gradient(180deg,
+    rgba(255,255,255,0),rgba(255,255,255,.14),rgba(255,255,255,0));
+}
+.hstat-n{
+  font-family:var(--display),sans-serif;
+  font-size:clamp(1.85rem,3vw,2.6rem);font-weight:700;letter-spacing:-.05em;
+  line-height:1;color:var(--money);
+  font-variant-numeric:tabular-nums;
+}
+.hstat-l{
+  font-size:.775rem;color:var(--txt-faint);line-height:1.4;
+  max-width:26ch;
+}
+
+@media(max-width:760px){
+  .hero-stats{
+    grid-template-columns:1fr;gap:24px;
+    margin-top:38px;padding-top:30px;
+  }
+  .hstat{padding:0}
+  /* à la verticale, le séparateur redevient horizontal */
+  .hstat + .hstat::before{
+    left:50%;top:-12px;transform:translateX(-50%);
+    width:44px;height:1px;
+    background:linear-gradient(90deg,
+      rgba(255,255,255,0),rgba(255,255,255,.14),rgba(255,255,255,0));
+  }
+  .hstat-l{max-width:26ch}
+}
+</style>
+<style>/* presentation only */ .rv{opacity:1!important;transform:none!important}</style>
+<style>html.framed{scrollbar-width:none;background:var(--bg-deep)}html.framed::-webkit-scrollbar{display:none}</style><script>(function(){if(parent!==window)document.documentElement.classList.add("framed");var n=location.pathname.split("/").pop();function s(){parent.postMessage({lp:n,h:document.documentElement.scrollHeight},"*")}addEventListener("load",function(){s();setTimeout(s,600);setTimeout(s,2000)});if(window.ResizeObserver)new ResizeObserver(s).observe(document.documentElement)})();</script>
+</head>
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo" aria-label="Klippin"><svg viewBox="0 0 102 25" role="img" fill="none"><path d="M28.8414 0C29.427 0 29.7366 0.685019 29.346 1.11635L19.1148 12.4149L29.819 23.8759C30.2196 24.3048 29.9118 24.9999 29.3213 25H18.4101C18.1919 25 17.987 24.8961 17.8597 24.721L11.6217 16.1352L12.5388 15.4841L18.6418 23.8839H28.2896L18.0069 12.8739C17.7701 12.6203 17.7672 12.2304 18 11.9732L27.831 1.11606H17.5032L12.4687 5.83906L11.6918 5.02969L16.8566 0.183828L16.9056 0.142184C17.0243 0.0504272 17.1711 0 17.323 0H28.8414Z" fill="url(#lgAch)"/><path d="M9.25754 0.558028C9.31985 0.55806 9.37035 0.607981 9.37038 0.669574V23.9785C9.37038 24.0958 9.21105 24.1337 9.15705 24.0294L0.0123366 6.35396C0.00419982 6.33823 2.51511e-06 6.32076 0 6.3031V0.669574C3.16068e-05 0.607983 0.0505328 0.558062 0.112835 0.558028H9.25754Z" fill="url(#lgBch)"/><path d="M35.224 5.9H37.654V11.102H38.392L42.82 5.9H45.79L40.57 12.092L45.934 18.5H42.82L38.392 13.136H37.654V18.5H35.224V5.9ZM49.7653 5.9V16.466H55.3813V18.5H47.3353V5.9H49.7653ZM57.0033 5.9H59.4333V18.5H57.0033V5.9ZM67.002 11.66C67.482 11.66 67.878 11.588 68.19 11.444C68.502 11.288 68.73 11.072 68.874 10.796C69.03 10.508 69.108 10.172 69.108 9.788C69.108 9.2 68.934 8.744 68.586 8.42C68.25 8.096 67.722 7.934 67.002 7.934H64.32V11.66H67.002ZM71.592 9.788C71.592 10.256 71.508 10.724 71.34 11.192C71.172 11.648 70.908 12.068 70.548 12.452C70.188 12.824 69.72 13.124 69.144 13.352C68.58 13.58 67.89 13.694 67.074 13.694H64.32V18.5H61.89V5.9H67.074C68.094 5.9 68.934 6.08 69.594 6.44C70.266 6.788 70.764 7.262 71.088 7.862C71.424 8.45 71.592 9.092 71.592 9.788ZM78.5333 11.66C79.0133 11.66 79.4093 11.588 79.7213 11.444C80.0333 11.288 80.2613 11.072 80.4053 10.796C80.5613 10.508 80.6393 10.172 80.6393 9.788C80.6393 9.2 80.4653 8.744 80.1173 8.42C79.7813 8.096 79.2533 7.934 78.5333 7.934H75.8513V11.66H78.5333ZM83.1233 9.788C83.1233 10.256 83.0393 10.724 82.8713 11.192C82.7033 11.648 82.4393 12.068 82.0793 12.452C81.7193 12.824 81.2513 13.124 80.6753 13.352C80.1113 13.58 79.4213 13.694 78.6053 13.694H75.8513V18.5H73.4213V5.9H78.6053C79.6253 5.9 80.4653 6.08 81.1253 6.44C81.7973 6.788 82.2953 7.262 82.6193 7.862C82.9553 8.45 83.1233 9.092 83.1233 9.788ZM84.9525 5.9H87.3825V18.5H84.9525V5.9ZM100.261 5.9V18.5H97.7772L92.2692 9.752V18.5H89.8392V5.9H92.3052L97.8312 14.648V5.9H100.261Z" fill="url(#lgCch)"/><defs><linearGradient id="lgAch" x1="0" y1="12.5" x2="30" y2="12.5" gradientUnits="userSpaceOnUse"><stop style="stop-color:var(--logo-1)"/><stop offset="1" style="stop-color:var(--logo-2)"/></linearGradient><linearGradient id="lgBch" x1="0" y1="12.5" x2="30" y2="12.5" gradientUnits="userSpaceOnUse"><stop style="stop-color:var(--logo-1)"/><stop offset="1" style="stop-color:var(--logo-2)"/></linearGradient><linearGradient id="lgCch" x1="34" y1="12.5" x2="102" y2="12.5" gradientUnits="userSpaceOnUse"><stop style="stop-color:var(--logo-1)"/><stop offset="1" style="stop-color:var(--logo-2)"/></linearGradient></defs></svg></a>
+    <nav class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#earnings">Earnings</a>
+      <a href="#campaigns">Campaigns</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="lang"><button class="on">EN</button><button>FR</button></div>
+      <a href="#get" class="btn btn-primary">Get the app</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-controls="mmenu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="#how">How it works</a>
+    <a href="#earnings">Earnings</a>
+    <a href="#campaigns">Campaigns</a>
+    <a href="#faq">FAQ</a>
+    <div class="m-lang"><span>Language</span><div class="lang"><button class="on">EN</button><button>FR</button></div></div>
+    <a href="#get" class="btn btn-primary">Get the app</a>
+  </div>
+</header>
+
+<!-- ============================ 1. HERO / APP ============================ -->
+<section class="hero-app" id="get">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <div class="hero-copy rv">
+        <span class="eyebrow">Klippin for clippers</span>
+        <h1 class="hero-h1">Clip. Post.<span class="l2">Earn.</span></h1>
+        <p class="lead">Get the app, join a campaign, post your clips. You get paid for every verified view they bring in. <strong>Top clippers earn <span class="money">$12,000+</span> a month.</strong> No audience of your own required.</p>
+
+        <div class="stores">
+          <a href="#" class="badge badge-apple" aria-label="Download on the App Store">
+            <svg class="badge-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.71-3.19-1.73-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.87-.76-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.51-.71 2.84-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.08 2.65-2.14.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.29-.88-2.31-3.5zM14.9 5.87c.6-.74 1.01-1.76.9-2.78-.87.04-1.93.58-2.56 1.31-.56.65-1.06 1.69-.93 2.68.97.08 1.97-.49 2.59-1.21z"/></svg>
+            <span class="badge-tx"><span>Download on the</span><b>App Store</b></span>
+          </a>
+          <a href="#" class="badge badge-google" aria-label="Get it on Google Play">
+            <svg class="badge-ic" viewBox="0 0 512 512" aria-hidden="true">
+              <path fill="#00D0FF" d="M47 21c-6 6-9 15-9 27v416c0 12 3 21 9 27l2 2 233-233v-8L49 19z"/>
+              <path fill="#FFC500" d="M358 341l-78-78v-8l78-78 2 1 92 53c27 15 27 40 0 55l-92 53z"/>
+              <path fill="#FF3A44" d="M360 340l-80-80L47 493c9 10 24 11 41 1l272-154"/>
+              <path fill="#00E676" d="M360 180L88 26C71 16 56 17 47 27l233 233z"/>
+            </svg>
+            <span class="badge-tx"><span>Get it on</span><b>Google Play</b></span>
+          </a>
+        </div>
+        <div class="stores-sec">
+          <a href="#campaigns" class="btn btn-ghost">View Campaigns</a>
+        </div>
+
+        <p class="hero-note">
+          <i>Free to join</i>
+          <i>No experience needed</i>
+          <i>Paid per verified view</i>
+        </p>
+      </div>
+
+      <div class="phone-stage rv">
+
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="island" aria-hidden="true"></div>
+            <div class="st-bar" aria-hidden="true">
+              <span>9:41</span>
+              <span style="display:flex;gap:6px;align-items:center">
+                <span class="sig"><s></s><s></s><s></s><s></s></span>
+                <span class="bat"></span>
+              </span>
+            </div>
+
+            <div class="app-head">
+              <div class="app-bal">
+                <div>
+                  <span class="k">This month</span>
+                  <span class="v">$4,812.60</span>
+                  <span class="d">Across 6 campaigns</span>
+                </div>
+                <span class="cash">Cash out</span>
+              </div>
+            </div>
+
+            <div class="app-title"><b>Open campaigns</b><span>24 live</span></div>
+            <div class="chips">
+              <span class="chip on">All</span>
+              <span class="chip">Gaming</span>
+              <span class="chip">Music</span>
+              </div>
+
+            <div class="app-list">
+              <div class="cmp">
+                <div class="cmp-top">
+                  <span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M6 12h4M8 10v4"/><circle cx="16" cy="11" r="1"/><circle cx="18.5" cy="13.5" r="1"/><rect x="2.5" y="6.5" width="19" height="11" rx="5.5"/></svg></span>
+                  <span class="cmp-nm"><b>Tactical FPS · Season 4</b><span>Gaming · 3 platforms</span></span>
+                  <span class="cmp-rate">$2.40 / 1K</span>
+                </div>
+                <div class="cmp-bar"><i style="width:64%"></i></div>
+                <div class="cmp-bot"><span>64% of budget left</span><em class="open">Open</em></div>
+              </div>
+
+              <div class="cmp">
+                <div class="cmp-top">
+                  <span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M9 18V6l10-2v12"/><circle cx="6.5" cy="18" r="2.5"/><circle cx="16.5" cy="16" r="2.5"/></svg></span>
+                  <span class="cmp-nm"><b>Album drop · Week 1</b><span>Music · TikTok, Reels</span></span>
+                  <span class="cmp-rate">$3.10 / 1K</span>
+                </div>
+                <div class="cmp-bar"><i style="width:38%"></i></div>
+                <div class="cmp-bot"><span>38% of budget left</span><em class="open">Open</em></div>
+              </div>
+
+              <div class="cmp">
+                <div class="cmp-top">
+                  <span class="cmp-ic"><svg viewBox="0 0 24 24"><path d="M12 3l2.4 5.3 5.6.7-4.1 3.9 1.1 5.6L12 15.8 6.9 18.5 8 12.9 3.9 9l5.6-.7z"/></svg></span>
+                  <span class="cmp-nm"><b>AAA launch window</b><span>Gaming · Selected clippers</span></span>
+                  <span class="cmp-rate">$4.00 / 1K</span>
+                </div>
+                <div class="cmp-bar"><i style="width:81%"></i></div>
+                <div class="cmp-bot"><span>81% of budget left</span><em class="appr">On approval</em></div>
+              </div>
+            </div>
+
+            <div class="tabbar" aria-hidden="true">
+              <span class="on"><svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20H4z"/></svg>Campaigns</span>
+              <span><svg viewBox="0 0 24 24"><path d="M4 19V9M10 19V5M16 19v-6M22 19H2"/></svg>Stats</span>
+              <span><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M3 11h18"/></svg>Earnings</span>
+              <span><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.6 3.1-5.5 7-5.5s7 1.9 7 5.5"/></svg>Profile</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="hero-stats rv">
+      <div class="hstat">
+        <span class="hstat-n">20,000+</span>
+        <span class="hstat-l">Clippers in the network</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-n">400+</span>
+        <span class="hstat-l">Campaigns run</span>
+      </div>
+      <div class="hstat">
+        <span class="hstat-n">10B+</span>
+        <span class="hstat-l">Views generated since launch</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 2. HOW IT WORKS ============================ -->
+<section class="sec" id="how">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps. That's the whole thing.</h2>
+      <p class="lead">No application to write, no follower count to hit. The clips you already know how to make, pointed at campaigns that pay.</p>
+    </div>
+
+    <div class="steps rv">
+      <div class="step">
+        <span class="step-n">STEP 01</span>
+        <span class="step-ic"><svg viewBox="0 0 24 24"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M12 8v6M9.5 11.5 12 14l2.5-2.5"/></svg></span>
+        <h3>Install the app</h3>
+        <p>Sign up in under a minute and connect the accounts you post from. Nothing to pay, nothing to prove upfront.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 02</span>
+        <span class="step-ic"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="15" rx="3"/><path d="M3 9.5h18M7.5 14h6"/></svg></span>
+        <h3>Join a campaign</h3>
+        <p>Browse what's live, pick the ones you want. Each campaign shows what it pays, what it needs, and the assets to clip from. Some are open to everyone, the biggest ones open on approval.</p>
+      </div>
+      <div class="step">
+        <span class="step-n">STEP 03</span>
+        <span class="step-ic"><svg viewBox="0 0 24 24"><path d="M4 19V9.5M10 19V4.5M16 19v-7M21 19H3"/><path d="M14.5 7.5 18 4l3 3.5"/></svg></span>
+        <h3>Post and earn</h3>
+        <p>Publish on TikTok, Reels and Shorts. Views are verified, then they count. Follow every clip and every dollar in the app, from the moment you post.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 3. EARNINGS ============================ -->
+<section class="sec sec-alt" id="earnings">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Earnings</span>
+      <h2>What you can actually make.</h2>
+      <p class="lead">Where you land depends on how much you post and how far the clips travel. Here is what that looks like in practice.</p>
+    </div>
+
+    <div class="path rv">
+
+      <div class="stage">
+        <span class="stage-when">Month 1 &amp; 2</span>
+        <span class="stage-mark"><i class="dot"></i></span>
+        <h3>Beginner</h3>
+        <p class="stage-amt">$300 to $1,000<span>/ month</span></p>
+        <p class="stage-txt">You learn how campaigns work, you test formats, and you find out what actually performs. Most of this stage is discovering which of your clips travel, and why.</p>
+      </div>
+
+      <div class="stage">
+        <span class="stage-when">Month 3 to 6</span>
+        <span class="stage-mark"><i class="dot"></i></span>
+        <h3>Intermediate</h3>
+        <p class="stage-amt">$1,000 to $4,000<span>/ month</span></p>
+        <p class="stage-txt">The formats stop being guesswork. You post more often, you know which angles land, and you start getting into the campaigns that pay more.</p>
+      </div>
+
+      <div class="stage stage-last">
+        <span class="stage-when">6+ months</span>
+        <span class="stage-mark"><i class="dot"></i></span>
+        <h3>Advanced</h3>
+        <p class="stage-amt stage-amt-max">Unlimited</p>
+        <p class="stage-txt">Our best clippers clear <b class="money">$12K+ a month</b>, producing at scale across several campaigns at once. There is no ceiling here: you are paid per verified view, and nobody caps how many you bring in.</p>
+      </div>
+
+    </div>
+
+    <div class="tier-foot rv">
+      <p class="tier-note">These are real figures observed on the Klippin network. They are not estimates, and they are not a promise of income: what you earn depends on how much you post and on how your clips perform.</p>
+      <p class="tier-kick">Most start at the first one. Nobody has to stay there.</p>
+    </div>
+  </section>
+
+<!-- ============================ 4. FAQ ============================ -->
+<section class="sec sec-alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, answered.</h2>
+    </div>
+    <div class="faq rv">
+
+      <div class="fq open">
+        <button class="fq-q" aria-expanded="true">Do I need any experience?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p><strong>No.</strong> Plenty of the clippers in the network had never edited a video before they joined. What decides how far you go is whether you learn what works, and that is what the brief is for: every campaign tells you the angles that land, what is off-limits and what the client expects, before you make anything.</p><p>You also find out fast. Every clip is reviewed against the brief, so you know what worked and what did not instead of guessing.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">Do I need a big following?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>No. Clipping does not run on your audience, it runs on the algorithm: a clip from a new account can travel further than one from an account with 100K followers, because the platforms rank the clip and not the profile. <strong>What matters is the clip.</strong> That is also why you can post the same campaign from several accounts.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">What do I need to get started?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p><strong>A phone or a computer, a free editing app, and time.</strong> Nothing else. You do not need a camera, you do not need paid software, and you do not need an audience.</p><p>You never pay anything either: joining the network is free, joining a campaign is free, and Klippin never takes money from a clipper.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">How does the pay actually work?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>You are paid <strong>per thousand verified views</strong>. Each campaign sets its own rate and shows it before you join, so you always know what a clip is worth before you make it.</p><p>There is no cap on what you can earn and no minimum you have to reach. A clip that does 5,000 views is paid, and a clip that does 5 million is paid at the same rate, on the same campaign.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">What do I post, and where?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>Short vertical clips, on TikTok, Instagram Reels and YouTube Shorts. Each campaign hands you the source material to work from, whether that is a trailer, gameplay, a stream or an announce clip, along with the brief: the angles that work, what is off-limits, and any embargo or credit rules the client set.</p><p>The editing is yours. A campaign is not a template to fill in, it is material and a set of rules, and the clip you build out of it is what makes the difference.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">How are views counted?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>Views are verified before they are paid. Bots and boosted views are filtered out, on your clips and on everyone else's, which is what keeps the rates on this network where they are: our clients pay for verified views and nothing else, and that is what funds the payouts.</p><p>Your clips also have to match the brief. <strong>A clip that breaks the campaign rules comes down and earns nothing</strong>, and the rules are in the brief before you start, so nothing about that should ever be a surprise.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">Why are some campaigns "on approval"?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>Most campaigns are open to every clipper in the network. Some are not: on the biggest launches, rights holders set conditions on who can post, and those campaigns open to selected clippers only. <strong>Selection is earned on what you have already delivered</strong> inside the network, not on your follower count. The app tells you which is which before you spend time on a clip.</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">When and how do I get paid?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>Your earnings update in the app as views are verified, campaign by campaign and clip by clip, so you can see what you have made at any point in a campaign rather than at the end of it. You cash out from the app.</p><p>[À CONFIRMER : délai de paiement, seuil de retrait et moyens de paiement. Je n'ai pas ces informations et je ne les invente pas : dis-moi ce qui s'applique et je réécris ce paragraphe.]</p></div>
+      </div>
+
+      <div class="fq">
+        <button class="fq-q" aria-expanded="false">Who am I actually clipping for?<span class="fq-plus"></span></button>
+        <div class="fq-a"><p>Klippin is the clipping network entertainment brands come to: game publishers, studios, labels and the agencies working for them. That is why the campaigns in the app are real releases with real budgets behind them, and why they keep coming. <strong>You clip for the brand, we handle the brand.</strong> You never have to negotiate a deal, chase an invoice, or explain what clipping is to anyone.</p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 5. FINAL CTA ============================ -->
+<section class="sec final-clip" id="campaigns">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Get started</span>
+      <h2 class="grad">Clip. Post. Earn.</h2>
+      <p class="lead">The network is live and the campaigns are running. Get the app and take one.</p>
+
+      <div class="stores">
+        <a href="#" class="badge badge-apple" aria-label="Download on the App Store">
+          <svg class="badge-ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.54c.02-2.2 1.8-3.26 1.88-3.31-1.03-1.5-2.62-1.71-3.19-1.73-1.36-.14-2.65.8-3.34.8-.69 0-1.75-.78-2.87-.76-1.48.02-2.84.86-3.6 2.18-1.53 2.66-.39 6.6 1.1 8.76.73 1.06 1.6 2.25 2.74 2.2 1.1-.04 1.51-.71 2.84-.71 1.33 0 1.7.71 2.86.69 1.18-.02 1.93-1.08 2.65-2.14.84-1.23 1.18-2.42 1.2-2.48-.03-.01-2.29-.88-2.31-3.5zM14.9 5.87c.6-.74 1.01-1.76.9-2.78-.87.04-1.93.58-2.56 1.31-.56.65-1.06 1.69-.93 2.68.97.08 1.97-.49 2.59-1.21z"/></svg>
+          <span class="badge-tx"><span>Download on the</span><b>App Store</b></span>
+          </a>
+        <a href="#" class="badge badge-google" aria-label="Get it on Google Play">
+          <svg class="badge-ic" viewBox="0 0 512 512" aria-hidden="true">
+            <path fill="#00D0FF" d="M47 21c-6 6-9 15-9 27v416c0 12 3 21 9 27l2 2 233-233v-8L49 19z"/>
+            <path fill="#FFC500" d="M358 341l-78-78v-8l78-78 2 1 92 53c27 15 27 40 0 55l-92 53z"/>
+            <path fill="#FF3A44" d="M360 340l-80-80L47 493c9 10 24 11 41 1l272-154"/>
+            <path fill="#00E676" d="M360 180L88 26C71 16 56 17 47 27l233 233z"/>
+          </svg>
+          <span class="badge-tx"><span>Get it on</span><b>Google Play</b></span>
+          </a>
+      </div>
+      <div class="stores-sec">
+        <a href="#" class="btn btn-ghost">View Campaigns</a>
+      </div>
+
+      <p class="hero-note">
+        <i>Free to join</i>
+        <i>No follower minimum</i>
+        <i>Paid per verified view</i>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-top">
+      <div class="f-brand">
+        <a href="#" class="logo logo-foot" aria-label="Klippin"><svg viewBox="0 0 102 25" role="img" fill="none"><path d="M28.8414 0C29.427 0 29.7366 0.685019 29.346 1.11635L19.1148 12.4149L29.819 23.8759C30.2196 24.3048 29.9118 24.9999 29.3213 25H18.4101C18.1919 25 17.987 24.8961 17.8597 24.721L11.6217 16.1352L12.5388 15.4841L18.6418 23.8839H28.2896L18.0069 12.8739C17.7701 12.6203 17.7672 12.2304 18 11.9732L27.831 1.11606H17.5032L12.4687 5.83906L11.6918 5.02969L16.8566 0.183828L16.9056 0.142184C17.0243 0.0504272 17.1711 0 17.323 0H28.8414Z" fill="url(#lgAcf)"/><path d="M9.25754 0.558028C9.31985 0.55806 9.37035 0.607981 9.37038 0.669574V23.9785C9.37038 24.0958 9.21105 24.1337 9.15705 24.0294L0.0123366 6.35396C0.00419982 6.33823 2.51511e-06 6.32076 0 6.3031V0.669574C3.16068e-05 0.607983 0.0505328 0.558062 0.112835 0.558028H9.25754Z" fill="url(#lgBcf)"/><path d="M35.224 5.9H37.654V11.102H38.392L42.82 5.9H45.79L40.57 12.092L45.934 18.5H42.82L38.392 13.136H37.654V18.5H35.224V5.9ZM49.7653 5.9V16.466H55.3813V18.5H47.3353V5.9H49.7653ZM57.0033 5.9H59.4333V18.5H57.0033V5.9ZM67.002 11.66C67.482 11.66 67.878 11.588 68.19 11.444C68.502 11.288 68.73 11.072 68.874 10.796C69.03 10.508 69.108 10.172 69.108 9.788C69.108 9.2 68.934 8.744 68.586 8.42C68.25 8.096 67.722 7.934 67.002 7.934H64.32V11.66H67.002ZM71.592 9.788C71.592 10.256 71.508 10.724 71.34 11.192C71.172 11.648 70.908 12.068 70.548 12.452C70.188 12.824 69.72 13.124 69.144 13.352C68.58 13.58 67.89 13.694 67.074 13.694H64.32V18.5H61.89V5.9H67.074C68.094 5.9 68.934 6.08 69.594 6.44C70.266 6.788 70.764 7.262 71.088 7.862C71.424 8.45 71.592 9.092 71.592 9.788ZM78.5333 11.66C79.0133 11.66 79.4093 11.588 79.7213 11.444C80.0333 11.288 80.2613 11.072 80.4053 10.796C80.5613 10.508 80.6393 10.172 80.6393 9.788C80.6393 9.2 80.4653 8.744 80.1173 8.42C79.7813 8.096 79.2533 7.934 78.5333 7.934H75.8513V11.66H78.5333ZM83.1233 9.788C83.1233 10.256 83.0393 10.724 82.8713 11.192C82.7033 11.648 82.4393 12.068 82.0793 12.452C81.7193 12.824 81.2513 13.124 80.6753 13.352C80.1113 13.58 79.4213 13.694 78.6053 13.694H75.8513V18.5H73.4213V5.9H78.6053C79.6253 5.9 80.4653 6.08 81.1253 6.44C81.7973 6.788 82.2953 7.262 82.6193 7.862C82.9553 8.45 83.1233 9.092 83.1233 9.788ZM84.9525 5.9H87.3825V18.5H84.9525V5.9ZM100.261 5.9V18.5H97.7772L92.2692 9.752V18.5H89.8392V5.9H92.3052L97.8312 14.648V5.9H100.261Z" fill="url(#lgCcf)"/><defs><linearGradient id="lgAcf" x1="0" y1="12.5" x2="30" y2="12.5" gradientUnits="userSpaceOnUse"><stop style="stop-color:var(--logo-1)"/><stop offset="1" style="stop-color:var(--logo-2)"/></linearGradient><linearGradient id="lgBcf" x1="0" y1="12.5" x2="30" y2="12.5" gradientUnits="userSpaceOnUse"><stop style="stop-color:var(--logo-1)"/><stop offset="1" style="stop-color:var(--logo-2)"/></linearGradient><linearGradient id="lgCcf" x1="34" y1="12.5" x2="102" y2="12.5" gradientUnits="userSpaceOnUse"><stop style="stop-color:var(--logo-1)"/><stop offset="1" style="stop-color:var(--logo-2)"/></linearGradient></defs></svg></a>
+        <p>The premium clipping network for entertainment. Real campaigns, verified views, and clippers paid for what they actually deliver.</p>
+      </div>
+      <div class="f-col">
+        <h4>Clippers</h4>
+        <a href="#get">Get the app</a><a href="#how">How it works</a><a href="#earnings">Earnings</a><a href="#campaigns">Campaigns</a><a href="#faq">FAQ</a>
+      </div>
+      <div class="f-col">
+        <h4>Verticals</h4>
+        <a href="#campaigns">Gaming</a><a href="#campaigns">E-sport</a><a href="#campaigns">Music</a>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <a href="#">Support</a><a href="#">TikTok</a><a href="#">LinkedIn</a>
+      </div>
+    </div>
+    <div class="f-clipper">
+      <span>Are you a brand?</span>
+      <a href="#">See Klippin for clients →</a>
+    </div>
+    <div class="f-bot">
+      <span>© 2026 Klippin. A Kercom company.</span>
+      <div class="links"><a href="#">Legal</a><a href="#">Privacy</a><a href="#">Terms</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---------- NAV ---------- */
+  var nav = document.getElementById('nav');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('scrolled', window.scrollY > 12);
+  }, {passive:true});
+
+  var burger = document.getElementById('burger');
+  burger.addEventListener('click', function(){
+    var open = document.body.classList.toggle('menu-open');
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  document.querySelectorAll('#mmenu a').forEach(function(a){
+    a.addEventListener('click', function(){
+      document.body.classList.remove('menu-open');
+      burger.setAttribute('aria-expanded','false');
+    });
+  });
+
+  /* ---------- LANGUAGE TOGGLE (visual only for now) ---------- */
+  document.querySelectorAll('.lang').forEach(function(g){
+    g.querySelectorAll('button').forEach(function(b){
+      b.addEventListener('click', function(){
+        g.querySelectorAll('button').forEach(function(o){ o.classList.remove('on'); });
+        b.classList.add('on');
+      });
+    });
+  });
+
+  /* ---------- FAQ ---------- */
+  document.querySelectorAll('.fq').forEach(function(item){
+    var btn = item.querySelector('.fq-q'), ans = item.querySelector('.fq-a');
+    if(item.classList.contains('open')) ans.style.maxHeight = ans.scrollHeight + 'px';
+    btn.addEventListener('click', function(){
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.fq').forEach(function(o){
+        o.classList.remove('open');
+        o.querySelector('.fq-a').style.maxHeight = 0;
+        o.querySelector('.fq-q').setAttribute('aria-expanded','false');
+      });
+      if(!isOpen){
+        item.classList.add('open');
+        ans.style.maxHeight = ans.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded','true');
+      }
+    });
+  });
+  window.addEventListener('resize', function(){
+    var open = document.querySelector('.fq.open .fq-a');
+    if(open) open.style.maxHeight = open.scrollHeight + 'px';
+  });
+
+  /* ---------- REVEAL ---------- */
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Klippin · Landing page</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@800&display=swap">
+<link rel="stylesheet" href="../handoff/design/tokens/tokens.css">
+<link rel="stylesheet" href="assets/kit.css">
+<link rel="stylesheet" href="assets/present.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="index.html"><b>Klippin</b><span>Brand &amp; UI Kit</span></a>
+  <nav>
+    <a href="mockups.html">Mockups</a>
+    <a href="changes.html">Why</a>
+    <a href="rules.html">Rules</a>
+    <a href="foundations.html">Foundations</a>
+    <a href="components.html">Components</a>
+    <a href="landing.html" aria-current="page">Landing page</a>
+  </nav>
+</header>
+
+<nav class="subnav"><span class="vtoggle"><span class="seg"><button type="button" data-lpv="current">Current</button><button type="button" data-lpv="updated">Updated</button><button type="button" data-lpv="both">Side by side</button></span><i class="vsep"></i><span class="seg"><button type="button" data-lpd="desktop">Desktop 1440</button><button type="button" data-lpd="mobile">Mobile 390</button></span><i class="vsep"></i><a href="assets/lp/updated.html" target="_blank">Open updated</a><a href="assets/lp/current.html" target="_blank">Open current</a></span></nav>
+<main class="canvas">
+<h2 class="column-label">Landing page <span class="chip chip--warning text-label-chip" style="vertical-align:middle;margin-left:8px"><svg class="i"><use href="#i-clock"/></svg>In progress</span><small>The live clipper landing page next to the same page rebuilt only from kit components. Layout and copy unchanged.</small></h2><div class="board-wrap" id="notes"><div class="board-name"><span>Landing page · What changed</span><a href="#notes">#</a></div><section class="board lp-notes"><div class="lp-changes"><div class="lp-change"><span class="text-body-s-medium">Built from the kit</span><span class="text-body-s muted">Every piece on the updated page is a kit component: web nav bar, eyebrow, store badge, perk, kit phone mockup, web stat, web section header, step card, earnings track, web note, FAQ item, web footer. The page’s own CSS only places them (grids, widths, spacing).</span></div><div class="lp-change"><span class="text-body-s-medium">Phone mockup</span><span class="text-body-s muted">The kit phone mockup: balance card, section header, filter chips, campaign cards with LIVE / UPCOMING chips, bottom nav. Same screen as the app mockups.</span></div><div class="lp-change"><span class="text-body-s-medium">Type</span><span class="text-body-s muted">Inter for UI text, Space Grotesk for headlines, stats and money, Plus Jakarta ExtraBold only for eyebrows. On phones the display sizes step down (kit rule “web type below 760px”).</span></div><div class="lp-change"><span class="text-body-s-medium">Money</span><span class="text-body-s muted">Euros, same figures: €12,000+, €4,812.60, €300 to €1,000, €12K+. Amounts in brand orange.</span></div><div class="lp-change"><span class="text-body-s-medium">Buttons</span><span class="text-body-s muted">“Get the app” is the kit Primary M (L in the mobile menu), “View Campaigns” the kit Secondary L, on one row with the store badges (kit store badge M, same 44px height). Store badges stay as platform artwork.</span></div><div class="lp-change"><span class="text-body-s-medium">Layout</span><span class="text-body-s muted">How it works and FAQ sit on a lighter band (kit web band). Soft brand glow behind the hero and the closing call to action (kit web glow). Phone mockup larger and tilted 4°, like the live page. The three earnings tiers share one line that warms up toward Advanced (kit earnings track). The earnings note sits under a divider instead of a box, closing line larger (kit web note, Divider).</span></div><div class="lp-change"><span class="text-body-s-medium">Details</span><span class="text-body-s muted">Stats share one row with hairline dividers (kit web stats row), also on phones. Headings and leads wrap in balanced lines. Step icons on a soft brand tint instead of an orange outline. Tier descriptions and FAQ answers use the web body text (15/1.6). FAQ is an open list with hairlines and plain orange plus/minus (kit faq item · web). On phones the perks stack in a column.</span></div><div class="lp-change"><span class="text-body-s-medium">Mobile</span><span class="text-body-s muted">Below 1000px the nav collapses to the logo and an icon button that opens the kit web menu. Steps, tiers and footer stack.</span></div></div><p class="text-body-s faint">Copy still says “every dollar” in step 3. That is copy, not visual, so it is unchanged here.</p></section></div><section class="lp-stage" data-lp-stage></section>
+</main>
+<script src="assets/icons.js"></script>
+<script>
+(function(){
+  var W={desktop:1440,mobile:390}, st={v:'both',d:'desktop'}, H={};
+  try{var s=JSON.parse(localStorage.getItem('klippin-lp-view')||'{}');if(s.v)st.v=s.v;if(s.d)st.d=s.d}catch(e){}
+  var stage=document.querySelector('[data-lp-stage]');
+  var LBL={current:['Current','The live page today'],updated:['Updated','Built only from kit components']};
+  function frame(k){return '<figure class="lp-frame" data-k="'+k+'"><figcaption><b>'+LBL[k][0]+'</b><span>'+LBL[k][1]+'</span></figcaption><div class="lp-clip"><iframe src="assets/lp/'+k+'.html" title="'+LBL[k][0]+'" loading="eager" scrolling="no"></iframe></div></figure>'}
+  function render(){
+    var keys=st.v==='both'?['current','updated']:[st.v];
+    stage.className='lp-stage lp-'+st.d+' lp-n'+keys.length;
+    stage.innerHTML=keys.map(frame).join('');
+    document.querySelectorAll('[data-lpv]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lpv===st.v)});
+    document.querySelectorAll('[data-lpd]').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.lpd===st.d)});
+    try{localStorage.setItem('klippin-lp-view',JSON.stringify(st))}catch(e){}
+    fit();
+  }
+  function fit(){
+    var w=W[st.d], figs=stage.querySelectorAll('.lp-frame'), n=figs.length, gap=32;
+    var avail=stage.clientWidth-(n-1)*gap, sc=Math.min(1,avail/(n*w));
+    var hs=[].map.call(figs,function(f){return H[f.dataset.k+st.d]||(st.d==='mobile'?7200:5200)}), hmax=Math.max.apply(null,hs);
+    figs.forEach(function(f){
+      var ifr=f.querySelector('iframe'), clip=f.querySelector('.lp-clip'), h=hmax;
+      ifr.style.width=w+'px';ifr.style.height=h+'px';ifr.style.transform='scale('+sc+')';
+      clip.style.width=(w*sc)+'px';clip.style.height=(h*sc)+'px';
+    });
+  }
+  addEventListener('message',function(e){
+    if(!e.data||!e.data.lp)return;var k=e.data.lp.replace('.html','');
+    if(H[k+st.d]===e.data.h)return;H[k+st.d]=e.data.h;fit();
+  });
+  addEventListener('resize',fit);
+  document.querySelectorAll('[data-lpv]').forEach(function(b){b.onclick=function(){st.v=b.dataset.lpv;render()}});
+  document.querySelectorAll('[data-lpd]').forEach(function(b){b.onclick=function(){st.d=b.dataset.lpd;render()}});
+  render();
+})();
+</script>
+</body>
+</html>
