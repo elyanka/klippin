@@ -1,0 +1,13 @@
+.cases .section__bg { background-image: var(--grad-section-use-cases); }
+
+.cases .carousel { margin-block-start: var(--space-8); }
+
+@media (max-width: 900px) {
+  .cases .section-header__title .u-nowrap { white-space: normal; }
+}
+
+.cases {
+  padding-block: var(--section-py-lg) var(--space-80);
+}
+
+.cases .section__inner { gap: var(--section-gap); }

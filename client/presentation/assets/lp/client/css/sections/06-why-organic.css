@@ -1,0 +1,17 @@
+.why .section__bg {
+  background-image: var(--grad-section-why-organic);
+}
+
+@media (min-width: 1360px) {
+  .why .chart {
+    width: calc(100% + var(--space-30) * 2);
+    margin-inline: calc(var(--space-30) * -1);
+  }
+}
+
+@media (max-width: 760px) {
+  .why .section__bg {
+    inset-block-end: auto;
+    height: 160vw;
+  }
+}

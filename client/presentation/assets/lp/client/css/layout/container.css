@@ -1,0 +1,32 @@
+.container {
+  width: 100%;
+  max-width: calc(var(--layout-container) + var(--layout-gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--layout-gutter);
+}
+
+.section {
+  position: relative;
+  padding-block: var(--section-py);
+
+  isolation: isolate;
+  background-color: var(--color-bg-base);
+}
+
+.section--lg { padding-block: var(--section-py-lg); }
+
+.section__bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.section__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--section-gap);
+}
+
+.section__inner > * { width: 100%; }

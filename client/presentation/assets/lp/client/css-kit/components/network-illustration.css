@@ -1,0 +1,380 @@
+.mech {
+  --mech-col:          140px;
+  --mech-illo:         clamp(280px, 30vw, 420px);
+  --mech-flow-min:      40px;
+  --mech-title-gap:     14px;
+  --mech-node-pad:      35px;
+  --mech-src-gap:        9px;
+  --mech-src-py:        10px;
+  --mech-src-px:        12px;
+  --mech-platform-py:    9px;
+  --mech-platform-px:   13px;
+
+  position: relative;
+
+  padding-block: var(--space-32);
+  padding-inline: clamp(0px, 3.9vw, 44px);
+}
+
+.mech__grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mech__node { flex: none; }
+
+.mech__node--source,
+.mech__node--feeds {
+  inline-size: var(--mech-col);
+  padding-block-end: var(--mech-node-pad);
+}
+
+.mech__col-title {
+  color: var(--color-text-tertiary);
+  margin-block-end: var(--mech-title-gap);
+}
+
+.mech__src,
+.mech__platforms {
+  display: flex;
+  flex-direction: column;
+}
+
+.mech__src       { gap: var(--mech-src-gap); }
+.mech__platforms { gap: var(--space-12); }
+
+.mech__src-item,
+.mech__platform {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--radius-md);
+  background-image: var(--surface-input);
+  color: var(--color-text-primary);
+  text-transform: none;
+
+  isolation: isolate;
+}
+
+.mech__src-item::before,
+.mech__platform::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: var(--border-hairline);
+  border-radius: inherit;
+  background-image: var(--grad-border-secondary-fade);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.mech__src-item {
+  gap: var(--mech-src-gap);
+  padding: var(--mech-src-py) var(--mech-src-px);
+}
+
+.mech__src-item img {
+  flex: none;
+  inline-size: 15px;
+  block-size: 15px;
+}
+
+.mech__platform {
+  justify-content: space-between;
+  gap: var(--space-12);
+  padding: var(--mech-platform-py) var(--mech-platform-px);
+}
+
+.mech__platform-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  min-inline-size: 0;
+}
+
+.mech__platform-icon {
+  flex: none;
+  inline-size: 15px;
+  block-size: 15px;
+}
+
+.mech__platform-value {
+  position: relative;
+  inset-block-start: 0.07em;
+  font-size: 14px;
+  filter: drop-shadow(var(--fx-glow-metric));
+}
+
+.mech__flow {
+  flex: 1 1 0;
+  min-inline-size: var(--mech-flow-min);
+}
+
+.mech__wires {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.mech__wire {
+  fill: none;
+  stroke: var(--color-brand-primary);
+  stroke-width: 4;
+  stroke-dasharray: 4 27;
+  vector-effect: non-scaling-stroke;
+  animation: mech-march 3.23s linear infinite;
+}
+
+@keyframes mech-march {
+  to { stroke-dashoffset: -31; }
+}
+
+.mech__node--network {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--mech-node-pad);
+  inline-size: var(--mech-illo);
+}
+
+.mech__node--network .mech__col-title {
+  margin-block-end: 0;
+  text-align: center;
+}
+
+.netill {
+  --u: 0.2381cqw;
+
+  container-type: inline-size;
+  position: relative;
+  inline-size: 100%;
+  aspect-ratio: 420 / 340;
+}
+
+.netill__orbits {
+  position: absolute;
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  overflow: visible;
+}
+
+.netill__orbit {
+  fill: none;
+  stroke: var(--color-brand-primary);
+  stroke-width: 4;
+  transform-box: view-box;
+  transform-origin: 50% 50%;
+  animation: netill-spin 40s linear infinite;
+}
+
+.netill__orbit--outer {
+  stroke-dasharray: 4 29.25;
+  opacity: 0.92;
+}
+
+.netill__orbit--inner {
+  stroke-dasharray: 4 25.85;
+  opacity: 0.86;
+  rotate: 7.5deg;
+  animation-duration: 25s;
+  animation-direction: reverse;
+}
+
+@keyframes netill-spin {
+  to { transform: rotate(360deg); }
+}
+
+.netill__core {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  inline-size: calc(110 * var(--u));
+  block-size: calc(110 * var(--u));
+  border-radius: 50%;
+  background-color: var(--color-bg-base-deep);
+  box-shadow: var(--fx-glow-strong);
+}
+
+.netill__mark {
+  inline-size: calc(50 * var(--u));
+  block-size: auto;
+  filter:
+    drop-shadow(0 0 calc(1.5 * var(--u)) rgb(160 215 255 / 0.9))
+    drop-shadow(0 0 calc(6 * var(--u)) rgb(73 150 255 / 0.55));
+}
+
+.netill__canvas {
+  --bleed: calc(40 * var(--u));
+
+  position: absolute;
+  inset: calc(-1 * var(--bleed));
+  inline-size: calc(100% + 2 * var(--bleed));
+  block-size: calc(100% + 2 * var(--bleed));
+  max-inline-size: none;
+  pointer-events: none;
+}
+
+.netill__clipper {
+  --seat: 0;
+  --a: calc(var(--seat) * 60deg);
+  --pulse: 1;
+
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  inline-size: calc(84 * var(--u));
+  block-size: calc(84 * var(--u));
+  transform:
+    rotate(var(--a))
+    translate(0, calc(-132 * var(--u)))
+    rotate(calc(-1 * var(--a)));
+  will-change: transform;
+}
+
+.netill__avatar {
+  position: absolute;
+  inset-inline-start: 50%;
+  inset-block-start: 50%;
+  translate: -50% -50%;
+  display: grid;
+  place-items: center;
+  inline-size: calc(48 * var(--u));
+  block-size: calc(48 * var(--u));
+  border: calc(1.5 * var(--u)) solid var(--primitive-blue-ice);
+  border-radius: 50%;
+  scale: var(--pulse);
+  background-color: var(--color-bg-base-deep);
+  background-image: var(--grad-surface-icon);
+  box-shadow: var(--effect-glow-point);
+}
+
+.netill__avatar img {
+  inline-size: calc(20 * var(--u));
+  block-size: auto;
+}
+
+.netill__avatar::after {
+  content: '';
+  position: absolute;
+  inset: calc(-2 * var(--u));
+  border-radius: 50%;
+  box-shadow: 0 0 calc(26 * var(--u)) calc(5 * var(--u)) var(--color-brand-accent);
+  opacity: 0;
+  animation: netill-lit 7.2s var(--ease-in-out) infinite;
+  animation-delay: calc(var(--seat) * -1.2s);
+}
+
+@keyframes netill-lit {
+  0%, 62%, 100% { opacity: 0; }
+  14%, 26%      { opacity: 0.45; }
+}
+
+.mech[data-paused='true'] :is(.mech__wire, .netill__orbit) {
+  animation-play-state: paused;
+}
+
+.mech[data-paused='true'] .netill__avatar::after {
+  animation-play-state: paused;
+}
+
+.network__globe {
+  position: relative;
+  width: 100%;
+
+  max-width: 797px;
+  margin-inline: auto;
+  aspect-ratio: 797 / 750;
+}
+
+.network__globe-static img {
+  width: 100%;
+  height: auto;
+  mix-blend-mode: screen;
+  transition: opacity 0.9s var(--ease-out);
+}
+
+.network__globe canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-out) 0.1s;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  .network__globe canvas { mix-blend-mode: normal; }
+}
+
+.network__globe[data-globe='ready'] canvas { opacity: 1; }
+.network__globe[data-globe='ready'] .network__globe-static img { opacity: 0; }
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  .network__globe img { mix-blend-mode: normal; }
+}
+
+@media (max-width: 880px) {
+  .mech__grid {
+    flex-direction: column;
+    gap: var(--space-24);
+  }
+  .mech__flow,
+  .mech__wires { display: none; }
+
+  .mech__node--source,
+  .mech__node--feeds {
+    inline-size: auto;
+    padding-block-end: 0;
+  }
+
+  .mech__node--source .mech__col-title,
+  .mech__node--feeds .mech__col-title { text-align: center; }
+
+  .mech__src,
+  .mech__platforms {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mech__src-item,
+  .mech__platform { inline-size: var(--mech-col); }
+
+  .mech__node--network { inline-size: min(100%, 420px); }
+}
+
+@media (max-width: 580px) {
+  .mech { padding-block: var(--space-20); }
+
+  .mech__src,
+  .mech__platforms {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mech__wire,
+  .netill__orbit,
+  .netill__avatar::after { animation: none; }
+
+  .netill__clipper { will-change: auto; }
+}

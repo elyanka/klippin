@@ -1,0 +1,6 @@
+.references {
+  padding-block: var(--space-25) var(--space-50);
+  background-color: var(--color-bg-black);
+  border-block-start: var(--border-hairline) solid var(--color-border-subtle);
+  border-block-end: var(--border-hairline) solid var(--color-border-subtle);
+}

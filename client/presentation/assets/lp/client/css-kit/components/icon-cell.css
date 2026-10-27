@@ -1,0 +1,118 @@
+.incl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-32);
+  max-inline-size: 960px;
+  margin-inline: auto;
+  padding: 0;
+  list-style: none;
+}
+
+.incl-cell {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  aspect-ratio: 1.16;
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  background-image: var(--grad-surface-glass);
+  text-align: center;
+  isolation: isolate;
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    box-shadow var(--dur-base) var(--ease-out);
+}
+
+.incl-cell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: var(--border-hairline);
+  border-radius: inherit;
+  background-image: var(--grad-border-explainer-card);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  transition: background-image var(--dur-base) var(--ease-out);
+}
+
+.incl-cell__title {
+  flex: none;
+  margin: 0;
+}
+
+.incl-cell__icon {
+  flex: 1;
+
+  min-block-size: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.incl-cell__icon img {
+  max-block-size: 100%;
+  inline-size: auto;
+  object-fit: contain;
+  transition: filter var(--dur-base) var(--ease-out);
+}
+
+.incl-cell__body {
+  flex: none;
+  margin: 0;
+  color: var(--color-text-tertiary);
+  text-wrap: pretty;
+}
+
+.incl-cell:hover,
+.incl-cell:focus-within {
+  transform: translateY(-4px);
+  box-shadow: var(--fx-shadow-button-hover);
+}
+
+.incl-cell:hover::before,
+.incl-cell:focus-within::before {
+  background-image: linear-gradient(0deg, var(--primitive-blue-pale) 0%, var(--color-border-glass) 100%);
+}
+
+.incl-cell:hover .incl-cell__icon img,
+.incl-cell:focus-within .incl-cell__icon img {
+  filter: drop-shadow(0 0 var(--space-12) var(--color-brand-primary));
+}
+
+@media (max-width: 900px) {
+  .incl-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-inline-size: 680px;
+  }
+}
+
+@media (max-width: 560px) {
+  .incl-grid {
+    grid-template-columns: 1fr;
+    max-inline-size: 340px;
+  }
+
+  .incl-cell { aspect-ratio: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .incl-cell,
+  .incl-cell::before,
+  .incl-cell__icon img {
+    transition: none;
+  }
+
+  .incl-cell:hover,
+  .incl-cell:focus-within {
+    transform: none;
+  }
+}

@@ -1,0 +1,33 @@
+:root { color-scheme: dark; }
+
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semi);
+  line-height: 1.2;
+}
+
+strong, b { font-weight: var(--fw-semi); }
+
+em, i { font-style: italic; }
+
+hr {
+  border: 0;
+  height: var(--border-hairline);
+  background: var(--color-border-subtle);
+}
+
+::selection {
+  background: var(--color-accent-deep);
+  color: var(--color-text-primary);
+}
+

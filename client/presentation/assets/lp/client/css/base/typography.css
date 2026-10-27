@@ -1,0 +1,105 @@
+.t-display {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--ls-display);
+  text-transform: uppercase;
+}
+
+.t-h2 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  text-wrap: balance;
+}
+
+.t-h3 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-extra);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--ls-h3);
+}
+
+.t-metric {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-extra);
+  font-size: var(--fs-metric);
+  line-height: var(--lh-metric);
+  letter-spacing: var(--ls-metric);
+  font-variant-numeric: tabular-nums;
+}
+
+.t-metric--sm {
+  font-size: var(--fs-metric-sm);
+  line-height: var(--lh-metric-sm);
+}
+
+.t-body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.t-body-sm {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-body-sm);
+  line-height: var(--lh-body-sm);
+}
+
+.t-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-label);
+  line-height: var(--lh-label);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+}
+
+.t-overline {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-overline);
+  line-height: var(--lh-overline);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+}
+
+.t-form-label {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-form-label);
+  line-height: var(--lh-form-label);
+}
+
+.t-logo-slot {
+  font-family: var(--font-body);
+  font-weight: var(--fw-semi);
+  font-size: var(--fs-logo-slot);
+  line-height: var(--lh-logo-slot);
+  letter-spacing: var(--ls-logo-slot);
+  text-transform: uppercase;
+}
+
+.t-grad,
+.t-grad-metric,
+.t-grad-accent {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  @media (forced-colors: active) {
+    -webkit-text-fill-color: currentColor;
+    color: CanvasText;
+  }
+}
+
+.t-grad        { background-image: var(--grad-text-brand); }
+.t-grad-metric { background-image: var(--grad-text-metric); }
+.t-grad-accent { background-image: var(--grad-text-accent); }

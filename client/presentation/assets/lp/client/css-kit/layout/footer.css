@@ -1,0 +1,101 @@
+.footer {
+  padding-block: var(--space-80) var(--space-32);
+  background-color: var(--color-bg-base-deepest);
+  border-top: var(--border-hairline) solid var(--color-border-default);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.footer__top {
+  display: grid;
+  grid-template-columns: 370fr repeat(3, 215fr);
+  gap: var(--space-40);
+}
+
+.footer__brand { display: flex; flex-direction: column; gap: var(--space-16); }
+
+.footer__tagline {
+  max-width: 38ch;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-sm);
+  line-height: 1.5;
+}
+
+.footer__col-title {
+  margin-block-end: var(--space-16);
+  color: var(--color-text-tertiary);
+}
+
+.footer__col a {
+  display: block;
+  padding-block: 5px;
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.footer__col a:hover { color: var(--color-text-primary); }
+
+.footer__clipper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-20);
+  flex-wrap: wrap;
+  padding-block: var(--space-20);
+  border-block: var(--border-hairline) solid transparent;
+  border-image: var(--grad-border-secondary-fade) 1;
+}
+
+.footer__clipper span {
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.footer__clipper a {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  font-weight: var(--fw-regular);
+  background-image: var(--gradient-brand-primary);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  transition: opacity var(--dur-fast) var(--ease-out);
+}
+
+.footer__clipper a:hover { opacity: 0.8; }
+
+@media (forced-colors: active) {
+  .footer__clipper a { -webkit-text-fill-color: currentColor; color: LinkText; }
+}
+
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-20);
+  flex-wrap: wrap;
+  color: var(--color-text-tertiary);
+  font-size: var(--fs-label);
+}
+
+.footer__legal { display: flex; gap: var(--space-20); }
+
+.footer__legal a { transition: color var(--dur-fast) var(--ease-out); }
+.footer__legal a:hover { color: var(--color-text-secondary); }
+
+@media (max-width: 900px) {
+  .footer__top { grid-template-columns: repeat(2, 1fr); gap: var(--space-32); }
+  .footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .footer__top { grid-template-columns: 1fr; }
+}

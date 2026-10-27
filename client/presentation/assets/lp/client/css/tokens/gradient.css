@@ -1,0 +1,86 @@
+:root {
+  --grad-text-brand:   linear-gradient(90deg, #FFFFFF 25%, #87A8ED 100%);
+  --grad-text-metric:  linear-gradient(90deg, #FFFFFF 0%, #45B5FF 100%);
+
+  --grad-text-accent:  linear-gradient(180deg, #FFFFFF 0%, #87A8ED 100%);
+
+  --grad-button-primary: linear-gradient(180deg, #FFFFFF 0%, #87A8ED 100%);
+
+  --grad-surface-glass:
+    radial-gradient(50% 50% at 50% 0%, rgba(60, 95, 190, 0.12) 0%, rgba(60, 95, 190, 0) 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(1, 6, 25, 0.9) 0%, rgba(1, 6, 25, 0.9) 100%);
+
+  --grad-surface-navigation:
+    radial-gradient(50% 50% at 50% 100%, rgba(60, 95, 190, 0.12) 0%, rgba(60, 95, 190, 0) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 100%),
+    linear-gradient(0deg, rgba(1, 6, 25, 0.9) 0%, rgba(1, 6, 25, 0.9) 100%);
+
+  --grad-surface-input:
+    linear-gradient(150deg, rgba(135, 168, 237, 0.02) 0%, rgba(60, 95, 190, 0.2) 100%);
+
+  --grad-surface-icon:
+    linear-gradient(150deg, rgba(166, 186, 242, 0.14) 0%, rgba(63, 108, 198, 0.06) 100%);
+
+  --grad-surface-final-glow:
+    radial-gradient(circle, rgba(110, 150, 240, 0.2) 0%, rgba(110, 150, 240, 0) 66%);
+
+  --grad-divider-vertical:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+
+  --grad-border-glass:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+
+  --grad-border-explainer-card:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%);
+
+  --grad-border-secondary-fade:
+    linear-gradient(90deg, rgba(180, 192, 204, 0.2) 0%, rgba(180, 192, 204, 0) 100%);
+
+  --grad-overlay-black-fade:
+    linear-gradient(360deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+
+  --grad-illustration-deep-fade:
+    linear-gradient(180deg, rgba(60, 95, 190, 0.4) 0%, rgba(60, 95, 190, 0) 75%);
+
+  --grad-illustration-secondary-fade:
+    linear-gradient(180deg, rgba(180, 192, 204, 0.15) 0%, rgba(180, 192, 204, 0) 75%);
+
+  --grad-illustration-brand-stroke:
+    linear-gradient(90deg, #87A8ED 23%, #45B5FF 37%, #3C5FBE 54%);
+
+  --grad-section-clipping:
+    radial-gradient(67.26% 178% at 100% 26.16%,
+                    rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%),
+    radial-gradient(35.75% 94.59% at 0% 59.27%,
+                    rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+
+  --grad-section-how-it-works:
+    radial-gradient(39.95% 53.36% at 50% 50%,
+                    rgba(60, 95, 190, 0.25) 0.96%, rgba(0, 0, 0, 0.137) 19.23%,
+                    rgba(60, 95, 190, 0) 53.37%, rgba(0, 0, 0, 0.25) 100%);
+
+  --grad-section-network:
+    radial-gradient(66.76% 139% at 108.5% 29.61%,
+                    rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+
+  --grad-section-why-organic:
+    radial-gradient(64.1% 77.1% at 18.61% 52.82%,
+                    rgba(60, 95, 190, 0.25) 0%, rgba(60, 95, 190, 0) 62.98%);
+
+  --grad-section-use-cases:
+    radial-gradient(63.16% 93.82% at 50% 50%,
+                    rgba(0, 0, 0, 0) 48.56%, rgba(0, 0, 0, 0.25) 100%);
+
+  --grad-section-included:
+    radial-gradient(78.13% 131.8% at 91.77% 96.39%,
+                    rgba(1, 6, 22, 0.25) 48.08%, rgba(60, 95, 190, 0.25) 81.25%,
+                    rgba(60, 95, 190, 0) 100%);
+
+  --grad-section-faq:
+    linear-gradient(360deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0) 100%);
+
+  --grad-section-final-cta:
+    radial-gradient(46.08% 102.8% at 50% 50%,
+                    rgba(0, 0, 0, 0) 58.17%, rgba(0, 0, 0, 0.25) 100%);
+}

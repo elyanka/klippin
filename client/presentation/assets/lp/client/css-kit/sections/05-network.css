@@ -1,0 +1,72 @@
+.network .section__bg {
+  background-image: var(--grad-section-network);
+}
+
+.network__two {
+  container-type: inline-size;
+  display: grid;
+
+  grid-template-columns: minmax(0, min(48%, 540px)) 1fr;
+  gap: 0;
+  align-items: center;
+}
+
+.network__left {
+  display: flex;
+  flex-direction: column;
+
+  gap: clamp(24px, 2.8vw, 40px);
+
+  position: relative;
+  z-index: 1;
+}
+
+.network__right {
+  display: flex;
+  justify-content: center;
+
+  --globe-bleed: 72px;
+  margin-inline-start: calc(-1 * (var(--globe-bleed) + max(0px, min(48cqi, 540px) - 510px)));
+  margin-inline-end: calc(-1 * var(--globe-bleed));
+
+  /* The globe centres on the title + axes, not the whole column: drop it by
+     half the eyebrow row, which sits above that block. */
+  --globe-nudge: calc((var(--fs-label) * var(--lh-label) + var(--space-16)) / 2);
+  position: relative;
+  inset-block-start: var(--globe-nudge);
+}
+
+/* The tilt lifts the arcs higher over the top than below the bottom, so the
+   visible globe + orbits sit above the canvas centre. Measured at 2.25% of the
+   canvas height; shifting by it centres the silhouette, not the canvas. */
+.network__globe {
+  translate: 0 var(--globe-orbit-shift, 2.25%);
+  scale: 0.95;
+}
+
+.network__panel {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 1000px) {
+  .network__two {
+    grid-template-columns: 1fr;
+  }
+
+  .network__right {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    order: 2;
+    --globe-nudge: 0px;
+  }
+
+  .network__globe {
+    --globe-orbit-shift: 0px;
+    max-width: 460px;
+  }
+}

@@ -1,0 +1,25 @@
+@import url("components/section-header.css")        layer(components);
+@import url("components/feature-card.css")          layer(components);
+@import url("components/stats-card.css")            layer(components);
+@import url("components/marquee.css")               layer(components);
+@import url("components/counter-strip.css")         layer(components);
+@import url("components/step-card.css")             layer(components);
+@import url("components/network-category.css")      layer(components);
+@import url("components/network-illustration.css")  layer(components);
+@import url("components/case-card.css")             layer(components);
+@import url("components/icon-cell.css")             layer(components);
+@import url("components/faq-item.css")              layer(components);
+@import url("components/form-field.css")            layer(components);
+@import url("components/chart.css")                 layer(components);
+@import url("components/modal.css")                 layer(components);
+
+@import url("sections/01-hero.css")            layer(sections);
+@import url("sections/02-references.css")      layer(sections);
+@import url("sections/03-clipping.css")        layer(sections);
+@import url("sections/04-how-it-works.css")    layer(sections);
+@import url("sections/05-network.css")         layer(sections);
+@import url("sections/06-why-organic.css")     layer(sections);
+@import url("sections/07-use-cases.css")       layer(sections);
+@import url("sections/08-included.css")        layer(sections);
+@import url("sections/09-faq.css")             layer(sections);
+@import url("sections/10-final-cta.css")       layer(sections);

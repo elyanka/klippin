@@ -1,0 +1,23 @@
+:root {
+  --fx-glow-metric:  0 1px 5px rgba(73, 219, 255, 0.5);
+
+  --fx-glow-strong:
+    0 4px 4px rgba(0, 255, 229, 0.25),
+    0 0 5px #49DBFF,
+    0 0 50px #3C5FBE,
+    inset 0 0 2px #FFFFFF;
+
+  --fx-glow-metric-filter: drop-shadow(0 1px 5px rgba(73, 219, 255, 0.5));
+
+  --fx-glow-network-point:
+    0 0 25px 3px #3C5FBE,
+    0 0 7px #49DBFF;
+
+  --fx-shadow-case-card:    0 26px 70px rgba(0, 0, 0, 0.5);
+  --fx-shadow-form:         0 26px 80px rgba(0, 0, 0, 0.45);
+  --fx-shadow-network-illo: 50px -25px 100px #010619;
+  --fx-shadow-button-hover: 0 8px 28px rgba(135, 168, 237, 0.35);
+
+  --fx-blur-nav:        blur(25px);
+  --fx-blur-final-glow: blur(20px);
+}

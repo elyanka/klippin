@@ -1,0 +1,4 @@
+.clipping .section__bg {
+  inset-block: calc(var(--section-py-lg) * -1);
+  background-image: var(--grad-section-clipping);
+}

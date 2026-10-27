@@ -1,0 +1,44 @@
+:root {
+  --layout-page-max:    1440px;
+  --layout-container:   1128px;
+  --layout-gutter:      clamp(20px, 8.33vw, 120px);
+
+  --nav-height:         95px;
+  --nav-pad-y:          24px;
+
+  --nav-offset:         calc(var(--nav-height) + var(--border-hairline));
+
+  --section-py:         clamp(64px, 8vw, 100px);
+  --section-py-lg:      clamp(72px, 9vw, 124px);
+  --section-gap:        clamp(32px, 4vw, 50px);
+
+  --space-2:   2px;   --space-4:   4px;   --space-6:   6px;   --space-8:   8px;
+  --space-10: 10px;   --space-12: 12px;   --space-15: 15px;   --space-16: 16px;
+  --space-18: 18px;   --space-20: 20px;   --space-22: 22px;   --space-30: 30px;
+  --space-38: 38px;
+  --space-24: 24px;   --space-25: 25px;   --space-32: 32px;   --space-40: 40px;
+  --space-50: 50px;   --space-64: 64px;   --space-72: 72px;   --space-80: 80px;
+
+  --radius-sm:    6px;
+  --radius-md:   10px;
+  --radius-lg:   12px;
+  --radius-xl:   14px;
+  --radius-2xl:  20px;
+  --radius-pill: 50px;
+
+  --border-hairline: 1px;
+
+  --z-hero-bg:    0;
+  --z-hero-copy:  2;
+  --z-sticky:    50;
+  --z-nav:      100;
+  --z-drawer:   150;
+  --z-modal:    200;
+
+  --ease-out:       cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:    cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:       0.2s;
+  --dur-base:       0.3s;
+  --dur-slow:       0.62s;
+  --dur-reveal:     0.7s;
+}

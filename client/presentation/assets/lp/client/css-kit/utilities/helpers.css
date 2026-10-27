@@ -1,0 +1,9 @@
+.u-center    { text-align: center; }
+.u-nowrap    { white-space: nowrap; }
+.u-hidden    { display: none !important; }
+.u-measure   { max-width: 62ch; }
+.u-mx-auto   { margin-inline: auto; }
+
+@media (max-width: 900px) {
+  .u-nowrap { white-space: normal; }
+}
