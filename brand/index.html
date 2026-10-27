@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en" data-system="client">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Klippin Brand Bible</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@700&amp;family=Plus+Jakarta+Sans:wght@800&amp;family=Manrope:wght@400;600&amp;family=Overpass:wght@600;800&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="reference/klippin_tokens.css">
+<style>
+:root{--muted:#a9adb5;box-sizing:border-box;color-scheme:dark;padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 118px)}
+*{box-sizing:border-box}
+body{margin:0;--page:#010412;--bar:rgba(1,4,18,.84);--acc:#3C5FBE;background:var(--page);color:#fff;font-family:"Manrope",sans-serif;-webkit-font-smoothing:antialiased;transition:background .3s}
+body[data-view="k"]{--page:#050506;--bar:rgba(5,5,6,.84);--acc:#FF6839}
+@media(prefers-reduced-motion:reduce){body{transition:none}}
+
+/* Consolidated Sticky Header & Navigation */
+.bar{position:sticky;top:0;z-index:5;padding:calc(env(safe-area-inset-top,0px) + 8px) 24px 0;background:var(--bar);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.1)}
+.bi{display:flex;justify-content:space-between;align-items:center;gap:16px;max-width:1072px;margin:0 auto;padding-bottom:8px}
+.brand{display:flex;align-items:center;gap:16px;min-width:0}
+.brand .nav-wordmark{display:block;width:146px;height:auto;flex:none;overflow:visible}
+.brand .tt{display:flex;flex-direction:column;min-width:0;flex:none}
+.brand .tt b{font:700 15px/1.2 "Manrope",sans-serif;letter-spacing:.01em;white-space:nowrap}
+body[data-view="c"] .nav-k,body[data-view="k"] .nav-c{display:none}
+
+.sw2{display:flex;align-items:center;gap:10px}
+.sl{font:600 11px "Overpass",sans-serif;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.seg{position:relative;isolation:isolate;display:inline-flex;gap:4px;padding:4px;border-radius:99px;background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(255,255,255,.07);flex:none}
+.seg:before{content:"";position:absolute;z-index:-1;top:4px;bottom:4px;left:4px;width:calc((100% - 8px)/2);border-radius:99px;background:#3C5FBE;box-shadow:0 0 17px rgba(79,126,239,.36);transition:transform .22s ease,background .22s ease,box-shadow .22s ease}
+body[data-view="k"] .seg:before{transform:translateX(100%);background:#FF6839;box-shadow:0 0 17px rgba(255,104,57,.32)}
+.seg button{position:relative;min-width:90px;font:600 13px "Overpass",sans-serif;color:#cfd3da;background:transparent;border:0;border-radius:99px;padding:8px 20px;cursor:pointer;transition:color .22s ease}
+.seg button:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.seg button[data-v="c"][aria-pressed="true"]{color:#fff}
+.seg button[data-v="k"][aria-pressed="true"]{color:#0B0B0C}
+
+.tabsr{border-top:1px solid rgba(255,255,255,.1);margin:0 -24px;padding:0 24px}
+.tabs{max-width:1072px;margin:0 auto;display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+.tabs a{padding:11px 14px;font:600 13.5px "Overpass",sans-serif;color:var(--muted);text-decoration:none;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tabs a em{font-style:normal;font-size:11px;margin-right:8px;color:transparent;background:linear-gradient(180deg,#87A8ED 0%,#4F7EEF 50%,#3C5FBE 100%);-webkit-background-clip:text;background-clip:text}
+body[data-view="k"] .tabs a em{background-image:linear-gradient(180deg,#FF6839 0%,#FA4948 70%,#F83C4F 100%)}
+.tabs a:hover{color:#fff}
+.tabs a.on{color:#fff;border-bottom-color:var(--acc)}
+.tabs a:first-child{padding-left:0}
+
+/* Layout Framework */
+.wrap{max-width:1120px;margin:0 auto;padding:44px 24px 96px}
+section{margin-bottom:72px}
+.wrap>section:first-child .sh2{border-top:0;padding-top:0}
+.sh2{display:flex;align-items:baseline;gap:14px;border-top:1px solid rgba(255,255,255,.14);padding-top:28px}
+.sh2 span{font:600 13px "Overpass",sans-serif;color:transparent;background:linear-gradient(180deg,#87A8ED 0%,#4F7EEF 50%,#3C5FBE 100%);-webkit-background-clip:text;background-clip:text}
+body[data-view="k"] .sh2 span{background-image:linear-gradient(180deg,#FF6839 0%,#FA4948 70%,#F83C4F 100%)}
+.sh2 h2{margin:0;font:800 clamp(28px,4.4vw,42px) "Manrope",sans-serif}
+.slede{color:#B4C0CC;max-width:64ch;font-size:15px;line-height:1.6;margin:10px 0 28px}
+
+.row{display:block;margin-bottom:24px}
+.row>.card{display:block;width:100%}
+.row.intro{margin-bottom:28px}
+.cb{min-width:0;align-self:start;container-type:inline-size}
+h2{font-size:clamp(26px,4vw,38px);margin:0 0 10px;letter-spacing:-.01em}
+h3{font-size:20px;margin:0 0 10px}
+h4{font-size:15px;margin:0 0 6px}
+
+/* Typography Bindings: Client uses Manrope display; Clipper uses Space Grotesk display */
+.c h2,.c h3,.c h4{font-family:"Manrope",sans-serif;font-weight:700}
+.k h2,.k h3,.k h4{font-family:"Space Grotesk",sans-serif;font-weight:700}
+.lede{color:#B4C0CC;max-width:62ch;font-size:15px;line-height:1.6;margin:0}
+.k .lede{color:#A8A8A2;font-family:"Plus Jakarta Sans",sans-serif}
+.cd{font-size:14px;color:#B4C0CC;line-height:1.5;margin:0 0 24px}
+.k .cd{color:#A8A8A2;font-family:"Plus Jakarta Sans",sans-serif}
+.note{font-size:13px;line-height:1.55;color:#B4C0CC;margin:16px 0 0;max-width:70ch}
+.k .note{color:#A8A8A2}
+
+/* Dynamic System Views */
+[data-view="c"] .row .k,[data-view="k"] .row .c{display:none;visibility:hidden;pointer-events:none}
+body[data-view="c"] .row.intro>.k,body[data-view="k"] .row.intro>.c{display:none}
+.card{border-radius:16px;padding:32px;border:1px solid}
+body[data-view="c"] .card.c{background:#0A1230;border-color:#232E5A;box-shadow:0 14px 50px rgba(38,73,155,.08)}
+body[data-view="k"] .card.k{background:#0D0D0F;border-color:#27272B;box-shadow:0 14px 50px rgba(255,104,57,.035)}
+.card.m{position:relative;overflow:hidden;background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.16)}
+.card.m:before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#3C5FBE,#45B5FF 38%,#FF6839 68%,#F83C4F)}
+.card.m h3{font:800 20px "Manrope",sans-serif}
+
+/* Brand Tokens, Colors, Lists */
+.swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:16px}
+.sw{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px;display:flex;flex-direction:column;gap:2px}
+.pv{height:56px;border-radius:8px;border:1px solid rgba(255,255,255,.12);margin-bottom:12px}
+.pv.tk{display:flex;align-items:center;justify-content:center;font:700 15px "Manrope",sans-serif;margin-bottom:10px}
+.sn{font-size:13px;font-weight:600}.sh{font:12px ui-monospace,Menlo,monospace;color:#B4C0CC}.k .sh{color:#A8A8A2}
+
+.neu{display:grid;grid-template-columns:repeat(10,1fr);gap:12px}.neu .sh{font-size:11px}.neu .sw{padding:10px}
+@media (max-width:939px){.neu{grid-template-columns:repeat(5,1fr)}.neu .sh{font-size:12px}}
+@media (max-width:519px){.neu{grid-template-columns:repeat(2,1fr)}}
+@container (max-width:939px){.neu{grid-template-columns:repeat(5,1fr)}.neu .sh{font-size:12px}}
+@container (max-width:519px){.neu{grid-template-columns:repeat(2,1fr)}}
+
+.mx{display:flex;flex-direction:column;gap:12px}
+.mr{display:grid;grid-template-columns:52px repeat(5,1fr);gap:10px;align-items:center}
+.ml{font-size:12px;font-weight:600;color:#B4C0CC}
+.mc{height:48px;border-radius:8px;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;min-width:0}
+
+.grads{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.gi{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:16px}
+.gp{height:64px;border-radius:8px;border:0;background-repeat:no-repeat;background-clip:padding-box;box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);overflow:hidden;margin-bottom:14px}
+.gs{font:12px/1.5 ui-monospace,Menlo,monospace;color:#B4C0CC;margin:0 0 8px}.k .gs{color:#A8A8A2}
+.sts{display:flex;flex-wrap:wrap;gap:4px 12px}
+.st{display:inline-flex;align-items:center;gap:6px;font:11.5px ui-monospace,Menlo,monospace;color:#d5dae2;white-space:nowrap}
+.st i{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.35);flex:none}.st em{font-style:normal;opacity:.65}
+
+.lmg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.lmg.two{grid-template-columns:repeat(2,1fr)}
+.lm{position:relative;margin:0;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.12);border-radius:12px;overflow:hidden}
+.lm svg{display:block;width:100%;height:auto}
+.lm figcaption{padding:12px 14px 14px;font-size:12px;line-height:1.45;color:#B4C0CC;border-top:1px solid rgba(255,255,255,.1)}
+.k .lm figcaption{color:#A8A8A2}.lm b{display:block;font-size:13px;color:#fff;margin-bottom:2px}.k .lm b{color:#F9F9F8}
+.lm.bad{border-style:dashed;border-color:rgba(255,255,255,.32);margin-top:12px}
+.lm .x{position:absolute;top:8px;left:8px;z-index:1;font:600 11px "Overpass",sans-serif;padding:2px 8px;border-radius:99px;background:rgba(255,255,255,.16);color:#fff}
+.rls{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px;margin-top:24px}
+.rl{font-size:13px;line-height:1.5;color:#B4C0CC;border-left:2px solid #3C5FBE;padding-left:12px}.k .rl{color:#A8A8A2;border-color:#FF6839}
+.rl b{display:block;color:#fff;font-size:14px;margin-bottom:2px}.k .rl b{color:#F9F9F8}
+
+.color-misuse{margin:6px 0 30px;padding:24px;border:1px solid rgba(255,255,255,.16);border-radius:16px;background:rgba(255,255,255,.025)}
+.color-misuse>h3{font:800 20px "Manrope",sans-serif;margin:0 0 8px}
+.color-misuse>.cd{margin-bottom:20px}
+.misuse-grid{display:flex;gap:12px;overflow-x:auto;padding-bottom:10px;scroll-snap-type:x proximity;scrollbar-color:rgba(255,255,255,.35) transparent}
+.misuse-grid .lm{flex:0 0 190px;scroll-snap-align:start}
+.misuse-grid .lm figcaption{font-size:11px;padding:9px 10px}
+.misuse-grid .lm.bad{margin:0;border:1px solid rgba(255,116,116,.4);background:rgba(100,19,30,.09)}
+.misuse-grid .lm .x{background:#962e3c;color:#fff}
+
+.kv{border-collapse:collapse;width:100%;font-size:13.5px;margin-top:16px}
+.kv th,.kv td{text-align:left;padding:10px 12px 10px 0;border-top:1px solid rgba(255,255,255,.12);vertical-align:top}
+.kv th{font-weight:600;white-space:nowrap;width:1%;padding-right:24px}.kv td{color:#B4C0CC}.k .kv td{color:#A8A8A2}
+.card>.cb>.kv:first-child,.cb>.kv:first-child{margin-top:0}
+.wm{margin:0 0 8px}.wm svg,.wmk{width:min(360px,100%);height:auto;color:#fff;display:block}.wm.p{padding:28px 20px}.wm.p svg{margin:0 auto}
+.ar{padding:14px 0;border-top:1px solid rgba(255,255,255,.12)}.at{display:flex;justify-content:space-between;margin-bottom:8px;font-weight:700}
+.ab{height:6px;border-radius:4px;background:rgba(255,255,255,.12);margin-bottom:8px}.ab i{display:block;height:100%;border-radius:4px}.c .ab i{background:linear-gradient(90deg,#87A8ED,#3C5FBE)}.k .ab i{background:#FF6839}
+.ad{font-size:13px;color:#B4C0CC}.k .ad{color:#A8A8A2}
+.rf{font-size:12.5px;line-height:1.5;color:#d5dae2;margin:8px 0 0}
+.wp{padding:26px 20px}.wmv{display:block;width:100%;height:auto}
+
+.cs2{display:grid;grid-template-columns:minmax(200px,320px) 1fr;gap:32px;align-items:center}.cs{width:100%;height:auto}
+.ct2 td:not(:first-child){white-space:nowrap}
+.space-diagrams{display:grid;gap:12px}.space-diagrams figure{margin:0;padding:12px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:rgba(255,255,255,.025)}
+.space-diagrams .cs{display:block;width:100%;height:auto}.space-diagrams figcaption{font-size:12px;color:#B4C0CC;margin-top:4px}
+.min-previews{margin-top:24px;padding-top:20px;border-top:1px solid rgba(255,255,255,.12)}.min-previews h4{font:700 14px "Manrope",sans-serif;margin:0 0 12px}
+.min-preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.min-preview{margin:0;border:1px solid rgba(255,255,255,.12);border-radius:10px;overflow:hidden}
+.min-stage{min-height:90px;padding:14px;display:flex;align-items:center;justify-content:center;background:#050B22}.min-stage svg{display:block;height:auto;max-width:100%}
+.min-preview figcaption{padding:9px 12px;border-top:1px solid rgba(255,255,255,.1);font-size:12px;color:#B4C0CC}
+.min-preview [href="#wm-t"],.min-preview [href="#mk-P"],.space-diagrams [href="#wm-t"]{fill:var(--acc)}
+.min-preview svg[aria-label^="App tile"] [href="#mk-P"]{fill:#fff}
+
+.rr{display:grid;grid-template-columns:28px 1fr auto;gap:12px;align-items:center;padding:9px 0;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px}.rr i{height:22px;border-radius:6px;border:1px solid rgba(255,255,255,.2)}.rr span{font:12px ui-monospace,Menlo,monospace;color:#B4C0CC}.k .rr span{color:#A8A8A2}
+.lbl{font-size:12px;font-weight:600;opacity:.75;margin:22px 0 10px}
+.ratio{display:flex;height:16px;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.15)}.ratio i{display:block}
+.rlg{display:flex;flex-wrap:wrap;gap:4px 16px;margin-top:8px;font-size:12px;color:#B4C0CC}
+
+.vr{margin-top:22px}.vr:first-child{margin-top:0}
+.vt{display:flex;justify-content:space-between;align-items:baseline;gap:16px;margin-bottom:8px;font-size:13px}.vt b{font-size:14px;white-space:nowrap}.vt span{color:#B4C0CC;text-align:right}
+.v3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.pf{margin:0}.pn{display:block;width:100%;height:auto;border-radius:10px;border:1px solid rgba(255,255,255,.14)}
+.pf figcaption{font-size:11.5px;color:var(--muted);margin-top:6px}
+
+.ff{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;padding:16px 0;border-top:1px solid rgba(255,255,255,.12)}.ff:first-child{border-top:0;padding-top:0}
+.ffa{font-size:88px;line-height:1;min-width:120px}
+.ffd b{display:block;font-size:18px;margin-bottom:4px}.ffd span{display:block;font-size:13px;color:#B4C0CC;line-height:1.5}
+
+/* Fallback & Responsive Media Queries */
+@media(max-width:860px){.sl{display:block}.tt span{display:none}}
+@media(max-width:720px){
+  .mr{grid-template-columns:40px repeat(5,1fr);gap:6px}.mc{font-size:0;height:36px}
+  .card{padding:20px}.lmg{grid-template-columns:repeat(2,1fr)}.cs2{grid-template-columns:1fr}
+  .brand .nav-wordmark{width:120px}.brand .tt b{font-size:13px}.min-preview-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){.v3{grid-template-columns:1fr}.vt{flex-direction:column;gap:2px}.vt span{text-align:left}}
+@media(max-width:620px){.ff{grid-template-columns:1fr;gap:8px}}
+@media(max-width:430px){.bi{flex-wrap:wrap}.sw2{margin-left:auto}.brand{gap:8px}.brand .nav-wordmark{width:105px}.seg button{padding:7px 10px}}
+@container (max-width:640px){.v3{grid-template-columns:1fr}.vt{flex-direction:column;gap:2px}.vt span{text-align:left}}
+@container (max-width:620px){.ff{grid-template-columns:1fr;gap:8px}}
+@media(prefers-reduced-motion:reduce){.seg:before,.seg button{transition:none}}
+
+
+/* Clear-space examples precede the rules; preview colors follow the active system. */
+.space-diagrams{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+.space-diagrams figure{display:flex;flex-direction:column;justify-content:space-between}
+.space-diagrams .cs{max-height:270px;object-fit:contain}
+.clear-rules{margin-top:24px;max-width:840px}.clear-rules .kv{margin-top:0}
+.min-stage{background:#050B22}
+body[data-view="k"] .min-stage{background:#0B0B0C}
+body[data-view="k"] .min-preview svg[aria-label^="App tile"] rect{fill:url(#g-kc)}
+.min-preview svg[aria-label^="App tile"] [href="#mk-P"]{fill:#fff}
+.brand{gap:0}.brand .nav-wordmark{display:block;width:132px;height:auto;aspect-ratio:512/91.9;margin:18px 28px 18px 0;flex:none}
+body{--logo-accent-fill:url(#g-ca)}body[data-view="k"]{--logo-accent-fill:url(#g-kc)}
+body[data-view="c"] .meaning-k,body[data-view="k"] .meaning-c{display:none}
+.lmg.two .wp{display:flex;align-items:center;justify-content:center;min-height:180px}
+.lmg.two .wp svg{width:min(100%,440px);height:auto;max-height:150px}
+.lmg.two>figure:nth-child(3)>svg,.lmg.two>figure:nth-child(4)>svg{display:block;width:190px;height:180px;max-width:55%;margin:0 auto;object-fit:contain}
+.min-preview-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+.min-preview-grid>figure:nth-child(-n+2){grid-column:span 3}
+.min-preview-grid>figure:nth-child(n+3){grid-column:span 2}
+/* v2: the guide is set in the active system's own fonts. */
+body{font-family:"Manrope",sans-serif}
+body[data-view="k"]{font-family:"Inter",sans-serif}
+.sh2 h2,.card h3,.card h4,.row.intro h2{font-family:"Overpass",sans-serif;font-weight:800}
+body[data-view="k"] .sh2 h2,body[data-view="k"] .card h3,body[data-view="k"] .card h4,body[data-view="k"] .row.intro h2{font-family:"Space Grotesk",sans-serif;font-weight:700}
+.tabs a,.seg button,.sl,.sh2 span,.lm .x{font-family:inherit}
+.card.m:before{background:linear-gradient(90deg,#87A8ED,#3C5FBE)}
+body[data-view="k"] .card.m:before{background:linear-gradient(90deg,#FF6839,#F83C4F)}
+.slede a,.kv a{color:var(--acc-text)}body{--acc-text:#87A8ED}body[data-view="k"]{--acc-text:#FF6839}
+.tabs{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 40px),transparent);padding-right:40px}
+.misuse-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));overflow:visible;padding-bottom:0}
+.misuse-grid .lm{flex:none}
+.sr{font-size:11px;line-height:1.35;color:var(--muted);margin-top:4px}
+.tu{font-size:12.5px;line-height:1.45;color:var(--muted);margin:8px 0 0}
+.neu{grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}
+.ts{display:grid;grid-template-columns:minmax(150px,220px) 1fr;gap:20px;align-items:baseline;padding:14px 0;border-top:1px solid rgba(255,255,255,.1)}
+.ts:first-child{border-top:0;padding-top:0}
+.tsn b{display:block;font-size:13px}.tsn span{display:block;font:12px/1.4 ui-monospace,Menlo,monospace;color:var(--muted)}
+.tss{min-width:0;overflow-wrap:anywhere;color:#fff}
+.tss.text-display-hero{font-size:clamp(32px,5vw,60px)}
+.sp{display:flex;flex-direction:column;gap:6px}.spr{display:flex;align-items:center;gap:12px;font:12px ui-monospace,Menlo,monospace;color:var(--muted)}
+.spr i{display:block;height:12px;border-radius:2px;background:var(--acc);flex:none}
+.rad{display:flex;flex-wrap:wrap;gap:16px}.radi{display:flex;flex-direction:column;gap:6px;align-items:center;font:12px ui-monospace,Menlo,monospace;color:var(--muted)}
+.radi i{display:block;width:64px;height:64px;border:1.5px solid rgba(255,255,255,.5);background:rgba(255,255,255,.04)}
+.ph{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:99px;background:rgba(255,181,33,.15);color:#FFB521;margin-right:6px}
+.v4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.lt{display:flex;align-items:center;justify-content:center;aspect-ratio:1026/276;border-radius:10px;padding:8% 10%}
+.lt img{display:block;max-width:100%;max-height:100%}.lt.mono img{max-height:70%}
+.lt.on-light{background:#fff}.lt.on-dark{background:#050B22}body[data-view="k"] .lt.on-dark{background:#0B0B0C}
+.intro-note{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:13px;color:var(--muted);margin:-12px 0 0}
+@media(max-width:720px){.ts{grid-template-columns:1fr;gap:6px}.v4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:430px){.bi{padding-bottom:6px}}
+.k .cd,.k .lede{font-family:inherit}
+@media(max-width:720px){.space-diagrams{grid-template-columns:1fr}.min-preview-grid{grid-template-columns:1fr}.min-preview-grid>figure{grid-column:auto!important}.brand .nav-wordmark{width:112px;margin:14px 20px 14px 0}}
+</style>
+</head>
+<body data-view="c">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+<defs>
+<path id="mk-K" d="M242.937 289.972L225.926 301.555C222.437 303.931 217.712 301.431 217.712 297.211V237.781C217.712 233.563 222.431 231.064 225.92 233.432L225.929 233.438L242.937 244.985L275.198 266.887L347 195H309.483C305.603 195 301.781 195.951 298.352 197.769L242.937 227.15V206.916C242.937 200.357 237.624 195.04 231.065 195.034L199.891 195.009C193.325 195.004 188 200.325 188 206.891V328.083C188 334.645 193.319 339.965 199.882 339.965H231.057C237.618 339.965 242.939 334.646 242.939 328.083V309.646L294.958 337.228C298.387 339.047 302.209 339.998 306.09 339.998H347L275.085 268.084L242.937 289.973V289.972Z"></path>
+<path id="mk-P" d="M229.699 248.576C228.584 247.897 227.156 248.699 227.156 250.004V284.993C227.156 286.298 228.586 287.101 229.7 286.419L243.926 277.723L258.361 268.9C259.429 268.248 259.427 266.697 258.359 266.045L243.926 257.249L229.697 248.576H229.699Z"></path>
+<lineargradient id="g-ca" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#87A8ED"></stop><stop offset="50%" stop-color="#4F7EEF"></stop><stop offset="100%" stop-color="#3C5FBE"></stop></lineargradient>
+<lineargradient id="g-cb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ECEFF2"></stop><stop offset="1" stop-color="#BCD7FF"></stop></lineargradient>
+<lineargradient id="g-cc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF"></stop><stop offset="1" stop-color="#87A8ED"></stop></lineargradient>
+<lineargradient id="g-ka" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF6839"></stop><stop offset="1" stop-color="#F83C4F"></stop></lineargradient>
+<lineargradient id="g-kb" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF8A5C"></stop><stop offset="0.5" stop-color="#FC863C"></stop><stop offset="1" stop-color="#FF6839"></stop></lineargradient>
+<lineargradient id="g-kc" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF6839"></stop><stop offset="0.7" stop-color="#FA4948"></stop><stop offset="1" stop-color="#F83C4F"></stop></lineargradient>
+<g id="wm-s">
+<path d="M2187.25 273.631L2170.14 285.172C2166.64 287.54 2161.88 285.05 2161.88 280.843V221.631C2161.88 217.428 2166.63 214.937 2170.14 217.298H2170.15L2187.25 228.808L2219.7 250.631L2291.91 179.004H2254.18C2250.28 179.004 2246.44 179.951 2242.99 181.764L2187.25 211.037V190.877C2187.25 184.343 2181.91 179.046 2175.31 179.038L2143.96 179.012C2137.36 179.008 2132 184.309 2132 190.851V311.601C2132 318.139 2137.35 323.44 2143.95 323.44H2175.3C2181.9 323.44 2187.25 318.139 2187.25 311.601V293.233L2239.57 320.714C2243.02 322.527 2246.86 323.474 2250.77 323.474H2291.91L2219.59 251.822L2187.25 273.631Z"></path>
+<path d="M2371.68 280.376H2322.44V190.843C2322.44 184.305 2317.09 179.004 2310.49 179.004H2303.55L2267.19 215.064V287.448L2303.55 323.47H2371.68C2378.28 323.474 2383.63 318.173 2383.63 311.635V292.211C2383.63 285.673 2378.28 280.372 2371.68 280.372V280.376Z"></path>
+<path d="M2436.49 179.53H2405.14C2398.54 179.53 2393.19 184.83 2393.19 191.369V312.161C2393.19 318.699 2398.54 324 2405.14 324H2436.49C2443.09 324 2448.44 318.699 2448.44 312.161V191.369C2448.44 184.83 2443.09 179.53 2436.49 179.53Z"></path>
+<path d="M2436.49 179.53H2405.14C2398.54 179.53 2393.19 184.83 2393.19 191.369V312.161C2393.19 318.699 2398.54 324 2405.14 324H2436.49C2443.09 324 2448.44 318.699 2448.44 312.161V191.369C2448.44 184.83 2443.09 179.53 2436.49 179.53Z" transform="translate(340.48,0)"></path>
+<path d="M2895.27 191.369V239.343L2851.83 184.095C2849.56 181.217 2846.08 179.53 2842.4 179.53H2810.43C2803.83 179.53 2798.48 184.831 2798.48 191.369V312.161C2798.48 318.699 2803.83 324 2810.43 324H2838.62C2845.22 324 2850.57 318.699 2850.57 312.161V262.403C2850.57 261.612 2850.57 260.829 2850.57 260.051L2896.86 319.401C2899.12 322.304 2902.62 324 2906.32 324H2935.41C2942.01 324 2947.36 318.699 2947.36 312.161V191.369C2947.36 184.831 2942.01 179.53 2935.41 179.53H2907.22C2900.62 179.53 2895.27 184.831 2895.27 191.369Z"></path>
+<path d="M2570.09 190.982C2559.6 182.908 2543.97 179 2522.34 179H2469.95C2463.35 179 2458 184.301 2458 190.839V311.644C2458 318.181 2463.35 323.483 2469.95 323.483H2501.31C2507.91 323.483 2513.26 318.181 2513.26 311.644V280.839H2519.97C2532.85 280.839 2544.4 278.706 2554.24 274.515C2564.38 270.228 2572.33 264.002 2577.91 256.046C2583.45 248.065 2586.27 238.855 2586.27 228.674C2586.27 211.887 2580.82 199.22 2570.09 190.978V190.982ZM2544.4 230.462C2544.4 235.578 2542.7 239.411 2539.46 241.922C2536.25 244.409 2531.5 245.57 2524.9 245.57H2513.81V213.133H2524.9C2531.5 213.133 2536.25 214.294 2539.46 216.78C2542.7 219.292 2544.4 223.125 2544.4 228.241C2544.4 228.619 2544.38 228.973 2544.36 229.351C2544.38 229.73 2544.4 230.083 2544.4 230.462Z"></path>
+<path d="M2570.09 190.982C2559.6 182.908 2543.97 179 2522.34 179H2469.95C2463.35 179 2458 184.301 2458 190.839V311.644C2458 318.181 2463.35 323.483 2469.95 323.483H2501.31C2507.91 323.483 2513.26 318.181 2513.26 311.644V280.839H2519.97C2532.85 280.839 2544.4 278.706 2554.24 274.515C2564.38 270.228 2572.33 264.002 2577.91 256.046C2583.45 248.065 2586.27 238.855 2586.27 228.674C2586.27 211.887 2580.82 199.22 2570.09 190.978V190.982ZM2544.4 230.462C2544.4 235.578 2542.7 239.411 2539.46 241.922C2536.25 244.409 2531.5 245.57 2524.9 245.57H2513.81V213.133H2524.9C2531.5 213.133 2536.25 214.294 2539.46 216.78C2542.7 219.292 2544.4 223.125 2544.4 228.241C2544.4 228.619 2544.38 228.973 2544.36 229.351C2544.38 229.73 2544.4 230.083 2544.4 230.462Z" transform="translate(137.84,0)"></path>
+</g>
+<g id="wm-e">
+<use href="#wm-s"></use>
+<path d="M2569.58 1094.5C2559.19 1086.42 2543.72 1082.51 2522.31 1082.51H2470.47C2463.94 1082.51 2458.64 1087.81 2458.64 1094.35V1215.16C2458.64 1221.7 2463.94 1227 2470.47 1227H2501.5C2508.03 1227 2513.33 1221.7 2513.33 1215.16V1184.35H2519.97C2532.73 1184.35 2544.15 1182.22 2553.89 1178.03C2563.92 1173.74 2571.8 1167.52 2577.31 1159.56C2582.8 1151.58 2585.59 1142.37 2585.59 1132.19C2585.59 1115.4 2580.2 1102.73 2569.58 1094.49L2569.58 1094.5ZM2554.17 1137.97C2554.17 1141.36 2551.42 1144.11 2548.03 1144.11H2533.13V1159.03C2533.13 1162.42 2530.38 1165.17 2526.99 1165.17H2517.23C2513.84 1165.17 2511.09 1162.42 2511.09 1159.03V1144.11H2496.19C2492.8 1144.11 2490.05 1141.36 2490.05 1137.97V1128.19C2490.05 1124.8 2492.8 1122.04 2496.19 1122.04H2511.09V1107.13C2511.09 1103.73 2513.84 1100.98 2517.23 1100.98H2526.99C2530.38 1100.98 2533.13 1103.73 2533.13 1107.13V1122.04H2548.03C2551.42 1122.04 2554.17 1124.8 2554.17 1128.19V1137.97Z" transform="translate(-.64,-903.5)"></path>
+<path d="M2705.99 1094.5C2695.6 1086.42 2680.14 1082.51 2658.73 1082.51H2606.88C2600.35 1082.51 2595.05 1087.81 2595.05 1094.35V1215.16C2595.05 1221.7 2600.35 1227 2606.88 1227H2637.92C2644.45 1227 2649.74 1221.7 2649.74 1215.16V1184.35H2656.39C2669.14 1184.35 2680.56 1182.22 2690.31 1178.03C2700.34 1173.74 2708.21 1167.52 2713.73 1159.56C2719.22 1151.58 2722.01 1142.37 2722.01 1132.19C2722.01 1115.4 2716.61 1102.73 2705.99 1094.49L2705.99 1094.5ZM2623.63 1132.77C2623.63 1137.01 2620.19 1140.45 2615.96 1140.45C2611.72 1140.45 2608.29 1137.01 2608.29 1132.77V1127.23C2608.29 1122.99 2611.72 1119.55 2615.96 1119.55C2620.19 1119.55 2623.63 1122.99 2623.63 1127.23V1132.77ZM2644.91 1152.59C2644.91 1156.83 2641.48 1160.27 2637.24 1160.27C2633 1160.27 2629.57 1156.83 2629.57 1152.59V1112.95C2629.57 1108.71 2633 1105.27 2637.24 1105.27C2641.48 1105.27 2644.91 1108.71 2644.91 1112.95V1152.59ZM2666.2 1164.73C2666.2 1168.97 2662.76 1172.41 2658.53 1172.41C2654.29 1172.41 2650.86 1168.97 2650.86 1164.73V1095.27C2650.86 1091.03 2654.29 1087.59 2658.53 1087.59C2662.76 1087.59 2666.2 1091.03 2666.2 1095.27V1164.72V1164.73ZM2687.48 1152.59C2687.48 1156.83 2684.05 1160.27 2679.81 1160.27C2675.57 1160.27 2672.14 1156.83 2672.14 1152.59V1112.95C2672.14 1108.71 2675.57 1105.27 2679.81 1105.27C2684.05 1105.27 2687.48 1108.71 2687.48 1112.95V1152.59ZM2708.77 1132.77C2708.77 1137.01 2705.33 1140.45 2701.1 1140.45C2696.86 1140.45 2693.43 1137.01 2693.43 1132.77V1127.23C2693.43 1122.99 2696.86 1119.55 2701.1 1119.55C2705.33 1119.55 2708.77 1122.99 2708.77 1127.23V1132.77Z" transform="translate(.79,-903.5)"></path>
+</g>
+<path id="wm-t" d="M2173.94 232.389C2172.81 231.712 2171.38 232.511 2171.38 233.811V268.672C2171.38 269.972 2172.82 270.771 2173.94 270.094L2188.24 261.427L2202.76 252.634C2203.84 251.982 2203.83 250.438 2202.76 249.79L2188.25 241.026L2173.94 232.385V232.389Z"></path>
+<g id="wm-eo">
+<g transform="translate(-.64,-903.5)">
+<path d="M2527.04 1100.65C2530.43 1100.65 2533.18 1103.4 2533.18 1106.79V1121.71H2548.08C2551.47 1121.71 2554.22 1124.46 2554.22 1127.85V1137.63C2554.22 1141.02 2551.47 1143.77 2548.08 1143.77H2533.18V1158.69C2533.18 1162.08 2530.43 1164.84 2527.04 1164.84H2517.28C2513.88 1164.84 2511.14 1162.08 2511.14 1158.69V1143.77H2496.24C2492.85 1143.77 2490.1 1141.02 2490.1 1137.63V1127.85C2490.1 1124.46 2492.85 1121.71 2496.24 1121.71H2511.14V1106.79C2511.14 1103.4 2513.88 1100.65 2517.28 1100.65H2527.04Z"></path>
+</g>
+<g transform="translate(.79,-903.5)">
+<path d="M2658.57 1087.25C2662.81 1087.25 2666.24 1090.69 2666.24 1094.93V1164.39C2666.24 1168.63 2662.81 1172.07 2658.57 1172.07C2654.34 1172.07 2650.9 1168.63 2650.9 1164.39V1094.93C2650.9 1090.69 2654.34 1087.25 2658.57 1087.25Z"></path>
+<path d="M2637.29 1104.94C2641.52 1104.94 2644.96 1108.38 2644.96 1112.62V1152.26C2644.96 1156.5 2641.52 1159.93 2637.29 1159.93C2633.05 1159.93 2629.62 1156.5 2629.62 1152.26V1112.62C2629.62 1108.38 2633.05 1104.94 2637.29 1104.94Z"></path>
+<path d="M2637.29 1104.94C2641.52 1104.94 2644.96 1108.38 2644.96 1112.62V1152.26C2644.96 1156.5 2641.52 1159.93 2637.29 1159.93C2633.05 1159.93 2629.62 1156.5 2629.62 1152.26V1112.62C2629.62 1108.38 2633.05 1104.94 2637.29 1104.94Z" transform="translate(42.57,0)"></path>
+<path d="M2616 1119.21C2620.24 1119.21 2623.67 1122.65 2623.67 1126.89V1132.44C2623.67 1136.68 2620.24 1140.11 2616 1140.11C2611.77 1140.11 2608.33 1136.68 2608.33 1132.44V1126.89C2608.33 1122.65 2611.77 1119.21 2616 1119.21Z"></path>
+<path d="M2616 1119.21C2620.24 1119.21 2623.67 1122.65 2623.67 1126.89V1132.44C2623.67 1136.68 2620.24 1140.11 2616 1140.11C2611.77 1140.11 2608.33 1136.68 2608.33 1132.44V1126.89C2608.33 1122.65 2611.77 1119.21 2616 1119.21Z" transform="translate(85.14,0)"></path>
+</g>
+</g>
+<g id="source-simple"><path d="M150.5,64.09h-30.92V7.34c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M34.7,59.81l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.85c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.17h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.36c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02C3.36-.16,0,3.2,0,7.34v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.67c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="var(--logo-accent-fill)"></path><rect x="164.01" y=".17" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y=".17" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.67v30.41l-27.28-35.02c-1.42-1.83-3.61-2.89-5.92-2.89h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.67c0-4.14-3.36-7.5-7.5-7.5h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path><path d="M275.1,7.75c-6.59-5.12-16.41-7.59-29.99-7.59h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.14,3.36,7.5,7.5,7.5h19.69c4.15,0,7.51-3.36,7.51-7.5v-19.53h4.21c8.09,0,15.34-1.35,21.53-4,6.36-2.72,11.36-6.67,14.85-11.71,3.49-5.06,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM258.97,32.28c0,3.24-1.07,5.67-3.11,7.27-2.01,1.57-5,2.31-9.14,2.31h-6.96v-20.56h6.96c4.14,0,7.13.73,9.14,2.31,2.04,1.59,3.11,4.02,3.11,7.26,0,.24-.02.47-.03.71.01.24.03.46.03.7Z" fill="#fff"></path><path d="M361.65,7.75c-6.59-5.12-16.41-7.59-29.99-7.59h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.14,3.36,7.5,7.5,7.5h19.69c4.15,0,7.51-3.36,7.51-7.5v-19.53h4.22c8.08,0,15.33-1.35,21.52-4,6.36-2.72,11.36-6.67,14.85-11.71,3.49-5.06,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM345.52,32.28c0,3.24-1.07,5.67-3.11,7.27-2.01,1.57-5,2.31-9.14,2.31h-6.96v-20.56h6.96c4.14,0,7.13.73,9.14,2.31,2.04,1.59,3.11,4.02,3.11,7.26,0,.24-.02.47-.03.71.01.24.03.46.03.7Z" fill="#fff"></path></g><g id="source-full"><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="#fff"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="#fff"></path><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="var(--logo-accent-fill)"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path></g><g id="source-full-accent"><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="#fff"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="#fff"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="var(--logo-accent-fill)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="var(--logo-accent-fill)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="var(--logo-accent-fill)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="var(--logo-accent-fill)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="var(--logo-accent-fill)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="var(--logo-accent-fill)" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="var(--logo-accent-fill)"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path></g><g id="source-mono"><path d="M176.91,305.32l-54.78,37.3h0c-11.24,7.65-26.45-.4-26.45-13.99v-191.37c0-13.58,15.19-21.63,26.43-14l.03.02,54.77,37.18,103.88,70.53L512-.5h-120.81c-12.5,0-24.8,3.06-35.85,8.92l-178.44,94.61V37.87C176.91,16.75,159.79-.37,138.68-.39l-100.38-.08C17.15-.49,0,16.65,0,37.79v390.25C0,449.17,17.13,466.3,38.26,466.3h100.38c21.13,0,38.26-17.13,38.26-38.26v-59.37l167.51,88.82c11.04,5.85,23.35,8.92,35.85,8.92h131.74l-231.57-231.57-103.52,70.49Z" fill="#fff"></path><path d="M134.27,172.02c-3.59-2.19-8.19.4-8.19,4.6v112.67c0,4.2,4.6,6.79,8.19,4.59l45.81-28.01,46.48-28.41c3.44-2.1,3.43-7.09,0-9.19l-46.47-28.33-45.82-27.93Z" fill="var(--logo-accent-fill)"></path></g><linearGradient id="g-vibrant-orange" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF7434"></stop><stop offset="100%" stop-color="#FF582E"></stop></linearGradient></defs>
+</svg>
+
+<nav class="bar">
+  <div class="bi">
+    <div class="brand">
+      <svg class="nav-wordmark" viewbox="0 0 512 91.9" role="img" aria-label="Klippin wordmark"><defs><lineargradient id="nav-c-letters" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FFFFFF"></stop><stop offset="100%" stop-color="#BCD7FF"></stop></lineargradient><lineargradient id="nav-k-letters" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#FF8A5C"></stop><stop offset="100%" stop-color="#FF6839"></stop></lineargradient></defs><g class="nav-c"><path d="M150.5,64.09h-30.92V7.34c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="url(#nav-c-letters)"></path><path d="M34.7,59.81l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.85c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.17h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.36c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02C3.36-.16,0,3.2,0,7.34v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="url(#nav-c-letters)"></path><path d="M26.33,33.67c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="var(--acc)"></path><rect x="164.01" y=".17" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#nav-c-letters)"></rect><rect x="377.81" y=".17" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#nav-c-letters)"></rect><path d="M479.29,7.67v30.41l-27.28-35.02c-1.42-1.83-3.61-2.89-5.92-2.89h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.67c0-4.14-3.36-7.5-7.5-7.5h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="url(#nav-c-letters)"></path><path d="M275.1,7.75c-6.59-5.12-16.41-7.59-29.99-7.59h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.14,3.36,7.5,7.5,7.5h19.69c4.15,0,7.51-3.36,7.51-7.5v-19.53h4.21c8.09,0,15.34-1.35,21.53-4,6.36-2.72,11.36-6.67,14.85-11.71,3.49-5.06,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM258.97,32.28c0,3.24-1.07,5.67-3.11,7.27-2.01,1.57-5,2.31-9.14,2.31h-6.96v-20.56h6.96c4.14,0,7.13.73,9.14,2.31,2.04,1.59,3.11,4.02,3.11,7.26,0,.24-.02.47-.03.71.01.24.03.46.03.7Z" fill="url(#nav-c-letters)"></path><path d="M361.65,7.75c-6.59-5.12-16.41-7.59-29.99-7.59h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.14,3.36,7.5,7.5,7.5h19.69c4.15,0,7.51-3.36,7.51-7.5v-19.53h4.22c8.08,0,15.33-1.35,21.52-4,6.36-2.72,11.36-6.67,14.85-11.71,3.49-5.06,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM345.52,32.28c0,3.24-1.07,5.67-3.11,7.27-2.01,1.57-5,2.31-9.14,2.31h-6.96v-20.56h6.96c4.14,0,7.13.73,9.14,2.31,2.04,1.59,3.11,4.02,3.11,7.26,0,.24-.02.47-.03.71.01.24.03.46.03.7Z" fill="url(#nav-c-letters)"></path></g><g class="nav-k"><path d="M150.5,64.09h-30.92V7.34c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="url(#nav-k-letters)"></path><path d="M34.7,59.81l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.85c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.17h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.36c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02C3.36-.16,0,3.2,0,7.34v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="url(#nav-k-letters)"></path><path d="M26.33,33.67c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="var(--acc)"></path><rect x="164.01" y=".17" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#nav-k-letters)"></rect><rect x="377.81" y=".17" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#nav-k-letters)"></rect><path d="M479.29,7.67v30.41l-27.28-35.02c-1.42-1.83-3.61-2.89-5.92-2.89h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.67c0-4.14-3.36-7.5-7.5-7.5h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="url(#nav-k-letters)"></path><path d="M275.1,7.75c-6.59-5.12-16.41-7.59-29.99-7.59h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.14,3.36,7.5,7.5,7.5h19.69c4.15,0,7.51-3.36,7.51-7.5v-19.53h4.21c8.09,0,15.34-1.35,21.53-4,6.36-2.72,11.36-6.67,14.85-11.71,3.49-5.06,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM258.97,32.28c0,3.24-1.07,5.67-3.11,7.27-2.01,1.57-5,2.31-9.14,2.31h-6.96v-20.56h6.96c4.14,0,7.13.73,9.14,2.31,2.04,1.59,3.11,4.02,3.11,7.26,0,.24-.02.47-.03.71.01.24.03.46.03.7Z" fill="url(#nav-k-letters)"></path><path d="M361.65,7.75c-6.59-5.12-16.41-7.59-29.99-7.59h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.14,3.36,7.5,7.5,7.5h19.69c4.15,0,7.51-3.36,7.51-7.5v-19.53h4.22c8.08,0,15.33-1.35,21.52-4,6.36-2.72,11.36-6.67,14.85-11.71,3.49-5.06,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM345.52,32.28c0,3.24-1.07,5.67-3.11,7.27-2.01,1.57-5,2.31-9.14,2.31h-6.96v-20.56h6.96c4.14,0,7.13.73,9.14,2.31,2.04,1.59,3.11,4.02,3.11,7.26,0,.24-.02.47-.03.71.01.24.03.46.03.7Z" fill="url(#nav-k-letters)"></path></g></svg><div class="tt"><b>Brand Bible</b></div>
+    </div>
+    <div class="sw2">
+      <div class="seg" role="group" aria-label="System">
+        <button data-v="c" aria-pressed="true">Client</button>
+        <button data-v="k" aria-pressed="false">Clipper</button>
+      </div>
+    </div>
+  </div>
+  <div class="tabsr">
+    <div class="tabs">
+      <a href="#introduction"><em>01</em>Introduction</a>
+      <a href="#brand"><em>02</em>Brand</a>
+      <a href="#logo"><em>03</em>Logo</a>
+      <a href="#color"><em>04</em>Color</a>
+      <a href="#typography"><em>05</em>Typography</a>
+      <a href="#core"><em>06</em>Shared core</a>
+      <a href="#product"><em>07</em>Product UI</a>
+    </div>
+  </div>
+</nav>
+
+<main class="wrap">
+<section id="introduction">
+  <div class="sh2"><span>01</span><h2>Introduction</h2></div>
+  <p class="slede">Klippin runs one infrastructure with two equal systems: Client for the brands that pay for distribution, and Clipper for the creators who clip. They share one logo family, one shared core (status colours, spacing, radius, icons, voice) and one token file. Every system chapter has the same sections on both sides; switch to read the other.</p>
+  <p class="intro-note"><span>Version 2 · 2026-10-27</span><span>Tokens v3.0.0 (reference/klippin_tokens.css)</span><span>Systems are listed alphabetically. Neither is the default.</span></p>
+</section>
+
+<section id="brand">
+  <div class="sh2"><span>02</span><h2>Brand</h2></div>
+  <p class="slede">What the mark means, how each archetype shows up, and how purpose, positioning and audience differ by system.</p>
+  
+  <div class="row">
+    <div class="card m">
+      <h3>Logo meaning</h3>
+      <p class="cd">Each part of the mark stands for one thing. Together they stand for entertainment.</p>
+      <div class="cb">
+        <div class="wm">
+          <svg viewbox="0 0 512 91.9" role="img" aria-label="Klippin entertainment wordmark with accents">
+            <g class="meaning-c"><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="#fff"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="#fff"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="url(#g-ca)"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path></g><g class="meaning-k"><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="#fff"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="#fff"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="url(#g-kc)"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path></g></svg>
+        </div>
+        <table class="kv">
+          <tr><th>K play symbol</th><td>Video</td></tr>
+          <tr><th>K blade</th><td>Clipping (cutting)</td></tr>
+          <tr><th>Plus</th><td>Gaming (gamepad buttons)</td></tr>
+          <tr><th>Sound wave</th><td>Music</td></tr>
+          <tr><th>Together</th><td>Entertainment</td></tr>
+        </table>
+        <p class="note">The wordmark is artwork, never retyped.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c">
+      <h3>Archetypes</h3>
+      <p class="cd">Enterprise-facing. Scale, control and proof.</p>
+      <div class="cb">
+        <div class="ar">
+          <div class="at"><b>Magician</b><span>50%</span></div>
+          <div class="ab"><i style="width:50%"></i></div>
+          <div class="ad">Luminous gradients. Transformation claims.</div>
+          <p class="rf">Blue gradients and the glowing play triangle turn raw content into something bigger. Gradients carry the hero moments on the midnight canvas.</p>
+        </div>
+        <div class="ar">
+          <div class="at"><b>Ruler</b><span>30%</span></div>
+          <div class="ab"><i style="width:30%"></i></div>
+          <div class="ad">Ordered grids. ROI, CPM, verified.</div>
+          <p class="rf">A strict navy neutral scale, aligned grids and spec-style tables make performance read as controlled and verified.</p>
+        </div>
+        <div class="ar">
+          <div class="at"><b>Creator</b><span>20%</span></div>
+          <div class="ab"><i style="width:20%"></i></div>
+          <div class="ad">High-impact visuals. Creative at scale.</div>
+          <p class="rf">High-contrast cool palettes and the K's cutting blade signal creation at scale. Cyan and Bright Sky Blue are kept for creative highlights.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card k">
+      <h3>Archetypes</h3>
+      <p class="cd">Creator-facing. Income, ease and momentum.</p>
+      <div class="cb">
+        <div class="ar">
+          <div class="at"><b>Everyman</b><span>40%</span></div>
+          <div class="ab"><i style="width:40%"></i></div>
+          <div class="ad">Simple and approachable. "No experience needed."</div>
+          <p class="rf">A near-black canvas, rounded shapes and light chrome keep every screen easy to enter. Nothing looks gated.</p>
+        </div>
+        <div class="ar">
+          <div class="at"><b>Hero</b><span>35%</span></div>
+          <div class="ab"><i style="width:35%"></i></div>
+          <div class="ad">Payout numbers first. Leads with money.</div>
+          <p class="rf">Orange Red and Coral Red mark earnings and action. Payout numbers are the largest element, so progress is seen first.</p>
+        </div>
+        <div class="ar">
+          <div class="at"><b>Jester</b><span>25%</span></div>
+          <div class="ab"><i style="width:25%"></i></div>
+          <div class="ad">Tiers as a game. Short, punchy lines.</div>
+          <p class="rf">Tier badges, progress bars and the gamepad plus turn earning into play. Headlines stay short and punchy.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c">
+      <h3>Purpose, Positioning and Audience</h3>
+      <p class="cd">Client network: enterprise-facing.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Purpose</th><td>Scale and return</td></tr>
+          <tr><th>Positioning</th><td>"Own organic."</td></tr>
+          <tr><th>Descriptor</th><td>The premium clipping network for entertainment.</td></tr>
+          <tr><th>Audience</th><td>Entertainment brands, studios, game publishers, agencies</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card k">
+      <h3>Purpose, Positioning and Audience</h3>
+      <p class="cd">Clipper network: creator-facing.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Purpose</th><td>Income and ease</td></tr>
+          <tr><th>Positioning</th><td>"Clip. Post. Earn."</td></tr>
+          <tr><th>Audience</th><td>Individual creators, gamers, everyday users</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="logo">
+  <div class="sh2"><span>03</span><h2>Logo</h2></div>
+  <p class="slede">The logo is approved. These pages set which version to use, on which background, and how to color it.</p>
+  
+  <div class="row">
+    <div class="card m">
+      <h3>Clear space and minimum size</h3>
+      <p class="cd">X is the height of the K.</p>
+      <div class="cb">
+        <div class="space-diagrams">
+            <figure>
+              <svg class="cs" viewbox="100 110 335 315" role="img" aria-label="Clear space diagram">
+                <rect x="115.5" y="122.5" width="304" height="290" rx="6" fill="none" stroke="#8b93a5" stroke-dasharray="6 6"></rect>
+                <rect x="188" y="195" width="159" height="145" fill="rgba(255,255,255,.07)"></rect>
+                <use href="#mk-K" fill="#fff"></use>
+                <use href="#mk-P" fill="#fff"></use>
+                <text x="150" y="272" fill="#a9adb5" font-size="15" text-anchor="middle">X/2</text>
+                <text x="267" y="150" fill="#a9adb5" font-size="15" text-anchor="middle">X/2</text>
+              </svg>
+              <figcaption>Monogram · 0.5X clear space</figcaption>
+            </figure>
+            <figure>
+              <svg class="cs" viewbox="-100 -100 712 292" role="img" aria-label="Wordmark clear-space diagram">
+                <rect x="-92" y="-92" width="696" height="276" rx="6" fill="none" stroke="#8b93a5" stroke-dasharray="6 6"></rect><use href="#source-simple"></use><text x="-70" y="50" fill="#a9adb5" font-size="20">1X</text></svg>
+              <figcaption>Wordmarks · 1X clear space</figcaption>
+            </figure>
+          </div>
+          <div class="min-previews">
+          <h4>Minimum-size previews · screen pixels at 96 ppi</h4>
+          <div class="min-preview-grid">
+            <figure class="min-preview">
+              <div class="min-stage">
+                <svg viewbox="0 0 512 91.9" role="img" aria-label="Entertainment wordmark · 240 px at minimum width" style="width:240px"><use href="#source-full"></use></svg></div>
+              <figcaption>Entertainment wordmark · plain · 240 px</figcaption>
+            </figure>
+            <figure class="min-preview">
+              <div class="min-stage">
+                <svg viewbox="0 0 512 91.9" role="img" aria-label="Accented entertainment wordmark at minimum width" style="width:240px"><use href="#source-full-accent"></use></svg></div>
+              <figcaption>Entertainment wordmark · accent · 240 px</figcaption>
+            </figure>
+            <figure class="min-preview">
+              <div class="min-stage">
+                <svg viewbox="0 0 512 91.9" role="img" aria-label="Simple wordmark · 120 px at minimum width" style="width:120px"><use href="#source-simple"></use></svg></div>
+              <figcaption>Simple wordmark · 120 px</figcaption>
+            </figure>
+            <figure class="min-preview">
+              <div class="min-stage">
+                <svg viewbox="0 0 512 466.91" role="img" aria-label="Monogram · 16 px at minimum width" style="width:16px"><use href="#source-mono"></use></svg></div>
+              <figcaption>Monogram · 16 px</figcaption>
+            </figure>
+            <figure class="min-preview">
+              <div class="min-stage">
+                <svg viewbox="101.5 533.5 331 331" role="img" aria-label="App tile at minimum width" style="width:24px">
+                  <rect x="142.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-ca)"></rect>
+                  <use href="#mk-K" fill="#fff" transform="translate(0,432)"></use>
+                  <use href="#mk-P" fill="#fff" transform="translate(0,432)"></use>
+                </svg>
+              </div>
+              <figcaption>App tile · 24 px</figcaption>
+            </figure>
+          </div>
+        </div>
+      <div class="clear-rules">
+            <table class="kv ct2">
+              <tr><th>Variant</th><td>Clear space</td><td>Min width</td></tr>
+              <tr><th>Entertainment wordmark · plain</th><td>1X</td><td>240 px / 64 mm</td></tr>
+              <tr><th>Entertainment wordmark · accent</th><td>1X</td><td>240 px / 64 mm</td></tr>
+              <tr><th>Simple wordmark</th><td>1X</td><td>120 px / 32 mm</td></tr>
+              <tr><th>Monogram</th><td>0.5X</td><td>16 px / 4 mm</td></tr>
+              <tr><th>App tile</th><td>0.75X</td><td>24 px / 6 mm</td></tr>
+            </table>
+            <p class="note">The entertainment wordmark, plain or accented, starts at 240 px / 64 mm. Below 240 px, use the simple wordmark; below 120 px, use the monogram. The monogram may also be chosen by context at any size. Pixel sizes at 96 ppi.</p>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c">
+      <h3>Variants</h3>
+      <p class="cd">Four core variants. The entertainment wordmark may add symbol accents when context calls for them; see Color Strategy.</p>
+      <div class="cb">
+        <div class="lmg two">
+          <figure class="lm">
+            <div class="wp">
+              <svg viewbox="0 0 512 91.9" role="img" aria-label="Entertainment wordmark"><use href="#source-full"></use></svg></div>
+            <figcaption><b>Entertainment wordmark</b>Large, brand-forward.</figcaption>
+          </figure>
+          <figure class="lm">
+            <div class="wp">
+              <svg viewbox="0 0 512 91.9" role="img" aria-label="Simple wordmark"><use href="#source-simple"></use></svg></div>
+            <figcaption><b>Simple wordmark</b>Default lockup.</figcaption>
+          </figure>
+          <figure class="lm">
+            <svg viewbox="0 0 512 466.91" role="img" aria-label="Monogram"><use href="#source-mono"></use></svg><figcaption><b>Monogram</b>Any size, by context.</figcaption>
+          </figure>
+          <figure class="lm">
+            <svg viewbox="101.5 533.5 331 331" role="img" aria-label="App tile">
+              <rect x="142.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-ca)" stroke="#252D47"></rect>
+              <use href="#mk-K" fill="#fff" transform="translate(-1,432)"></use>
+              <use href="#mk-P" fill="#fff" transform="translate(0,432)"></use>
+            </svg>
+            <figcaption><b>App tile</b>App icon, avatar.</figcaption>
+          </figure>
+        </div>
+        <table class="kv">
+          <tr><th>Entertainment wordmark</th><td>Plus and sound wave sit inside the Ps. Use the plain treatment by default; the symbol accents may be added when they aid the entertainment context.</td></tr>
+          <tr><th>Simple wordmark</th><td>Regular Ps. The default name lockup for interfaces and tight spaces, and the fallback below 240 px wide.</td></tr>
+          <tr><th>Monogram</th><td>The K alone, with an accent triangle. For when the brand is already known: app icons, avatars, social, merch. Works at any size, including large.</td></tr>
+          <tr><th>App tile</th><td>Monogram on a rounded gradient tile. App icon, avatar, store listings.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card k">
+      <h3>Variants</h3>
+      <p class="cd">Four core variants. The entertainment wordmark may add symbol accents when context calls for them; see Color Strategy.</p>
+      <div class="cb">
+        <div class="lmg two">
+          <figure class="lm">
+            <div class="wp">
+              <svg viewbox="0 0 512 91.9" role="img" aria-label="Entertainment wordmark"><use href="#source-full"></use></svg></div>
+            <figcaption><b>Entertainment wordmark</b>Large, brand-forward.</figcaption>
+          </figure>
+          <figure class="lm">
+            <div class="wp">
+              <svg viewbox="0 0 512 91.9" role="img" aria-label="Simple wordmark"><use href="#source-simple"></use></svg></div>
+            <figcaption><b>Simple wordmark</b>Default lockup.</figcaption>
+          </figure>
+          <figure class="lm">
+            <svg viewbox="0 0 512 466.91" role="img" aria-label="Monogram"><use href="#source-mono"></use></svg><figcaption><b>Monogram</b>Any size, by context.</figcaption>
+          </figure>
+          <figure class="lm">
+            <svg viewbox="1593.5 533.5 331 331" role="img" aria-label="App tile">
+              <rect x="1634.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-kc)" stroke="#242426"></rect>
+              <use href="#mk-K" fill="#fff" transform="translate(1491,432)"></use>
+              <use href="#mk-P" fill="#fff" transform="translate(1492,432)"></use>
+            </svg>
+            <figcaption><b>App tile</b>App icon, avatar.</figcaption>
+          </figure>
+        </div>
+        <table class="kv">
+          <tr><th>Entertainment wordmark</th><td>Plus and sound wave sit inside the Ps. Use the plain treatment by default; the symbol accents may be added when they aid the entertainment context.</td></tr>
+          <tr><th>Simple wordmark</th><td>Regular Ps. The default name lockup for interfaces and tight spaces, and the fallback below 240 px wide.</td></tr>
+          <tr><th>Monogram</th><td>The K alone, with an accent triangle. For when the brand is already known: app icons, avatars, social, merch. Works at any size, including large.</td></tr>
+          <tr><th>App tile</th><td>Monogram on a rounded gradient tile. App icon, avatar, store listings.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c">
+      <h3>Color Strategy</h3>
+      <p class="cd">Approved treatments on dark and light backgrounds, and the colour rules for each system.</p>
+      <div class="cb">
+        <div class="vr">
+          <div class="vt"><b>Dark · White</b><span>Default. White letters, accent gradient details. #050B22.</span></div>
+          <div class="v3">
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Monogram on #050B22">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#050B22"></rect>
+                <g transform="translate(2539.5 249) scale(1.4) translate(-267.5 -267.5)">
+                  <use href="#mk-K" fill="#fff"></use>
+                  <use href="#mk-P" fill="url(#g-ca)"></use>
+                </g>
+              </svg>
+              <figcaption>Monogram</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #050B22">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#050B22"></rect>
+                <use href="#wm-s" fill="#fff"></use>
+                <use href="#wm-t" fill="url(#g-ca)"></use>
+              </svg>
+              <figcaption>Simple wordmark</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #050B22">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#050B22"></rect>
+                <svg x="2179" y="184" width="720" height="129" viewbox="0 0 512 91.9"><g><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="#fff"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="#fff"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="url(#g-ca)" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="url(#g-ca)"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path></g></svg></svg>
+              <figcaption>Entertainment accents · optional</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="vr">
+          <div class="vt"><b>Dark · Gradient</b><span>Hero moments. Gradient letters, solid accent details. #050B22.</span></div>
+          <div class="v3">
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Monogram on #050B22">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#050B22"></rect>
+                <g transform="translate(2539.5 249) scale(1.4) translate(-267.5 -267.5)">
+                  <use href="#mk-K" fill="url(#g-cb)"></use>
+                  <use href="#mk-P" fill="#3C5FBE"></use>
+                </g>
+              </svg>
+              <figcaption>Monogram</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #050B22">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#050B22"></rect>
+                <use href="#wm-s" fill="url(#g-cb)"></use>
+                <use href="#wm-t" fill="#3C5FBE"></use>
+              </svg>
+              <figcaption>Simple wordmark</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #050B22">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#050B22"></rect>
+                <svg x="2179" y="184" width="720" height="129" viewbox="0 0 512 91.9"><g><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="url(#g-cb)"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="url(#g-cb)"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="url(#g-cb)"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="#3C5FBE" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="#3C5FBE" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="#3C5FBE" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="#3C5FBE" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="#3C5FBE" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="#3C5FBE" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="url(#g-cb)"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="#3C5FBE"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#g-cb)"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#g-cb)"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="url(#g-cb)"></path></g></svg></svg>
+              <figcaption>Entertainment accents · optional</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="vr">
+          <div class="vt"><b>Light · Dark letters</b><span>Light backgrounds: email, documents, partner decks, store pages. Letters #050B22, accent gradient details.</span></div>
+          <div class="v3">
+            <figure class="pf"><div class="lt on-light"><img src="logos/client_monogram_dark.svg" alt="Monogram, dark letters"></div><figcaption>Monogram</figcaption></figure>
+            <figure class="pf"><div class="lt on-light"><img src="logos/client_wordmark_simple_dark.svg" alt="Simple wordmark, dark letters"></div><figcaption>Simple wordmark</figcaption></figure>
+            <figure class="pf"><div class="lt on-light"><img src="logos/client_wordmark_entertainment_accented_dark.svg" alt="Accented entertainment wordmark, dark letters"></div><figcaption>Entertainment accents · optional</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="vr">
+          <div class="vt"><b>Mono</b><span>One colour only: print, embossing, partner co-branding, one-colour placements. Shared by both systems.</span></div>
+          <div class="v4">
+            <figure class="pf"><div class="lt on-dark mono"><img src="logos/shared_monogram_mono_white.svg" alt="Mono white monogram"></div><figcaption>White · monogram</figcaption></figure>
+            <figure class="pf"><div class="lt on-dark mono"><img src="logos/shared_wordmark_simple_mono_white.svg" alt="Mono white wordmark"></div><figcaption>White · wordmark</figcaption></figure>
+            <figure class="pf"><div class="lt on-light mono"><img src="logos/shared_monogram_mono_black.svg" alt="Mono black monogram"></div><figcaption>Black · monogram</figcaption></figure>
+            <figure class="pf"><div class="lt on-light mono"><img src="logos/shared_wordmark_simple_mono_black.svg" alt="Mono black wordmark"></div><figcaption>Black · wordmark</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="rls">
+          <div class="rl"><b>Letters are white or gradient</b>Letters are white or gradient, never both, and never another color. Pearl to Ice Blue is the default letter gradient; Color Recipes shows the others.</div>
+          <div class="rl"><b>Accent follows the letter treatment</b>With white letters, use the system accent gradient. With gradient letters, keep the triangle solid: the system accent, a second system color or white (see Color Recipes).</div>
+          <div class="rl"><b>Entertainment symbol accents</b>Optional. When used, the plus and wave follow the triangle: gradient with white letters, solid and matching the triangle with gradient letters.</div>
+          <div class="rl"><b>Gradient letters on dark only</b>Hero moments, one per view. On light backgrounds use dark letters or mono black.</div>
+        </div>
+        </div>
+    </div>
+
+    <div class="card k">
+      <h3>Color Strategy</h3>
+      <p class="cd">Approved treatments on dark and light backgrounds, and the colour rules for each system.</p>
+      <div class="cb">
+        <div class="vr">
+          <div class="vt"><b>Dark · White</b><span>Default. White letters, accent gradient details. #0B0B0C.</span></div>
+          <div class="v3">
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Monogram on #0B0B0C">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#0B0B0C"></rect>
+                <g transform="translate(2539.5 249) scale(1.4) translate(-267.5 -267.5)">
+                  <use href="#mk-K" fill="#fff"></use>
+                  <use href="#mk-P" fill="url(#g-kc)"></use>
+                </g>
+              </svg>
+              <figcaption>Monogram</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #0B0B0C">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#0B0B0C"></rect>
+                <use href="#wm-s" fill="#fff"></use>
+                <use href="#wm-t" fill="url(#g-kc)"></use>
+              </svg>
+              <figcaption>Simple wordmark</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #0B0B0C">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#0B0B0C"></rect>
+                <svg x="2179" y="184" width="720" height="129" viewbox="0 0 512 91.9"><g><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="#fff"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="#fff"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="#fff"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="url(#g-kc)" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="#fff"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="url(#g-kc)"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="#fff"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="#fff"></path></g></svg></svg>
+              <figcaption>Entertainment accents · optional</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="vr">
+          <div class="vt"><b>Dark · Gradient</b><span>Hero moments. Gradient letters, solid accent details. #0B0B0C.</span></div>
+          <div class="v3">
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Monogram on #0B0B0C">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#0B0B0C"></rect>
+                <g transform="translate(2539.5 249) scale(1.4) translate(-267.5 -267.5)">
+                  <use href="#mk-K" fill="url(#g-kb)"></use>
+                  <use href="#mk-P" fill="#F83C4F"></use>
+                </g>
+              </svg>
+              <figcaption>Monogram</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #0B0B0C">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#0B0B0C"></rect>
+                <use href="#wm-s" fill="url(#g-kb)"></use>
+                <use href="#wm-t" fill="#F83C4F"></use>
+              </svg>
+              <figcaption>Simple wordmark</figcaption>
+            </figure>
+            <figure class="pf">
+              <svg class="pn" viewbox="2026.5 111 1026 276" role="img" aria-label="Wordmark on #0B0B0C">
+                <rect x="2026.5" y="111" width="1026" height="276" fill="#0B0B0C"></rect>
+                <svg x="2179" y="184" width="720" height="129" viewbox="0 0 512 91.9"><g><path d="M150.5,63.92h-30.92V7.17c0-4.14-3.36-7.5-7.5-7.5h-4.36l-22.83,22.86v45.88l22.83,22.83h42.78c4.14,0,7.5-3.36,7.5-7.5v-12.31c0-4.14-3.36-7.5-7.5-7.5Z" fill="url(#g-kb)"></path><path d="M361.65,7.59C355.06,2.47,345.24,0,331.66,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.22c8.08,0,15.33-1.35,21.52-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.43-18.67-10.16-23.89ZM309.39,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51ZM322.89,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM336.4,52.1c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86v44.02ZM349.9,44.41c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87v25.12ZM363.41,31.85c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87v3.51Z" fill="url(#g-kb)"></path><path d="M275.1,7.59C268.51,2.47,258.69,0,245.11,0h-32.9c-4.14,0-7.5,3.36-7.5,7.5v76.57c0,4.15,3.36,7.51,7.5,7.51h19.69c4.15,0,7.51-3.36,7.51-7.51v-19.52h4.21c8.09,0,15.34-1.35,21.53-4.01,6.36-2.72,11.36-6.66,14.85-11.71,3.49-5.05,5.26-10.89,5.26-17.35,0-10.64-3.42-18.67-10.16-23.89ZM265.32,35.14c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9v6.19Z" fill="url(#g-kb)"></path><g><path d="M363.41,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="#F83C4F" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M349.9,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="#F83C4F" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M336.4,8.08v44.02c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87V8.08c0-2.69,2.18-4.86,4.86-4.86s4.87,2.17,4.87,4.86Z" fill="none" stroke="#F83C4F" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M322.89,19.29v25.12c0,2.69-2.17,4.87-4.86,4.87s-4.87-2.18-4.87-4.87v-25.12c0-2.69,2.18-4.87,4.87-4.87s4.86,2.18,4.86,4.87Z" fill="none" stroke="#F83C4F" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M309.39,28.34v3.51c0,2.69-2.18,4.87-4.87,4.87s-4.86-2.18-4.86-4.87v-3.51c0-2.69,2.18-4.87,4.86-4.87s4.87,2.18,4.87,4.87Z" fill="none" stroke="#F83C4F" stroke-width="2.5" stroke-miterlimit="10"></path><path d="M265.32,28.95v6.19c0,2.15-1.74,3.9-3.89,3.9h-9.46v9.45c0,2.15-1.74,3.9-3.89,3.9h-6.19c-2.16,0-3.9-1.75-3.9-3.9v-9.45h-9.45c-2.15,0-3.9-1.75-3.9-3.9v-6.19c0-2.15,1.75-3.9,3.9-3.9h9.45v-9.45c0-2.15,1.74-3.89,3.9-3.89h6.19c2.15,0,3.89,1.74,3.89,3.89v9.45h9.46c2.15,0,3.89,1.75,3.89,3.9Z" fill="none" stroke="#F83C4F" stroke-width="2.5" stroke-miterlimit="10"></path></g><g><path d="M34.7,59.65l-10.74,7.32h0c-2.2,1.5-5.19-.08-5.19-2.74V26.69c0-2.66,2.98-4.24,5.18-2.75h0s10.74,7.3,10.74,7.3l20.37,13.83L100.42-.33h-23.69c-2.45,0-4.86.6-7.03,1.75l-35,18.56V7.19c0-4.14-3.36-7.5-7.5-7.5l-19.69-.02c-4.15,0-7.51,3.36-7.51,7.5v76.54c0,4.14,3.36,7.5,7.5,7.5h19.69c4.14,0,7.5-3.36,7.5-7.5v-11.64l32.85,17.42c2.17,1.15,4.58,1.75,7.03,1.75h25.84l-45.42-45.42-20.3,13.82Z" fill="url(#g-kb)"></path><path d="M26.33,33.5c-.7-.43-1.61.08-1.61.9v22.1c0,.82.9,1.33,1.61.9l8.98-5.49,9.12-5.57c.67-.41.67-1.39,0-1.8l-9.11-5.56-8.99-5.48Z" fill="#F83C4F"></path></g><rect x="164.01" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#g-kb)"></rect><rect x="377.81" y="0" width="34.7" height="91.57" rx="7.5" ry="7.5" fill="url(#g-kb)"></rect><path d="M479.29,7.5v30.41l-27.28-35.02C450.59,1.07,448.4,0,446.09,0h-20.08c-4.14,0-7.5,3.36-7.5,7.5v76.56c0,4.14,3.36,7.5,7.5,7.5h17.7c4.14,0,7.5-3.36,7.5-7.5v-31.54c0-.5,0-1,0-1.49l29.07,37.62c1.42,1.84,3.61,2.92,5.94,2.92h18.27c4.14,0,7.5-3.36,7.5-7.5V7.5C512,3.36,508.64,0,504.5,0h-17.7c-4.14,0-7.5,3.36-7.5,7.5Z" fill="url(#g-kb)"></path></g></svg></svg>
+              <figcaption>Entertainment accents · optional</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <div class="vr">
+          <div class="vt"><b>Light · Dark letters</b><span>Light backgrounds: email, documents, partner decks, store pages. Letters #0B0B0C, accent gradient details.</span></div>
+          <div class="v3">
+            <figure class="pf"><div class="lt on-light"><img src="logos/clipper_monogram_dark.svg" alt="Monogram, dark letters"></div><figcaption>Monogram</figcaption></figure>
+            <figure class="pf"><div class="lt on-light"><img src="logos/clipper_wordmark_simple_dark.svg" alt="Simple wordmark, dark letters"></div><figcaption>Simple wordmark</figcaption></figure>
+            <figure class="pf"><div class="lt on-light"><img src="logos/clipper_wordmark_entertainment_accented_dark.svg" alt="Accented entertainment wordmark, dark letters"></div><figcaption>Entertainment accents · optional</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="vr">
+          <div class="vt"><b>Mono</b><span>One colour only: print, embossing, partner co-branding, one-colour placements. Shared by both systems.</span></div>
+          <div class="v4">
+            <figure class="pf"><div class="lt on-dark mono"><img src="logos/shared_monogram_mono_white.svg" alt="Mono white monogram"></div><figcaption>White · monogram</figcaption></figure>
+            <figure class="pf"><div class="lt on-dark mono"><img src="logos/shared_wordmark_simple_mono_white.svg" alt="Mono white wordmark"></div><figcaption>White · wordmark</figcaption></figure>
+            <figure class="pf"><div class="lt on-light mono"><img src="logos/shared_monogram_mono_black.svg" alt="Mono black monogram"></div><figcaption>Black · monogram</figcaption></figure>
+            <figure class="pf"><div class="lt on-light mono"><img src="logos/shared_wordmark_simple_mono_black.svg" alt="Mono black wordmark"></div><figcaption>Black · wordmark</figcaption></figure>
+          </div>
+        </div>
+
+        <div class="rls">
+          <div class="rl"><b>Letters are white or gradient</b>Letters are white or gradient, never both, and never another color. Apricot to Orange is the default letter gradient; Color Recipes shows the others.</div>
+          <div class="rl"><b>Accent follows the letter treatment</b>With white letters, use the system accent gradient. With gradient letters, keep the triangle solid: the system accent, a second system color or white (see Color Recipes).</div>
+          <div class="rl"><b>Entertainment symbol accents</b>Optional. When used, the plus and wave follow the triangle: gradient with white letters, solid and matching the triangle with gradient letters.</div>
+          <div class="rl"><b>Gradient letters on dark only</b>Hero moments, one per view. On light backgrounds use dark letters or mono black.</div>
+        </div>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section id="color">
+  <div class="sh2"><span>04</span><h2>Color</h2></div>
+  <p class="slede">Two palettes, one method: accents, tints, neutrals, gradients, colour recipes and roles. Swatches, neutrals, gradients and roles are generated from the token file, so they always match the kit. Status colours are shared; see Shared core.</p>
+  
+  <div class="row intro">
+    <div class="c"><h2>Client Color Board</h2><p class="lede">Blue-black authority, white proof, and controlled blue signal form the enterprise foundation.</p></div>
+    <div class="k"><h2>Clipper Color Board</h2><p class="lede">Near-black, paper white and a hot orange-to-red signal: momentum and money, with no blue anywhere.</p></div>
+  </div>
+
+<!-- gen:accents -->
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>1. Accent scale</h3>
+      <p class="cd">Blue signal on navy. Cyan is for glows only; Ice Blue is the light accent on the live page.</p>
+      <div class="cb">
+        <div class="swatches">
+          <div class="sw"><div class="pv" style="background:#A0BCE6"></div><span class="sn">Pale Blue</span><span class="sh">#A0BCE6</span></div>
+          <div class="sw"><div class="pv" style="background:#87A8ED"></div><span class="sn">Cornflower Blue</span><span class="sh">#87A8ED</span></div>
+          <div class="sw"><div class="pv" style="background:#3C5FBE"></div><span class="sn">Royal Blue</span><span class="sh">#3C5FBE</span></div>
+          <div class="sw"><div class="pv" style="background:#45B5FF"></div><span class="sn">Bright Sky Blue</span><span class="sh">#45B5FF</span></div>
+          <div class="sw"><div class="pv" style="background:#49DBFF"></div><span class="sn">Bright Cyan</span><span class="sh">#49DBFF</span></div>
+          <div class="sw"><div class="pv" style="background:#BFD3FA"></div><span class="sn">Ice</span><span class="sh">#BFD3FA</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>1. Accent scale</h3>
+      <p class="cd">Orange and red: action, progress and money. No blue anywhere.</p>
+      <div class="cb">
+        <div class="swatches">
+          <div class="sw"><div class="pv" style="background:#FF8A5C"></div><span class="sn">Apricot</span><span class="sh">#FF8A5C</span></div>
+          <div class="sw"><div class="pv" style="background:#FF7A45"></div><span class="sn">Coral Orange</span><span class="sh">#FF7A45</span></div>
+          <div class="sw"><div class="pv" style="background:#FF7F35"></div><span class="sn">Tangerine</span><span class="sh">#FF7F35</span></div>
+          <div class="sw"><div class="pv" style="background:#FF6839"></div><span class="sn">Orange Red</span><span class="sh">#FF6839</span></div>
+          <div class="sw"><div class="pv" style="background:#FF5346"></div><span class="sn">Red Orange</span><span class="sh">#FF5346</span></div>
+          <div class="sw"><div class="pv" style="background:#F83C4F"></div><span class="sn">Coral Red</span><span class="sh">#F83C4F</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- /gen:accents -->
+
+<!-- gen:tints -->
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>2. Tints in use</h3>
+      <p class="cd">Every tint the system uses, and where. No other opacities.</p>
+      <div class="cb">
+        <div class="grads">
+          <div class="gi"><div class="gp" style="background:linear-gradient(#87A8ED26,#87A8ED26),#141B34"></div><h4>Brand subtle</h4><p class="gs">--color-brand-primary-subtle</p><p class="tu">Selected chip or tab, outgoing chat bubble.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(135deg, rgba(60,95,190,0.35) 0%, rgba(135,168,237,0.035) 100%), #141B34"></div><h4>Brand fade</h4><p class="gs">--surface-brand-fade</p><p class="tu">Hero and highlight cards.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, rgba(135,168,237,0.28) 0%, rgba(135,168,237,0.06) 100%), #141B34"></div><h4>Brand tint</h4><p class="gs">--surface-brand-tint</p><p class="tu">Highlighted rows: leaderboard self, selected plan.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(150deg, rgba(135,168,237,0.02) 0%, rgba(60,95,190,0.2) 100%),#141B34"></div><h4>Input</h4><p class="gs">--surface-input</p><p class="tu">Form fields.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>2. Tints in use</h3>
+      <p class="cd">Every tint the system uses, and where. No other opacities.</p>
+      <div class="cb">
+        <div class="grads">
+          <div class="gi"><div class="gp" style="background:linear-gradient(#FF683926,#FF683926),#1C1C1F"></div><h4>Brand subtle</h4><p class="gs">--color-brand-primary-subtle</p><p class="tu">Selected chip or tab, outgoing chat bubble.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(135deg, rgba(255,104,57,0.35) 0%, rgba(255,138,92,0.035) 100%), #1C1C1F"></div><h4>Brand fade</h4><p class="gs">--surface-brand-fade</p><p class="tu">Hero and highlight cards.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, rgba(255,104,57,0.28) 0%, rgba(255,104,57,0.06) 100%), #1C1C1F"></div><h4>Brand tint</h4><p class="gs">--surface-brand-tint</p><p class="tu">Highlighted rows: leaderboard self, selected plan.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(#FFFFFF0F, #FFFFFF0F),#1C1C1F"></div><h4>Input</h4><p class="gs">--surface-input</p><p class="tu">Form fields: flat tint.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- /gen:tints -->
+
+<!-- gen:neutrals -->
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>3. Neutrals</h3>
+      <p class="cd">Navy scale, retuned to the live Client page. Captions name the role each step serves.</p>
+      <div class="cb">
+        <div class="swatches neu">
+          <div class="sw"><div class="pv tk" style="background:#FFFFFF;color:#0b0b0c"><span>100</span></div><span class="sh">#FFFFFF</span><span class="sr">text/primary<br>brand/primary-end</span></div>
+          <div class="sw"><div class="pv tk" style="background:#B4C0CC;color:#0b0b0c"><span>300</span></div><span class="sh">#B4C0CC</span><span class="sr">text/secondary</span></div>
+          <div class="sw"><div class="pv tk" style="background:#8993A0;color:#0b0b0c"><span>500</span></div><span class="sh">#8993A0</span><span class="sr">text/tertiary</span></div>
+          <div class="sw"><div class="pv tk" style="background:#55617B;color:#fff"><span>600</span></div><span class="sh">#55617B</span><span class="sr">text/disabled</span></div>
+          <div class="sw"><div class="pv tk" style="background:#242C46;color:#fff"><span>700</span></div><span class="sh">#242C46</span><span class="sr">border/default</span></div>
+          <div class="sw"><div class="pv tk" style="background:#1E2640;color:#fff"><span>725</span></div><span class="sh">#1E2640</span><span class="sr">bg/raised-strong</span></div>
+          <div class="sw"><div class="pv tk" style="background:#19213B;color:#fff"><span>750</span></div><span class="sh">#19213B</span><span class="sr">bg/raised</span></div>
+          <div class="sw"><div class="pv tk" style="background:#141B34;color:#fff"><span>800</span></div><span class="sh">#141B34</span><span class="sr">bg/surface</span></div>
+          <div class="sw"><div class="pv tk" style="background:#0B1229;color:#fff"><span>850</span></div><span class="sh">#0B1229</span><span class="sr">bg/surface-low</span></div>
+          <div class="sw"><div class="pv tk" style="background:#050B22;color:#fff"><span>900</span></div><span class="sh">#050B22</span><span class="sr">bg/base</span></div>
+          <div class="sw"><div class="pv tk" style="background:#010619;color:#fff"><span>950</span></div><span class="sh">#010619</span><span class="sr">bg/base-deep<br>text/on-orange</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>3. Neutrals</h3>
+      <p class="cd">Cool grey scale, retuned to the live Clipper landing page. Captions name the role each step serves.</p>
+      <div class="cb">
+        <div class="swatches neu">
+          <div class="sw"><div class="pv tk" style="background:#F7F7F5;color:#0b0b0c"><span>100</span></div><span class="sh">#F7F7F5</span><span class="sr">text/primary</span></div>
+          <div class="sw"><div class="pv tk" style="background:#A3A3A8;color:#0b0b0c"><span>400</span></div><span class="sh">#A3A3A8</span><span class="sr">text/secondary</span></div>
+          <div class="sw"><div class="pv tk" style="background:#85858B;color:#0b0b0c"><span>500</span></div><span class="sh">#85858B</span><span class="sr">text/tertiary</span></div>
+          <div class="sw"><div class="pv tk" style="background:#4E4E53;color:#fff"><span>600</span></div><span class="sh">#4E4E53</span><span class="sr">text/disabled</span></div>
+          <div class="sw"><div class="pv tk" style="background:#2C2C30;color:#fff"><span>650</span></div><span class="sh">#2C2C30</span><span class="sr">bg/raised-strong</span></div>
+          <div class="sw"><div class="pv tk" style="background:#2A2A2E;color:#fff"><span>700</span></div><span class="sh">#2A2A2E</span><span class="sr">border/default</span></div>
+          <div class="sw"><div class="pv tk" style="background:#242427;color:#fff"><span>750</span></div><span class="sh">#242427</span><span class="sr">bg/raised</span></div>
+          <div class="sw"><div class="pv tk" style="background:#1C1C1F;color:#fff"><span>800</span></div><span class="sh">#1C1C1F</span><span class="sr">bg/surface</span></div>
+          <div class="sw"><div class="pv tk" style="background:#161618;color:#fff"><span>850</span></div><span class="sh">#161618</span><span class="sr">bg/surface-low</span></div>
+          <div class="sw"><div class="pv tk" style="background:#111113;color:#fff"><span>900</span></div><span class="sh">#111113</span><span class="sr">bg/base</span></div>
+          <div class="sw"><div class="pv tk" style="background:#0B0B0C;color:#fff"><span>950</span></div><span class="sh">#0B0B0C</span><span class="sr">bg/base-deep<br>text/on-orange</span></div>
+          <div class="sw"><div class="pv tk" style="background:#060607;color:#fff"><span>1000</span></div><span class="sh">#060607</span><span class="sr">bg/base-deepest</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- /gen:neutrals -->
+
+<!-- gen:gradients -->
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>4. Gradients</h3>
+      <p class="cd">Role gradients first, then the palette. Direction belongs to the use: 180° on buttons, 90° on text, vertical in logo artwork.</p>
+      <div class="cb">
+        <div class="lbl">Roles</div>
+        <div class="grads">
+          <div class="gi"><div class="gp" style="background:linear-gradient(180deg, #FFFFFF 0%, #87A8ED 100%)"></div><h4>Primary action</h4><p class="gs">--gradient-brand-primary · 180deg</p><div class="sts"><span class="st"><i style="background:#FFFFFF"></i>#FFFFFF <em>0%</em></span><span class="st"><i style="background:#87A8ED"></i>#87A8ED <em>100%</em></span></div><p class="tu">Primary button fill.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FFFFFF 25%, #87A8ED 100%)"></div><h4>Text highlight</h4><p class="gs">--gradient-text-brand · 90deg</p><div class="sts"><span class="st"><i style="background:#FFFFFF"></i>#FFFFFF <em>25%</em></span><span class="st"><i style="background:#87A8ED"></i>#87A8ED <em>100%</em></span></div><p class="tu">One highlighted headline per view.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FFFFFF 0%, #45B5FF 100%)"></div><h4>Metric</h4><p class="gs">--gradient-text-metric · 90deg</p><div class="sts"><span class="st"><i style="background:#FFFFFF"></i>#FFFFFF <em>0%</em></span><span class="st"><i style="background:#45B5FF"></i>#45B5FF <em>100%</em></span></div><p class="tu">Counters and big numbers.</p></div>
+        </div>
+        <div class="lbl">Palette</div>
+        <div class="grads">
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FFFFFF 0%, #87A8ED 100%)"></div><h4>White To Blue</h4><p class="gs">--gradient-white-to-blue · 90deg</p><div class="sts"><span class="st"><i style="background:#FFFFFF"></i>#FFFFFF <em>0%</em></span><span class="st"><i style="background:#87A8ED"></i>#87A8ED <em>100%</em></span></div><p class="tu">Brand guide.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #ECEFF2 0%, #BCD7FF 100%)"></div><h4>Pearl To Ice Blue</h4><p class="gs">--gradient-pearl-to-ice-blue · 90deg</p><div class="sts"><span class="st"><i style="background:#ECEFF2"></i>#ECEFF2 <em>0%</em></span><span class="st"><i style="background:#BCD7FF"></i>#BCD7FF <em>100%</em></span></div><p class="tu">Brand guide. Logo letters.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #87A8ED 0%, #4F7EEF 50%, #3C5FBE 100%)"></div><h4>Cornflower To Royal Blue</h4><p class="gs">--gradient-cornflower-to-royal-blue · 90deg</p><div class="sts"><span class="st"><i style="background:#87A8ED"></i>#87A8ED <em>0%</em></span><span class="st"><i style="background:#4F7EEF"></i>#4F7EEF <em>50%</em></span><span class="st"><i style="background:#3C5FBE"></i>#3C5FBE <em>100%</em></span></div><p class="tu">Brand guide. Logo accent, app tile.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #051036 0%, #050B22 50%, #010412 100%)"></div><h4>Deep Navy</h4><p class="gs">--gradient-deep-navy · 90deg</p><div class="sts"><span class="st"><i style="background:#051036"></i>#051036 <em>0%</em></span><span class="st"><i style="background:#050B22"></i>#050B22 <em>50%</em></span><span class="st"><i style="background:#010412"></i>#010412 <em>100%</em></span></div><p class="tu">Brand guide. Hero glows and section fades on web.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>4. Gradients</h3>
+      <p class="cd">Role gradients first, then the palette. Direction belongs to the use: 120° on buttons, vertical in logo artwork; swatches preview at 90°.</p>
+      <div class="cb">
+        <div class="lbl">Roles</div>
+        <div class="grads">
+          <div class="gi"><div class="gp" style="background:linear-gradient(120deg, #FF6839 0%, #FF5346 100%)"></div><h4>Primary action</h4><p class="gs">--gradient-brand-primary · 120deg</p><div class="sts"><span class="st"><i style="background:#FF6839"></i>#FF6839 <em>0%</em></span><span class="st"><i style="background:#FF5346"></i>#FF5346 <em>100%</em></span></div><p class="tu">Primary button fill.</p></div>
+        </div>
+        <div class="lbl">Palette</div>
+        <div class="grads">
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FF8A5C 0%, #FC863C 50%, #FF6839 100%)"></div><h4>Apricot To Orange</h4><p class="gs">--gradient-apricot-to-orange · 90deg</p><div class="sts"><span class="st"><i style="background:#FF8A5C"></i>#FF8A5C <em>0%</em></span><span class="st"><i style="background:#FC863C"></i>#FC863C <em>50%</em></span><span class="st"><i style="background:#FF6839"></i>#FF6839 <em>100%</em></span></div><p class="tu">Brand guide. Logo letters (hero moments, one per view).</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FF6839 0%, #FA4948 70%, #F83C4F 100%)"></div><h4>Orange To Coral Red</h4><p class="gs">--gradient-orange-to-coral-red · 90deg</p><div class="sts"><span class="st"><i style="background:#FF6839"></i>#FF6839 <em>0%</em></span><span class="st"><i style="background:#FA4948"></i>#FA4948 <em>70%</em></span><span class="st"><i style="background:#F83C4F"></i>#F83C4F <em>100%</em></span></div><p class="tu">Brand guide. Logo accent triangle, app tile.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FF7434 0%, #FF582E 100%)"></div><h4>Vibrant Orange</h4><p class="gs">--gradient-vibrant-orange · 90deg</p><div class="sts"><span class="st"><i style="background:#FF7434"></i>#FF7434 <em>0%</em></span><span class="st"><i style="background:#FF582E"></i>#FF582E <em>100%</em></span></div><p class="tu">Brand guide. Mono app tile; primary button web hover.</p></div>
+          <div class="gi"><div class="gp" style="background:linear-gradient(90deg, #FF7F35 0%, #CF4F11 15%, #792F0C 30%, #4A1E0B 44%, #2E130A 57%, #180E0D 70%, #100C0E 84%, #08080B 100%)"></div><h4>Orange To Near Black</h4><p class="gs">--gradient-orange-to-near-black · 90deg</p><div class="sts"><span class="st"><i style="background:#FF7F35"></i>#FF7F35 <em>0%</em></span><span class="st"><i style="background:#CF4F11"></i>#CF4F11 <em>15%</em></span><span class="st"><i style="background:#792F0C"></i>#792F0C <em>30%</em></span><span class="st"><i style="background:#4A1E0B"></i>#4A1E0B <em>44%</em></span><span class="st"><i style="background:#2E130A"></i>#2E130A <em>57%</em></span><span class="st"><i style="background:#180E0D"></i>#180E0D <em>70%</em></span><span class="st"><i style="background:#100C0E"></i>#100C0E <em>84%</em></span><span class="st"><i style="background:#08080B"></i>#08080B <em>100%</em></span></div><p class="tu">Brand guide. Hero glows and section fades on web.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- /gen:gradients -->
+
+  <div class="row">
+    <div class="card c">
+      <h3>5. Color Recipes</h3>
+      <p class="cd">Examples of approved palette application, shown on the mark.</p>
+      <div class="cb">
+        <div class="lmg">
+          <figure class="lm"><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Accent triangle example"><use href="#mk-K" fill="#fff"></use><use href="#mk-P" fill="url(#g-ca)"></use></svg><figcaption><b>Accent triangle</b>White K with a gradient triangle. The default on dark.</figcaption></figure>
+          <figure class="lm"><svg viewbox="533.5 101.5 331 331" role="img" aria-label="Pearl to Ice Blue K"><use href="#mk-K" fill="url(#g-cb)" transform="translate(432,0)"></use><use href="#mk-P" fill="#3C5FBE" transform="translate(432,0)"></use></svg><figcaption><b>Pearl to Ice Blue K</b>Pearl to Ice Blue gradient K with a solid Royal Blue triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="965.5 101.5 331 331" role="img" aria-label="White to Blue K"><use href="#mk-K" fill="url(#g-cc)" transform="translate(864,0)"></use><use href="#mk-P" fill="#fff" transform="translate(864,0)"></use></svg><figcaption><b>White to Blue K</b>White to Blue gradient K with a white triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="101.5 533.5 331 331" role="img" aria-label="App tile: Cornflower to Royal Blue"><rect x="142.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-ca)" stroke="#252D47"></rect><use href="#mk-K" fill="#fff" transform="translate(-1,432)"></use><use href="#mk-P" fill="#fff" transform="translate(0,432)"></use></svg><figcaption><b>App tile: Cornflower to Royal Blue</b>White mark on the Cornflower to Royal Blue gradient.</figcaption></figure>
+          <figure class="lm"><svg viewbox="533.5 533.5 331 331" role="img" aria-label="App tile: Surface Subtle"><rect x="574.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-cb)" stroke="#252D47"></rect><use href="#mk-K" fill="#050B22" transform="translate(432,432)"></use><use href="#mk-P" fill="#3C5FBE" transform="translate(432,432)"></use></svg><figcaption><b>App tile: Pearl to Ice Blue</b>Dark K with a Royal Blue triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="965.5 533.5 331 331" role="img" aria-label="App tile: Surface Primary"><rect x="1006.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-cc)" stroke="#252D47"></rect><use href="#mk-K" fill="#050B22" transform="translate(863,432)"></use><use href="#mk-P" fill="#050B22" transform="translate(864,432)"></use></svg><figcaption><b>App tile: White to Blue</b>Single-tone dark mark.</figcaption></figure>
+        </div>
+        <div class="rls">
+          <div class="rl"><b>One gradient per mark</b>Exactly one of the K, the triangle or the tile carries a gradient. Everything else is solid.</div>
+          <div class="rl"><b>Two tones or one</b>The K and triangle contrast clearly, or the whole mark is single-tone. No muted in-betweens.</div>
+          <div class="rl"><b>Tiles invert</b>On app tiles the gradient moves to the background; the mark turns white or 900 dark.</div>
+          <div class="rl"><b>Stay in system</b>Blue and cyan only. No orange or red on Client marks.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card k">
+      <h3>5. Color Recipes</h3>
+      <p class="cd">Examples of approved palette application, shown on the mark.</p>
+      <div class="cb">
+        <div class="lmg">
+          <figure class="lm"><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Accent triangle example"><use href="#mk-K" fill="#fff" transform="translate(1492,0)"></use><use href="#mk-P" fill="url(#g-kc)" transform="translate(1492,0)"></use></svg><figcaption><b>Accent triangle</b>White K with an Orange to Coral Red triangle. The default on dark.</figcaption></figure>
+          <figure class="lm"><svg viewbox="2025.5 101.5 331 331" role="img" aria-label="Sunrise K"><use href="#mk-K" fill="url(#g-kb)" transform="translate(1924,0)"></use><use href="#mk-P" fill="#F83C4F" transform="translate(1924,0)"></use></svg><figcaption><b>Apricot to Orange K</b>Apricot to Orange gradient K with a Coral Red triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="2457.5 101.5 331 331" role="img" aria-label="Orange to Coral Red K"><use href="#mk-K" fill="url(#g-kc)" transform="translate(2356,0)"></use><use href="#mk-P" fill="#fff" transform="translate(2356,0)"></use></svg><figcaption><b>Orange to Coral Red K</b>Orange to Coral Red gradient K with a white triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="1593.5 533.5 331 331" role="img" aria-label="App tile: Orange to Coral Red"><rect x="1634.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-kc)" stroke="#242426"></rect><use href="#mk-K" fill="#000" transform="translate(1491,432)"></use><use href="#mk-P" fill="#fff" transform="translate(1492,432)"></use></svg><figcaption><b>App tile: Orange to Coral Red</b>Black K with a white triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="2025.5 533.5 331 331" role="img" aria-label="App tile: Sunrise"><rect x="2066.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-kb)" stroke="#242426"></rect><use href="#mk-K" fill="#000" transform="translate(1924,432)"></use><use href="#mk-P" fill="#F83C4F" transform="translate(1924,432)"></use></svg><figcaption><b>App tile: Apricot to Orange</b>Black K with a Coral Red triangle.</figcaption></figure>
+          <figure class="lm"><svg viewbox="2457.5 533.5 331 331" role="img" aria-label="App tile: Vibrant Orange, mono"><rect x="2498.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-vibrant-orange)" stroke="#242426"></rect><use href="#mk-K" fill="#fff" transform="translate(2356,432)"></use><use href="#mk-P" fill="#fff" transform="translate(2356,432)"></use></svg><figcaption><b>App tile: Vibrant Orange, mono</b>Single-tone white mark.</figcaption></figure>
+        </div>
+        <div class="rls">
+          <div class="rl"><b>One gradient per mark</b>Exactly one of the K, the triangle or the tile carries a gradient. Everything else is solid.</div>
+          <div class="rl"><b>Two tones or one</b>The K and triangle contrast clearly, or the whole mark is single-tone. No muted in-betweens.</div>
+          <div class="rl"><b>Tiles invert</b>On app tiles the gradient moves to the background; the mark turns white or black.</div>
+          <div class="rl"><b>Stay in system</b>Orange and red only. No blue on Clipper marks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="color-misuse">
+    <h3>6. Misuse &amp; Prohibited Treatments</h3>
+    <p class="cd">Incorrect applications. Keep these separate from the approved color recipes above.</p>
+    <div class="row misuse-row">
+      <div class="card c">
+        <h3>Avoid these treatments</h3>
+        <p class="cd">Client system · incorrect logo applications.</p>
+        <div class="misuse-grid">
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Misuse: Gradient on both the K and the triangle."><use href="#mk-K" fill="url(#g-cb)"></use><use href="#mk-P" fill="url(#g-ca)"></use></svg><figcaption>Gradient on both the K and the triangle.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Misuse: Neutral grey triangle: the signal is lost."><use href="#mk-K" fill="#fff"></use><use href="#mk-P" fill="#8993A0"></use></svg><figcaption>Neutral grey triangle: the signal is lost.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Misuse: purple accent outside the brand palette"><use href="#mk-K" fill="#fff"></use><use href="#mk-P" fill="#A855F7"></use></svg><figcaption>Purple accent outside the system palette.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Misuse: Clipper orange-red on a Client mark."><use href="#mk-K" fill="#fff"></use><use href="#mk-P" fill="url(#g-kc)"></use></svg><figcaption>Clipper orange-red on a Client mark.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 533.5 331 331" role="img" aria-label="Misuse: Too little contrast between mark and tile."><rect x="142.5" y="574.5" width="249" height="249" rx="49.5" fill="#1B2542" stroke="#252D47"></rect><use href="#mk-K" fill="#24304D" transform="translate(-1,432)"></use><use href="#mk-P" fill="#24304D" transform="translate(0,432)"></use></svg><figcaption>Too little contrast between mark and tile.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 533.5 331 331" role="img" aria-label="Misuse: Both K and tile carry gradients."><rect x="142.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-ca)" stroke="#252D47"></rect><use href="#mk-K" fill="url(#g-cb)" transform="translate(-1,432)"></use><use href="#mk-P" fill="#fff" transform="translate(0,432)"></use></svg><figcaption>Both K and tile carry gradients.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Misuse: K and triangle use the same gradient."><use href="#mk-K" fill="url(#g-ca)"></use><use href="#mk-P" fill="url(#g-ca)"></use></svg><figcaption>K and triangle use the same gradient.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="101.5 101.5 331 331" role="img" aria-label="Misuse: Unrelated gradients on K and triangle."><defs><lineargradient id="random-c-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#A855F7"></stop><stop offset="100%" stop-color="#31D2A5"></stop></lineargradient><lineargradient id="random-c-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFD54F"></stop><stop offset="100%" stop-color="#16B5DD"></stop></lineargradient></defs><use href="#mk-K" fill="url(#random-c-a)"></use><use href="#mk-P" fill="url(#random-c-b)"></use></svg><figcaption>Unrelated gradients on K and triangle.</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="card k">
+        <h3>Avoid these treatments</h3>
+        <p class="cd">Clipper system · incorrect logo applications.</p>
+        <div class="misuse-grid">
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Misuse: Gradient on both the K and the triangle."><use href="#mk-K" fill="url(#g-kb)" transform="translate(1492,0)"></use><use href="#mk-P" fill="url(#g-kc)" transform="translate(1492,0)"></use></svg><figcaption>Gradient on both the K and the triangle.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Misuse: Neutral grey triangle: the signal is lost."><use href="#mk-K" fill="#fff" transform="translate(1492,0)"></use><use href="#mk-P" fill="#7D7D77" transform="translate(1492,0)"></use></svg><figcaption>Neutral grey triangle: the signal is lost.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Misuse: purple accent outside the brand palette"><use href="#mk-K" fill="#fff" transform="translate(1492,0)"></use><use href="#mk-P" fill="#A855F7" transform="translate(1492,0)"></use></svg><figcaption>Purple accent outside the system palette.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Misuse: Client blue on a Clipper mark."><use href="#mk-K" fill="#fff" transform="translate(1492,0)"></use><use href="#mk-P" fill="#3C5FBE" transform="translate(1492,0)"></use></svg><figcaption>Client blue on a Clipper mark.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 533.5 331 331" role="img" aria-label="Misuse: Too little contrast between mark and tile."><rect x="1634.5" y="574.5" width="249" height="249" rx="49.5" fill="#1B1B1A" stroke="#242426"></rect><use href="#mk-K" fill="#252523" transform="translate(1491,432)"></use><use href="#mk-P" fill="#252523" transform="translate(1492,432)"></use></svg><figcaption>Too little contrast between mark and tile.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 533.5 331 331" role="img" aria-label="Misuse: Both K and tile carry gradients."><rect x="1634.5" y="574.5" width="249" height="249" rx="49.5" fill="url(#g-kc)" stroke="#242426"></rect><use href="#mk-K" fill="url(#g-kb)" transform="translate(1491,432)"></use><use href="#mk-P" fill="#fff" transform="translate(1492,432)"></use></svg><figcaption>Both K and tile carry gradients.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Misuse: K and triangle use the same gradient."><use href="#mk-K" fill="url(#g-kc)" transform="translate(1492,0)"></use><use href="#mk-P" fill="url(#g-kc)" transform="translate(1492,0)"></use></svg><figcaption>K and triangle use the same gradient.</figcaption></figure>
+          <figure class="lm bad"><span class="x">✕ Misuse</span><svg viewbox="1593.5 101.5 331 331" role="img" aria-label="Misuse: Unrelated gradients on K and triangle."><defs><lineargradient id="random-k-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#A855F7"></stop><stop offset="100%" stop-color="#31D2A5"></stop></lineargradient><lineargradient id="random-k-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FFD54F"></stop><stop offset="100%" stop-color="#16B5DD"></stop></lineargradient></defs><use href="#mk-K" fill="url(#random-k-a)" transform="translate(1492,0)"></use><use href="#mk-P" fill="url(#random-k-b)" transform="translate(1492,0)"></use></svg><figcaption>Unrelated gradients on K and triangle.</figcaption></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- gen:roles -->
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>7. Roles and contrast</h3>
+      <p class="cd">Which token does which job on Client. Contrast is measured on bg/surface.</p>
+      <div class="cb">
+        <div class="rr"><i style="background:#010619"></i><b>Page</b><span>bg/base-deep #010619</span></div>
+        <div class="rr"><i style="background:#050B22"></i><b>Section, app screen</b><span>bg/base #050B22</span></div>
+        <div class="rr"><i style="background:#141B34"></i><b>Card</b><span>bg/surface #141B34</span></div>
+        <div class="rr"><i style="background:#19213B"></i><b>Overlay</b><span>bg/raised #19213B</span></div>
+        <div class="rr"><i style="background:#242C46"></i><b>Border</b><span>border/default #242C46</span></div>
+        <div class="rr"><i style="background:#FFFFFF"></i><b>Text primary</b><span>text/primary #FFFFFF · 17.0:1</span></div>
+        <div class="rr"><i style="background:#B4C0CC"></i><b>Text secondary</b><span>text/secondary #B4C0CC · 9.2:1</span></div>
+        <div class="rr"><i style="background:#8993A0"></i><b>Text tertiary, meta</b><span>text/tertiary #8993A0 · 5.5:1</span></div>
+        <div class="rr"><i style="background:#55617B"></i><b>Disabled</b><span>text/disabled #55617B · never for readable text</span></div>
+        <div class="rr"><i style="background:#87A8ED"></i><b>Links, highlighted words</b><span>text/brand #87A8ED · 7.2:1</span></div>
+        <div class="rr"><i style="background:linear-gradient(180deg, #FFFFFF 0%, #87A8ED 100%)"></i><b>Primary action</b><span>gradient/brand-primary · label #000000</span></div>
+        <div class="rr"><i style="background:#45B5FF"></i><b>Highlight</b><span>brand/accent #45B5FF · metrics, focus, glow source</span></div>
+        <div class="lbl">Usage ratio</div>
+        <div class="ratio"><i style="width:60%;background:#141B34"></i><i style="width:30%;background:#8993A0"></i><i style="width:10%;background:#87A8ED"></i></div>
+        <div class="rlg"><span>60% backgrounds and surfaces</span><span>30% text and neutrals</span><span>10% accent</span></div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>7. Roles and contrast</h3>
+      <p class="cd">Which token does which job on Clipper. Contrast is measured on bg/surface.</p>
+      <div class="cb">
+        <div class="rr"><i style="background:#0B0B0C"></i><b>Page</b><span>bg/base-deep #0B0B0C</span></div>
+        <div class="rr"><i style="background:#111113"></i><b>Section, app screen</b><span>bg/base #111113</span></div>
+        <div class="rr"><i style="background:#1C1C1F"></i><b>Card</b><span>bg/surface #1C1C1F</span></div>
+        <div class="rr"><i style="background:#242427"></i><b>Overlay</b><span>bg/raised #242427</span></div>
+        <div class="rr"><i style="background:#2A2A2E"></i><b>Border</b><span>border/default #2A2A2E</span></div>
+        <div class="rr"><i style="background:#F7F7F5"></i><b>Text primary</b><span>text/primary #F7F7F5 · 15.8:1</span></div>
+        <div class="rr"><i style="background:#A3A3A8"></i><b>Text secondary</b><span>text/secondary #A3A3A8 · 6.8:1</span></div>
+        <div class="rr"><i style="background:#85858B"></i><b>Text tertiary, meta</b><span>text/tertiary #85858B · 4.6:1</span></div>
+        <div class="rr"><i style="background:#4E4E53"></i><b>Disabled</b><span>text/disabled #4E4E53 · never for readable text</span></div>
+        <div class="rr"><i style="background:#FF6839"></i><b>Links, money</b><span>text/brand #FF6839 · 5.9:1</span></div>
+        <div class="rr"><i style="background:linear-gradient(120deg, #FF6839 0%, #FF5346 100%)"></i><b>Primary action</b><span>gradient/brand-primary · label #FFFFFF</span></div>
+        <div class="rr"><i style="background:#F83C4F"></i><b>Highlight</b><span>brand/accent #F83C4F · logo accent and brand art; not for errors</span></div>
+        <div class="lbl">Usage ratio</div>
+        <div class="ratio"><i style="width:60%;background:#1C1C1F"></i><i style="width:30%;background:#85858B"></i><i style="width:10%;background:#FF6839"></i></div>
+        <div class="rlg"><span>60% backgrounds and surfaces</span><span>30% text and neutrals</span><span>10% accent</span></div>
+      </div>
+    </div>
+  </div>
+<!-- /gen:roles -->
+</section>
+
+<!-- gen:typography -->
+<section id="typography">
+  <div class="sh2"><span>05</span><h2>Typography</h2></div>
+  <p class="slede">Each system has its own pair. Weights listed are the ones loaded; nothing else ships. Sizes come from the tokens, Web first, then App.</p>
+
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>Typefaces</h3>
+      <p class="cd">Overpass for display, Manrope for text. The hero headline is Manrope 600, as live.</p>
+      <div class="cb">
+        <div class="ff">
+          <div class="ffa" style="font:600 88px/1 'Overpass',sans-serif">Aa</div>
+          <div class="ffd"><b>Overpass</b><span>Display, headings, metrics. Weights 600, 800.</span></div>
+        </div>
+        <div class="ff">
+          <div class="ffa" style="font:400 88px/1 'Manrope',sans-serif">Aa</div>
+          <div class="ffd"><b>Manrope</b><span>Body, UI, forms, and the landing hero. Weights 400, 600.</span></div>
+        </div>
+        <table class="kv">
+          <tr><th>Source</th><td>Google Fonts, open licence. Self-host in production.</td></tr>
+          <tr><th>Wordmark</th><td>Artwork, not a typeface. Never set in these fonts.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>Typefaces</h3>
+      <p class="cd">Space Grotesk for display and money, Inter for text. Plus Jakarta Sans is kept for web eyebrows only.</p>
+      <div class="cb">
+        <div class="ff">
+          <div class="ffa" style="font:700 88px/1 'Space Grotesk',sans-serif">Aa</div>
+          <div class="ffd"><b>Space Grotesk</b><span>Display, headlines, money. Weights 700.</span></div>
+        </div>
+        <div class="ff">
+          <div class="ffa" style="font:400 88px/1 'Inter',sans-serif">Aa</div>
+          <div class="ffd"><b>Inter</b><span>Body and all UI. Weights 400, 500, 600, 700.</span></div>
+        </div>
+        <div class="ff">
+          <div class="ffa" style="font:800 88px/1 'Plus Jakarta Sans',sans-serif">Aa</div>
+          <div class="ffd"><b>Plus Jakarta Sans</b><span>Web eyebrows only. Weights 800.</span></div>
+        </div>
+        <table class="kv">
+          <tr><th>Source</th><td>Google Fonts, open licence. Self-host in production.</td></tr>
+          <tr><th>Wordmark</th><td>Artwork, not a typeface. Never set in these fonts.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>Type scale · Web</h3>
+      <p class="cd">Landing and marketing pages. Body copy at 16/1.6.</p>
+      <div class="cb">
+        <div class="ts"><div class="tsn"><b>display-hero</b><span>Manrope 600 · 36px–60px/1.2 · -0.01em · CAPS</span></div><div class="tss text-display-hero">Own organic</div></div>
+        <div class="ts"><div class="tsn"><b>display-h1</b><span>Overpass 600 · 28px–40px/1.2 · -0.005em</span></div><div class="tss text-display-h1">Every clip reviewed</div></div>
+        <div class="ts"><div class="tsn"><b>display-stat</b><span>Overpass 800 · 28px–48px/1.1 · 0.03em</span></div><div class="tss text-display-stat">€1,000</div></div>
+        <div class="ts"><div class="tsn"><b>body-lead</b><span>Manrope 400 · 18px/1.6</span></div><div class="tss text-body-lead">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-web</b><span>Manrope 400 · 16px/1.6</span></div><div class="tss text-body-web">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-eyebrow</b><span>Manrope 600 · 12px/1.3 · 0.03em · CAPS</span></div><div class="tss text-label-eyebrow">Live campaign</div></div>
+        <div class="ts"><div class="tsn"><b>client-card-title</b><span>Overpass 800 · 18px/1.3 · 0.03em</span></div><div class="tss text-client-card-title">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>client-overline</b><span>Manrope 600 · 10px/1.3 · 0.2em · CAPS</span></div><div class="tss text-client-overline">Live campaign</div></div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>Type scale · Web</h3>
+      <p class="cd">Landing and marketing pages.</p>
+      <div class="cb">
+        <div class="ts"><div class="tsn"><b>display-hero</b><span>Space Grotesk 700 · 88px/0.94 · -0.03em</span></div><div class="tss text-display-hero">Own organic</div></div>
+        <div class="ts"><div class="tsn"><b>display-h1</b><span>Space Grotesk 700 · 48px/1.08 · -0.03em</span></div><div class="tss text-display-h1">Every clip reviewed</div></div>
+        <div class="ts"><div class="tsn"><b>display-stat</b><span>Space Grotesk 700 · 40px/1.04 · -0.03em</span></div><div class="tss text-display-stat">€1,000</div></div>
+        <div class="ts"><div class="tsn"><b>body-lead</b><span>Inter 400 · 18px/1.6</span></div><div class="tss text-body-lead">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-web</b><span>Inter 400 · 15px/1.6</span></div><div class="tss text-body-web">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-eyebrow</b><span>Plus Jakarta Sans 800 · 11px/1 · 0.14em · CAPS</span></div><div class="tss text-label-eyebrow">Live campaign</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>Type scale · App</h3>
+      <p class="cd">For the Client dashboard, not designed yet. The app styles are shared, so it starts from these in Client fonts.</p>
+      <div class="cb">
+        <div class="ts"><div class="tsn"><b>display-xl</b><span>Overpass 700 · 32px/1.1</span></div><div class="tss text-display-xl">€1,250</div></div>
+        <div class="ts"><div class="tsn"><b>display-l</b><span>Overpass 700 · 24px/1.2</span></div><div class="tss text-display-l">€300</div></div>
+        <div class="ts"><div class="tsn"><b>display-m</b><span>Overpass 700 · 20px/1.2</span></div><div class="tss text-display-m">€40</div></div>
+        <div class="ts"><div class="tsn"><b>title-l</b><span>Manrope 600 · 20px/1.2</span></div><div class="tss text-title-l">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-l-bold</b><span>Manrope 700 · 20px/1.2</span></div><div class="tss text-title-l-bold">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-m</b><span>Manrope 600 · 18px/1.2</span></div><div class="tss text-title-m">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-m-medium</b><span>Manrope 500 · 18px/1.2</span></div><div class="tss text-title-m-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-s</b><span>Manrope 600 · 16px/1.3</span></div><div class="tss text-title-s">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-l</b><span>Manrope 400 · 16px/1.3</span></div><div class="tss text-body-l">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-l-medium</b><span>Manrope 500 · 16px/1.3</span></div><div class="tss text-body-l-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-m</b><span>Manrope 400 · 14px/1.3</span></div><div class="tss text-body-m">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-m-medium</b><span>Manrope 500 · 14px/1.3</span></div><div class="tss text-body-m-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-m-semibold</b><span>Manrope 600 · 14px/1.3</span></div><div class="tss text-body-m-semibold">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-s</b><span>Manrope 400 · 13px/1.3</span></div><div class="tss text-body-s">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-s-medium</b><span>Manrope 500 · 13px/1.3</span></div><div class="tss text-body-s-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-s-semibold</b><span>Manrope 600 · 13px/1.3</span></div><div class="tss text-body-s-semibold">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>caption-regular</b><span>Manrope 400 · 12px/1.3</span></div><div class="tss text-caption-regular">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>caption-medium</b><span>Manrope 500 · 12px/1.3</span></div><div class="tss text-caption-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-button</b><span>Manrope 600 · 18px/1.2</span></div><div class="tss text-label-button">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-button-m</b><span>Manrope 600 · 14px/1.2</span></div><div class="tss text-label-button-m">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-chip</b><span>Manrope 600 · 12px/1 · 0.04em · CAPS</span></div><div class="tss text-label-chip">Live campaign</div></div>
+        <div class="ts"><div class="tsn"><b>label-tag</b><span>Manrope 500 · 13px/1</span></div><div class="tss text-label-tag">Clip. Post. Earn.</div></div>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>Type scale · App</h3>
+      <p class="cd">The Clipper app. Never below 12px.</p>
+      <div class="cb">
+        <div class="ts"><div class="tsn"><b>display-xl</b><span>Space Grotesk 700 · 32px/1.1</span></div><div class="tss text-display-xl">€1,250</div></div>
+        <div class="ts"><div class="tsn"><b>display-l</b><span>Space Grotesk 700 · 24px/1.2</span></div><div class="tss text-display-l">€300</div></div>
+        <div class="ts"><div class="tsn"><b>display-m</b><span>Space Grotesk 700 · 20px/1.2</span></div><div class="tss text-display-m">€40</div></div>
+        <div class="ts"><div class="tsn"><b>title-l</b><span>Inter 600 · 20px/1.2</span></div><div class="tss text-title-l">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-l-bold</b><span>Inter 700 · 20px/1.2</span></div><div class="tss text-title-l-bold">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-m</b><span>Inter 600 · 18px/1.2</span></div><div class="tss text-title-m">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-m-medium</b><span>Inter 500 · 18px/1.2</span></div><div class="tss text-title-m-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>title-s</b><span>Inter 600 · 16px/1.3</span></div><div class="tss text-title-s">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-l</b><span>Inter 400 · 16px/1.3</span></div><div class="tss text-body-l">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-l-medium</b><span>Inter 500 · 16px/1.3</span></div><div class="tss text-body-l-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-m</b><span>Inter 400 · 14px/1.3</span></div><div class="tss text-body-m">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-m-medium</b><span>Inter 500 · 14px/1.3</span></div><div class="tss text-body-m-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-m-semibold</b><span>Inter 600 · 14px/1.3</span></div><div class="tss text-body-m-semibold">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-s</b><span>Inter 400 · 13px/1.3</span></div><div class="tss text-body-s">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-s-medium</b><span>Inter 500 · 13px/1.3</span></div><div class="tss text-body-s-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>body-s-semibold</b><span>Inter 600 · 13px/1.3</span></div><div class="tss text-body-s-semibold">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>caption-regular</b><span>Inter 400 · 12px/1.3</span></div><div class="tss text-caption-regular">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>caption-medium</b><span>Inter 500 · 12px/1.3</span></div><div class="tss text-caption-medium">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-button</b><span>Inter 600 · 18px/1.2</span></div><div class="tss text-label-button">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-button-m</b><span>Inter 600 · 14px/1.2</span></div><div class="tss text-label-button-m">Clip. Post. Earn.</div></div>
+        <div class="ts"><div class="tsn"><b>label-chip</b><span>Inter 600 · 12px/1 · 0.04em · CAPS</span></div><div class="tss text-label-chip">Live campaign</div></div>
+        <div class="ts"><div class="tsn"><b>label-tag</b><span>Inter 500 · 13px/1</span></div><div class="tss text-label-tag">Clip. Post. Earn.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /gen:typography -->
+
+<!-- gen:core -->
+<section id="core">
+  <div class="sh2"><span>06</span><h2>Shared core</h2></div>
+  <p class="slede">What both systems use as is. Semantics stay out of the brand palettes, so a Client error and a Clipper error look the same.</p>
+
+  <div class="row">
+    <div class="card m">
+      <h3>Status colours</h3>
+      <p class="cd">Grey for inactive, amber for waiting, green for live, red for a mistake. Paid is the only filled chip and uses each system's brand colour.</p>
+      <div class="cb">
+        <div class="swatches">
+          <div class="sw"><div class="pv" style="background:#36B756"></div><span class="sn">Success</span><span class="sh">#36B756 · subtle #36B756 15%</span><span class="sr">LIVE, ONGOING, Joined</span></div>
+          <div class="sw"><div class="pv" style="background:#FFB521"></div><span class="sn">Warning</span><span class="sh">#FFB521 · subtle #FFB521 15%</span><span class="sr">UPCOMING, IN REVIEW, Pending</span></div>
+          <div class="sw"><div class="pv" style="background:#FF5A6E"></div><span class="sn">Error</span><span class="sh">#FF5A6E · subtle #FF5A6E 15%</span><span class="sr">REJECTED, CANCELLED, errors</span></div>
+          <div class="sw"><div class="pv" style="background:#85858B"></div><span class="sn">Neutral</span><span class="sh">#85858B · subtle #FFFFFF 6%</span><span class="sr">COMPLETED, ARCHIVED, ENDED, Private</span></div>
+        </div>
+        <div class="lbl">Rank</div>
+        <div class="swatches">
+          <div class="sw"><div class="pv" style="background:#F4BE3A"></div><span class="sn">Gold</span><span class="sh">#F4BE3A</span></div>
+          <div class="sw"><div class="pv" style="background:#C2C7D1"></div><span class="sn">Silver</span><span class="sh">#C2C7D1</span></div>
+          <div class="sw"><div class="pv" style="background:#C98552"></div><span class="sn">Bronze</span><span class="sh">#C98552</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card m">
+      <h3>Spacing and radius</h3>
+      <p class="cd">One 4-based spacing scale and one radius scale for both systems. Only the button radius differs.</p>
+      <div class="cb">
+        <div class="sp">
+          <div class="spr"><i style="width:2px"></i><span>2px · Hairline nudges only</span></div>
+          <div class="spr"><i style="width:4px"></i><span>4px</span></div>
+          <div class="spr"><i style="width:8px"></i><span>8px</span></div>
+          <div class="spr"><i style="width:12px"></i><span>12px</span></div>
+          <div class="spr"><i style="width:16px"></i><span>16px · App screen margin</span></div>
+          <div class="spr"><i style="width:20px"></i><span>20px</span></div>
+          <div class="spr"><i style="width:24px"></i><span>24px</span></div>
+          <div class="spr"><i style="width:32px"></i><span>32px</span></div>
+          <div class="spr"><i style="width:40px"></i><span>40px</span></div>
+          <div class="spr"><i style="width:48px"></i><span>48px</span></div>
+          <div class="spr"><i style="width:64px"></i><span>64px</span></div>
+          <div class="spr"><i style="width:80px"></i><span>80px · Web section rhythm</span></div>
+          <div class="spr"><i style="width:96px"></i><span>96px · Web section padding</span></div>
+          <div class="spr"><i style="width:120px"></i><span>120px · Web hero padding</span></div>
+        </div>
+        <div class="lbl">Radius</div>
+        <div class="rad">
+          <div class="radi"><i style="border-radius:4px"></i><span>xs · 4px</span></div>
+          <div class="radi"><i style="border-radius:8px"></i><span>sm · 8px</span></div>
+          <div class="radi"><i style="border-radius:12px"></i><span>md · 12px</span></div>
+          <div class="radi"><i style="border-radius:16px"></i><span>lg · 16px</span></div>
+          <div class="radi"><i style="border-radius:24px"></i><span>xl · 24px</span></div>
+          <div class="radi"><i style="border-radius:999px"></i><span>full · full</span></div>
+        </div>
+        <table class="kv">
+          <tr><th>Button radius</th><td>Client: pill (radius full). Clipper: 12px (radius md). Same component, different radius token.</td></tr>
+          <tr><th>Logo tile radius</th><td>20% of the tile width. Artwork only; it does not set an interface radius.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card m">
+      <h3>Icons</h3>
+      <p class="cd">Phosphor, in both systems. One family keeps the two products consistent.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Family</th><td>Phosphor Regular, 24px on a 24px grid. Fill variants only for active or selected states.</td></tr>
+          <tr><th>Exceptions</th><td>Platform marks (TikTok, Instagram, YouTube) stay as their own logos. The Clipper bottom nav keeps its Klippin glyphs.</td></tr>
+          <tr><th>Colour</th><td>Icons take the text colour of their context: text/primary, secondary or tertiary.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card m">
+      <h3>Money and voice</h3>
+      <p class="cd">Shared writing rules.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Currency</th><td>€1,000: euro prefix, comma thousands. Never $ or a suffix.</td></tr>
+          <tr><th>Money colour</th><td>Brand text colour for emphasised money, white for accented, grey for neutral, red strikethrough for cancelled.</td></tr>
+          <tr><th>Tone</th><td>Short and factual. Two positioning lines, no other slogans: "Own organic." for Client, "Clip. Post. Earn." for Clipper.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /gen:core -->
+
+<!-- gen:product -->
+<section id="product">
+  <div class="sh2"><span>07</span><h2>Product UI</h2></div>
+  <p class="slede">This bible owns the logo, palettes, gradients, type and voice. Tokens, components, states and screens live in the UI kit and are built from <a href="reference/klippin_tokens.css">the same tokens</a>. Each system has the same two parts: Web first, then App.</p>
+
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>Web</h3>
+      <p class="cd">The partners site.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Live</th><td>partners.klippin.io</td></tr>
+          <tr><th>Kit</th><td><a href="https://elyanka.github.io/klippin/client/presentation/components.html#client-web">Client · web components</a>, the <a href="https://elyanka.github.io/klippin/client/presentation/landing.html#client">rebuilt landing</a></td></tr>
+          <tr><th>Type</th><td>Type scale · Web, Client side</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>Web</h3>
+      <p class="cd">The landing page.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Live</th><td>The Clipper landing page</td></tr>
+          <tr><th>Kit</th><td><a href="https://elyanka.github.io/klippin/client/presentation/components.html">Web components</a>, the <a href="https://elyanka.github.io/klippin/client/presentation/landing.html">rebuilt landing</a></td></tr>
+          <tr><th>Type</th><td>Type scale · Web, Clipper side</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card c" data-system="client">
+      <h3>App</h3>
+      <p class="cd">The Client dashboard.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Status</th><td><span class="ph">Placeholder</span>Not designed yet.</td></tr>
+          <tr><th>Starts from</th><td>The shared core, the Client tokens and the shared app type scale in Client fonts. It gets its own section in the kit, after Client · web.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <div class="card k" data-system="clipper">
+      <h3>App</h3>
+      <p class="cd">The creator app.</p>
+      <div class="cb">
+        <table class="kv">
+          <tr><th>Live</th><td>The Klippin creator app</td></tr>
+          <tr><th>Kit</th><td><a href="https://elyanka.github.io/klippin/client/presentation/components.html">App components</a>, <a href="https://elyanka.github.io/klippin/client/presentation/mockups.html">screens</a>, <a href="https://elyanka.github.io/klippin/client/presentation/rules.html">UI rules</a></td></tr>
+          <tr><th>Type</th><td>Type scale · App</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- /gen:product -->
+</main>
+
+<script>
+const b = document.body;
+const btns = [...document.querySelectorAll('.seg button')];
+const SYSTEMS = {c: 'client', k: 'clipper'};
+function setView(v, remember) {
+  b.dataset.view = v;
+  document.documentElement.dataset.system = SYSTEMS[v];
+  btns.forEach(y => y.setAttribute('aria-pressed', y.dataset.v === v));
+  if (remember) { try { localStorage.setItem('klippin-bible-view', v); } catch (e) {} }
+}
+btns.forEach(x => x.addEventListener('click', () => setView(x.dataset.v, true)));
+let start = /clipper/.test(location.hash) ? 'k' : /client/.test(location.hash) ? 'c' : null;
+if (!start) { try { start = localStorage.getItem('klippin-bible-view'); } catch (e) {} }
+setView(start === 'k' ? 'k' : 'c', false);
+
+const links = [...document.querySelectorAll('.tabs a')];
+const sections = [...document.querySelectorAll('main section')];
+const bar = document.querySelector('.bar');
+let scheduled = false;
+function syncActive() {
+  scheduled = false;
+  document.documentElement.style.scrollPaddingTop = (bar.offsetHeight + 16) + 'px';
+  const line = bar.getBoundingClientRect().bottom + 24;
+  let active = sections[0];
+  for (const section of sections) {
+    if (section.getBoundingClientRect().top <= line) active = section;
+    else break;
+  }
+  if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 3) active = sections[sections.length - 1];
+  links.forEach(link => {
+    const on = link.hash === '#' + active.id;
+    if (on && !link.classList.contains('on')) link.parentElement.scrollTo({left: link.offsetLeft - link.parentElement.offsetLeft - 24, behavior: 'smooth'});
+    link.classList.toggle('on', on);
+  });
+}
+function queueSync() { if (!scheduled) { scheduled = true; requestAnimationFrame(syncActive); } }
+window.addEventListener('scroll', queueSync, {passive:true});
+window.addEventListener('resize', queueSync);
+links.forEach(link => link.addEventListener('click', () => {
+  links.forEach(item => item.classList.toggle('on', item === link));
+  setTimeout(queueSync, 100);
+}));
+queueSync();
+</script>
+</body>
+</html>

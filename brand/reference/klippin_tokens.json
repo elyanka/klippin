@@ -1,0 +1,2087 @@
+{
+  "$meta": {
+    "$description": "Klippin design tokens. Dark only. One shared core plus two equal systems, Client and Clipper, each a complete set with the same token names (CSS scope [data-system=\"client\"] / [data-system=\"clipper\"]; put it on <html>). Neither system is the default. Exported from Figma \"Klippin · Brand & UI Kit\" on 2026-10-25, Client added 2026-10-27 from the live Client landing page, regrouped into core + systems for v3.0.0. tokens.css is generated from this file by build.js.",
+    "source": "https://www.figma.com/design/IGTHBBHnQKAUlVWOXWvFhz",
+    "version": "3.0.0",
+    "systems": [
+      "client",
+      "clipper"
+    ],
+    "mode": "dark",
+    "fontReferences": "{font.display}, {font.body} and {font.hero} resolve to the active system: systems.<name>.typography.font.*"
+  },
+  "core": {
+    "$description": "Shared by both systems: neutral alphas, status, rank, spacing, radius scale, borders, layout, opacity, elevation and the app text styles (which take each system's fonts).",
+    "primitives": {
+      "base": {
+        "white": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "White",
+          "$extensions": {
+            "css": "--primitive-neutral-0"
+          }
+        },
+        "black": {
+          "$type": "color",
+          "$value": "#000000",
+          "$extensions": {
+            "css": "--primitive-neutral-black"
+          }
+        }
+      },
+      "white-alpha": {
+        "5": {
+          "$type": "color",
+          "$value": "#FFFFFF0D",
+          "$extensions": {
+            "css": "--primitive-white-alpha-5"
+          }
+        },
+        "6": {
+          "$type": "color",
+          "$value": "#FFFFFF0F",
+          "$extensions": {
+            "css": "--primitive-white-alpha-6"
+          }
+        },
+        "10": {
+          "$type": "color",
+          "$value": "#FFFFFF1A",
+          "$extensions": {
+            "css": "--primitive-white-alpha-10"
+          }
+        },
+        "12": {
+          "$type": "color",
+          "$value": "#FFFFFF1F",
+          "$extensions": {
+            "css": "--primitive-white-alpha-12"
+          }
+        }
+      },
+      "black-alpha": {
+        "60": {
+          "$type": "color",
+          "$value": "#00000099",
+          "$extensions": {
+            "css": "--primitive-black-alpha-60"
+          }
+        }
+      },
+      "green": {
+        "500": {
+          "$type": "color",
+          "$value": "#36B756",
+          "$extensions": {
+            "css": "--primitive-green-500"
+          }
+        },
+        "500-15": {
+          "$type": "color",
+          "$value": "#36B75626",
+          "$extensions": {
+            "css": "--primitive-green-500-15"
+          }
+        }
+      },
+      "amber": {
+        "500": {
+          "$type": "color",
+          "$value": "#FFB521",
+          "$extensions": {
+            "css": "--primitive-amber-500"
+          }
+        },
+        "500-15": {
+          "$type": "color",
+          "$value": "#FFB52126",
+          "$extensions": {
+            "css": "--primitive-amber-500-15"
+          }
+        }
+      },
+      "red": {
+        "500": {
+          "$type": "color",
+          "$value": "#FF5A6E",
+          "$description": "Error red, hue kept away from brand orange",
+          "$extensions": {
+            "css": "--primitive-red-500"
+          }
+        },
+        "500-15": {
+          "$type": "color",
+          "$value": "#FF5A6E26",
+          "$extensions": {
+            "css": "--primitive-red-500-15"
+          }
+        }
+      },
+      "rank": {
+        "gold-500": {
+          "$type": "color",
+          "$value": "#F4BE3A",
+          "$extensions": {
+            "css": "--primitive-rank-gold-500"
+          }
+        },
+        "silver-500": {
+          "$type": "color",
+          "$value": "#C2C7D1",
+          "$extensions": {
+            "css": "--primitive-rank-silver-500"
+          }
+        },
+        "bronze-500": {
+          "$type": "color",
+          "$value": "#C98552",
+          "$extensions": {
+            "css": "--primitive-rank-bronze-500"
+          }
+        }
+      }
+    },
+    "color": {
+      "bg": {
+        "tint": {
+          "$type": "color",
+          "$value": "{core.primitives.white-alpha.6}",
+          "$description": "Level 2: elements on any surface (secondary buttons, icon buttons, chips, pills, tags, selects). Always one step lighter than beneath.",
+          "$extensions": {
+            "css": "--color-bg-tint"
+          }
+        },
+        "tint-strong": {
+          "$type": "color",
+          "$value": "{core.primitives.white-alpha.10}",
+          "$description": "Level 2 pressed / tinted elements inside overlays.",
+          "$extensions": {
+            "css": "--color-bg-tint-strong"
+          }
+        },
+        "surface-glass": {
+          "$type": "color",
+          "$value": "{core.primitives.white-alpha.5}",
+          "$description": "Translucent card over imagery or glows. Pair with border/glass.",
+          "$extensions": {
+            "css": "--color-bg-surface-glass"
+          }
+        },
+        "scrim": {
+          "$type": "color",
+          "$value": "{core.primitives.black-alpha.60}",
+          "$description": "Behind level-3 overlays.",
+          "$extensions": {
+            "css": "--color-bg-scrim"
+          }
+        },
+        "danger-soft": {
+          "$type": "color",
+          "$value": "#4A2930",
+          "$description": "Solid red tint for Danger soft buttons. Opaque so it looks the same on base, surface, raised and popups.",
+          "$extensions": {
+            "css": "--color-bg-danger-soft"
+          }
+        }
+      },
+      "border": {
+        "subtle": {
+          "$type": "color",
+          "$value": "{core.primitives.white-alpha.5}",
+          "$description": "Dividers inside cards.",
+          "$extensions": {
+            "css": "--color-border-subtle"
+          }
+        },
+        "glass": {
+          "$type": "color",
+          "$value": "{core.primitives.white-alpha.12}",
+          "$description": "Hairline for bg/surface-glass cards.",
+          "$extensions": {
+            "css": "--color-border-glass"
+          }
+        }
+      },
+      "status": {
+        "success": {
+          "$type": "color",
+          "$value": "{core.primitives.green.500}",
+          "$description": "LIVE, ONGOING, Joined.",
+          "$extensions": {
+            "css": "--color-status-success"
+          }
+        },
+        "success-subtle": {
+          "$type": "color",
+          "$value": "{core.primitives.green.500-15}",
+          "$extensions": {
+            "css": "--color-status-success-subtle"
+          }
+        },
+        "warning": {
+          "$type": "color",
+          "$value": "{core.primitives.amber.500}",
+          "$description": "UPCOMING, IN REVIEW, Pending.",
+          "$extensions": {
+            "css": "--color-status-warning"
+          }
+        },
+        "warning-subtle": {
+          "$type": "color",
+          "$value": "{core.primitives.amber.500-15}",
+          "$extensions": {
+            "css": "--color-status-warning-subtle"
+          }
+        },
+        "error": {
+          "$type": "color",
+          "$value": "{core.primitives.red.500}",
+          "$description": "REJECTED, CANCELLED, destructive, errors.",
+          "$extensions": {
+            "css": "--color-status-error"
+          }
+        },
+        "error-subtle": {
+          "$type": "color",
+          "$value": "{core.primitives.red.500-15}",
+          "$extensions": {
+            "css": "--color-status-error-subtle"
+          }
+        },
+        "neutral": {
+          "$type": "color",
+          "$value": "{systems.clipper.primitives.neutral.500}",
+          "$description": "COMPLETED, ARCHIVED, ENDED, Private.",
+          "$extensions": {
+            "css": "--color-status-neutral"
+          }
+        },
+        "neutral-subtle": {
+          "$type": "color",
+          "$value": "{core.primitives.white-alpha.6}",
+          "$extensions": {
+            "css": "--color-status-neutral-subtle"
+          }
+        }
+      },
+      "rank": {
+        "gold": {
+          "$type": "color",
+          "$value": "{core.primitives.rank.gold-500}",
+          "$description": "Leaderboard place 1 medal disc. Dark content (text/on-orange) on top.",
+          "$extensions": {
+            "css": "--color-rank-gold"
+          }
+        },
+        "silver": {
+          "$type": "color",
+          "$value": "{core.primitives.rank.silver-500}",
+          "$description": "Leaderboard place 2 medal disc. Dark content (text/on-orange) on top.",
+          "$extensions": {
+            "css": "--color-rank-silver"
+          }
+        },
+        "bronze": {
+          "$type": "color",
+          "$value": "{core.primitives.rank.bronze-500}",
+          "$description": "Leaderboard place 3 medal disc. Dark content (text/on-orange) on top.",
+          "$extensions": {
+            "css": "--color-rank-bronze"
+          }
+        }
+      }
+    },
+    "spacing": {
+      "space": {
+        "0": {
+          "$type": "dimension",
+          "$value": "0px",
+          "$extensions": {
+            "css": "--space-0"
+          }
+        },
+        "2": {
+          "$type": "dimension",
+          "$value": "2px",
+          "$description": "Hairline nudges only",
+          "$extensions": {
+            "css": "--space-2"
+          }
+        },
+        "4": {
+          "$type": "dimension",
+          "$value": "4px",
+          "$extensions": {
+            "css": "--space-4"
+          }
+        },
+        "8": {
+          "$type": "dimension",
+          "$value": "8px",
+          "$extensions": {
+            "css": "--space-8"
+          }
+        },
+        "12": {
+          "$type": "dimension",
+          "$value": "12px",
+          "$extensions": {
+            "css": "--space-12"
+          }
+        },
+        "16": {
+          "$type": "dimension",
+          "$value": "16px",
+          "$description": "App screen margin",
+          "$extensions": {
+            "css": "--space-16"
+          }
+        },
+        "20": {
+          "$type": "dimension",
+          "$value": "20px",
+          "$extensions": {
+            "css": "--space-20"
+          }
+        },
+        "24": {
+          "$type": "dimension",
+          "$value": "24px",
+          "$extensions": {
+            "css": "--space-24"
+          }
+        },
+        "32": {
+          "$type": "dimension",
+          "$value": "32px",
+          "$extensions": {
+            "css": "--space-32"
+          }
+        },
+        "40": {
+          "$type": "dimension",
+          "$value": "40px",
+          "$extensions": {
+            "css": "--space-40"
+          }
+        },
+        "48": {
+          "$type": "dimension",
+          "$value": "48px",
+          "$extensions": {
+            "css": "--space-48"
+          }
+        },
+        "64": {
+          "$type": "dimension",
+          "$value": "64px",
+          "$extensions": {
+            "css": "--space-64"
+          }
+        },
+        "80": {
+          "$type": "dimension",
+          "$value": "80px",
+          "$description": "Web section rhythm",
+          "$extensions": {
+            "css": "--space-80"
+          }
+        },
+        "96": {
+          "$type": "dimension",
+          "$value": "96px",
+          "$description": "Web section padding",
+          "$extensions": {
+            "css": "--space-96"
+          }
+        },
+        "120": {
+          "$type": "dimension",
+          "$value": "120px",
+          "$description": "Web hero padding",
+          "$extensions": {
+            "css": "--space-120"
+          }
+        }
+      }
+    },
+    "radius": {
+      "radius": {
+        "none": {
+          "$type": "dimension",
+          "$value": "0px",
+          "$extensions": {
+            "css": "--radius-none"
+          }
+        },
+        "xs": {
+          "$type": "dimension",
+          "$value": "4px",
+          "$description": "Eyebrows, tiny tags",
+          "$extensions": {
+            "css": "--radius-xs"
+          }
+        },
+        "sm": {
+          "$type": "dimension",
+          "$value": "8px",
+          "$description": "Inputs, small cards, thumbnails",
+          "$extensions": {
+            "css": "--radius-sm"
+          }
+        },
+        "md": {
+          "$type": "dimension",
+          "$value": "12px",
+          "$description": "Cards, buttons",
+          "$extensions": {
+            "css": "--radius-md"
+          }
+        },
+        "lg": {
+          "$type": "dimension",
+          "$value": "16px",
+          "$description": "Sheets, large cards",
+          "$extensions": {
+            "css": "--radius-lg"
+          }
+        },
+        "xl": {
+          "$type": "dimension",
+          "$value": "24px",
+          "$description": "Hero cards, bottom sheets",
+          "$extensions": {
+            "css": "--radius-xl"
+          }
+        },
+        "full": {
+          "$type": "dimension",
+          "$value": "999px",
+          "$description": "Pills, chips, avatars",
+          "$extensions": {
+            "css": "--radius-full"
+          }
+        },
+        "button": {
+          "$type": "dimension",
+          "$value": "{core.radius.radius.md}",
+          "$description": "Buttons. Clipper 12px; Client pill.",
+          "$extensions": {
+            "css": "--radius-button"
+          }
+        }
+      }
+    },
+    "border": {
+      "border-width": {
+        "none": {
+          "$type": "dimension",
+          "$value": "0px",
+          "$extensions": {
+            "css": "--border-width-none"
+          }
+        },
+        "hairline": {
+          "$type": "dimension",
+          "$value": "1px",
+          "$description": "Default border",
+          "$extensions": {
+            "css": "--border-width-hairline"
+          }
+        },
+        "medium": {
+          "$type": "dimension",
+          "$value": "1.5px",
+          "$description": "Icons / focus",
+          "$extensions": {
+            "css": "--border-width-medium"
+          }
+        },
+        "strong": {
+          "$type": "dimension",
+          "$value": "2px",
+          "$description": "Selected state",
+          "$extensions": {
+            "css": "--border-width-strong"
+          }
+        }
+      }
+    },
+    "layout": {
+      "layout": {
+        "app-width": {
+          "$type": "dimension",
+          "$value": "390px",
+          "$description": "Design frame width (mobile)",
+          "$extensions": {
+            "css": "--layout-app-width"
+          }
+        },
+        "app-margin": {
+          "$type": "dimension",
+          "$value": "16px",
+          "$description": "Screen side margin",
+          "$extensions": {
+            "css": "--layout-app-margin"
+          }
+        },
+        "web-width": {
+          "$type": "dimension",
+          "$value": "1440px",
+          "$description": "Design frame width (desktop)",
+          "$extensions": {
+            "css": "--layout-web-width"
+          }
+        },
+        "web-container": {
+          "$type": "dimension",
+          "$value": "1128px",
+          "$description": "Content column on web",
+          "$extensions": {
+            "css": "--layout-web-container"
+          }
+        },
+        "web-gutter": {
+          "$type": "dimension",
+          "$value": "24px",
+          "$description": "Card grid gap on web",
+          "$extensions": {
+            "css": "--layout-web-gutter"
+          }
+        }
+      }
+    },
+    "opacity": {
+      "opacity": {
+        "disabled": {
+          "$type": "number",
+          "$value": 0.4,
+          "$description": "Disabled components (whole element)",
+          "$extensions": {
+            "css": "--opacity-disabled"
+          }
+        },
+        "pressed-overlay": {
+          "$type": "number",
+          "$value": 0.18,
+          "$description": "Black overlay on pressed primary button",
+          "$extensions": {
+            "css": "--opacity-pressed-overlay"
+          }
+        }
+      }
+    },
+    "elevation": {
+      "overlay": {
+        "$type": "shadow",
+        "$value": "0 16px 40px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3)",
+        "$description": "Level 3 only: popups, sheets, menus, dropdowns, calendar. With bg/raised + border/default over bg/scrim.",
+        "$extensions": {
+          "css": "--elevation-overlay"
+        }
+      },
+      "icon-on-media": {
+        "$type": "shadow",
+        "$value": "0 1px 4px rgba(0,0,0,0.4)",
+        "$description": "White icons on thumbnails/photos. Use with a bottom fade.",
+        "$extensions": {
+          "css": "--elevation-icon-on-media"
+        }
+      }
+    },
+    "text-style": {
+      "display": {
+        "xl": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.display}",
+            "fontWeight": 700,
+            "fontSize": "32px",
+            "lineHeight": 1.1,
+            "letterSpacing": "0em"
+          },
+          "$description": "App hero money / balance.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-display-xl"
+          }
+        },
+        "l": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.display}",
+            "fontWeight": 700,
+            "fontSize": "24px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "App screen-level money and big numbers.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-display-l"
+          }
+        },
+        "m": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.display}",
+            "fontWeight": 700,
+            "fontSize": "20px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "Card-level money (reward, earnings).",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-display-m"
+          }
+        }
+      },
+      "title": {
+        "l": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "20px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "Screen titles.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-title-l"
+          }
+        },
+        "l-bold": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 700,
+            "fontSize": "20px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "Emphasised screen titles.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-title-l-bold"
+          }
+        },
+        "m": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "18px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "Section / sheet titles.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-title-m"
+          }
+        },
+        "m-medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 500,
+            "fontSize": "18px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-title-m-medium"
+          }
+        },
+        "s": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "16px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$description": "Card titles, list titles.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-title-s"
+          }
+        }
+      },
+      "body": {
+        "l": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 400,
+            "fontSize": "16px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-l"
+          }
+        },
+        "l-medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 500,
+            "fontSize": "16px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$description": "Tabs, prominent rows.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-l-medium"
+          }
+        },
+        "m": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 400,
+            "fontSize": "14px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$description": "Default UI text.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-m"
+          }
+        },
+        "m-medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 500,
+            "fontSize": "14px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-m-medium"
+          }
+        },
+        "m-semibold": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "14px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-m-semibold"
+          }
+        },
+        "s": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 400,
+            "fontSize": "13px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$description": "Meta text.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-s"
+          }
+        },
+        "s-medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 500,
+            "fontSize": "13px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-s-medium"
+          }
+        },
+        "s-semibold": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "13px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-body-s-semibold"
+          }
+        }
+      },
+      "caption": {
+        "regular": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 400,
+            "fontSize": "12px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$description": "Smallest text. Never below 12px.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-caption-regular"
+          }
+        },
+        "medium": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 500,
+            "fontSize": "12px",
+            "lineHeight": 1.3,
+            "letterSpacing": "0em"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-caption-medium"
+          }
+        }
+      },
+      "label": {
+        "button": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "18px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "Primary button L. White on gradient needs 18px semibold.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-label-button"
+          }
+        },
+        "button-m": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "14px",
+            "lineHeight": 1.2,
+            "letterSpacing": "0em"
+          },
+          "$description": "Compact buttons (M, 36px).",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-label-button-m"
+          }
+        },
+        "chip": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 600,
+            "fontSize": "12px",
+            "lineHeight": 1,
+            "letterSpacing": "0.04em",
+            "textCase": "uppercase"
+          },
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-label-chip"
+          },
+          "$description": "Lifecycle status chips (CAPS)."
+        },
+        "tag": {
+          "$type": "typography",
+          "$value": {
+            "fontFamily": "{font.body}",
+            "fontWeight": 500,
+            "fontSize": "13px",
+            "lineHeight": 1,
+            "letterSpacing": "0em"
+          },
+          "$description": "Membership tags, sentence case.",
+          "$extensions": {
+            "platform": "app",
+            "css": ".text-label-tag"
+          }
+        }
+      },
+      "$description": "App text styles, shared: each takes the system fonts. Web styles that differ live in each system (platform: web)."
+    }
+  },
+  "systems": {
+    "client": {
+      "$description": "Client: the enterprise system. Manrope (UI/body, hero), Overpass (display/headings/metrics). Values from the live Client landing page (partners.klippin.io). Scope: [data-system=\"client\"].",
+      "primitives": {
+        "blue": {
+          "pale": {
+            "$type": "color",
+            "$value": "#A0BCE6",
+            "$description": "Brand guide · Pale Blue",
+            "$extensions": {
+              "css": "--primitive-blue-pale"
+            }
+          },
+          "cornflower": {
+            "$type": "color",
+            "$value": "#87A8ED",
+            "$description": "Brand guide · Cornflower Blue. Client brand colour.",
+            "$extensions": {
+              "css": "--primitive-blue-cornflower"
+            }
+          },
+          "royal": {
+            "$type": "color",
+            "$value": "#3C5FBE",
+            "$description": "Brand guide · Royal Blue",
+            "$extensions": {
+              "css": "--primitive-blue-royal"
+            }
+          },
+          "sky": {
+            "$type": "color",
+            "$value": "#45B5FF",
+            "$description": "Brand guide · Bright Sky Blue (highlight)",
+            "$extensions": {
+              "css": "--primitive-blue-sky"
+            }
+          },
+          "cyan": {
+            "$type": "color",
+            "$value": "#49DBFF",
+            "$description": "Brand guide · Bright Cyan. Glows only.",
+            "$extensions": {
+              "css": "--primitive-blue-cyan"
+            }
+          },
+          "ice": {
+            "$type": "color",
+            "$value": "#BFD3FA",
+            "$description": "Live Client page · accent-light",
+            "$extensions": {
+              "css": "--primitive-blue-ice"
+            }
+          },
+          "cornflower-15": {
+            "$type": "color",
+            "$value": "#87A8ED26",
+            "$description": "Cornflower at 15%",
+            "$extensions": {
+              "css": "--primitive-blue-cornflower-15"
+            }
+          }
+        },
+        "navy": {
+          "100": {
+            "$type": "color",
+            "$value": "#FFFFFF",
+            "$description": "Client text primary",
+            "$extensions": {
+              "css": "--primitive-navy-100"
+            }
+          },
+          "300": {
+            "$type": "color",
+            "$value": "#B4C0CC",
+            "$description": "Live Client page · text secondary",
+            "$extensions": {
+              "css": "--primitive-navy-300"
+            }
+          },
+          "500": {
+            "$type": "color",
+            "$value": "#8993A0",
+            "$description": "Brand guide Client 500",
+            "$extensions": {
+              "css": "--primitive-navy-500"
+            }
+          },
+          "600": {
+            "$type": "color",
+            "$value": "#55617B",
+            "$description": "Brand guide Client 600",
+            "$extensions": {
+              "css": "--primitive-navy-600"
+            }
+          },
+          "700": {
+            "$type": "color",
+            "$value": "#242C46",
+            "$description": "Brand guide Client 700 · border",
+            "$extensions": {
+              "css": "--primitive-navy-700"
+            }
+          },
+          "725": {
+            "$type": "color",
+            "$value": "#1E2640",
+            "$description": "Derived · raised-strong",
+            "$extensions": {
+              "css": "--primitive-navy-725"
+            }
+          },
+          "750": {
+            "$type": "color",
+            "$value": "#19213B",
+            "$description": "Derived · raised",
+            "$extensions": {
+              "css": "--primitive-navy-750"
+            }
+          },
+          "800": {
+            "$type": "color",
+            "$value": "#141B34",
+            "$description": "Brand guide Client 800 · surface",
+            "$extensions": {
+              "css": "--primitive-navy-800"
+            }
+          },
+          "850": {
+            "$type": "color",
+            "$value": "#0B1229",
+            "$description": "Derived · surface-low",
+            "$extensions": {
+              "css": "--primitive-navy-850"
+            }
+          },
+          "900": {
+            "$type": "color",
+            "$value": "#050B22",
+            "$description": "Brand guide Client 900",
+            "$extensions": {
+              "css": "--primitive-navy-900"
+            }
+          },
+          "950": {
+            "$type": "color",
+            "$value": "#010619",
+            "$description": "Live Client page · body background",
+            "$extensions": {
+              "css": "--primitive-navy-950"
+            }
+          }
+        },
+        "gradient": {
+          "white-to-blue": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #FFFFFF 0%, #87A8ED 100%)",
+            "$description": "Brand guide.",
+            "$extensions": {
+              "css": "--gradient-white-to-blue"
+            }
+          },
+          "pearl-to-ice-blue": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #ECEFF2 0%, #BCD7FF 100%)",
+            "$description": "Brand guide. Logo letters.",
+            "$extensions": {
+              "css": "--gradient-pearl-to-ice-blue"
+            }
+          },
+          "cornflower-to-royal-blue": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #87A8ED 0%, #4F7EEF 50%, #3C5FBE 100%)",
+            "$description": "Brand guide. Logo accent, app tile.",
+            "$extensions": {
+              "css": "--gradient-cornflower-to-royal-blue"
+            }
+          },
+          "deep-navy": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #051036 0%, #050B22 50%, #010412 100%)",
+            "$description": "Brand guide. Hero glows and section fades on web.",
+            "$extensions": {
+              "css": "--gradient-deep-navy"
+            }
+          }
+        }
+      },
+      "color": {
+        "bg": {
+          "base-deepest": {
+            "$type": "color",
+            "$value": "{core.primitives.base.black}",
+            "$description": "Footer band (black).",
+            "$extensions": {
+              "css": "--color-bg-base-deepest"
+            }
+          },
+          "base-deep": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.950}",
+            "$description": "Page body.",
+            "$extensions": {
+              "css": "--color-bg-base-deep"
+            }
+          },
+          "base": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.900}",
+            "$description": "Alternating sections.",
+            "$extensions": {
+              "css": "--color-bg-base"
+            }
+          },
+          "surface-low": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.850}",
+            "$description": "Quiet card on the page body.",
+            "$extensions": {
+              "css": "--color-bg-surface-low"
+            }
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.800}",
+            "$description": "Cards, form panel. Pair with border/default.",
+            "$extensions": {
+              "css": "--color-bg-surface"
+            }
+          },
+          "raised": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.750}",
+            "$description": "Overlays: modal, menus, select lists.",
+            "$extensions": {
+              "css": "--color-bg-raised"
+            }
+          },
+          "raised-strong": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.725}",
+            "$description": "Pressed secondary; strong fills inside overlays.",
+            "$extensions": {
+              "css": "--color-bg-raised-strong"
+            }
+          }
+        },
+        "text": {
+          "primary": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.100}",
+            "$description": "Titles, values.",
+            "$extensions": {
+              "css": "--color-text-primary"
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.300}",
+            "$description": "Body copy and supporting text.",
+            "$extensions": {
+              "css": "--color-text-secondary"
+            }
+          },
+          "tertiary": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.500}",
+            "$description": "Meta, form hints. 6.3:1 on base.",
+            "$extensions": {
+              "css": "--color-text-tertiary"
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.600}",
+            "$description": "Disabled text and icons only.",
+            "$extensions": {
+              "css": "--color-text-disabled"
+            }
+          },
+          "on-primary-button": {
+            "$type": "color",
+            "$value": "{core.primitives.base.black}",
+            "$description": "Black, on the light White to Blue gradient.",
+            "$extensions": {
+              "css": "--color-text-on-primary-button"
+            }
+          },
+          "on-orange": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.950}",
+            "$description": "Name kept for parity: dark text on any light brand fill.",
+            "$extensions": {
+              "css": "--color-text-on-orange"
+            }
+          },
+          "brand": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.blue.cornflower}",
+            "$description": "Links, highlighted words in headings, active labels.",
+            "$extensions": {
+              "css": "--color-text-brand"
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.700}",
+            "$description": "Card, input and overlay borders.",
+            "$extensions": {
+              "css": "--color-border-default"
+            }
+          }
+        },
+        "brand": {
+          "primary": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.blue.cornflower}",
+            "$description": "Cornflower: active nav, solid brand fills.",
+            "$extensions": {
+              "css": "--color-brand-primary"
+            }
+          },
+          "primary-end": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.navy.100}",
+            "$description": "White: light end of the primary gradient.",
+            "$extensions": {
+              "css": "--color-brand-primary-end"
+            }
+          },
+          "accent": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.blue.sky}",
+            "$description": "Bright Sky Blue: metrics, focus ring, glow source. Not for errors.",
+            "$extensions": {
+              "css": "--color-brand-accent"
+            }
+          },
+          "primary-subtle": {
+            "$type": "color",
+            "$value": "{systems.client.primitives.blue.cornflower-15}",
+            "$description": "Selected chip / tab tint.",
+            "$extensions": {
+              "css": "--color-brand-primary-subtle"
+            }
+          }
+        }
+      },
+      "typography": {
+        "font": {
+          "display": {
+            "$type": "fontFamily",
+            "$value": "Overpass",
+            "$description": "Display, headings, metrics",
+            "$extensions": {
+              "css": "--font-display"
+            }
+          },
+          "body": {
+            "$type": "fontFamily",
+            "$value": "Manrope",
+            "$description": "Body, UI, forms",
+            "$extensions": {
+              "css": "--font-body"
+            }
+          },
+          "hero": {
+            "$type": "fontFamily",
+            "$value": "Manrope",
+            "$description": "Landing hero headline: Manrope 600, as live.",
+            "$extensions": {
+              "css": "--font-hero"
+            }
+          }
+        }
+      },
+      "radius": {
+        "button": {
+          "$type": "dimension",
+          "$value": "{core.radius.radius.full}",
+          "$description": "Pill.",
+          "$extensions": {
+            "css": "--radius-button"
+          }
+        }
+      },
+      "effect": {
+        "hover-glow": {
+          "$type": "shadow",
+          "$value": "0 0 5px rgba(73,219,255,0.5)",
+          "$description": "Primary and secondary button hover.",
+          "$extensions": {
+            "css": "--effect-hover-glow"
+          }
+        },
+        "glow-metric": {
+          "$type": "filter",
+          "$value": "drop-shadow(0 1px 5px rgba(73,219,255,0.5))",
+          "$description": "Gradient metrics only.",
+          "$extensions": {
+            "css": "--effect-glow-metric"
+          }
+        },
+        "glow-point": {
+          "$type": "shadow",
+          "$value": "0 0 25px 3px #3C5FBE, 0 0 7px #49DBFF",
+          "$description": "Network illustration points.",
+          "$extensions": {
+            "css": "--effect-glow-point"
+          }
+        }
+      },
+      "gradient": {
+        "brand-primary": {
+          "$type": "gradient",
+          "$value": "linear-gradient(180deg, var(--primitive-navy-100) 0%, var(--primitive-blue-cornflower) 100%)",
+          "$description": "Primary button, black label. 180°.",
+          "$extensions": {
+            "css": "--gradient-brand-primary"
+          }
+        },
+        "text-brand": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, #FFFFFF 25%, #87A8ED 100%)",
+          "$description": "Hero headline, one per view.",
+          "$extensions": {
+            "css": "--gradient-text-brand"
+          }
+        },
+        "text-metric": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, #FFFFFF 0%, #45B5FF 100%)",
+          "$description": "Metrics and counters.",
+          "$extensions": {
+            "css": "--gradient-text-metric"
+          }
+        }
+      },
+      "surface": {
+        "brand-fade": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, rgba(60,95,190,0.35) 0%, rgba(135,168,237,0.035) 100%), var(--color-bg-surface)",
+          "$description": "Featured containers.",
+          "$extensions": {
+            "css": "--surface-brand-fade"
+          }
+        },
+        "brand-tint": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, rgba(135,168,237,0.28) 0%, rgba(135,168,237,0.06) 100%), var(--color-bg-surface)",
+          "$description": "Highlighted row.",
+          "$extensions": {
+            "css": "--surface-brand-tint"
+          }
+        },
+        "input": {
+          "$type": "gradient",
+          "$value": "linear-gradient(150deg, rgba(135,168,237,0.02) 0%, rgba(60,95,190,0.2) 100%)",
+          "$description": "Form fields.",
+          "$extensions": {
+            "css": "--surface-input"
+          }
+        }
+      },
+      "text-style": {
+        "display": {
+          "hero": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.hero}",
+              "fontWeight": 600,
+              "fontSize": "clamp(36px, 4.2vw, 60px)",
+              "lineHeight": 1.2,
+              "letterSpacing": "-0.01em",
+              "textCase": "uppercase"
+            },
+            "$extensions": {
+              "css": ".text-display-hero",
+              "platform": "web"
+            }
+          },
+          "h1": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.display}",
+              "fontWeight": 600,
+              "fontSize": "clamp(28px, 2.8vw, 40px)",
+              "lineHeight": 1.2,
+              "letterSpacing": "-0.005em"
+            },
+            "$extensions": {
+              "css": ".text-display-h1",
+              "platform": "web"
+            }
+          },
+          "stat": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.display}",
+              "fontWeight": 800,
+              "fontSize": "clamp(28px, 3.3vw, 48px)",
+              "lineHeight": 1.1,
+              "letterSpacing": "0.03em"
+            },
+            "$extensions": {
+              "css": ".text-display-stat",
+              "platform": "web"
+            }
+          }
+        },
+        "body": {
+          "lead": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.body}",
+              "fontWeight": 400,
+              "fontSize": "18px",
+              "lineHeight": 1.6
+            },
+            "$extensions": {
+              "css": ".text-body-lead",
+              "platform": "web"
+            }
+          },
+          "web": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.body}",
+              "fontWeight": 400,
+              "fontSize": "16px",
+              "lineHeight": 1.6
+            },
+            "$description": "Live page uses 1.3; 1.6 for paragraphs.",
+            "$extensions": {
+              "css": ".text-body-web",
+              "platform": "web"
+            }
+          }
+        },
+        "label": {
+          "eyebrow": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.body}",
+              "fontWeight": 600,
+              "fontSize": "12px",
+              "lineHeight": 1.3,
+              "letterSpacing": "0.03em",
+              "textCase": "uppercase"
+            },
+            "$extensions": {
+              "css": ".text-label-eyebrow",
+              "platform": "web"
+            }
+          }
+        },
+        "client": {
+          "card-title": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.display}",
+              "fontWeight": 800,
+              "fontSize": "18px",
+              "lineHeight": 1.3,
+              "letterSpacing": "0.03em"
+            },
+            "$description": "Client only. Card and step titles.",
+            "$extensions": {
+              "css": ".text-client-card-title",
+              "platform": "web"
+            }
+          },
+          "overline": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.body}",
+              "fontWeight": 600,
+              "fontSize": "10px",
+              "lineHeight": 1.3,
+              "letterSpacing": "0.2em",
+              "textCase": "uppercase"
+            },
+            "$description": "Client only. Overlines.",
+            "$extensions": {
+              "css": ".text-client-overline",
+              "platform": "web"
+            }
+          }
+        }
+      }
+    },
+    "clipper": {
+      "$description": "Clipper: the creator system. Inter (UI/body), Space Grotesk (display/money); Plus Jakarta Sans only for web eyebrows. Scope: [data-system=\"clipper\"].",
+      "primitives": {
+        "orange": {
+          "apricot": {
+            "$type": "color",
+            "$value": "#FF8A5C",
+            "$description": "Brand guide · Apricot",
+            "$extensions": {
+              "css": "--primitive-orange-apricot"
+            }
+          },
+          "coral-orange": {
+            "$type": "color",
+            "$value": "#FF7A45",
+            "$description": "Brand guide · Coral Orange",
+            "$extensions": {
+              "css": "--primitive-orange-coral-orange"
+            }
+          },
+          "tangerine": {
+            "$type": "color",
+            "$value": "#FF7F35",
+            "$description": "Brand guide · Tangerine",
+            "$extensions": {
+              "css": "--primitive-orange-tangerine"
+            }
+          },
+          "orange-red": {
+            "$type": "color",
+            "$value": "#FF6839",
+            "$description": "Brand guide · Orange Red. THE brand colour.",
+            "$extensions": {
+              "css": "--primitive-orange-orange-red"
+            }
+          },
+          "red-orange": {
+            "$type": "color",
+            "$value": "#FF5346",
+            "$description": "Landing page gradient end",
+            "$extensions": {
+              "css": "--primitive-orange-red-orange"
+            }
+          },
+          "coral-red": {
+            "$type": "color",
+            "$value": "#F83C4F",
+            "$description": "Brand guide · Coral Red (highlight; logo accent end)",
+            "$extensions": {
+              "css": "--primitive-orange-coral-red"
+            }
+          },
+          "orange-red-15": {
+            "$type": "color",
+            "$value": "#FF683926",
+            "$description": "Orange Red at 15%",
+            "$extensions": {
+              "css": "--primitive-orange-orange-red-15"
+            }
+          }
+        },
+        "neutral": {
+          "100": {
+            "$type": "color",
+            "$value": "#F7F7F5",
+            "$description": "Paper white",
+            "$extensions": {
+              "css": "--primitive-neutral-100"
+            }
+          },
+          "400": {
+            "$type": "color",
+            "$value": "#A3A3A8",
+            "$extensions": {
+              "css": "--primitive-neutral-400"
+            }
+          },
+          "500": {
+            "$type": "color",
+            "$value": "#85858B",
+            "$extensions": {
+              "css": "--primitive-neutral-500"
+            }
+          },
+          "600": {
+            "$type": "color",
+            "$value": "#4E4E53",
+            "$extensions": {
+              "css": "--primitive-neutral-600"
+            }
+          },
+          "650": {
+            "$type": "color",
+            "$value": "#2C2C30",
+            "$extensions": {
+              "css": "--primitive-neutral-650"
+            }
+          },
+          "700": {
+            "$type": "color",
+            "$value": "#2A2A2E",
+            "$extensions": {
+              "css": "--primitive-neutral-700"
+            }
+          },
+          "750": {
+            "$type": "color",
+            "$value": "#242427",
+            "$extensions": {
+              "css": "--primitive-neutral-750"
+            }
+          },
+          "800": {
+            "$type": "color",
+            "$value": "#1C1C1F",
+            "$extensions": {
+              "css": "--primitive-neutral-800"
+            }
+          },
+          "850": {
+            "$type": "color",
+            "$value": "#161618",
+            "$extensions": {
+              "css": "--primitive-neutral-850"
+            }
+          },
+          "900": {
+            "$type": "color",
+            "$value": "#111113",
+            "$description": "LP --bg-2",
+            "$extensions": {
+              "css": "--primitive-neutral-900"
+            }
+          },
+          "950": {
+            "$type": "color",
+            "$value": "#0B0B0C",
+            "$description": "Brand guide 1000 · near-black",
+            "$extensions": {
+              "css": "--primitive-neutral-950"
+            }
+          },
+          "1000": {
+            "$type": "color",
+            "$value": "#060607",
+            "$extensions": {
+              "css": "--primitive-neutral-1000"
+            }
+          }
+        },
+        "gradient": {
+          "apricot-to-orange": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #FF8A5C 0%, #FC863C 50%, #FF6839 100%)",
+            "$description": "Brand guide. Logo letters (hero moments, one per view).",
+            "$extensions": {
+              "css": "--gradient-apricot-to-orange"
+            }
+          },
+          "orange-to-coral-red": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #FF6839 0%, #FA4948 70%, #F83C4F 100%)",
+            "$description": "Brand guide. Logo accent triangle, app tile.",
+            "$extensions": {
+              "css": "--gradient-orange-to-coral-red"
+            }
+          },
+          "vibrant-orange": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #FF7434 0%, #FF582E 100%)",
+            "$description": "Brand guide. Mono app tile; primary button web hover.",
+            "$extensions": {
+              "css": "--gradient-vibrant-orange"
+            }
+          },
+          "orange-to-near-black": {
+            "$type": "gradient",
+            "$value": "linear-gradient(90deg, #FF7F35 0%, #CF4F11 15%, #792F0C 30%, #4A1E0B 44%, #2E130A 57%, #180E0D 70%, #100C0E 84%, #08080B 100%)",
+            "$description": "Brand guide. Hero glows and section fades on web.",
+            "$extensions": {
+              "css": "--gradient-orange-to-near-black"
+            }
+          }
+        }
+      },
+      "color": {
+        "bg": {
+          "base-deepest": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.1000}",
+            "$description": "Level 0 (web): footer band below base-deep.",
+            "$extensions": {
+              "css": "--color-bg-base-deepest"
+            }
+          },
+          "base-deep": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.950}",
+            "$description": "Level 0 (web): landing page body.",
+            "$extensions": {
+              "css": "--color-bg-base-deep"
+            }
+          },
+          "base": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.900}",
+            "$description": "Level 0: app screen background; alternating web sections.",
+            "$extensions": {
+              "css": "--color-bg-base"
+            }
+          },
+          "surface-low": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.850}",
+            "$description": "Level 1 (web): quiet solid card on base-deep.",
+            "$extensions": {
+              "css": "--color-bg-surface-low"
+            }
+          },
+          "surface": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.800}",
+            "$description": "Level 1: cards, containers, sheets. Pair with border/default.",
+            "$extensions": {
+              "css": "--color-bg-surface"
+            }
+          },
+          "raised": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.750}",
+            "$description": "Level 3: overlays (popups, sheets, menus, dropdowns). Pair with border/default + elevation/overlay.",
+            "$extensions": {
+              "css": "--color-bg-raised"
+            }
+          },
+          "raised-strong": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.650}",
+            "$description": "Pressed state for secondary elements; strong fills inside overlays.",
+            "$extensions": {
+              "css": "--color-bg-raised-strong"
+            }
+          }
+        },
+        "text": {
+          "primary": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.100}",
+            "$description": "Titles, values.",
+            "$extensions": {
+              "css": "--color-text-primary"
+            }
+          },
+          "secondary": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.400}",
+            "$description": "Supporting text. 7.3:1 on surface.",
+            "$extensions": {
+              "css": "--color-text-secondary"
+            }
+          },
+          "tertiary": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.500}",
+            "$description": "Meta: dates, categories, counts. ≥4.5:1 on all backgrounds.",
+            "$extensions": {
+              "css": "--color-text-tertiary"
+            }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.600}",
+            "$description": "Disabled text and icons only.",
+            "$extensions": {
+              "css": "--color-text-disabled"
+            }
+          },
+          "on-primary-button": {
+            "$type": "color",
+            "$value": "{core.primitives.base.white}",
+            "$description": "WHITE. Only for labels on the primary button gradient (client preference). Semibold, 14px+.",
+            "$extensions": {
+              "css": "--color-text-on-primary-button"
+            }
+          },
+          "on-orange": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.950}",
+            "$description": "DARK. Every other orange surface: PAID chip (gradient), count badges, eyebrows, leaderboard highlight row, balance amount.",
+            "$extensions": {
+              "css": "--color-text-on-orange"
+            }
+          },
+          "brand": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.orange.orange-red}",
+            "$description": "Money (emphasised), links, active labels.",
+            "$extensions": {
+              "css": "--color-text-brand"
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.neutral.700}",
+            "$description": "Card, input and overlay borders.",
+            "$extensions": {
+              "css": "--color-border-default"
+            }
+          }
+        },
+        "brand": {
+          "primary": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.orange.orange-red}",
+            "$description": "Orange Red: primary action, active nav, emphasised money, solid brand fills.",
+            "$extensions": {
+              "css": "--color-brand-primary"
+            }
+          },
+          "primary-end": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.orange.red-orange}",
+            "$description": "Gradient end of the primary button gradient.",
+            "$extensions": {
+              "css": "--color-brand-primary-end"
+            }
+          },
+          "accent": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.orange.coral-red}",
+            "$description": "Coral Red: highlight; logo accent; gradient end in brand art. Not for errors.",
+            "$extensions": {
+              "css": "--color-brand-accent"
+            }
+          },
+          "primary-subtle": {
+            "$type": "color",
+            "$value": "{systems.clipper.primitives.orange.orange-red-15}",
+            "$description": "Selected chip / tab tint, outgoing chat bubble.",
+            "$extensions": {
+              "css": "--color-brand-primary-subtle"
+            }
+          }
+        }
+      },
+      "typography": {
+        "font": {
+          "display": {
+            "$type": "fontFamily",
+            "$value": "Space Grotesk",
+            "$description": "Display, headlines, money figures",
+            "$extensions": {
+              "css": "--font-display"
+            }
+          },
+          "body": {
+            "$type": "fontFamily",
+            "$value": "Inter",
+            "$description": "All UI and body text",
+            "$extensions": {
+              "css": "--font-body"
+            }
+          },
+          "hero": {
+            "$type": "fontFamily",
+            "$value": "Space Grotesk",
+            "$description": "Landing hero headline. Same as display on Clipper.",
+            "$extensions": {
+              "css": "--font-hero"
+            }
+          }
+        }
+      },
+      "radius": {
+        "button": {
+          "$type": "dimension",
+          "$value": "{core.radius.radius.md}",
+          "$description": "12px.",
+          "$extensions": {
+            "css": "--radius-button"
+          }
+        }
+      },
+      "effect": {
+        "hover-glow": {
+          "$type": "shadow",
+          "$value": "0 8px 24px rgba(255,104,57,0.35)",
+          "$description": "Primary button hover on web.",
+          "$extensions": {
+            "css": "--effect-hover-glow"
+          }
+        },
+        "glow-metric": {
+          "$type": "shadow",
+          "$value": "none",
+          "$description": "Not used on Clipper.",
+          "$extensions": {
+            "css": "--effect-glow-metric"
+          }
+        },
+        "glow-point": {
+          "$type": "shadow",
+          "$value": "none",
+          "$description": "Not used on Clipper.",
+          "$extensions": {
+            "css": "--effect-glow-point"
+          }
+        }
+      },
+      "gradient": {
+        "brand-primary": {
+          "$type": "gradient",
+          "$value": "linear-gradient(120deg, var(--primitive-orange-orange-red) 0%, var(--primitive-orange-red-orange) 100%)",
+          "$description": "Primary buttons, PAID chip, progress fill. 120°.",
+          "$extensions": {
+            "css": "--gradient-brand-primary"
+          }
+        },
+        "text-brand": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, var(--primitive-orange-orange-red) 0%, var(--primitive-orange-orange-red) 100%)",
+          "$description": "Solid Orange Red: Clipper headings do not use gradient text.",
+          "$extensions": {
+            "css": "--gradient-text-brand"
+          }
+        },
+        "text-metric": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, var(--primitive-orange-orange-red) 0%, var(--primitive-orange-orange-red) 100%)",
+          "$description": "Solid Orange Red: money is orange.",
+          "$extensions": {
+            "css": "--gradient-text-metric"
+          }
+        }
+      },
+      "surface": {
+        "brand-fade": {
+          "$type": "gradient",
+          "$value": "linear-gradient(135deg, rgba(255,104,57,0.35) 0%, rgba(255,138,92,0.035) 100%), var(--color-bg-surface)",
+          "$description": "Featured containers: bg/surface with a soft orange fade.",
+          "$extensions": {
+            "css": "--surface-brand-fade"
+          }
+        },
+        "brand-tint": {
+          "$type": "gradient",
+          "$value": "linear-gradient(90deg, rgba(255,104,57,0.28) 0%, rgba(255,104,57,0.06) 100%), var(--color-bg-surface)",
+          "$description": "Leaderboard “you” row. Pair with 1px brand/primary border.",
+          "$extensions": {
+            "css": "--surface-brand-tint"
+          }
+        },
+        "input": {
+          "$type": "gradient",
+          "$value": "linear-gradient(var(--color-bg-tint), var(--color-bg-tint))",
+          "$description": "Form fields: flat tint.",
+          "$extensions": {
+            "css": "--surface-input"
+          }
+        }
+      },
+      "text-style": {
+        "display": {
+          "hero": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.hero}",
+              "fontWeight": 700,
+              "fontSize": "88px",
+              "lineHeight": 0.94,
+              "letterSpacing": "-0.03em"
+            },
+            "$description": "Web only. Landing page hero headline.",
+            "$extensions": {
+              "css": ".text-display-hero",
+              "platform": "web"
+            }
+          },
+          "h1": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.display}",
+              "fontWeight": 700,
+              "fontSize": "48px",
+              "lineHeight": 1.08,
+              "letterSpacing": "-0.03em"
+            },
+            "$description": "Web section titles.",
+            "$extensions": {
+              "css": ".text-display-h1",
+              "platform": "web"
+            }
+          },
+          "stat": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.display}",
+              "fontWeight": 700,
+              "fontSize": "40px",
+              "lineHeight": 1.04,
+              "letterSpacing": "-0.03em"
+            },
+            "$description": "Web stat figures and big money.",
+            "$extensions": {
+              "css": ".text-display-stat",
+              "platform": "web"
+            }
+          }
+        },
+        "body": {
+          "lead": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.body}",
+              "fontWeight": 400,
+              "fontSize": "18px",
+              "lineHeight": 1.6,
+              "letterSpacing": "0em"
+            },
+            "$description": "Web intro paragraphs.",
+            "$extensions": {
+              "css": ".text-body-lead",
+              "platform": "web"
+            }
+          },
+          "web": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{font.body}",
+              "fontWeight": 400,
+              "fontSize": "15px",
+              "lineHeight": 1.6,
+              "letterSpacing": "0em"
+            },
+            "$description": "Web paragraph copy.",
+            "$extensions": {
+              "css": ".text-body-web",
+              "platform": "web"
+            }
+          }
+        },
+        "label": {
+          "eyebrow": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "Plus Jakarta Sans",
+              "fontWeight": 800,
+              "fontSize": "11px",
+              "lineHeight": 1,
+              "letterSpacing": "0.14em",
+              "textCase": "uppercase"
+            },
+            "$extensions": {
+              "css": ".text-label-eyebrow",
+              "platform": "web"
+            },
+            "$description": "Web eyebrows only. Agreed exception to Inter (original LP look)."
+          }
+        }
+      }
+    }
+  }
+}

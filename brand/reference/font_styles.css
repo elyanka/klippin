@@ -1,0 +1,4 @@
+/* Klippin fonts: the families and weights each system loads (tokens v3.0.0). */
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@600;800&family=Manrope:wght@400;600&family=Space+Grotesk:wght@700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@800&display=swap');
+
+/* Each system's tokens set --font-display, --font-body and --font-hero; see klippin_tokens.css. */
