@@ -1,6 +1,7 @@
-/* Klippin design tokens v2.0.0 · Dark mode · exported 2026-10-25 from Figma "Klippin · Brand & UI Kit".
-   Source of truth: Figma variables. Regenerate, do not hand-edit.
-   Fonts: Inter (UI/body), Space Grotesk (display/money); Plus Jakarta Sans only for web eyebrows. */
+/* Klippin design tokens v2.1.0 · Dark · exported 2026-10-25 from Figma "Klippin · Brand & UI Kit"; Client mode added 2026-10-27.
+   Source of truth: Figma variables (Client mode lands in Figma next). Regenerate, do not hand-edit.
+   Clipper (default): Inter (UI/body), Space Grotesk (display/money); Plus Jakarta Sans only for web eyebrows.
+   Client (data-system="client"): Manrope (UI/body), Overpass (display/headings/metrics). */
 
 :root {
   /* Primitives: do not use directly in components, use semantic tokens below */
@@ -178,3 +179,96 @@
 .text-label-tag { font-family: var(--font-body); font-weight: 500; font-size: 13px; line-height: 1; letter-spacing: 0em; }
 /* Web eyebrows only. Agreed exception to Inter (original LP look). */
 .text-label-eyebrow { font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 11px; line-height: 1; letter-spacing: 0.14em; text-transform: uppercase; }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   Client mode (v2.1.0, 2026-10-27)
+   Same token names, Client values. Scope: any element with data-system="client"
+   (put it on <html> for a Client page). Values from the live Client landing page
+   (partners.klippin.io, css/tokens/*.css) and the brand guide's Client palette.
+   Shared with Clipper, not redeclared: status, rank, spacing, radius scale,
+   border widths, layout, opacity, white/black alphas, danger-soft.
+   Figma follows in phase 2 (Color collection mode "Client").
+   ─────────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Client primitives */
+  --primitive-blue-pale: #A0BCE6;
+  --primitive-blue-cornflower: #87A8ED;
+  --primitive-blue-royal: #3C5FBE;
+  --primitive-blue-sky: #45B5FF;
+  --primitive-blue-cyan: #49DBFF;
+  --primitive-blue-ice: #BFD3FA;
+  --primitive-blue-cornflower-15: #87A8ED26;
+  --primitive-navy-100: #FFFFFF;
+  --primitive-navy-300: #B4C0CC;
+  --primitive-navy-500: #8993A0;
+  --primitive-navy-600: #55617B;
+  --primitive-navy-700: #242C46;
+  --primitive-navy-725: #1E2640;
+  --primitive-navy-750: #19213B;
+  --primitive-navy-800: #141B34;
+  --primitive-navy-850: #0B1229;
+  --primitive-navy-900: #050B22;
+  --primitive-navy-950: #010619;
+
+  /* Shape tokens that differ by system (Clipper defaults) */
+  --radius-button: var(--radius-md); /* Clipper buttons: 12px. Client: pill. */
+  --effect-hover-glow: 0 8px 24px rgba(255,104,57,0.35); /* Primary button hover on web. */
+}
+
+[data-system="client"] {
+  /* Semantic colour, Client values */
+  --color-bg-base-deepest: var(--primitive-neutral-black); /* Footer band. */
+  --color-bg-base-deep: var(--primitive-navy-950); /* Page body (#010619). */
+  --color-bg-base: var(--primitive-navy-900); /* Alternating sections. */
+  --color-bg-surface-low: var(--primitive-navy-850); /* Quiet card on base-deep. */
+  --color-bg-surface: var(--primitive-navy-800); /* Cards, form panel. */
+  --color-bg-raised: var(--primitive-navy-750); /* Overlays: modal, menus, select lists. */
+  --color-bg-raised-strong: var(--primitive-navy-725); /* Pressed secondary, strong fills inside overlays. */
+  --color-text-primary: var(--primitive-navy-100); /* White. */
+  --color-text-secondary: var(--primitive-navy-300); /* #B4C0CC. Body copy on the landing page. */
+  --color-text-tertiary: var(--primitive-navy-500); /* Meta, form hints. 6.3:1 on base. */
+  --color-text-disabled: var(--primitive-navy-600);
+  --color-text-on-primary-button: var(--primitive-neutral-black); /* BLACK on the light White to Blue gradient. */
+  --color-text-on-orange: var(--primitive-navy-950); /* Name kept for parity: dark text on any light brand fill. */
+  --color-text-brand: var(--primitive-blue-cornflower); /* Links, highlighted words in headings, active labels. */
+  --color-border-default: var(--primitive-navy-700);
+  --color-brand-primary: var(--primitive-blue-cornflower); /* Active nav, solid brand fills, focus on light. */
+  --color-brand-primary-end: var(--primitive-navy-100); /* White: light end of the primary gradient. */
+  --color-brand-accent: var(--primitive-blue-sky); /* Highlight: metrics, focus ring, glow source. Not for errors. */
+  --color-brand-primary-subtle: var(--primitive-blue-cornflower-15);
+
+  /* Fonts */
+  --font-display: "Overpass", system-ui, sans-serif; /* Display, headings, metrics */
+  --font-body: "Manrope", system-ui, sans-serif; /* Body, UI, forms */
+
+  /* Shape and effects */
+  --radius-button: var(--radius-full); /* Pill. */
+  --effect-hover-glow: 0 0 5px rgba(73,219,255,0.5);
+  --effect-glow-metric: drop-shadow(0 1px 5px rgba(73,219,255,0.5)); /* Gradient metrics only. */
+  --effect-glow-point: 0 0 25px 3px #3C5FBE, 0 0 7px #49DBFF; /* Network illustration points. */
+
+  /* Gradients */
+  --gradient-brand-primary: linear-gradient(180deg, var(--primitive-navy-100) 0%, var(--primitive-blue-cornflower) 100%); /* Primary button, black label. */
+  --gradient-text-brand: linear-gradient(90deg, #FFFFFF 25%, #87A8ED 100%); /* Hero headline, one per view. */
+  --gradient-text-metric: linear-gradient(90deg, #FFFFFF 0%, #45B5FF 100%); /* Metrics and counters. */
+  --gradient-white-to-blue: linear-gradient(90deg, #FFFFFF 0%, #87A8ED 100%);
+  --gradient-pearl-to-ice-blue: linear-gradient(90deg, #ECEFF2 0%, #BCD7FF 100%);
+  --gradient-cornflower-to-royal-blue: linear-gradient(90deg, #87A8ED 0%, #4F7EEF 50%, #3C5FBE 100%);
+  --gradient-deep-navy: linear-gradient(90deg, #051036 0%, #050B22 50%, #010412 100%); /* Hero glows and section fades on web. */
+  --surface-brand-fade: linear-gradient(135deg, rgba(60,95,190,0.35) 0%, rgba(135,168,237,0.035) 100%), var(--color-bg-surface);
+  --surface-brand-tint: linear-gradient(90deg, rgba(135,168,237,0.28) 0%, rgba(135,168,237,0.06) 100%), var(--color-bg-surface);
+  --surface-input: linear-gradient(150deg, rgba(135,168,237,0.02) 0%, rgba(60,95,190,0.2) 100%); /* Form fields. */
+}
+
+/* Client text styles: web styles keep their names and switch values; two Client-only additions. */
+[data-system="client"] .text-display-hero { font-family: var(--font-display); font-weight: 600; font-size: clamp(36px, 4.2vw, 60px); line-height: 1.2; letter-spacing: -0.01em; text-transform: uppercase; }
+[data-system="client"] .text-display-h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(28px, 2.8vw, 40px); line-height: 1.2; letter-spacing: -0.005em; }
+[data-system="client"] .text-display-stat { font-family: var(--font-display); font-weight: 800; font-size: clamp(28px, 3.3vw, 48px); line-height: 1.1; letter-spacing: 0.03em; }
+[data-system="client"] .text-body-lead { font-family: var(--font-body); font-weight: 400; font-size: 18px; line-height: 1.6; letter-spacing: 0em; }
+[data-system="client"] .text-body-web { font-family: var(--font-body); font-weight: 400; font-size: 16px; line-height: 1.6; letter-spacing: 0em; } /* Live page uses 1.3; 1.6 for paragraphs. */
+[data-system="client"] .text-label-eyebrow { font-family: var(--font-body); font-weight: 600; font-size: 12px; line-height: 1.3; letter-spacing: 0.03em; text-transform: uppercase; }
+/* Client only. Card and step titles. */
+.text-client-card-title { font-family: var(--font-display); font-weight: 800; font-size: 18px; line-height: 1.3; letter-spacing: 0.03em; }
+/* Client only. Overlines: LIVE, chart labels. */
+.text-client-overline { font-family: var(--font-body); font-weight: 600; font-size: 10px; line-height: 1.3; letter-spacing: 0.2em; text-transform: uppercase; }
