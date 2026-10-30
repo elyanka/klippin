@@ -4200,7 +4200,7 @@ body:not(.view-board) .zfit { display: none; }
       <div class="page-header">
         <span class="eyebrow text-label-eyebrow">Global rules</span>
         <h1 class="text-display-h1">Global rules</h1>
-        <p class="text-body-lead">Apply to the clipper app and the website. When a screen and this page disagree, this page wins. The brand guide governs brand expression (logo, voice, marketing); fonts follow these rules.</p>
+        <p class="text-body-lead">Apply to the clipper app. When a screen and this page disagree, this page wins. The brand guide governs brand expression (logo, voice, marketing); fonts follow these rules.</p>
       </div>
       <div class="section">
         <div class="section-head"><h2 class="text-display-l">Scope</h2></div>
@@ -4218,7 +4218,6 @@ body:not(.view-board) .zfit { display: none; }
             <ul class="bullets text-body-m">
               <li>Dark mode only. There are no light tokens for now.</li>
               <li>Design with semantic tokens (bg/, text/, border/, brand/, status/), never with primitives or raw hex.</li>
-              <li>Shared by app and web. Web adds base-deep/deepest, surface-low/glass and the display hero/h1/stat, body lead/web and eyebrow styles.</li>
             </ul>
           </div>
         </div>
@@ -4356,55 +4355,41 @@ body:not(.view-board) .zfit { display: none; }
         <div class="lay-1">
         <div class="card">
           <h3 class="text-title-s">Buttons · type × state</h3>
-          <div class="matrix">
+          <div class="matrix" style="grid-template-columns:120px repeat(3, minmax(132px, 1fr))">
             <span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Default</span><span class="text-caption-regular faint">App + web</span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Pressed</span><span class="text-caption-regular faint">App + web</span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Disabled</span><span class="text-caption-regular faint">App + web</span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Hover</span><span class="text-caption-regular" style="color:var(--color-text-brand)">Web only · pointer</span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Focus</span><span class="text-caption-regular" style="color:var(--color-text-brand)">Web only · keyboard</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Default</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Pressed</span></span>
+            <span class="colhead"><span class="text-body-m-semibold">Disabled</span></span>
 
             <span class="text-body-s muted">Primary L · 44</span>
             <span><button class="btn btn--primary btn--l">Join</button></span>
             <span><button class="btn btn--primary btn--l is-pressed">Join</button></span>
             <span><button class="btn btn--primary btn--l" disabled>Join</button></span>
-            <span><button class="btn btn--primary btn--l is-hover">Join</button></span>
-            <span><button class="btn btn--primary btn--l is-focus">Join</button></span>
 
             <span class="text-body-s muted">Primary M · 36</span>
             <span><button class="btn btn--primary btn--m">Join</button></span>
             <span><button class="btn btn--primary btn--m is-pressed">Join</button></span>
             <span><button class="btn btn--primary btn--m" disabled>Join</button></span>
-            <span><button class="btn btn--primary btn--m is-hover">Join</button></span>
-            <span><button class="btn btn--primary btn--m is-focus">Join</button></span>
 
             <span class="text-body-s muted">Secondary L · 44</span>
             <span><button class="btn btn--secondary btn--l">Details</button></span>
             <span><button class="btn btn--secondary btn--l is-pressed">Details</button></span>
             <span><button class="btn btn--secondary btn--l" disabled>Details</button></span>
-            <span><button class="btn btn--secondary btn--l is-hover">Details</button></span>
-            <span><button class="btn btn--secondary btn--l is-focus">Details</button></span>
 
             <span class="text-body-s muted">Secondary M · 36</span>
             <span><button class="btn btn--secondary btn--m">Details</button></span>
             <span><button class="btn btn--secondary btn--m is-pressed">Details</button></span>
             <span><button class="btn btn--secondary btn--m" disabled>Details</button></span>
-            <span><button class="btn btn--secondary btn--m is-hover">Details</button></span>
-            <span><button class="btn btn--secondary btn--m is-focus">Details</button></span>
 
             <span class="text-body-s muted">Text L · 32</span>
             <span><button class="btn btn--text btn--l">See all</button></span>
             <span><button class="btn btn--text btn--l is-pressed">See all</button></span>
             <span><button class="btn btn--text btn--l" disabled>See all</button></span>
-            <span><button class="btn btn--text btn--l is-hover">See all</button></span>
-            <span><button class="btn btn--text btn--l is-focus">See all</button></span>
 
             <span class="text-body-s muted">Text M · 28</span>
             <span><button class="btn btn--text btn--m">See all</button></span>
             <span><button class="btn btn--text btn--m is-pressed">See all</button></span>
             <span><button class="btn btn--text btn--m" disabled>See all</button></span>
-            <span><button class="btn btn--text btn--m is-hover">See all</button></span>
-            <span><button class="btn btn--text btn--m is-focus">See all</button></span>
           </div>
         </div>
         <div class="lay-3">
@@ -4419,8 +4404,6 @@ body:not(.view-board) .zfit { display: none; }
             <h3 class="text-title-s">States</h3>
             <ul class="bullets text-body-m">
               <li>Pressed (agreed): primary +18% black · secondary bg/tint-strong · text brand tint 15%. Disabled: whole button at 40% opacity, all types. The app has no hover or focus (touch).</li>
-              <li>Hover (web): primary switches to gradient/vibrant-orange with a warm glow (0 4 16, orange 35%) · secondary bg/tint-strong + 1px border/glass · text brand tint at 8%.</li>
-              <li>Focus (web, :focus-visible): primary 2px white ring with a 2px dark gap · secondary 2px orange ring with a 2px gap · text 2px orange ring tight to its box (no gap).</li>
             </ul>
           </div>
           <div class="card">
@@ -4437,7 +4420,7 @@ body:not(.view-board) .zfit { display: none; }
             <div class="specimen"><span class="count-badge text-caption-medium">3</span><span class="cap text-caption-regular">Count badge</span></div>
             <div class="specimen"><span class="chip chip--paid text-label-chip"><span class="i ph-icon" title="icon: check"></span>Paid</span><span class="cap text-caption-regular">PAID chip</span></div>
             <div class="specimen"><span class="chip chip--paid text-label-chip"><span class="i ph-icon" title="icon: sparkle"></span>New</span><span class="cap text-caption-regular">NEW chip<span class="upd-tag">Updated 30.10</span></span></div>
-            <div class="specimen"><span class="you-row"><span class="text-body-m-semibold">12</span><span class="text-body-m-semibold">You</span><span class="text-display-m">€340</span></span><span class="cap text-caption-regular">Rank badge on the “you” row</span></div>
+            <div class="specimen"><div class="row-card row-card--you" style="width:300px;min-height:56px;padding:0 16px 0 12px"><span class="place place--you"><span class="text-body-s-semibold">12</span></span><span class="avatar" style="width:32px;height:32px"><span class="i ph-icon" title="icon: user"></span></span><span class="text-body-m-semibold grow">You</span><span class="text-body-m-semibold c-brand">€10,000</span></div><span class="cap text-caption-regular">Place badge on the “you” row<span class="upd-tag">Updated 30.10</span></span></div>
             <div class="specimen"><button class="btn btn--primary btn--l">Join the factory</button><span class="cap text-caption-regular">Primary button: white on gradient</span></div>
             <div class="specimen"><span class="btn btn--primary btn--m btn--connect"><span class="i ph-icon" title="icon: link"></span><span class="text-label-button-m">Connect</span></span><span class="cap text-caption-regular">Connect button<span class="upd-tag">Updated 30.10</span></span></div>
           </div>
@@ -4458,7 +4441,7 @@ body:not(.view-board) .zfit { display: none; }
           <div class="card">
             <h3 class="text-title-s">Elevation (4 levels)</h3>
             <ul class="bullets text-body-m">
-              <li>0 · page: bg/base (app), bg/base-deep (web).</li>
+              <li>0 · page: bg/base.</li>
               <li>1 · containers: bg/surface + border/default.</li>
               <li>2 · elements on any surface: bg/tint, pressed bg/tint-strong.</li>
               <li>3 · overlays: bg/raised + border/default + elevation/overlay, over bg/scrim.</li>
@@ -4473,7 +4456,7 @@ body:not(.view-board) .zfit { display: none; }
               <li>Expand and collapse use a grey caret with no circle (FAQ and every Settings row).<span class="upd-tag">Updated 30.10</span></li>
               <li>Stat strips (campaign info, profile stats) are centred in equal columns.<span class="upd-tag">Updated 30.10</span></li>
               <li>Submission titles wrap to two lines, then truncate.<span class="upd-tag">Updated 30.10</span></li>
-              <li>Text never below 12px, except label/eyebrow (11px CAPS, web only). text/tertiary is the lightest text allowed: ≥4.5:1 on bg/base and bg/surface. On raised surfaces (bg/raised, bg/raised-strong) meta text uses text/secondary. text/disabled only for disabled states.</li>
+              <li>Text never below 12px. text/tertiary is the lightest text allowed: ≥4.5:1 on bg/base and bg/surface. On raised surfaces (bg/raised, bg/raised-strong) meta text uses text/secondary. text/disabled only for disabled states.</li>
             </ul>
           </div>
         </div>
