@@ -4165,6 +4165,10 @@ body:not(.view-board) .zfit { display: none; }
   letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; white-space: nowrap; }
 .board-name .upd-tag { margin-right: auto; }
 
+/* same look for the tag inside kit labels and icon cells (their span rules were dimming it) */
+.kit-label .upd-tag, .icon-cell .upd-tag { font-size: 10px; font-weight: 600; color: var(--color-brand-primary); word-break: normal; text-align: left; margin: 0; }
+.kit-label .upd-tag { margin-left: 4px; }
+
 /* ---------- Asset placeholders (export without assets) ---------- */
 .ph-icon { box-sizing: border-box; border: 1px dashed currentColor; border-radius: 3px; opacity: .55; }
 .ph-asset { box-sizing: border-box; display: inline-flex; align-items: center; justify-content: center; max-width: 100%;
@@ -4181,7 +4185,7 @@ body:not(.view-board) .zfit { display: none; }
     <a href="rules.html" aria-current="page">Rules</a>
     <a href="foundations.html">Foundations</a>
     <a href="components.html">Components</a>
-    <a href="client-review.html">Client review</a>
+    <a href="../client-review.html">Client review</a>
   </nav>
 </header>
 
@@ -4430,13 +4434,14 @@ body:not(.view-board) .zfit { display: none; }
         <div class="card">
           <h3 class="text-title-s">Text on orange</h3>
           <div class="specimens">
-            <div class="specimen"><span class="eyebrow text-label-eyebrow">How it works</span><span class="cap text-caption-regular">Eyebrow (web)</span></div>
             <div class="specimen"><span class="count-badge text-caption-medium">3</span><span class="cap text-caption-regular">Count badge</span></div>
             <div class="specimen"><span class="chip chip--paid text-label-chip"><span class="i ph-icon" title="icon: check"></span>Paid</span><span class="cap text-caption-regular">PAID chip</span></div>
+            <div class="specimen"><span class="chip chip--paid text-label-chip"><span class="i ph-icon" title="icon: sparkle"></span>New</span><span class="cap text-caption-regular">NEW chip<span class="upd-tag">Updated 30.10</span></span></div>
             <div class="specimen"><span class="you-row"><span class="text-body-m-semibold">12</span><span class="text-body-m-semibold">You</span><span class="text-display-m">€340</span></span><span class="cap text-caption-regular">Rank badge on the “you” row</span></div>
             <div class="specimen"><button class="btn btn--primary btn--l">Join the factory</button><span class="cap text-caption-regular">Primary button: white on gradient</span></div>
+            <div class="specimen"><span class="btn btn--primary btn--m btn--connect"><span class="i ph-icon" title="icon: link"></span><span class="text-label-button-m">Connect</span></span><span class="cap text-caption-regular">Connect button<span class="upd-tag">Updated 30.10</span></span></div>
           </div>
-          <p class="text-body-s muted" style="max-width:640px">Dark text and icons (text/on-orange) on solid orange: the PAID chip, the rank badge on the leaderboard “you” row, the selected calendar day and the avatar picker check. White on the primary button gradient (client preference) and white checks in radio buttons and checkboxes (more contrast, Elya). Toggle knobs stay white.</p>
+          <p class="text-body-s muted" style="max-width:640px">Dark text and icons (text/on-orange) on solid orange: the PAID and NEW chips, the rank badge on the leaderboard “you” row, the selected calendar day and the avatar picker check. White on the primary button gradient (client preference), including the Connect button, white checks in radio buttons and checkboxes (more contrast, Elya). Toggle knobs stay white.<span class="upd-tag">Updated 30.10</span></p>
         </div>
         </div>
       </div>
