@@ -13,6 +13,8 @@
   --primitive-white-alpha-6: #FFFFFF0F;
   --primitive-white-alpha-10: #FFFFFF1A;
   --primitive-white-alpha-12: #FFFFFF1F;
+  --primitive-white-alpha-20: #FFFFFF33;
+  --primitive-black-alpha-25: #00000040;
   --primitive-black-alpha-60: #00000099;
   --primitive-green-500: #36B756;
   --primitive-green-500-15: #36B75626;
@@ -79,6 +81,8 @@
   --color-bg-surface-glass: var(--primitive-white-alpha-5); /* Translucent card over imagery or glows. Pair with border/glass. */
   --color-bg-scrim: var(--primitive-black-alpha-60); /* Behind level-3 overlays. */
   --color-bg-danger-soft: #4A2930; /* Solid red tint for Danger soft buttons. Opaque so it looks the same on base, surface, raised and popups. */
+  --color-bg-scrim-soft: var(--primitive-black-alpha-25); /* Lighter scrim with a blur: long-press focus. */
+  --color-bg-on-orange: var(--primitive-white-alpha-20); /* Pill or chip placed on an orange surface (balance currency). */
   --color-border-subtle: var(--primitive-white-alpha-5); /* Dividers inside cards. */
   --color-border-glass: var(--primitive-white-alpha-12); /* Hairline for bg/surface-glass cards. */
   --color-status-success: var(--primitive-green-500); /* LIVE, ONGOING, Joined. */
@@ -171,6 +175,7 @@
   --effect-hover-glow: 0 0 5px rgba(73,219,255,0.5); /* Primary and secondary button hover. */
   --effect-glow-metric: drop-shadow(0 1px 5px rgba(73,219,255,0.5)); /* Gradient metrics only. */
   --effect-glow-point: 0 0 25px 3px #3C5FBE, 0 0 7px #49DBFF; /* Network illustration points. */
+  --effect-balance-glow: none; /* Not used on Client. */
 
   /* Gradients and surfaces */
   --gradient-brand-primary: linear-gradient(180deg, var(--primitive-navy-100) 0%, var(--primitive-blue-cornflower) 100%); /* Primary button, black label. 180°. */
@@ -179,6 +184,8 @@
   --surface-brand-fade: linear-gradient(135deg, rgba(60,95,190,0.35) 0%, rgba(135,168,237,0.035) 100%), var(--color-bg-surface); /* Featured containers. */
   --surface-brand-tint: linear-gradient(90deg, rgba(135,168,237,0.28) 0%, rgba(135,168,237,0.06) 100%), var(--color-bg-surface); /* Highlighted row. */
   --surface-input: linear-gradient(150deg, rgba(135,168,237,0.02) 0%, rgba(60,95,190,0.2) 100%); /* Form fields. */
+  --surface-chart-area: linear-gradient(180deg, rgba(135,168,237,0.38) 0%, rgba(135,168,237,0.1) 55%, rgba(135,168,237,0) 100%); /* Area under a line chart, top to bottom. */
+  --surface-avatar-placeholder: linear-gradient(180deg, var(--primitive-navy-600) 0%, var(--primitive-navy-700) 100%); /* Avatar with no photo. */
 
   /* Web text styles that differ by system (used by the .text-* classes below) */
   --ts-display-hero: 600 clamp(36px, 4.2vw, 60px)/1.2 var(--font-hero); --ts-display-hero-ls: -0.01em; --ts-display-hero-tt: uppercase;
@@ -222,6 +229,7 @@
   --effect-hover-glow: 0 8px 24px rgba(255,104,57,0.35); /* Primary button hover on web. */
   --effect-glow-metric: none; /* Not used on Clipper. */
   --effect-glow-point: none; /* Not used on Clipper. */
+  --effect-balance-glow: 0 8px 28px rgba(255,104,57,0.32), inset 0 1px 0 rgba(255,255,255,0.28); /* Balance card: soft orange glow and a top highlight. */
 
   /* Gradients and surfaces */
   --gradient-brand-primary: linear-gradient(120deg, var(--primitive-orange-orange-red) 0%, var(--primitive-orange-red-orange) 100%); /* Primary buttons, PAID chip, progress fill. 120°. */
@@ -230,6 +238,8 @@
   --surface-brand-fade: linear-gradient(135deg, rgba(255,104,57,0.35) 0%, rgba(255,138,92,0.035) 100%), var(--color-bg-surface); /* Featured containers: bg/surface with a soft orange fade. */
   --surface-brand-tint: linear-gradient(90deg, rgba(255,104,57,0.28) 0%, rgba(255,104,57,0.06) 100%), var(--color-bg-surface); /* Leaderboard “you” row. Pair with 1px brand/primary border. */
   --surface-input: linear-gradient(var(--color-bg-tint), var(--color-bg-tint)); /* Form fields: flat tint. */
+  --surface-chart-area: linear-gradient(180deg, rgba(255,104,57,0.38) 0%, rgba(255,104,57,0.1) 55%, rgba(255,104,57,0) 100%); /* Area under a line chart, top to bottom. */
+  --surface-avatar-placeholder: linear-gradient(180deg, var(--primitive-neutral-600) 0%, var(--primitive-neutral-650) 100%); /* Avatar with no photo. */
 
   /* Web text styles that differ by system (used by the .text-* classes below) */
   --ts-display-hero: 700 88px/0.94 var(--font-hero); --ts-display-hero-ls: -0.03em; --ts-display-hero-tt: none;

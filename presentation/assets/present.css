@@ -668,3 +668,19 @@ body:not(.view-board) .zfit { display: none; }
 /* same look for the tag inside kit labels and icon cells (their span rules were dimming it) */
 .kit-label .upd-tag, .icon-cell .upd-tag { font-size: 10px; font-weight: 600; color: var(--color-brand-primary); word-break: normal; text-align: left; margin: 0; }
 .kit-label .upd-tag { margin-left: 4px; }
+
+/* Rules v4: one rule per row, text left, live kit example right */
+.rl { display: flex; flex-direction: column; }
+.rl-row { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 40px; padding: 32px 0; border-top: 1px solid var(--color-border-default); }
+.rl-row:first-child { border-top: 0; padding-top: 8px; }
+.rl-row--solo { grid-template-columns: minmax(0, 1fr); }
+.rl-row--solo .rl-text { max-width: 760px; }
+.rl-text { display: flex; flex-direction: column; gap: 12px; }
+.rl-text .bullets { display: flex; flex-direction: column; gap: var(--space-8); }
+.rl-text .bullets li { position: relative; padding-left: 16px; color: var(--color-text-secondary); font-size: 14px; line-height: 1.55; }
+.rl-text .bullets li::before { content: "•"; position: absolute; left: 2px; }
+.rl-ex { display: flex; flex-wrap: wrap; gap: 24px 28px; align-items: flex-start; align-content: flex-start; padding: 24px; border-radius: 16px;
+  background: var(--color-bg-base); border: 1px solid var(--color-border-default); min-width: 0; overflow-x: auto; }
+.rl-ex__item { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; min-width: 0; }
+.rl-ex__item > .cap { color: var(--color-text-tertiary); }
+@media (max-width: 900px) { .rl-row { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
