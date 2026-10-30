@@ -23,282 +23,61 @@
   </nav>
 </header>
 
-<nav class="subnav"><b>Rules</b><a href="#scope">Scope</a><a href="#status">Status logic</a><a href="#money">Money</a><a href="#time">Time</a><a href="#buttons">Buttons &amp; text on orange</a><a href="#depth">Depth, icons &amp; accessibility</a></nav>
+<nav class="subnav"><b>Rules</b><a href="#scope">Scope</a><a href="#surfaces">Surfaces &amp; colour</a><a href="#status">Status</a><a href="#money">Money</a><a href="#type">Type</a><a href="#actions">Actions</a><a href="#icons">Icons &amp; navigation</a><a href="#time">Time</a></nav>
 <main class="canvas">
-  <h2 class="column-label">Rules<small>Six boards. When a screen and these rules disagree, the rules win.</small></h2>
+  <h2 class="column-label">Rules<small>Eight boards, written from the kit and the screens.</small></h2>
 
-  <!-- Rules · Scope -->
   <div class="board-wrap" id="scope">
     <div class="board-name"><span>Rules · Scope</span><a href="#scope">#</a></div>
     <section class="board">
       <div class="page-header">
-        <span class="eyebrow text-label-eyebrow">Global rules</span>
-        <h1 class="text-display-h1">Global rules</h1>
-        <p class="text-body-lead">Apply to the clipper app. When a screen and this page disagree, this page wins. The brand guide governs brand expression (logo, voice, marketing); fonts follow these rules.</p>
+        <h1 class="text-display-h1">Rules</h1>
+        <p class="text-body-lead">Written on 30.10 from what the kit and the 184 Full kit screens do today. When a screen and this page disagree, fix the screen or add a kit variant first.</p>
       </div>
-      <div class="section">
-        <div class="section-head"><h2 class="text-display-l">Scope</h2></div>
-        <div class="lay-2">
-          <div class="card">
-            <h3 class="text-title-s">Visual only</h3>
-            <ul class="bullets text-body-m">
-              <li>UX and flows do not change. We change how things look: colour, type, spacing, components, chip styling and copy.</li>
-              <li>Renamings (e.g. Locked → Private) are optional copy, never a flow change.</li>
-              <li>Nothing goes into live screens until the client approves.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="text-title-s">One theme</h3>
-            <ul class="bullets text-body-m">
-              <li>Dark mode only. There are no light tokens for now.</li>
-              <li>Design with semantic tokens (bg/, text/, border/, brand/, status/), never with primitives or raw hex.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <div class="section"><div class="lay-2">
+        <div class="card"><h3 class="text-title-s">What changes</h3><ul class="bullets text-body-m"><li>Only how things look: colour, type, spacing, components and labels. Flows, screens and content stay as they are.</li><li>Nothing goes into the live app until the client approves it.</li></ul></div>
+        <div class="card"><h3 class="text-title-s">How screens are built</h3><ul class="bullets text-body-m"><li>Every screen is assembled from kit components. A new need becomes a component or variant in the kit first, then goes on the screen.</li><li>Dark only. Colours, type, spacing and radii come from semantic tokens (bg/, text/, border/, brand/, status/), never raw values.</li></ul></div>
+      </div></div>
     </section>
   </div>
 
-  <!-- Rules · Status logic -->
+  <div class="board-wrap" id="surfaces">
+    <div class="board-name"><span>Rules · Surfaces &amp; colour</span><a href="#surfaces">#</a></div>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Surfaces &amp; colour</h2><p class="text-body-m">Depth comes from fill steps. Colour carries meaning, so most of the screen stays neutral.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Four levels</h3><ul class="bullets text-body-m"><li>Screen: bg/base.</li><li>Containers: cards and list rows on bg/surface with a 1px border/default, radius/md (12), 16 padding.</li><li>Elements inside a container: chips, filter chips, pills, selects, fields, secondary and icon buttons on bg/tint. Pressed or selected: bg/tint-strong, or the orange tint with an orange border for a selected filter.</li><li>Overlays: sheets, dialogs and menus on bg/raised with the overlay shadow, over the scrim. Elements inside keep bg/tint.</li></ul></div><div class="card"><h3 class="text-title-s">Text colours</h3><ul class="bullets text-body-m"><li>Primary (white) for titles, names and values.</li><li>Secondary for supporting text. It is the most used text colour in the screens.</li><li>Tertiary for meta: dates, counts, labels above values, inactive tabs and nav.</li><li>Orange only for money the user earns, active states (tab, nav, selected filter) and text buttons.</li><li>Red only for errors and destructive actions. Green only for status and passed validation.</li></ul></div><div class="card"><h3 class="text-title-s">Radius</h3><ul class="bullets text-body-m"><li>radius/md (12): cards, rows, fields, selects, banners, L buttons.</li><li>radius/sm (8): chips, tags, filter chips, soft pills, M buttons.</li><li>Full: avatars, round icons, badges, the chat unread dot.</li></ul></div></div></div></section>
+  </div>
+
   <div class="board-wrap" id="status">
-    <div class="board-name"><span>Rules · Status logic</span><a href="#status">#</a></div>
-    <section class="board">
-      <div class="section">
-        <div class="section-head">
-          <h2 class="text-display-l">Status logic</h2>
-          <p class="text-body-m">One colour logic for every entity. Lifecycle = CAPS chip: coloured 12px icon + label on a subtle fill. Membership = coloured 16px icon + sentence case in a neutral tag. Both use radius/sm (8). PAID and NEW are the only filled chips.<span class="upd-tag">Updated 30.10</span></p>
-        </div>
-        <div class="lay-1">
-            <div class="card">
-              <h3 class="text-title-s">Lifecycle chips · 24px · radius/sm</h3>
-              <div class="chip-rows">
-              <div class="row"><span class="lbl text-body-s">Submissions</span>
-                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-hourglass"/></svg>In review</span>
-                <span class="chip chip--success text-label-chip"><span class="dot"></span>Ongoing</span>
-                <span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-check"/></svg>Paid</span>
-                <span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-x"/></svg>Rejected</span>
-                <span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-prohibit"/></svg>Cancelled</span></div>
-              <div class="row"><span class="lbl text-body-s">Factories &amp; campaigns</span>
-                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>Upcoming</span>
-                <span class="chip chip--success text-label-chip"><span class="dot"></span>Live</span>
-                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Completed</span>
-                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-archive"/></svg>Archived</span></div>
-              <div class="row"><span class="lbl text-body-s">Tutorials<span class="upd-tag">Updated 30.10</span></span>
-                <span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-sparkle"/></svg>New</span>
-                <span class="chip chip--success text-label-chip"><span class="dot"></span>Ongoing</span>
-                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Finished</span></div>
-              <div class="row"><span class="lbl text-body-s">Accounts &amp; payout methods</span>
-                <span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-link"/></svg>Connected</span>
-                <span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-seal-check"/></svg>Verified</span>
-                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-star"/></svg>Default</span></div>
-              </div>
-              <p class="legend text-caption-regular"><b class="lg lg--neutral">Grey</b> inactive <b class="lg lg--warning">Amber</b> waiting <b class="lg lg--success">Green</b> active <b class="lg lg--error">Red</b> mistake / violation <b class="lg lg--paid">Brand gradient</b> paid, new</p>
-              <p class="note text-caption-regular">Contexts reuse the lifecycle colours with their own label, as real variants of the status chip (no free-text labels). Labels are always CAPS. A new context gets a new variant here first.</p>
-              <p class="note text-caption-regular">Icon: dot = live, clock = scheduled / waiting / pending, hourglass = in review, flag = finished, archive, check = paid, sparkle = new, cross = rejected, block = cancelled, link = connected, seal = verified, star = default.</p>
-            </div>
-            <div class="lay-2">
-              <div class="card">
-                <h3 class="text-title-s">Membership tags · 28px · radius/sm</h3>
-                <div class="row">
-                  <span class="tag tag--joined text-label-tag"><svg class="i"><use href="#i-user-check"/></svg>Joined</span>
-                  <span class="tag tag--pending text-label-tag"><svg class="i"><use href="#i-clock"/></svg>Pending</span>
-                  <span class="tag tag--open text-label-tag"><svg class="i"><use href="#i-lock-open"/></svg>Open</span>
-                  <span class="tag tag--private text-label-tag"><svg class="i"><use href="#i-lock"/></svg>Private</span>
-                  <span class="tag tag--applied text-label-tag"><svg class="i"><use href="#i-check"/></svg>Applied</span>
-                </div>
-                <p class="note text-caption-regular">Neutral bg/tint tag (not a pill: radius/sm, like chips); the icon carries the colour (green joined and applied, amber pending, white open, grey private). Membership is factory-level, not campaign-level; Applied marks a campaign the clipper applied to (factory seen from Analytics).</p>
-              </div>
-              <div class="card">
-                <h3 class="text-title-s">Progress</h3>
-                <ul class="bullets text-body-m">
-                  <li>Brand fill = money and goals (budget, earnings, prize).</li>
-                  <li>Neutral fill = time and finished things. Exception: media playback (the video scrubber) is orange, because the user controls it.</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-      </div>
-    </section>
+    <div class="board-name"><span>Rules · Status</span><a href="#status">#</a></div>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Status</h2><p class="text-body-m">Every state is a chip or a tag from the kit, never free text.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Lifecycle chips</h3><div class="chip-rows"><div class="row" style="flex-wrap:wrap;gap:8px"><span class="chip chip--success text-label-chip"><span class="dot"></span>Live</span><span class="chip chip--success text-label-chip"><span class="dot"></span>Ongoing</span><span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-seal-check"/></svg>Verified</span><span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-link"/></svg>Connected</span><span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>Upcoming</span><span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-hourglass"/></svg>In review</span><span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>Pending</span><span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-x"/></svg>Rejected</span><span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-prohibit"/></svg>Cancelled</span><span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Completed</span><span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Finished</span><span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-archive"/></svg>Archived</span><span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-check"/></svg>Paid</span><span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-sparkle"/></svg>New</span></div></div><ul class="bullets text-body-m"><li>CAPS label with a 12px icon on a tinted fill. Live and Ongoing use a dot instead of an icon.</li><li>Green = active, amber = waiting, red = a problem or a violation, grey = finished or inactive.</li><li>PAID and NEW are the only filled chips: brand gradient with dark text.</li></ul></div><div class="card"><h3 class="text-title-s">Membership tags</h3><div class="chip-rows"><div class="row" style="gap:8px"><span class="tag tag--joined text-label-tag"><svg class="i"><use href="#i-user-check"/></svg>Joined</span><span class="tag tag--pending text-label-tag"><svg class="i"><use href="#i-clock"/></svg>Pending</span><span class="tag tag--applied text-label-tag"><svg class="i"><use href="#i-check"/></svg>Applied</span></div></div><ul class="bullets text-body-m"><li>Sentence case with a 16px coloured icon in a neutral tag. They describe the user’s relation to a factory, not its lifecycle.</li></ul></div><div class="card"><h3 class="text-title-s">Validation</h3><ul class="bullets text-body-m"><li>A passed check is a green filled check circle (password rules, verified fields). An error is red text with a red icon under the field.</li><li>Banners: info for notices, neutral for read-only notes, error for problems.</li></ul></div></div></div></section>
   </div>
 
-  <!-- Rules · Money -->
   <div class="board-wrap" id="money">
     <div class="board-name"><span>Rules · Money</span><a href="#money">#</a></div>
-    <section class="board">
-      <div class="section">
-        <div class="section-head"><h2 class="text-display-l">Money</h2></div>
-        <div class="lay-1">
-        <div class="card">
-          <h3 class="text-title-s">Four money colours</h3>
-          <div class="money-tiles">
-            <div class="money-tile"><span class="text-display-l money--brand">€1,240</span><span class="text-body-m-semibold">Orange · emphasised</span><span class="text-caption-regular muted">Money is the point: rewards, earnings, prizes, balance, your own leaderboard amount.</span></div>
-            <div class="money-tile"><span class="text-display-l money--accent">€1,240</span><span class="text-body-m-semibold">White · accented</span><span class="text-caption-regular muted">Stands out without the brand accent: totals and amounts beside an orange figure, stats, other people’s leaderboard amounts.</span></div>
-            <div class="money-tile"><span class="text-display-l money--neutral">€1,240</span><span class="text-body-m-semibold">Grey · neutral</span><span class="text-caption-regular muted">Secondary and zero amounts, withdrawals, the budget in “€1,800 / €6,000”, the “/ €500 max” cap on ongoing submissions.<span class="upd-tag">Updated 30.10</span></span></div>
-            <div class="money-tile"><span class="text-display-l money--cancelled">€1,240</span><span class="text-body-m-semibold">Red · cancelled</span><span class="text-caption-regular muted">Not used on submissions: a cancelled submission shows €0 in grey.<span class="upd-tag">Updated 30.10</span></span></div>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="text-title-s">Format &amp; wording</h3>
-          <ul class="bullets text-body-m">
-            <li>Format: euro prefix, comma thousands, dot decimals: €1,000 · €4,812.60. Never $, never a suffix.</li>
-            <li>Rate wording “€2.40 / 1M views”. Do not use the term RPM in the app.</li>
-            <li>Money figures in Space Grotesk Bold. Never green for money.</li>
-            <li>Budgets use a slash: “€1,800 / €6,000”, never “of €6,000 budget”.<span class="upd-tag">Updated 30.10</span></li>
-            <li>Available to withdraw is validated money only. Pending rewards sit under it, below a divider (hourglass and grey label, amount in white), and are never added to it.<span class="upd-tag">Updated 30.10</span></li>
-            <li>Transaction history lists validated money only: rewards (coins on an orange tint, amount orange) and withdrawals to the bank (bank icon, amount grey). No pending or cancelled rows.<span class="upd-tag">Updated 30.10</span></li>
-            <li>Leaderboard: other rows show amounts in white; the “you” row is a brand tint (surface + orange 28%→6%) with a 1px orange border and an orange amount, so only your amount is orange.</li>
-          </ul>
-        </div>
-        </div>
-      </div>
-    </section>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Money</h2><p class="text-body-m">Orange means money the user can earn or take. Everything else is white or grey.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Colour</h3><div class="specimens"><div class="specimen"><span class="text-display-m c-brand">€1,000</span><span class="cap text-caption-regular">Reward on a card</span></div><div class="specimen"><span class="text-display-m c-secondary">€0</span><span class="cap text-caption-regular">Zero or cancelled</span></div><div class="specimen"><span class="text-body-m-semibold c-brand">+€93</span><span class="cap text-caption-regular">Reward in a list</span></div><div class="specimen"><span class="text-body-m-semibold c-secondary">€300</span><span class="cap text-caption-regular">Withdrawal</span></div><div class="specimen"><span><span class="text-body-s-semibold">€1,800</span><span class="text-caption-regular c-secondary"> / €6,000</span></span><span class="cap text-caption-regular">Spent / budget</span></div></div><ul class="bullets text-body-m"><li>Orange: rewards, prizes, the available balance, earned amounts in the history, your own leaderboard amount.</li><li>White: totals, stats and other people’s amounts.</li><li>Grey: zero, cancelled, withdrawals, pending rewards and the budget after the slash.</li><li>Never green or red for money.</li></ul></div><div class="card"><h3 class="text-title-s">Format</h3><ul class="bullets text-body-m"><li>Euro prefix, comma thousands, dot decimals: €1,000 · €4,812.60.</li><li>Money in a list that comes in gets a plus: +€93. Money going out has no sign.</li><li>Budgets and caps use a slash: €1,800 / €6,000. Rates: €2.40 / 1M views.</li><li>Space Grotesk for money on cards and heroes (display/m to display/xl). In rows and labels money uses Inter semibold.</li></ul></div><div class="card"><h3 class="text-title-s">Balance and history</h3><ul class="bullets text-body-m"><li>Available to withdraw is validated money only, with the Withdraw button beside it.</li><li>Pending rewards sit under it, below a divider, with an hourglass. They are never added to the balance.</li><li>The transaction history lists validated money only: rewards (coins on an orange tint) and withdrawals to the bank (bank icon).</li></ul></div></div></div></section>
   </div>
 
-  <!-- Rules · Time -->
+  <div class="board-wrap" id="type">
+    <div class="board-name"><span>Rules · Type</span><a href="#type">#</a></div>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Type</h2><p class="text-body-m">Inter for the interface, Space Grotesk only for money and big numbers.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Hierarchy as used</h3><ul class="bullets text-body-m"><li>title/l: the screen title in the app header.</li><li>title/s: card and section titles.</li><li>body/m medium: row titles, names, list items. The most used style.</li><li>body/m and body/s: descriptions and messages.</li><li>caption: meta, labels above values, timestamps.</li><li>Buttons, chips and tags have their own label styles. Never restyle them.</li></ul></div><div class="card"><h3 class="text-title-s">Limits</h3><ul class="bullets text-body-m"><li>Nothing below 12px.</li><li>Submission titles wrap to two lines, then truncate.</li><li>Sentence case everywhere except chip labels, which are CAPS.</li></ul></div></div></div></section>
+  </div>
+
+  <div class="board-wrap" id="actions">
+    <div class="board-name"><span>Rules · Actions</span><a href="#actions">#</a></div>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Actions</h2><p class="text-body-m">One main action per screen; everything else steps down.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Buttons</h3><div class="specimens"><div class="specimen"><span class="btn btn--primary btn--l"><span class="text-label-button">Submit</span></span><span class="cap text-caption-regular">Primary L</span></div><div class="specimen"><span class="btn btn--secondary btn--l"><span class="text-label-button">Cancel</span></span><span class="cap text-caption-regular">Secondary L</span></div><div class="specimen"><span class="btn btn--primary btn--m btn--connect"><svg class="i"><use href="#i-link"/></svg><span class="text-label-button-m">Connect</span></span><span class="cap text-caption-regular">Connect</span></div><div class="specimen"><span class="btn btn--text btn--m"><span class="text-label-button-m">See all</span></span><span class="cap text-caption-regular">Text M</span></div><div class="specimen"><span class="icon-btn icon-btn--secondary icon-btn--m"><svg class="i"><use href="#i-funnel"/></svg></span><span class="cap text-caption-regular">Icon button</span></div><div class="specimen"><span class="row-remove"><svg class="i c-error"><use href="#i-trash"/></svg></span><span class="cap text-caption-regular">Remove</span></div></div><ul class="bullets text-body-m"><li>Primary L is the screen’s main action, full width at the bottom. It stays visible but disabled (40%) until the form is valid.</li><li>Secondary L is the alternative next to or under it (Cancel, Details).</li><li>Primary M is used for one thing only: Connect, with the link icon, everywhere an account is connected.</li><li>Text M for See all and inline links.</li><li>Pressed: primary darker, secondary bg/tint-strong. The app has no hover or focus.</li></ul></div><div class="card"><h3 class="text-title-s">Icon buttons and remove</h3><ul class="bullets text-body-m"><li>Toolbars and headers use secondary M icon buttons (filter, sort, search, more). Selected = orange tint.</li><li>Remove is a red bin with no box, in every list.</li><li>A destructive confirmation uses the Danger soft button, never the orange primary.</li></ul></div><div class="card"><h3 class="text-title-s">Text on orange</h3><ul class="bullets text-body-m"><li>White only on the primary button gradient (client preference). It is 2.9–3.2:1, a deliberate exception.</li><li>Everything else on orange uses dark text: PAID and NEW chips, count badges, the place badge on your leaderboard row, the selected calendar day.</li><li>Checks in radios and checkboxes are white.</li></ul></div></div></div></section>
+  </div>
+
+  <div class="board-wrap" id="icons">
+    <div class="board-name"><span>Rules · Icons &amp; navigation</span><a href="#icons">#</a></div>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Icons &amp; navigation</h2><p class="text-body-m">Phosphor only, regular weight; the fill variant marks an active or completed state.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Sizes</h3><ul class="bullets text-body-m"><li>24 by default (headers, rows, nav inside the app).</li><li>20 for trailing row actions and in L buttons.</li><li>16 inline with text, in M buttons and tags.</li><li>12 in chips. 32 in the bottom nav.</li></ul></div><div class="card"><h3 class="text-title-s">Navigation</h3><div class="specimens"><div class="specimen"><span class="hstack" style="gap:28px;padding:8px 4px"><span style="color:var(--color-brand-primary)"><svg class="i"><use href="#i-squares-four-fill"/></svg></span><svg class="i c-tertiary"><use href="#i-stack"/></svg><span class="nav-badge-wrap"><svg class="i c-tertiary"><use href="#i-chat-circle-dots"/></svg><span class="badge badge--dot nav-dot"></span></span><svg class="i c-tertiary"><use href="#i-user"/></svg></span><span class="cap text-caption-regular">Bottom nav, Chat unread</span></div></div><ul class="bullets text-body-m"><li>Bottom nav: Dashboard (squares-four), Factories (stack), Chat (chat-circle-dots), Profile (user). Active = fill in orange, others tertiary.</li><li>Chat shows a small orange dot when there are unread messages, no count.</li><li>Back is caret-left. Rows that open something end with a grey caret-right. Expand and collapse use a grey caret-down, no circle.</li><li>Tabs: active label white with an orange underline, inactive tertiary.</li></ul></div><div class="card"><h3 class="text-title-s">Colour</h3><ul class="bullets text-body-m"><li>Icons take the colour of their text. Meta icons are tertiary.</li><li>Platform marks (TikTok, Instagram, YouTube, X) stay as their logos.</li></ul></div></div></div></section>
+  </div>
+
   <div class="board-wrap" id="time">
     <div class="board-name"><span>Rules · Time</span><a href="#time">#</a></div>
-    <section class="board">
-      <div class="section">
-        <div class="section-head"><h2 class="text-display-l">Time</h2></div>
-        <div class="lay-2">
-          <div class="card">
-            <h3 class="text-title-s">Relative dates</h3>
-            <ul class="bullets text-body-m">
-              <li>Just now · 5m ago · 3h ago · 2d ago (up to 7 days), then 12.10 (12.10.2025 for another year).</li>
-              <li>Chat bubbles keep clock time.</li>
-              <li>Absolute dates by context: data rows 12.10.2025 · list group separators “11 June 2025” · chart axes “Sep 12”.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="text-title-s">Countdown tags</h3>
-            <ul class="bullets text-body-m">
-              <li>Countdown tags: “3h left”, “Starts in 3h”, “Ended 12.10”. Same shape as chips (radius/sm), sentence case; in the kit it is the soft pill inside the campaign card.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Rules · Buttons & text on orange -->
-  <div class="board-wrap" id="buttons">
-    <div class="board-name"><span>Rules · Buttons &amp; text on orange</span><a href="#buttons">#</a></div>
-    <section class="board">
-      <div class="section">
-        <div class="section-head"><h2 class="text-display-l">Buttons &amp; text on orange</h2></div>
-        <div class="lay-1">
-        <div class="card">
-          <h3 class="text-title-s">Buttons · type × state</h3>
-          <div class="matrix" style="grid-template-columns:120px repeat(3, minmax(132px, 1fr))">
-            <span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Default</span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Pressed</span></span>
-            <span class="colhead"><span class="text-body-m-semibold">Disabled</span></span>
-
-            <span class="text-body-s muted">Primary L · 44</span>
-            <span><button class="btn btn--primary btn--l">Join</button></span>
-            <span><button class="btn btn--primary btn--l is-pressed">Join</button></span>
-            <span><button class="btn btn--primary btn--l" disabled>Join</button></span>
-
-            <span class="text-body-s muted">Primary M · 36</span>
-            <span><button class="btn btn--primary btn--m">Join</button></span>
-            <span><button class="btn btn--primary btn--m is-pressed">Join</button></span>
-            <span><button class="btn btn--primary btn--m" disabled>Join</button></span>
-
-            <span class="text-body-s muted">Secondary L · 44</span>
-            <span><button class="btn btn--secondary btn--l">Details</button></span>
-            <span><button class="btn btn--secondary btn--l is-pressed">Details</button></span>
-            <span><button class="btn btn--secondary btn--l" disabled>Details</button></span>
-
-            <span class="text-body-s muted">Secondary M · 36</span>
-            <span><button class="btn btn--secondary btn--m">Details</button></span>
-            <span><button class="btn btn--secondary btn--m is-pressed">Details</button></span>
-            <span><button class="btn btn--secondary btn--m" disabled>Details</button></span>
-
-            <span class="text-body-s muted">Text L · 32</span>
-            <span><button class="btn btn--text btn--l">See all</button></span>
-            <span><button class="btn btn--text btn--l is-pressed">See all</button></span>
-            <span><button class="btn btn--text btn--l" disabled>See all</button></span>
-
-            <span class="text-body-s muted">Text M · 28</span>
-            <span><button class="btn btn--text btn--m">See all</button></span>
-            <span><button class="btn btn--text btn--m is-pressed">See all</button></span>
-            <span><button class="btn btn--text btn--m" disabled>See all</button></span>
-          </div>
-        </div>
-        <div class="lay-3">
-          <div class="card">
-            <h3 class="text-title-s">Sizes</h3>
-            <ul class="bullets text-body-m">
-              <li>Sizes: L 44px tall, 20px side padding, radius/md (12), label 18px semibold · M 36px, 16px padding, radius/sm (8), label 14px semibold · icon gap 8px, icons 20 (L) / 16 (M).</li>
-              <li>Text buttons: same label sizes as L / M in brand orange, 8px side padding, radius/sm box (32 / 28px). The touch target is always at least 44px tall, even when the visual box is smaller.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="text-title-s">States</h3>
-            <ul class="bullets text-body-m">
-              <li>Pressed (agreed): primary +18% black · secondary bg/tint-strong · text brand tint 15%. Disabled: whole button at 40% opacity, all types. The app has no hover or focus (touch).</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="text-title-s">Destructive &amp; accessibility</h3>
-            <ul class="bullets text-body-m">
-              <li>Remove = red bin, no box, in every list (edit accounts, switch account, attached files). Connect = one button everywhere: Primary 32px with the link icon.<span class="upd-tag">Updated 30.10</span></li><li>Validation passed = green filled check (password rules, verified fields). This is separate from the status colours.<span class="upd-tag">Updated 30.10</span></li><li>Destructive actions: red label and icon in menus and rows. The confirmation that commits them (leave, delete, cancel) uses Danger soft (red-tinted fill, red label), never the orange primary, so it differs from orange by weight, not only by hue. Solid Danger is reserved for rare, irreversible bulk actions.</li>
-              <li>Accessibility exception (deliberate, agreed): white labels on the primary gradient are 2.9–3.2:1 and fail WCAG AA (4.5:1). Kept for the brand look; never reuse white text on orange anywhere else.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="card">
-          <h3 class="text-title-s">Text on orange</h3>
-          <div class="specimens">
-            <div class="specimen"><span class="count-badge text-caption-medium">3</span><span class="cap text-caption-regular">Count badge</span></div>
-            <div class="specimen"><span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-check"/></svg>Paid</span><span class="cap text-caption-regular">PAID chip</span></div>
-            <div class="specimen"><span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-sparkle"/></svg>New</span><span class="cap text-caption-regular">NEW chip<span class="upd-tag">Updated 30.10</span></span></div>
-            <div class="specimen"><div class="row-card row-card--you" style="width:300px;min-height:56px;padding:0 16px 0 12px"><span class="place place--you"><span class="text-body-s-semibold">12</span></span><span class="avatar" style="width:32px;height:32px"><svg class="i"><use href="#i-user"/></svg></span><span class="text-body-m-semibold grow">You</span><span class="text-body-m-semibold c-brand">€10,000</span></div><span class="cap text-caption-regular">Place badge on the “you” row<span class="upd-tag">Updated 30.10</span></span></div>
-            <div class="specimen"><button class="btn btn--primary btn--l">Join the factory</button><span class="cap text-caption-regular">Primary button: white on gradient</span></div>
-            <div class="specimen"><span class="btn btn--primary btn--m btn--connect"><svg class="i"><use href="#i-link"/></svg><span class="text-label-button-m">Connect</span></span><span class="cap text-caption-regular">Connect button<span class="upd-tag">Updated 30.10</span></span></div>
-          </div>
-          <p class="text-body-s muted" style="max-width:640px">Dark text and icons (text/on-orange) on solid orange: the PAID and NEW chips, the rank badge on the leaderboard “you” row, the selected calendar day and the avatar picker check. White on the primary button gradient (client preference), including the Connect button, white checks in radio buttons and checkboxes (more contrast, Elya). Toggle knobs stay white.<span class="upd-tag">Updated 30.10</span></p>
-        </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- Rules · Depth, icons & accessibility -->
-  <div class="board-wrap" id="depth">
-    <div class="board-name"><span>Rules · Depth, icons &amp; accessibility</span><a href="#depth">#</a></div>
-    <section class="board">
-      <div class="section">
-        <div class="section-head"><h2 class="text-display-l">Depth, icons &amp; accessibility</h2></div>
-        <div class="lay-2">
-          <div class="card">
-            <h3 class="text-title-s">Elevation (4 levels)</h3>
-            <ul class="bullets text-body-m">
-              <li>0 · page: bg/base.</li>
-              <li>1 · containers: bg/surface + border/default.</li>
-              <li>2 · elements on any surface: bg/tint, pressed bg/tint-strong.</li>
-              <li>3 · overlays: bg/raised + border/default + elevation/overlay, over bg/scrim.</li>
-            </ul>
-          </div>
-          <div class="card">
-            <h3 class="text-title-s">Icons &amp; accessibility</h3>
-            <ul class="bullets text-body-m">
-              <li>Icon sizes: 20 in L buttons, icon buttons and menus · 32 in the bottom nav · 16 in M buttons, membership tags and inline text · 12 in lifecycle chips.</li>
-              <li>White icons on photos get elevation/icon-on-media and a bottom fade.</li>
-              <li>Bottom nav: the factory tab uses the stack icon; Chat shows a dot when there are unread messages.<span class="upd-tag">Updated 30.10</span></li>
-              <li>Expand and collapse use a grey caret with no circle (FAQ and every Settings row).<span class="upd-tag">Updated 30.10</span></li>
-              <li>Stat strips (campaign info, profile stats) are centred in equal columns.<span class="upd-tag">Updated 30.10</span></li>
-              <li>Submission titles wrap to two lines, then truncate.<span class="upd-tag">Updated 30.10</span></li>
-              <li>Text never below 12px. text/tertiary is the lightest text allowed: ≥4.5:1 on bg/base and bg/surface. On raised surfaces (bg/raised, bg/raised-strong) meta text uses text/secondary. text/disabled only for disabled states.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="board"><div class="section"><div class="section-head"><h2 class="text-display-l">Time</h2><p class="text-body-m">Dates read the same on every screen.</p></div><div class="lay-2"><div class="card"><h3 class="text-title-s">Dates</h3><ul class="bullets text-body-m"><li>Data rows and detail tables: 12.06.2025.</li><li>Lists and feeds: relative up to 7 days (Just now, 5m ago, 3h ago, 2d ago), then 12.10.</li><li>Chat bubbles keep the clock time.</li></ul></div><div class="card"><h3 class="text-title-s">Countdowns</h3><ul class="bullets text-body-m"><li>Soft pill in the card: 3h left, Starts in 3h, Ended 12.10.</li><li>Ended always takes a date, never a relative time.</li></ul></div></div></div></section>
   </div>
 </main>
 <script src="assets/icons.js"></script>
 <script src="assets/layout.js"></script>
+
 </body>
 </html>

@@ -223,9 +223,9 @@
 .cal-day.is-selected { background: var(--color-brand-primary); color: var(--color-text-on-orange); font-weight: 600; }
 .cal-day.is-today { box-shadow: inset 0 0 0 1px var(--color-brand-primary); color: var(--color-text-brand); }
 .cal-day.is-muted { color: var(--color-text-disabled); }
-.chart-bar { width: 36px; height: 120px; border-radius: 8px 8px 2px 2px; border: 1px solid var(--color-brand-primary); border-bottom: 0; }
-.chart-bar--active { background: linear-gradient(180deg, #ff6839, rgba(255,104,57,.15)); box-shadow: 0 0 16px rgba(255,104,57,.25); /* glow has no token */ }
-.chart-bar--inactive { background: var(--color-brand-primary-subtle); border-color: transparent; }
+.chart-bar { width: 36px; height: 120px; border-radius: 12px 12px 0 0; border: 1.5px solid var(--color-brand-primary); border-bottom: 0; }
+.chart-bar--active { background: var(--color-brand-primary); }
+.chart-bar--inactive { background: var(--color-brand-primary-subtle); }
 .reaction { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 3px 8px 3px 6px; border-radius: var(--radius-full); background: var(--color-bg-tint-strong); color: var(--color-text-secondary); }
 .reaction .i { width: 16px; height: 16px; }
 .reaction.is-selected { background: var(--color-brand-primary-subtle); color: var(--color-text-brand); }
@@ -403,7 +403,7 @@
 .chart img { display: block; width: 100%; height: auto; }
 .bars { position: relative; height: 130px; }
 .bars__grid { position: absolute; left: 40px; right: 0; top: 4px; bottom: 6px; display: flex; flex-direction: column; justify-content: space-between; }
-.bars__grid > span { border-top: 1px dashed var(--color-border-default); }
+.bars__grid > span { border-top: 1px dotted var(--color-border-default); }
 .bars__y { position: absolute; left: 0; top: -4px; bottom: 0; width: 32px; display: flex; flex-direction: column; justify-content: space-between; text-align: right; color: var(--color-text-tertiary); }
 .bars__plot { position: absolute; left: 40px; right: 0; bottom: 0; top: 0; display: flex; align-items: flex-end; justify-content: space-around; border-bottom: 1px solid var(--color-border-default); }
 .bars__plot .chart-bar { width: 28px; }
