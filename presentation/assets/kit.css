@@ -223,7 +223,7 @@
 .cal-day.is-selected { background: var(--color-brand-primary); color: var(--color-text-on-orange); font-weight: 600; }
 .cal-day.is-today { box-shadow: inset 0 0 0 1px var(--color-brand-primary); color: var(--color-text-brand); }
 .cal-day.is-muted { color: var(--color-text-disabled); }
-.chart-bar { width: 36px; height: 120px; border-radius: var(--radius-md) var(--radius-md) 0 0; border: 1.5px solid var(--color-brand-primary); border-bottom: 0; }
+.chart-bar { width: 36px; height: 120px; border-radius: var(--radius-sm) var(--radius-sm) 0 0; border: 1.5px solid var(--color-brand-primary); border-bottom: 0; }
 .chart-bar--active { background: var(--color-brand-primary); }
 .chart-bar--inactive { background: var(--color-brand-primary-subtle); }
 .reaction { display: inline-flex; align-items: center; gap: 4px; height: 22px; padding: 3px 8px 3px 6px; border-radius: var(--radius-full); background: var(--color-bg-tint-strong); color: var(--color-text-secondary); }
