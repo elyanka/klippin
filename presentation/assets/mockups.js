@@ -38,6 +38,8 @@
   // Rows view: one row per version, scrolled sideways in sync.
   var strip = document.createElement('div'); strip.className = 'strip';
   var heads = { 1: ['Today', 'Old values'], 2: ['Tokens', 'Iteration 1'], 3: ['Kit', 'Full target'] };
+  // A page can name its own rows: <main class="canvas" data-heads='{"1":["Original","The app today"],…}'>
+  try { var own = JSON.parse(document.querySelector('.canvas').dataset.heads || 'null'); if (own) heads = own; } catch (e) {}
   var scrollers = [];
   function row(v) {
     var r = document.createElement('div'); r.className = 'strip-row' + (v ? '' : ' strip-row--head');
@@ -103,7 +105,7 @@
     areas.slice(c[0], c[1]).forEach(function (a) {
       var sec = document.createElement('section'); sec.className = 'bsec';
       sec.dataset.layer = 'layer-' + a.layer.toLowerCase().replace(/ /g, '-');
-      sec.innerHTML = '<h3>' + a.layer + '<small>' + a.boards.length + ' screens</small></h3>';
+      sec.innerHTML = '<h3>' + a.layer + '<small>' + a.boards.length + (a.boards.length === 1 ? ' screen' : ' screens') + '</small></h3>';
       var grid = document.createElement('div'); grid.className = 'bgrid'; grid.style.setProperty('--cols', a.cols);
       a.boards.forEach(function (b) {
         var cell = document.createElement('div'); cell.className = 'bcell'; cell.dataset.board = b.id;

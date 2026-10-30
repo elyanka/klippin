@@ -630,3 +630,41 @@ body:not(.view-board) .zfit { display: none; }
 }
 .topbar .brand span { white-space: nowrap; }
 @media (max-width: 600px) { .topbar .brand span { display: none; } }
+
+/* Foundations · Client mode board (tokens v3.0.0) */
+.mode-row { display: grid; grid-template-columns: minmax(160px, 0.8fr) minmax(170px, 1fr) minmax(170px, 1fr) minmax(0, 1.6fr); column-gap: 16px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--color-border-subtle); }
+.mode-row--client { grid-template-columns: minmax(160px, 0.8fr) minmax(170px, 2fr) minmax(0, 1.6fr); }
+.mode-head { padding: 0 0 8px; border-bottom: 1px solid var(--color-border-default); }
+.mode-row [data-system="client"], .mode-row[data-system="client"] { background: none; }
+.sw-chip--wide { width: 160px !important; }
+.mode-type { display: grid; grid-template-columns: 1fr; gap: var(--space-24); }
+.mode-type .type-row .meta { width: 300px; }
+@media (max-width: 900px) { .mode-type .type-row { flex-direction: column; align-items: flex-start; } .mode-type .type-row .meta { width: auto; } .mode-type .text-display-hero { font-size: 36px; } }
+.type-table.mode-client, .card.mode-demo[data-system="client"] { background: var(--color-bg-base-deep); border-color: var(--color-border-default); color: var(--color-text-primary); }
+.grad-text { -webkit-background-clip: text; background-clip: text; color: transparent; }
+.mode-demo { padding: 32px; gap: 16px; }
+.mode-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.mode-btn { display: inline-flex; align-items: center; height: 44px; padding: 0 20px; border-radius: var(--radius-button); background: var(--color-bg-tint-strong); box-shadow: inset 0 0 0 1px var(--color-border-glass); font: 600 15px/1 var(--font-body); color: var(--color-text-primary); transition: box-shadow .2s; }
+.mode-btn--primary { background: var(--gradient-brand-primary); box-shadow: none; color: var(--color-text-on-primary-button); }
+.mode-btn:hover { box-shadow: var(--effect-hover-glow); }
+@media (max-width: 900px) {
+  .mode-type { grid-template-columns: 1fr; }
+  .mode-head { display: none; }
+  .mode-row, .mode-row--client { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: 8px; }
+  .mode-row > .tok-txt, .mode-row .tok-use { grid-column: 1 / -1; }
+}
+
+/* Client · web board (2026-10-27): the board itself switches to Client mode. */
+.board.client-board { background: var(--color-bg-base-deep); color: var(--color-text-primary); font-family: var(--font-body); }
+.client-board .client-nav { position: relative; }
+.client-board .client-footer { padding-inline: var(--space-24); }
+
+/* "Updated 30.10" marker on everything changed by the 28.10 feedback round */
+.upd-tag { display: inline-flex; align-items: center; height: 18px; padding: 0 6px; margin-left: 8px; border-radius: 4px;
+  background: var(--color-brand-primary-subtle); color: var(--color-brand-primary); font: 600 10px/1 Inter, sans-serif;
+  letter-spacing: .04em; text-transform: uppercase; vertical-align: middle; white-space: nowrap; }
+.board-name .upd-tag { margin-right: auto; }
+
+/* same look for the tag inside kit labels and icon cells (their span rules were dimming it) */
+.kit-label .upd-tag, .icon-cell .upd-tag { font-size: 10px; font-weight: 600; color: var(--color-brand-primary); word-break: normal; text-align: left; margin: 0; }
+.kit-label .upd-tag { margin-left: 4px; }

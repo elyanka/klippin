@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-system="clipper">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Klippin · Global rules</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Plus+Jakarta+Sans:wght@800&display=swap">
-<link rel="stylesheet" href="../handoff/design/tokens/tokens.css">
+<link rel="stylesheet" href="../tokens/tokens.css">
 <link rel="stylesheet" href="assets/kit.css">
 <link rel="stylesheet" href="assets/present.css">
 </head>
@@ -19,7 +19,7 @@
     <a href="rules.html" aria-current="page">Rules</a>
     <a href="foundations.html">Foundations</a>
     <a href="components.html">Components</a>
-    <a href="landing.html">Landing page</a>
+    <a href="client-review.html">Client review</a>
   </nav>
 </header>
 
@@ -67,7 +67,7 @@
       <div class="section">
         <div class="section-head">
           <h2 class="text-display-l">Status logic</h2>
-          <p class="text-body-m">One colour logic for every entity. Lifecycle = CAPS chip: coloured 12px icon + label on a subtle fill. Membership = coloured 16px icon + sentence case in a neutral tag. Both use radius/sm (8). PAID is the only filled chip.</p>
+          <p class="text-body-m">One colour logic for every entity. Lifecycle = CAPS chip: coloured 12px icon + label on a subtle fill. Membership = coloured 16px icon + sentence case in a neutral tag. Both use radius/sm (8). PAID and NEW are the only filled chips.<span class="upd-tag">Updated 30.10</span></p>
         </div>
         <div class="lay-1">
             <div class="card">
@@ -84,22 +84,18 @@
                 <span class="chip chip--success text-label-chip"><span class="dot"></span>Live</span>
                 <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Completed</span>
                 <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-archive"/></svg>Archived</span></div>
-              <div class="row"><span class="lbl text-body-s">Tutorials</span>
-                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>New</span>
+              <div class="row"><span class="lbl text-body-s">Tutorials<span class="upd-tag">Updated 30.10</span></span>
+                <span class="chip chip--paid text-label-chip"><svg class="i"><use href="#i-sparkle"/></svg>New</span>
                 <span class="chip chip--success text-label-chip"><span class="dot"></span>Ongoing</span>
                 <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Finished</span></div>
-              <div class="row"><span class="lbl text-body-s">Transactions</span>
-                <span class="chip chip--warning text-label-chip"><svg class="i"><use href="#i-clock"/></svg>Pending</span>
-                <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-flag"/></svg>Completed</span>
-                <span class="chip chip--error text-label-chip"><svg class="i"><use href="#i-prohibit"/></svg>Cancelled</span></div>
               <div class="row"><span class="lbl text-body-s">Accounts &amp; payout methods</span>
                 <span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-link"/></svg>Connected</span>
                 <span class="chip chip--success text-label-chip"><svg class="i"><use href="#i-seal-check"/></svg>Verified</span>
                 <span class="chip chip--neutral text-label-chip"><svg class="i"><use href="#i-star"/></svg>Default</span></div>
               </div>
-              <p class="legend text-caption-regular"><b class="lg lg--neutral">Grey</b> inactive <b class="lg lg--warning">Amber</b> waiting <b class="lg lg--success">Green</b> active <b class="lg lg--error">Red</b> mistake / violation <b class="lg lg--paid">Brand gradient</b> paid</p>
+              <p class="legend text-caption-regular"><b class="lg lg--neutral">Grey</b> inactive <b class="lg lg--warning">Amber</b> waiting <b class="lg lg--success">Green</b> active <b class="lg lg--error">Red</b> mistake / violation <b class="lg lg--paid">Brand gradient</b> paid, new</p>
               <p class="note text-caption-regular">Contexts reuse the lifecycle colours with their own label, as real variants of the status chip (no free-text labels). Labels are always CAPS. A new context gets a new variant here first.</p>
-              <p class="note text-caption-regular">Icon: dot = live, clock = scheduled / waiting / pending, hourglass = in review, flag = finished, archive, check = paid, cross = rejected, block = cancelled, link = connected, seal = verified, star = default.</p>
+              <p class="note text-caption-regular">Icon: dot = live, clock = scheduled / waiting / pending, hourglass = in review, flag = finished, archive, check = paid, sparkle = new, cross = rejected, block = cancelled, link = connected, seal = verified, star = default.</p>
             </div>
             <div class="lay-2">
               <div class="card">
@@ -138,8 +134,8 @@
           <div class="money-tiles">
             <div class="money-tile"><span class="text-display-l money--brand">€1,240</span><span class="text-body-m-semibold">Orange · emphasised</span><span class="text-caption-regular muted">Money is the point: rewards, earnings, prizes, balance, your own leaderboard amount.</span></div>
             <div class="money-tile"><span class="text-display-l money--accent">€1,240</span><span class="text-body-m-semibold">White · accented</span><span class="text-caption-regular muted">Stands out without the brand accent: totals and amounts beside an orange figure, stats, other people’s leaderboard amounts.</span></div>
-            <div class="money-tile"><span class="text-display-l money--neutral">€1,240</span><span class="text-body-m-semibold">Grey · neutral</span><span class="text-caption-regular muted">Secondary and zero amounts, payout history, the “/ €500 max” cap on ongoing submissions.</span></div>
-            <div class="money-tile"><span class="text-display-l money--cancelled">€1,240</span><span class="text-body-m-semibold">Red · cancelled</span><span class="text-caption-regular muted">Only for cancelled amounts.</span></div>
+            <div class="money-tile"><span class="text-display-l money--neutral">€1,240</span><span class="text-body-m-semibold">Grey · neutral</span><span class="text-caption-regular muted">Secondary and zero amounts, withdrawals, the budget in “€1,800 / €6,000”, the “/ €500 max” cap on ongoing submissions.<span class="upd-tag">Updated 30.10</span></span></div>
+            <div class="money-tile"><span class="text-display-l money--cancelled">€1,240</span><span class="text-body-m-semibold">Red · cancelled</span><span class="text-caption-regular muted">Not used on submissions: a cancelled submission shows €0 in grey.<span class="upd-tag">Updated 30.10</span></span></div>
           </div>
         </div>
         <div class="card">
@@ -148,6 +144,9 @@
             <li>Format: euro prefix, comma thousands, dot decimals: €1,000 · €4,812.60. Never $, never a suffix.</li>
             <li>Rate wording “€2.40 / 1M views”. Do not use the term RPM in the app.</li>
             <li>Money figures in Space Grotesk Bold. Never green for money.</li>
+            <li>Budgets use a slash: “€1,800 / €6,000”, never “of €6,000 budget”.<span class="upd-tag">Updated 30.10</span></li>
+            <li>Available to withdraw is validated money only. Pending rewards sit under it, below a divider (hourglass and grey label, amount in white), and are never added to it.<span class="upd-tag">Updated 30.10</span></li>
+            <li>Transaction history lists validated money only: rewards (coins on an orange tint, amount orange) and withdrawals to the bank (bank icon, amount grey). No pending or cancelled rows.<span class="upd-tag">Updated 30.10</span></li>
             <li>Leaderboard: other rows show amounts in white; the “you” row is a brand tint (surface + orange 28%→6%) with a 1px orange border and an orange amount, so only your amount is orange.</li>
           </ul>
         </div>
@@ -261,7 +260,7 @@
           <div class="card">
             <h3 class="text-title-s">Destructive &amp; accessibility</h3>
             <ul class="bullets text-body-m">
-              <li>Destructive actions: red label and icon in menus and rows. The confirmation that commits them (leave, delete, cancel) uses Danger soft (red-tinted fill, red label), never the orange primary, so it differs from orange by weight, not only by hue. Solid Danger is reserved for rare, irreversible bulk actions.</li>
+              <li>Remove = red bin, no box, in every list (edit accounts, switch account, attached files). Connect = one button everywhere: Primary 32px with the link icon.<span class="upd-tag">Updated 30.10</span></li><li>Validation passed = green filled check (password rules, verified fields). This is separate from the status colours.<span class="upd-tag">Updated 30.10</span></li><li>Destructive actions: red label and icon in menus and rows. The confirmation that commits them (leave, delete, cancel) uses Danger soft (red-tinted fill, red label), never the orange primary, so it differs from orange by weight, not only by hue. Solid Danger is reserved for rare, irreversible bulk actions.</li>
               <li>Accessibility exception (deliberate, agreed): white labels on the primary gradient are 2.9–3.2:1 and fail WCAG AA (4.5:1). Kept for the brand look; never reuse white text on orange anywhere else.</li>
             </ul>
           </div>
@@ -303,6 +302,10 @@
             <ul class="bullets text-body-m">
               <li>Icon sizes: 20 in L buttons, icon buttons and menus · 32 in the bottom nav · 16 in M buttons, membership tags and inline text · 12 in lifecycle chips.</li>
               <li>White icons on photos get elevation/icon-on-media and a bottom fade.</li>
+              <li>Bottom nav: the factory tab uses the stack icon; Chat shows a dot when there are unread messages.<span class="upd-tag">Updated 30.10</span></li>
+              <li>Expand and collapse use a grey caret with no circle (FAQ and every Settings row).<span class="upd-tag">Updated 30.10</span></li>
+              <li>Stat strips (campaign info, profile stats) are centred in equal columns.<span class="upd-tag">Updated 30.10</span></li>
+              <li>Submission titles wrap to two lines, then truncate.<span class="upd-tag">Updated 30.10</span></li>
               <li>Text never below 12px, except label/eyebrow (11px CAPS, web only). text/tertiary is the lightest text allowed: ≥4.5:1 on bg/base and bg/surface. On raised surfaces (bg/raised, bg/raised-strong) meta text uses text/secondary. text/disabled only for disabled states.</li>
             </ul>
           </div>
