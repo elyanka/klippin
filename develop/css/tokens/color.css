@@ -1,0 +1,41 @@
+/*
+ * Colour tokens, named after the Figma variables (Klippin · Brand & UI Kit).
+ * The only file besides gradient.css/effect.css allowed to hold raw colours.
+ */
+:root {
+  /* Surfaces */
+  --bg-base: #0b0b0c;          /* page */
+  --bg-raised: #111113;        /* alternating sections, card gradient top */
+  --bg-hover: #161618;         /* FAQ card hover */
+  --bg-surface: #1c1c1f;       /* open FAQ rim base */
+  --bg-deepest: #060607;       /* footer */
+  --bg-nav: rgb(11 11 12 / .72);
+
+  /* Text */
+  --text-primary: #f7f7f5;
+  --text-secondary: #a3a3a8;
+  --text-tertiary: #85858b;
+  --text-on-orange: #0b0b0c;
+  --text-white: #fff;
+
+  /* Lines */
+  --border-subtle: rgb(255 255 255 / .05);
+  --border-default: rgb(255 255 255 / .12);
+  --border-strong: rgb(255 255 255 / .28);
+  --border-hover: rgb(255 255 255 / .60);
+  --border-solid: #2a2a2e;
+
+  /* Tints */
+  --tint: rgb(255 255 255 / .06);
+  --tint-strong: rgb(255 255 255 / .10);
+
+  /* Brand */
+  --brand: #ff6839;
+  --brand-end: #ff5346;
+  --coral: #fa4948;
+  --coral-red: #f83c4f;
+  --neutral-500: #4e4e53;
+
+  /* Store badges keep the colours the stores supply */
+  --badge-bg: #000;
+}

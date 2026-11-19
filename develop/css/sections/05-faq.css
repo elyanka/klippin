@@ -1,0 +1,9 @@
+.faq__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .faq__inner { gap: 4rem; }
+}

@@ -1,0 +1,16 @@
+/* Entry point 2/2: below-the-fold components and sections. */
+@import url("components/section-header.css") layer(components);
+@import url("components/stat.css")           layer(components);
+@import url("components/rim-card.css")       layer(components);
+@import url("components/step-card.css")      layer(components);
+@import url("components/earnings.css")       layer(components);
+@import url("components/note.css")           layer(components);
+@import url("components/faq-item.css")       layer(components);
+
+@import url("layout/footer.css")             layer(layout);
+
+@import url("sections/02-stats.css")         layer(sections);
+@import url("sections/03-how.css")           layer(sections);
+@import url("sections/04-earnings.css")      layer(sections);
+@import url("sections/05-faq.css")           layer(sections);
+@import url("sections/06-get-started.css")   layer(sections);

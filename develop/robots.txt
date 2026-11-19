@@ -1,0 +1,5 @@
+# Block all bots on development
+User-agent: *
+Disallow: /
+
+# Prevent indexing of development environment

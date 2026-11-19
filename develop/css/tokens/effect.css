@@ -1,0 +1,10 @@
+/* Effect tokens. Figma layer blur radius r renders as CSS blur(r / 2). */
+:root {
+  /* glow/earnings-dot — Advanced dot */
+  --shadow-dot-glow: 0 0 10px rgb(248 60 79 / .55), 0 0 32px 4px rgb(255 104 57 / .22);
+
+  --ease-out: cubic-bezier(.22, 1, .36, 1);
+  --ease-standard: cubic-bezier(.4, 0, .2, 1);
+  --dur-fast: .16s;
+  --dur-base: .32s;
+}

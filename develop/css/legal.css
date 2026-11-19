@@ -1,0 +1,21 @@
+/* Entry point for privacy.html / terms.html: shared foundations + the legal page. */
+@layer reset, tokens, base, components, layout, sections, utilities;
+
+@import url("tokens/color.css")       layer(tokens);
+@import url("tokens/gradient.css")    layer(tokens);
+@import url("tokens/effect.css")      layer(tokens);
+@import url("tokens/type.css")        layer(tokens);
+@import url("tokens/layout.css")      layer(tokens);
+
+@import url("base/reset.css")         layer(reset);
+@import url("base/fonts.css")         layer(base);
+@import url("base/elements.css")      layer(base);
+@import url("base/a11y.css")          layer(base);
+
+@import url("components/button.css")  layer(components);
+
+@import url("layout/container.css")   layer(layout);
+@import url("layout/navigation.css")  layer(layout);
+@import url("layout/footer.css")      layer(layout);
+
+@import url("pages/legal.css")        layer(sections);

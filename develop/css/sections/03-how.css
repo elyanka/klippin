@@ -1,0 +1,9 @@
+.how__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .how__inner { gap: 4rem; }
+}

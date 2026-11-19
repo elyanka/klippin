@@ -1,0 +1,27 @@
+/*
+ * Self-hosted from Google Fonts, latin subset (covers EN, FR, € and ’).
+ * Inter is the variable file, so one download serves 400, 500 and 600.
+ */
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("../../assets/fonts/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("../../assets/fonts/space-grotesk-700-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("../../assets/fonts/plus-jakarta-sans-800-latin.woff2") format("woff2");
+}

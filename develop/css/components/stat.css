@@ -1,0 +1,51 @@
+/* Web hero stat: big figure in display/stat + label. Three in a row. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .5rem;
+  padding-top: 2.375rem; /* 38 */
+}
+
+.stat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  text-align: center;
+}
+
+.stat__value {
+  font-family: var(--font-display);
+  font-size: var(--fs-stat);
+  font-weight: 700;
+  --lh: 1.2;
+}
+
+.stat__label {
+  color: var(--text-secondary);
+  font-size: var(--fs-ui);
+  --lh: var(--lh-ui);
+}
+
+@media (min-width: 640px) {
+  .stats {
+    gap: 0;
+    padding-top: 3rem; /* 48 */
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .stat__value { --lh: 1.04; letter-spacing: var(--ls-display); }
+
+  /* 1×46 divider, vertically centred on the item */
+  .stat + .stat::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 1px;
+    height: 2.875rem;
+    background-color: var(--border-subtle);
+    transform: translateY(-50%);
+  }
+}

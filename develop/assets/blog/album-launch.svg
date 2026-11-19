@@ -1,0 +1,29 @@
+<svg width="240" height="200" viewBox="0 0 240 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kl-brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF6839"/><stop offset="1" stop-color="#FF5346"/></linearGradient>
+    <radialGradient id="kl-glow" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#FF6839" stop-opacity="0.22"/><stop offset="1" stop-color="#FF6839" stop-opacity="0"/></radialGradient>
+    <linearGradient id="kl-body" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#38383D"/><stop offset="1" stop-color="#242427"/></linearGradient>
+  </defs>
+  <circle cx="120" cy="110" r="90" fill="url(#kl-glow)"/>
+  <ellipse cx="120" cy="186" rx="80" ry="7" fill="#0B0B0C" opacity="0.7"/>
+  <circle cx="148" cy="108" r="50" fill="#161618" stroke="#38383D" stroke-width="2"/>
+  <circle cx="148" cy="108" r="42" stroke="#242427" stroke-width="1.5"/>
+  <circle cx="148" cy="108" r="34" stroke="#242427" stroke-width="1.5"/>
+  <circle cx="148" cy="108" r="26" stroke="#242427" stroke-width="1.5"/>
+  <path d="M152 60a48 48 0 0 1 41 34" stroke="#F7F7F5" stroke-width="3" stroke-linecap="round" opacity="0.1"/>
+  <circle cx="148" cy="108" r="15" fill="url(#kl-brand)"/>
+  <circle cx="148" cy="108" r="3" fill="#0B0B0C"/>
+  <rect x="50" y="60" width="96" height="96" rx="11" fill="url(#kl-body)" stroke="#38383D" stroke-width="2"/>
+  <rect x="62" y="72" width="44" height="44" rx="9" fill="url(#kl-brand)"/>
+  <path d="M76 84l20 10-20 10" stroke="#0B0B0C" stroke-width="0" fill="none"/>
+  <circle cx="84" cy="94" r="12" stroke="#0B0B0C" stroke-opacity="0.35" stroke-width="3"/>
+  <circle cx="84" cy="94" r="3.5" fill="#0B0B0C" opacity="0.5"/>
+  <rect x="62" y="126" width="56" height="6" rx="3" fill="#4E4E53"/>
+  <rect x="62" y="138" width="36" height="5" rx="2.5" fill="#38383D"/>
+  <circle cx="190" cy="56" r="7" fill="url(#kl-brand)"/>
+  <path d="M196 56V34l12 4" stroke="url(#kl-brand)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M40 83v10M35 88h10" stroke="#FF6839" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+  <circle cx="212" cy="150" r="3.5" fill="#FF6839" opacity="0.45"/>
+  <circle cx="44" cy="168" r="3" fill="#85858B" opacity="0.5"/>
+  <path d="M115 37l6 6M121 37l-6 6" stroke="#4E4E53" stroke-width="2" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-locale="en" data-own-meta data-en-only>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Blog mockup (19.11): layout and placeholder copy, not real posts yet. -->
+  <title>Blog | Klippin</title>
+  <meta name="description" content="Guides, earnings tips and campaign stories for Klippin clippers.">
+  <script>if (!/^(www\.)?klippin\.io$/.test(location.hostname)) { var m = document.createElement("meta"); m.name = "robots"; m.content = "noindex, nofollow"; document.head.appendChild(m) }</script>
+  <link rel="canonical" href="https://klippin.io/blog">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Klippin">
+  <meta property="og:title" content="Blog | Klippin">
+  <meta property="og:description" content="Guides, earnings tips and campaign stories for Klippin clippers.">
+  <meta property="og:url" content="https://klippin.io/blog">
+  <meta property="og:image" content="https://klippin.io/assets/favicon/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta name="theme-color" content="#0b0b0c">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-grotesk-700-latin.woff2" crossorigin>
+
+  <link rel="stylesheet" href="css/blog.css">
+
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body class="blog-page">
+
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <!-- The blog's own header (not the landing nav), so the blog reads as its own space. -->
+  <header class="blog-nav" id="nav">
+    <div class="blog-nav__bar">
+      <a class="blog-nav__brand" href="blog.html" aria-label="Klippin blog">
+        <img src="assets/logos/logo.svg" alt="" width="128" height="23">
+        <span class="eyebrow blog-nav__word" aria-hidden="true">Blog</span>
+      </a>
+
+      <div class="blog-nav__actions">
+        <a class="blog-nav__site" href="index.html">Go to klippin.io <svg viewBox="0 0 256 256" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></a>
+
+        <form class="blog-search" role="search" action="blog.html" data-blog-search>
+          <label class="visually-hidden" for="blog-q">Search posts</label>
+          <input class="blog-search__input" id="blog-q" name="q" type="search" placeholder="Search posts" autocomplete="off" tabindex="-1">
+          <button class="icon-btn blog-search__toggle" type="button" aria-expanded="false" aria-controls="blog-q" aria-label="Search posts"><svg viewBox="0 0 256 256" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg></button>
+        </form>
+
+        <button class="icon-btn blog-nav__menu-btn" type="button" aria-expanded="false" aria-controls="blog-menu" aria-label="Open menu" data-blog-menu-btn>
+          <img class="icon-open" src="assets/icons/menu.svg" alt="" width="20" height="20">
+          <img class="icon-close" src="assets/icons/close.svg" alt="" width="20" height="20">
+        </button>
+      </div>
+    </div>
+
+
+  </header>
+
+  <!-- Menu: a side panel under the header (outside it: the header's backdrop blur
+       would otherwise pin a fixed panel to the header's own box). -->
+  <div class="blog-menu-backdrop" data-blog-menu-backdrop></div>
+  <aside class="blog-menu" id="blog-menu" aria-label="Menu" inert>
+    <nav class="blog-menu__group" aria-labelledby="blog-menu-topics">
+      <p class="t-label" id="blog-menu-topics">Topics</p>
+      <a class="blog-menu__link" href="blog.html?topic=guides">Guides</a>
+      <a class="blog-menu__link" href="blog.html?topic=earnings">Earnings</a>
+      <a class="blog-menu__link" href="blog.html?topic=campaigns">Campaigns</a>
+      <a class="blog-menu__link" href="blog.html?topic=news">Network news</a>
+    </nav>
+    <nav class="blog-menu__group" aria-labelledby="blog-menu-klippin">
+      <p class="t-label" id="blog-menu-klippin">Klippin</p>
+      <a class="blog-menu__link" href="index.html#how">How it works</a>
+      <a class="blog-menu__link" href="index.html#earnings">Earnings</a>
+      <a class="blog-menu__link" href="index.html#faq">FAQ</a>
+      <a class="blog-menu__link blog-menu__link--site" href="index.html">Go to klippin.io <svg viewBox="0 0 256 256" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></a>
+    </nav>
+  </aside>
+
+  <main id="main">
+
+    <h1 class="visually-hidden">Klippin blog</h1>
+
+    <section class="blog-section blog-section--featured" aria-labelledby="featured-title">
+      <div class="container">
+        <div class="blog-section__head">
+          <h2 class="blog-section__title" id="featured-title">Featured</h2>
+          <p class="blog-section__note">Guides, earnings tips and stories from real campaigns.</p>
+        </div>
+
+        <article class="post-card post-card--featured rim-card">
+          <div class="cover cover--illo" aria-hidden="true">
+            <img src="assets/blog/pick-campaign.svg" alt="" width="240" height="200">
+          </div>
+          <div class="post-card__body">
+            <p class="post-meta"><span class="post-tag">Guides</span><span class="post-meta__sep">·</span><span>6 min read</span><span class="post-meta__sep">·</span><span>Featured</span></p>
+            <h2 class="post-card__title"><a href="article.html">How to pick your first campaign</a></h2>
+            <p class="post-card__excerpt">Reward, budget left, time left and the brief: the four things to check before
+              you clip, and how to read them in under a minute.</p>
+            <div class="author">
+              <span class="author__avatar" aria-hidden="true">K</span>
+              <span><span class="author__name">Klippin team</span><span class="author__role"><time>18 Nov 2026</time></span></span>
+            </div>
+            <span class="post-card__more">Read the guide <img src="assets/icons/caret-right.svg" alt="" width="16" height="16"></span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="blog-section" aria-labelledby="latest-title" id="latest">
+      <div class="container">
+        <div class="blog-section__head blog-section__head--filters">
+          <h2 class="blog-section__title" id="latest-title">Latest posts</h2>
+          <div class="topics" role="group" aria-label="Filter posts by topic">
+            <button class="topic" type="button" data-topic="all" aria-pressed="true">All<span class="topic__count"></span></button>
+            <button class="topic" type="button" data-topic="guides" aria-pressed="false">Guides<span class="topic__count"></span></button>
+            <button class="topic" type="button" data-topic="earnings" aria-pressed="false">Earnings<span class="topic__count"></span></button>
+            <button class="topic" type="button" data-topic="campaigns" aria-pressed="false">Campaigns<span class="topic__count"></span></button>
+            <button class="topic" type="button" data-topic="news" aria-pressed="false">Network news<span class="topic__count"></span></button>
+          </div>
+        </div>
+        <p class="posts__query" data-posts-query hidden></p>
+
+        <div class="posts">
+          <article class="post-card rim-card" data-post-topic="earnings">
+            <div class="cover cover--illo" aria-hidden="true">
+              <img src="assets/blog/verified-views.svg" alt="" width="240" height="200" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><span class="post-tag">Earnings</span><span class="post-meta__sep">·</span><span>5 min read</span></p>
+              <h3 class="post-card__title"><a href="article.html">Verified views, explained</a></h3>
+              <p class="post-card__excerpt">What counts as a verified view, why some views drop off, and how long checks take.</p>
+              <p class="post-card__date"><time>12 Nov 2026</time></p>
+            </div>
+          </article>
+          <article class="post-card rim-card" data-post-topic="earnings">
+            <div class="cover cover--illo" aria-hidden="true">
+              <img src="assets/blog/first-1000.svg" alt="" width="240" height="200" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><span class="post-tag">Earnings</span><span class="post-meta__sep">·</span><span>7 min read</span></p>
+              <h3 class="post-card__title"><a href="article.html">From €0 to €1,000 in your first two months</a></h3>
+              <p class="post-card__excerpt">A realistic plan for new clippers: how many clips, which campaigns, and what to skip.</p>
+              <p class="post-card__date"><time>6 Nov 2026</time></p>
+            </div>
+          </article>
+          <article class="post-card rim-card" data-post-topic="guides">
+            <div class="cover cover--illo" aria-hidden="true">
+              <img src="assets/blog/read-brief.svg" alt="" width="240" height="200" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><span class="post-tag">Guides</span><span class="post-meta__sep">·</span><span>4 min read</span></p>
+              <h3 class="post-card__title"><a href="article.html">How to read a campaign brief</a></h3>
+              <p class="post-card__excerpt">The five lines in every brief that decide whether your clip gets approved.</p>
+              <p class="post-card__date"><time>30 Oct 2026</time></p>
+            </div>
+          </article>
+          <article class="post-card rim-card" data-post-topic="campaigns">
+            <div class="cover cover--illo" aria-hidden="true">
+              <img src="assets/blog/album-launch.svg" alt="" width="240" height="200" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><span class="post-tag">Campaigns</span><span class="post-meta__sep">·</span><span>6 min read</span></p>
+              <h3 class="post-card__title"><a href="article.html">Neon Drop: inside a 1M-view album launch</a></h3>
+              <p class="post-card__excerpt">312 clippers, three platforms, one week. What the top clips had in common.</p>
+              <p class="post-card__date"><time>24 Oct 2026</time></p>
+            </div>
+          </article>
+          <article class="post-card rim-card" data-post-topic="guides">
+            <div class="cover cover--illo" aria-hidden="true">
+              <img src="assets/blog/withdraw.svg" alt="" width="240" height="200" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><span class="post-tag">Guides</span><span class="post-meta__sep">·</span><span>3 min read</span></p>
+              <h3 class="post-card__title"><a href="article.html">Withdrawals: how and when you get paid</a></h3>
+              <p class="post-card__excerpt">From pending to available to your bank account, step by step.</p>
+              <p class="post-card__date"><time>17 Oct 2026</time></p>
+            </div>
+          </article>
+          <article class="post-card rim-card" data-post-topic="news">
+            <div class="cover cover--illo" aria-hidden="true">
+              <img src="assets/blog/whats-new.svg" alt="" width="240" height="200" loading="lazy">
+            </div>
+            <div class="post-card__body">
+              <p class="post-meta"><span class="post-tag">Network news</span><span class="post-meta__sep">·</span><span>2 min read</span></p>
+              <h3 class="post-card__title"><a href="article.html">What’s new in the network: November</a></h3>
+              <p class="post-card__excerpt">New factories, a leaderboard refresh and faster payouts.</p>
+              <p class="post-card__date"><time>3 Nov 2026</time></p>
+            </div>
+          </article>
+          <p class="posts__empty" data-posts-empty hidden>No posts match that yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section get-started" id="get-started" aria-labelledby="get-started-title">
+      <div class="container get-started__inner">
+        <header class="section-header">
+          <p class="eyebrow" data-i18n="cta.eyebrow">Get started</p>
+          <h2 class="section-header__title t-tagline" id="get-started-title" data-i18n-html="cta.title">Clip. Post. <span class="t-brand">Earn.</span></h2>
+          <p class="section-header__lead" data-i18n="cta.lead">The network is live and the campaigns are running. Get the app
+            and take one.</p>
+        </header>
+
+        <div class="get-started__actions">
+          <!-- Apps not live yet: badges and View Campaigns hidden, see the hero. -->
+          <p class="coming-soon">
+            <span class="coming-soon__chip" data-i18n="store.soon">Coming soon</span>
+            <span class="coming-soon__stores">
+              <img src="assets/icons/apple.svg" alt="" width="16" height="16" loading="lazy">App Store
+              <span aria-hidden="true">·</span>
+              <img src="assets/icons/google-play.svg" alt="" width="16" height="16" loading="lazy">Google Play
+            </span>
+          </p>
+          <div class="store-badges" hidden>
+            <a class="store-badge" data-link-pending>
+              <img src="assets/icons/apple.svg" alt="" width="21" height="21" loading="lazy">
+              <span class="store-badge__text">
+                <span class="store-badge__kicker" data-i18n="store.apple.kicker">Download on the</span>
+                <span class="store-badge__store">App Store</span>
+              </span>
+            </a>
+            <a class="store-badge" data-link-pending>
+              <img src="assets/icons/google-play.svg" alt="" width="21" height="21" loading="lazy">
+              <span class="store-badge__text">
+                <span class="store-badge__kicker" data-i18n="store.google.kicker">Get it on</span>
+                <span class="store-badge__store">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <a class="btn btn--outline" data-link-pending hidden>
+            <span data-i18n="cta.campaigns">View Campaigns</span>
+            <img src="assets/icons/caret-right.svg" alt="" width="20" height="20" loading="lazy">
+          </a>
+        </div>
+
+        <ul class="perks" role="list">
+          <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.free">Free to join</span></li>
+          <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.followers">No follower minimum</span></li>
+          <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.verified">Paid per verified view</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" aria-label="Klippin" data-i18n-attr="aria-label:nav.home">
+            <img src="assets/logos/logo.svg" alt="" width="145" height="26" loading="lazy">
+          </a>
+          <p class="footer__tagline" data-i18n="footer.tagline">The premium clipping network for entertainment. Real
+            campaigns, verified views, and clippers paid for what they actually deliver.</p>
+        </div>
+
+        <div class="footer__cols">
+          <nav class="footer__col" aria-labelledby="footer-clippers">
+            <h2 class="t-label" id="footer-clippers" data-i18n="footer.col.clippers">Clippers</h2>
+            <a href="#get-started" data-i18n="nav.cta">Get the app</a>
+            <a href="index.html#how" data-i18n="nav.how">How it works</a>
+            <a href="index.html#earnings" data-i18n="nav.earnings">Earnings</a>
+            <a data-link-pending data-i18n="nav.campaigns">Campaigns</a>
+            <a href="index.html#faq" data-i18n="nav.faq">FAQ</a>
+            <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          </nav>
+          <nav class="footer__col" aria-labelledby="footer-verticals">
+            <h2 class="t-label" id="footer-verticals" data-i18n="footer.col.verticals">Verticals</h2>
+            <a data-link-pending data-i18n="footer.vertical.gaming">Gaming</a>
+            <a data-link-pending data-i18n="footer.vertical.esport">E-sport</a>
+            <a data-link-pending data-i18n="footer.vertical.music">Music</a>
+          </nav>
+          <nav class="footer__col" aria-labelledby="footer-contact">
+            <h2 class="t-label" id="footer-contact" data-i18n="footer.col.contact">Contact</h2>
+            <a href="mailto:contact@klippin.io" data-i18n="footer.contact.support">Support</a>
+            <a data-link-pending>TikTok</a>
+            <a href="https://www.linkedin.com/company/klippin/home/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer__clients">
+        <span data-i18n="footer.clients.question">Are you a brand?</span>
+        <a href="https://partners.klippin.io/" data-i18n="footer.clients.cta">See Klippin for clients →</a>
+      </div>
+
+      <div class="footer__bottom">
+        <span data-i18n="footer.copyright">© 2026 Klippin. A Kercom company.</span>
+        <nav class="footer__legal" aria-label="Legal" data-i18n-attr="aria-label:footer.legal.aria">
+          <a href="legal.html" data-i18n="footer.legal.notice"
+            data-i18n-attr="href:footer.legal.notice.href">Legal</a>
+          <a href="privacy.html" data-i18n="footer.legal.privacy"
+            data-i18n-attr="href:footer.legal.privacy.href">Privacy</a>
+          <a href="terms.html" data-i18n="footer.legal.terms"
+            data-i18n-attr="href:footer.legal.terms.href">Terms</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

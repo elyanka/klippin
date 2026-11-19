@@ -1,0 +1,170 @@
+/*
+ * Hero visual: tilted phone + pop-out cards (Figma: hero visual · Desktop /
+ * Mobile). The phone and the cards are Figma exports with the 4° tilt and
+ * shadows baked in; only the balance ticker is live text, so it can roll.
+ *
+ * Every item is placed in % of the stage, so the composition scales as one.
+ * Mobile-first values are --m*, the desktop composition (≥640px) uses --x/--y/--w.
+ * Desktop: 900×750 stage, 6 cards. Mobile: 358×597 stage, 3 cards, clipped.
+ */
+.hero-visual {
+  position: relative;
+  container-type: inline-size;
+  width: 100%;
+}
+
+/* hero glow — gradient/orange-to-near-black + layer blur, under the phone */
+.hero-visual__glow {
+  position: absolute;
+  left: 2.514%;
+  top: -12.737%;
+  width: 94.972%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-image: var(--grad-glow);
+  opacity: .7;
+  filter: blur(19.55cqw);
+  pointer-events: none;
+}
+
+.hero-visual__stage {
+  position: relative;
+  aspect-ratio: 358 / 596.667;
+  overflow: hidden;
+}
+
+.hv-item {
+  position: absolute;
+  left: var(--mx);
+  top: var(--my);
+  width: var(--mw);
+  height: auto;
+  max-width: none;
+}
+
+.hv-item--desktop { display: none; }
+
+/* Balance ticker: the amount on the orange balance card, Space Grotesk 700 */
+.hv-ticker {
+  position: absolute;
+  left: var(--mx);
+  top: var(--my);
+  width: var(--mw);
+  aspect-ratio: 162.06 / 30.94;
+  overflow: hidden;
+  rotate: 4deg; /* own property, so the float animation's transform composes with it */
+  transform-origin: 0 0;
+  color: var(--text-on-orange);
+  font-family: var(--font-display);
+  font-size: 6.548cqw;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: var(--ls-display);
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.hv-ticker__strip span { display: block; } /* each line is exactly the box height */
+.hv-ticker__strip,
+.hv-ticker__strip span { line-height: inherit; } /* unrounded: the lines must match the box */
+
+@media (min-width: 640px) {
+  .hero-visual__glow {
+    left: 17%;
+    top: -28.533%;
+    width: 70.556%;
+    opacity: 1;
+    filter: blur(16.667cqw);
+  }
+
+  .hero-visual__stage {
+    aspect-ratio: 900 / 750;
+    overflow: visible;
+  }
+
+  .hv-item,
+  .hv-ticker {
+    left: var(--x);
+    top: var(--y);
+    width: var(--w);
+  }
+
+  .hv-item--desktop { display: block; }
+
+  .hv-ticker { font-size: 3.274cqw; }
+}
+
+/* ---------------------------------------------------------------------------
+ * Motion. Classes are added by js/modules/hero-visual.js once the images have
+ * decoded, and never under prefers-reduced-motion — without them the static
+ * frame shows.
+ *   phone: rises in once (.9 s), then floats; the balance rolls up three times.
+ *   cards: run by the JS (.is-looping) — a few pop in at uneven moments, then
+ *   one card at a time appears or leaves at random, some staying long, some
+ *   briefly; never all on, never none. Cards that are on float (hv-float
+ *   below, each on its own phase).
+ * ------------------------------------------------------------------------ */
+.hero-visual.is-animated .hv-phone {
+  animation:
+    hv-rise .9s var(--ease-out) both,
+    hv-float 8s ease-in-out .9s infinite;
+}
+
+/* The ticker rides on the phone: hidden while it rises, then floats in sync. */
+.hero-visual.is-animated .hv-ticker {
+  animation:
+    hv-fade .25s linear .75s both,
+    hv-float 8s ease-in-out .9s infinite;
+}
+
+.hero-visual.is-animated .hv-ticker__strip {
+  animation: hv-roll 6.6s var(--ease-out) both;
+}
+
+/* Cards, looped: hidden until the JS shows them; the float never stops. */
+.hero-visual.is-looping .hv-card {
+  opacity: 0;
+  animation: hv-float 8s ease-in-out var(--float-delay) infinite;
+}
+
+/* Cards, fallback without the Web Animations API: the one-off pop-in, in order. */
+.hero-visual.is-animated:not(.is-looping) .hv-card {
+  animation:
+    hv-pop .7s var(--ease-out) var(--pop-delay) both,
+    hv-float 8s ease-in-out calc(6.6s + var(--float-delay)) infinite;
+}
+
+/* Float phase per card (negative = already under way), fallback pop-in order */
+.hv-card--notification { --pop-delay: .9s;  --float-delay: -1s; }
+.hv-card--withdraw     { --pop-delay: 1.2s; --float-delay: -5s; }
+.hv-card--campaign     { --pop-delay: 1.5s; --float-delay: -3s; }
+.hv-card--earnings     { --pop-delay: 1.8s; --float-delay: -7s; }
+.hv-card--leaderboard  { --pop-delay: 2.1s; --float-delay: -2s; }
+.hv-card--submission   { --pop-delay: 2.4s; --float-delay: -6s; }
+
+@keyframes hv-rise {
+  from { opacity: 0; transform: translateY(6%) scale(.96); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes hv-fade {
+  from { opacity: 0; }
+}
+
+@keyframes hv-pop {
+  from { opacity: 0; transform: translateY(12px) scale(.86); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes hv-float {
+  0%, 100% { transform: none; }
+  50%      { transform: translateY(-.7cqw); } /* ~6px on the 900px stage */
+}
+
+/* Balance rolls up when the rewards land: +24.20 at 3.6 s, 4.6 s and 5.6 s */
+@keyframes hv-roll {
+  0%, 54.5%   { transform: translateY(0); }
+  60%, 69.7%  { transform: translateY(-25%); }
+  75%, 84.8%  { transform: translateY(-50%); }
+  90%, 100%   { transform: translateY(-75%); }
+}

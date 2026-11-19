@@ -1,0 +1,29 @@
+:root { color-scheme: dark; }
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: 400;
+  --lh: var(--lh-body);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 { font-weight: 700; --lh: 1.1; }
+
+/*
+ * Line height. Components set the unitless multiplier --lh; every element turns it
+ * into its own px value rounded to a whole pixel, as Figma does for each line box.
+ */
+*, ::before, ::after { line-height: var(--lh); }
+@supports (line-height: round(1em, 1px)) {
+  *, ::before, ::after { line-height: round(var(--lh) * 1em, 1px); }
+}
+
+strong, b { font-weight: 600; }
+
+::selection { background: var(--brand); color: var(--text-on-orange); }
+
+/* Links the design has no destination for yet: rendered, not navigable. */
+a:not([href]) { cursor: default; }

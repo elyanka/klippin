@@ -1,0 +1,8 @@
+/* Header → 40/62 → ladder → 32/48 → note */
+.earnings-section .section-header { margin-bottom: 2.5rem; }
+.earnings-section .note { margin-top: 2rem; }
+
+@media (min-width: 900px) {
+  .earnings-section .section-header { margin-bottom: 3.875rem; }
+  .earnings-section .note { margin-top: 3rem; }
+}

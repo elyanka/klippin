@@ -1,0 +1,84 @@
+/*
+ * Official store badges, 44px high. Colours and proportions stay as the stores
+ * supply them; hover brightens the outline.
+ */
+.store-badges { display: flex; gap: .75rem; }
+
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  height: 2.75rem;
+  padding: 0 .9167rem 0 .713rem; /* 14.67 / 11.41 */
+  border: .8148px solid var(--border-strong);
+  border-radius: .4583rem;         /* 7.33 */
+  background-color: var(--badge-bg);
+  color: var(--text-white);
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+.store-badge:hover { border-color: var(--border-hover); }
+
+.store-badge img { width: 1.3125rem; height: 1.3125rem; flex: none; } /* 21 */
+
+.store-badge__text { display: flex; flex-direction: column; white-space: nowrap; }
+
+.store-badge__kicker { font-size: .5093rem; --lh: 1.2; }                 /* 8.15 */
+.store-badge__store { font-size: .9167rem; font-weight: 600; --lh: 1.165; letter-spacing: -.005em; } /* 14.67 */
+
+/*
+ * "Coming soon" line that stands in for the badges until the apps are live
+ * (client call 17.11; Elya picked this version 19.11): a small brand chip with
+ * a slow pulsing dot, then the two stores as plain text with their marks.
+ * Store marks stay in their official colours.
+ */
+.coming-soon {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center; /* when it wraps on phones, both rows stay centred */
+  gap: .625rem .75rem;
+}
+
+.coming-soon__chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  height: 2rem;
+  padding-inline: .75rem;
+  border: 1px solid rgb(255 104 57 / .35);
+  border-radius: var(--radius-pill);
+  background-color: rgb(255 104 57 / .10);
+  color: var(--brand);
+  font-size: var(--fs-ui);
+  font-weight: 600;
+  --lh: var(--lh-ui);
+  white-space: nowrap;
+}
+
+.coming-soon__chip::before {
+  content: "";
+  width: .375rem;
+  height: .375rem;
+  border-radius: 50%;
+  background-color: var(--brand);
+  animation: coming-soon-pulse 1.8s ease-in-out infinite;
+}
+
+@keyframes coming-soon-pulse {
+  50% { opacity: .35; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .coming-soon__chip::before { animation: none; }
+}
+
+.coming-soon__stores {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-ui);
+  --lh: var(--lh-ui);
+  white-space: nowrap;
+}
+.coming-soon__stores img { width: 1rem; height: 1rem; flex: none; }

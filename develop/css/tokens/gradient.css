@@ -1,0 +1,33 @@
+/* Gradient tokens — Figma fill styles of the same name. */
+:root {
+  /* gradient/brand-primary — buttons, eyebrows, feature icons. 120° */
+  --grad-brand: linear-gradient(120deg, var(--brand) 0%, var(--brand-end) 100%);
+
+  /* gradient/orange-to-coral-red — logo accent, "Unlimited", Advanced dot */
+  --grad-coral: linear-gradient(90deg, var(--brand) 0%, var(--coral) 70%, var(--coral-red) 100%);
+
+  /* gradient/card — landing cards, top to bottom */
+  --grad-card: linear-gradient(180deg, var(--bg-raised) 0%, var(--bg-base) 100%);
+
+  /* gradient/orange-to-near-black — hero glow (blurred). The ellipse is rotated −90° in Figma, so orange sits at the bottom. */
+  --grad-glow: linear-gradient(0deg,
+      #ff7f35 0%, #cf4f11 15%, #792f0c 30%, #4a1e0b 44%,
+      #2e130a 57%, #180e0d 70%, #100c0e 84%, #08080b 100%);
+
+  /* gradient/earnings-track — timeline line */
+  --grad-track-stops:
+      var(--neutral-500) 0%, rgb(255 104 57 / .55) 34%, var(--brand) 69%,
+      #fc5244 80%, var(--coral-red) 88%, rgb(248 60 79 / .60) 94%, rgb(248 60 79 / 0) 100%;
+
+  /* glow/earnings-trail — blurred trail from the Intermediate dot on */
+  --grad-trail-stops:
+      rgb(255 104 57 / 0) 0%, rgb(255 104 57 / .55) 40%, rgb(255 104 57 / .90) 56%,
+      #fc5244 74%, var(--coral-red) 86%, rgb(248 60 79 / 0) 100%;
+
+  /* border/open-highlight — open FAQ card rim */
+  --grad-open-rim: linear-gradient(90deg, rgb(255 104 57 / .06) 0%, rgb(255 104 57 / .28) 100%);
+
+  /* surface/brand-glow-fade — closing section wash */
+  --grad-closing-wash: radial-gradient(34% 62% at 50% 46%,
+      rgb(255 104 57 / .13) 0%, rgb(255 104 57 / .04) 55%, rgb(255 104 57 / 0) 100%);
+}

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en" data-locale="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Klippin for clippers | Clip. Post. Earn.</title>
+  <meta name="description"
+    content="Get the Klippin app, join a campaign and post your clips. You get paid for every verified view. Free to join, no follower minimum.">
+  <script>if (!/^(www\.)?klippin\.io$/.test(location.hostname)) { var m = document.createElement("meta"); m.name = "robots"; m.content = "noindex, nofollow"; document.head.appendChild(m) }</script>
+  <link rel="canonical" href="https://klippin.io/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Klippin">
+  <meta property="og:title" content="Klippin for clippers | Clip. Post. Earn.">
+  <meta property="og:description"
+    content="Get the Klippin app, join a campaign and post your clips. You get paid for every verified view. Free to join, no follower minimum.">
+  <meta property="og:url" content="https://klippin.io/">
+  <meta property="og:image" content="https://klippin.io/assets/favicon/og-image.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Klippin for clippers | Clip. Post. Earn.">
+  <meta name="twitter:description"
+    content="Get the Klippin app, join a campaign and post your clips. You get paid for every verified view. Free to join, no follower minimum.">
+  <meta name="twitter:image" content="https://klippin.io/assets/favicon/og-image.jpg">
+
+  <meta name="theme-color" content="#0b0b0c">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png">
+
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-latin.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/space-grotesk-700-latin.woff2" crossorigin>
+  <link rel="preload" as="image" type="image/webp" href="assets/hero/phone.webp" fetchpriority="high">
+
+  <link rel="stylesheet" href="css/critical.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+  <a class="skip-link" href="#main" data-i18n="nav.skip">Skip to content</a>
+
+  <header class="nav" id="nav">
+    <div class="nav__bar">
+      <a class="nav__logo" href="#top" aria-label="Klippin" data-i18n-attr="aria-label:nav.home">
+        <img src="assets/logos/logo.svg" alt="" width="128" height="23">
+      </a>
+
+      <nav class="nav__links" aria-label="Main" data-i18n-attr="aria-label:nav.aria">
+        <a class="nav__link" href="#how" data-i18n="nav.how">How it works</a>
+        <a class="nav__link" href="#earnings" data-i18n="nav.earnings">Earnings</a>
+        <a class="nav__link" data-link-pending data-i18n="nav.campaigns">Campaigns</a>
+        <a class="nav__link" href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a class="nav__link" href="blog.html" data-i18n="nav.blog">Blog</a>
+      </nav>
+
+      <div class="nav__actions">
+        <div class="lang" role="radiogroup" aria-label="Language" data-i18n-attr="aria-label:lang.aria" data-lang-switcher>
+          <button class="lang__option" type="button" role="radio" aria-checked="true" data-locale="en">EN</button>
+          <button class="lang__option" type="button" role="radio" aria-checked="false" data-locale="fr">FR</button>
+        </div>
+        <a class="btn btn--primary btn--m" href="#get-started" data-i18n="nav.cta">Get the app</a>
+      </div>
+
+      <button class="nav__burger" type="button" id="burger" aria-expanded="false" aria-controls="nav-menu"
+        aria-label="Open menu" data-i18n-attr="aria-label:nav.menu.open">
+        <img class="nav__burger-open" src="assets/icons/menu.svg" alt="" width="20" height="20">
+        <img class="nav__burger-close" src="assets/icons/close.svg" alt="" width="20" height="20">
+      </button>
+    </div>
+
+    <div class="nav__menu" id="nav-menu" hidden>
+      <nav class="nav__menu-links" aria-label="Main" data-i18n-attr="aria-label:nav.aria">
+        <a class="nav__menu-link" href="#how" data-i18n="nav.how">How it works</a>
+        <a class="nav__menu-link" href="#earnings" data-i18n="nav.earnings">Earnings</a>
+        <a class="nav__menu-link" data-link-pending data-i18n="nav.campaigns">Campaigns</a>
+        <a class="nav__menu-link" href="#faq" data-i18n="nav.faq">FAQ</a>
+        <a class="nav__menu-link" href="blog.html" data-i18n="nav.blog">Blog</a>
+      </nav>
+      <div class="nav__menu-lang">
+        <span id="menu-lang-label" data-i18n="lang.label">Language</span>
+        <div class="lang" role="radiogroup" aria-labelledby="menu-lang-label" data-lang-switcher>
+          <button class="lang__option" type="button" role="radio" aria-checked="true" data-locale="en">EN</button>
+          <button class="lang__option" type="button" role="radio" aria-checked="false" data-locale="fr">FR</button>
+        </div>
+      </div>
+      <a class="btn btn--primary" href="#get-started" data-i18n="nav.cta">Get the app</a>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <div class="hero__headline">
+            <p class="eyebrow" data-i18n="hero.eyebrow">Klippin for clippers</p>
+            <h1 class="hero__title t-tagline" id="hero-title" data-i18n-html="hero.title">Clip. Post.<br><span class="t-brand">Earn.</span></h1>
+          </div>
+
+          <p class="hero__lead" data-i18n-html="hero.lead">Get the app, join a campaign, post your clips. You get paid for
+            every verified view they bring in. <strong>Top clippers earn <span class="t-brand">€12,000+</span> a month.</strong>
+            No audience of your own required.</p>
+
+          <div class="hero__actions">
+            <!-- Apps not live yet (client call 17.11): store badges and View Campaigns are hidden, not deleted.
+                 To bring them back, remove `hidden` from both and delete the .coming-soon line. -->
+            <p class="coming-soon">
+              <span class="coming-soon__chip" data-i18n="store.soon">Coming soon</span>
+              <span class="coming-soon__stores">
+                <img src="assets/icons/apple.svg" alt="" width="16" height="16">App Store
+                <span aria-hidden="true">·</span>
+                <img src="assets/icons/google-play.svg" alt="" width="16" height="16">Google Play
+              </span>
+            </p>
+            <div class="store-badges" hidden>
+              <a class="store-badge" data-link-pending>
+                <img src="assets/icons/apple.svg" alt="" width="21" height="21">
+                <span class="store-badge__text">
+                  <span class="store-badge__kicker" data-i18n="store.apple.kicker">Download on the</span>
+                  <span class="store-badge__store">App Store</span>
+                </span>
+              </a>
+              <a class="store-badge" data-link-pending>
+                <img src="assets/icons/google-play.svg" alt="" width="21" height="21">
+                <span class="store-badge__text">
+                  <span class="store-badge__kicker" data-i18n="store.google.kicker">Get it on</span>
+                  <span class="store-badge__store">Google Play</span>
+                </span>
+              </a>
+            </div>
+            <a class="btn btn--outline" data-link-pending hidden>
+              <span data-i18n="cta.campaigns">View Campaigns</span>
+              <img src="assets/icons/caret-right.svg" alt="" width="20" height="20">
+            </a>
+          </div>
+
+          <ul class="perks" role="list">
+            <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.free">Free to join</span></li>
+            <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.experience">No experience needed</span></li>
+            <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.verified">Paid per verified view</span></li>
+          </ul>
+        </div>
+
+        <!-- Illustration of the app: phone + pop-out cards. Decorative. -->
+        <div class="hero__visual hero-visual" aria-hidden="true" data-hero-visual>
+          <div class="hero-visual__glow"></div>
+          <div class="hero-visual__stage">
+            <img class="hv-item hv-phone" src="assets/hero/phone.webp" alt="" width="818" height="1457" fetchpriority="high"
+              style="--x:27.411%;--y:4.360%;--w:45.444%;--mx:4.821%;--my:4.359%;--mw:90.889%">
+            <div class="hv-ticker" style="--x:46.529%;--y:15.865%;--w:18.007%;--mx:43.056%;--my:15.866%;--mw:36.014%">
+              <div class="hv-ticker__strip">
+                <span>€4,812.60</span><span>€4,836.80</span><span>€4,861.00</span><span>€4,885.20</span>
+              </div>
+            </div>
+            <img class="hv-item hv-card hv-card--campaign" src="assets/hero/card-campaign.webp" alt="" width="797" height="507"
+              style="--x:53.533%;--y:33.173%;--w:44.278%;--mx:-12.251%;--my:37.371%;--mw:88.556%">
+            <img class="hv-item hv-card hv-card--submission" src="assets/hero/card-submission.webp" alt="" width="799" height="538"
+              style="--x:31.4%;--y:64.013%;--w:44.389%;--mx:19.316%;--my:57.323%;--mw:88.778%">
+            <img class="hv-item hv-item--desktop hv-card hv-card--leaderboard" src="assets/hero/card-leaderboard.webp" alt="" width="786" height="362" loading="lazy"
+              style="--x:48.367%;--y:55.973%;--w:43.667%">
+            <img class="hv-item hv-item--desktop hv-card hv-card--withdraw" src="assets/hero/card-withdraw.webp" alt="" width="794" height="463" loading="lazy"
+              style="--x:5.989%;--y:29.28%;--w:44.111%">
+            <img class="hv-item hv-item--desktop hv-card hv-card--earnings" src="assets/hero/card-earnings.webp" alt="" width="576" height="534" loading="lazy"
+              style="--x:12.533%;--y:47.2%;--w:32%">
+            <img class="hv-item hv-card hv-card--notification" src="assets/hero/card-notification.webp" alt="" width="763" height="464"
+              style="--x:49.322%;--y:16.76%;--w:42.389%;--mx:27.142%;--my:18.099%;--mw:84.778%">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-section" aria-label="Klippin in numbers" data-i18n-attr="aria-label:stats.aria">
+      <div class="container">
+        <ul class="stats" role="list">
+          <li class="stat">
+            <p class="stat__value" data-i18n="stats.clippers.value">20,000+</p>
+            <p class="stat__label" data-i18n="stats.clippers.label">Clippers in the network</p>
+          </li>
+          <li class="stat">
+            <p class="stat__value" data-i18n="stats.campaigns.value">400+</p>
+            <p class="stat__label" data-i18n="stats.campaigns.label">Campaigns run</p>
+          </li>
+          <li class="stat">
+            <p class="stat__value" data-i18n="stats.views.value">10B+</p>
+            <p class="stat__label" data-i18n="stats.views.label">Views generated since launch</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--raised" id="how" aria-labelledby="how-title">
+      <div class="container how__inner">
+        <header class="section-header">
+          <p class="eyebrow" data-i18n="how.eyebrow">How it works</p>
+          <h2 class="section-header__title" id="how-title" data-i18n="how.title">Three steps. That’s the whole thing.</h2>
+          <p class="section-header__lead" data-i18n="how.lead">No application to write, no follower count to hit. The
+            clips you already know how to make, pointed at campaigns that pay.</p>
+        </header>
+
+        <ol class="steps" role="list">
+          <li class="step-card rim-card">
+            <div class="step-card__head">
+              <span class="feature-icon"><img src="assets/icons/step-phone.svg" alt="" width="24" height="24"></span>
+              <span class="step-card__num-box"><img class="step-card__num" src="assets/icons/num-01.svg" alt="" width="48" height="37"></span>
+            </div>
+            <h3 class="step-card__title" data-i18n="how.step1.title">Install the app</h3>
+            <p class="step-card__body" data-i18n="how.step1.body">Sign up in under a minute and connect the accounts you post
+              from. Nothing to pay, nothing to prove upfront.</p>
+          </li>
+          <li class="step-card rim-card">
+            <div class="step-card__head">
+              <span class="feature-icon"><img src="assets/icons/step-megaphone.svg" alt="" width="24" height="24"></span>
+              <span class="step-card__num-box"><img class="step-card__num" src="assets/icons/num-02.svg" alt="" width="56" height="37"></span>
+            </div>
+            <h3 class="step-card__title" data-i18n="how.step2.title">Join a campaign</h3>
+            <p class="step-card__body" data-i18n="how.step2.body">Browse what’s live, pick the ones you want. Each campaign
+              shows what it pays, what it needs, and the assets to clip from. Some are open to everyone, the biggest ones
+              open on approval.</p>
+          </li>
+          <li class="step-card rim-card">
+            <div class="step-card__head">
+              <span class="feature-icon"><img src="assets/icons/step-coins.svg" alt="" width="24" height="24"></span>
+              <span class="step-card__num-box"><img class="step-card__num" src="assets/icons/num-03.svg" alt="" width="57" height="37"></span>
+            </div>
+            <h3 class="step-card__title" data-i18n="how.step3.title">Post and earn</h3>
+            <p class="step-card__body" data-i18n="how.step3.body">Publish on TikTok, Reels and Shorts. Views are verified,
+              then they count. Follow every clip and every dollar in the app, from the moment you post.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section earnings-section" id="earnings" aria-labelledby="earnings-title">
+      <div class="container">
+        <header class="section-header">
+          <p class="eyebrow" data-i18n="earnings.eyebrow">Earnings</p>
+          <h2 class="section-header__title" id="earnings-title" data-i18n="earnings.title">What you can actually make.</h2>
+          <p class="section-header__lead" data-i18n="earnings.lead">Where you land depends on how much you post and how far
+            the clips travel. Here is what that looks like in practice.</p>
+        </header>
+
+        <ol class="earnings" role="list">
+          <li class="tier tier--beginner">
+            <p class="t-label" data-i18n="earnings.t1.period">Month 1 &amp; 2</p>
+            <span class="tier__slot" aria-hidden="true"><span class="tier__dot"></span></span>
+            <h3 class="tier__level" data-i18n="earnings.t1.level">Beginner</h3>
+            <p class="tier__amount-row">
+              <span class="tier__amount" data-i18n-html="earnings.t1.amount">€300<span class="tier__to"> to </span>€1,000</span>
+              <span class="tier__per" data-i18n="earnings.per">/ month</span>
+            </p>
+            <p class="tier__desc" data-i18n="earnings.t1.desc">You learn how campaigns work, you test formats, and you find
+              out what actually performs. Most of this stage is discovering which of your clips travel, and why.</p>
+          </li>
+          <li class="tier tier--intermediate">
+            <p class="t-label" data-i18n="earnings.t2.period">Month 3 to 6</p>
+            <span class="tier__slot" aria-hidden="true"><span class="tier__dot"></span></span>
+            <h3 class="tier__level" data-i18n="earnings.t2.level">Intermediate</h3>
+            <p class="tier__amount-row">
+              <span class="tier__amount" data-i18n-html="earnings.t2.amount">€1,000<span class="tier__to"> to </span>€4,000</span>
+              <span class="tier__per" data-i18n="earnings.per">/ month</span>
+            </p>
+            <p class="tier__desc" data-i18n="earnings.t2.desc">The formats stop being guesswork. You post more often, you
+              know which angles land, and you start getting into the campaigns that pay more.</p>
+          </li>
+          <li class="tier tier--advanced">
+            <p class="t-label" data-i18n="earnings.t3.period">6+ months</p>
+            <span class="tier__slot" aria-hidden="true"><span class="tier__dot"></span></span>
+            <h3 class="tier__level" data-i18n="earnings.t3.level">Advanced</h3>
+            <p class="tier__amount-row">
+              <span class="tier__amount" data-i18n="earnings.t3.amount">Unlimited</span>
+              <span class="tier__per" data-i18n="earnings.per">/ month</span>
+            </p>
+            <p class="tier__desc" data-i18n-html="earnings.t3.desc">Our best clippers clear <strong>€12K+ a month</strong>,
+              producing at scale across several campaigns at once. There is no ceiling here: you are paid per verified
+              view, and nobody caps how many you bring in.</p>
+          </li>
+        </ol>
+
+        <div class="note">
+          <p class="note__text" data-i18n="earnings.note">These are real figures observed on the Klippin network. They are
+            not estimates, and they are not a promise of income: what you earn depends on how much you post and on how
+            your clips perform.</p>
+          <p class="note__statement" data-i18n="earnings.statement">Most start at the first one. Nobody has to stay there.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--raised" id="faq" aria-labelledby="faq-title">
+      <div class="container faq__inner">
+        <header class="section-header">
+          <p class="eyebrow" data-i18n="faq.eyebrow">FAQ</p>
+          <h2 class="section-header__title" id="faq-title" data-i18n="faq.title">Questions, answered.</h2>
+        </header>
+
+        <div class="faq-list" data-faq>
+          <details class="faq-item" id="faq-experience" open>
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q1">Do I need any experience?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n-html="faq.a1.p1"><strong>No.</strong> Plenty of the clippers in the network had never edited a
+                video before they joined. What decides how far you go is whether you learn what works, and that is what the
+                brief is for: every campaign tells you the angles that land, what is off-limits and what the client
+                expects, before you make anything.</p>
+              <p data-i18n="faq.a1.p2">You also find out fast. Every clip is reviewed against the brief, so you know what
+                worked and what did not instead of guessing.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-following">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q2">Do I need a big following?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n-html="faq.a2"><strong>No.</strong> There is no follower minimum. You are paid per verified view,
+                so what counts is how far each clip travels, not the size of the account it was posted from.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-start">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q3">What do I need to get started?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a3">The Klippin app and at least one account to post from on TikTok, Instagram or YouTube.
+                Signing up takes under a minute and costs nothing. Each campaign then gives you the brief and the assets to
+                clip from.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-pay">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q4">How does the pay actually work?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a4">Every campaign sets its own rate per verified view and shows it before you join, along
+                with its budget and any cap on what a single clip can earn. Your earnings add up in the app as the views on
+                your clips are verified.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-post">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q5">What do I post, and where?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a5">Short clips cut from the assets each campaign provides, made to its brief. You publish
+                them on your own TikTok, Instagram Reels and YouTube Shorts accounts, then submit each clip in the app so its
+                views can be tracked.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-views">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q6">How are views counted?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a6">Every clip you submit is reviewed against the brief and tracked from the moment it is
+                published. Views are verified before they count toward your earnings, and you can follow the views and
+                earnings of each clip in the app.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-approval">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q7">Why are some campaigns “on approval”?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a7">The biggest campaigns choose who clips for them. You apply from the campaign in the app,
+                and the work you have done on open campaigns is what they look at. Every other campaign is open to
+                everyone, from day one.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-paid">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q8">When and how do I get paid?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a8">Earnings show as pending until the views behind them are verified. Then they become
+                available to withdraw, and you send them to your bank account from the wallet in the app.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" id="faq-clients">
+            <summary class="faq-item__q">
+              <span class="faq-item__question" data-i18n="faq.q9">Who am I actually clipping for?</span>
+              <span class="faq-item__toggle"><img src="assets/icons/caret-down.svg" alt="" width="20" height="20"></span>
+            </summary>
+            <div class="faq-item__a">
+              <p data-i18n="faq.a9">Brands, artists, game studios and creators in entertainment, mostly gaming, esports and
+                music. Each campaign shows who it is for, so you always know whose content you are clipping.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section get-started" id="get-started" aria-labelledby="get-started-title">
+      <div class="container get-started__inner">
+        <header class="section-header">
+          <p class="eyebrow" data-i18n="cta.eyebrow">Get started</p>
+          <h2 class="section-header__title t-tagline" id="get-started-title" data-i18n-html="cta.title">Clip. Post. <span class="t-brand">Earn.</span></h2>
+          <p class="section-header__lead" data-i18n="cta.lead">The network is live and the campaigns are running. Get the app
+            and take one.</p>
+        </header>
+
+        <div class="get-started__actions">
+          <!-- Apps not live yet: badges and View Campaigns hidden, see the hero. -->
+          <p class="coming-soon">
+            <span class="coming-soon__chip" data-i18n="store.soon">Coming soon</span>
+            <span class="coming-soon__stores">
+              <img src="assets/icons/apple.svg" alt="" width="16" height="16" loading="lazy">App Store
+              <span aria-hidden="true">·</span>
+              <img src="assets/icons/google-play.svg" alt="" width="16" height="16" loading="lazy">Google Play
+            </span>
+          </p>
+          <div class="store-badges" hidden>
+            <a class="store-badge" data-link-pending>
+              <img src="assets/icons/apple.svg" alt="" width="21" height="21" loading="lazy">
+              <span class="store-badge__text">
+                <span class="store-badge__kicker" data-i18n="store.apple.kicker">Download on the</span>
+                <span class="store-badge__store">App Store</span>
+              </span>
+            </a>
+            <a class="store-badge" data-link-pending>
+              <img src="assets/icons/google-play.svg" alt="" width="21" height="21" loading="lazy">
+              <span class="store-badge__text">
+                <span class="store-badge__kicker" data-i18n="store.google.kicker">Get it on</span>
+                <span class="store-badge__store">Google Play</span>
+              </span>
+            </a>
+          </div>
+          <a class="btn btn--outline" data-link-pending hidden>
+            <span data-i18n="cta.campaigns">View Campaigns</span>
+            <img src="assets/icons/caret-right.svg" alt="" width="20" height="20" loading="lazy">
+          </a>
+        </div>
+
+        <ul class="perks" role="list">
+          <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.free">Free to join</span></li>
+          <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.followers">No follower minimum</span></li>
+          <li class="perk"><img src="assets/icons/check.svg" alt="" width="16" height="16"><span data-i18n="perk.verified">Paid per verified view</span></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#top" aria-label="Klippin" data-i18n-attr="aria-label:nav.home">
+            <img src="assets/logos/logo.svg" alt="" width="145" height="26" loading="lazy">
+          </a>
+          <p class="footer__tagline" data-i18n="footer.tagline">The premium clipping network for entertainment. Real
+            campaigns, verified views, and clippers paid for what they actually deliver.</p>
+        </div>
+
+        <div class="footer__cols">
+          <nav class="footer__col" aria-labelledby="footer-clippers">
+            <h2 class="t-label" id="footer-clippers" data-i18n="footer.col.clippers">Clippers</h2>
+            <a href="#get-started" data-i18n="nav.cta">Get the app</a>
+            <a href="#how" data-i18n="nav.how">How it works</a>
+            <a href="#earnings" data-i18n="nav.earnings">Earnings</a>
+            <a data-link-pending data-i18n="nav.campaigns">Campaigns</a>
+            <a href="#faq" data-i18n="nav.faq">FAQ</a>
+            <a href="blog.html" data-i18n="nav.blog">Blog</a>
+          </nav>
+          <nav class="footer__col" aria-labelledby="footer-verticals">
+            <h2 class="t-label" id="footer-verticals" data-i18n="footer.col.verticals">Verticals</h2>
+            <a data-link-pending data-i18n="footer.vertical.gaming">Gaming</a>
+            <a data-link-pending data-i18n="footer.vertical.esport">E-sport</a>
+            <a data-link-pending data-i18n="footer.vertical.music">Music</a>
+          </nav>
+          <nav class="footer__col" aria-labelledby="footer-contact">
+            <h2 class="t-label" id="footer-contact" data-i18n="footer.col.contact">Contact</h2>
+            <a href="mailto:contact@klippin.io" data-i18n="footer.contact.support">Support</a>
+            <a data-link-pending>TikTok</a>
+            <a href="https://www.linkedin.com/company/klippin/home/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer__clients">
+        <span data-i18n="footer.clients.question">Are you a brand?</span>
+        <a href="https://partners.klippin.io/" data-i18n="footer.clients.cta">See Klippin for clients →</a>
+      </div>
+
+      <div class="footer__bottom">
+        <span data-i18n="footer.copyright">© 2026 Klippin. A Kercom company.</span>
+        <nav class="footer__legal" aria-label="Legal" data-i18n-attr="aria-label:footer.legal.aria">
+          <a href="legal.html" data-i18n="footer.legal.notice"
+            data-i18n-attr="href:footer.legal.notice.href">Legal</a>
+          <a href="privacy.html" data-i18n="footer.legal.privacy"
+            data-i18n-attr="href:footer.legal.privacy.href">Privacy</a>
+          <a href="terms.html" data-i18n="footer.legal.terms"
+            data-i18n-attr="href:footer.legal.terms.href">Terms</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>

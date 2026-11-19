@@ -1,0 +1,24 @@
+/*
+ * label/eyebrow (Plus Jakarta Sans 800, 11px, caps).
+ * .t-label is the bare text style (footer headings, earnings periods);
+ * .eyebrow puts it on the gradient brand pill above headlines.
+ */
+.t-label,
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--fs-eyebrow);
+  font-weight: 800;
+  --lh: 1;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+}
+
+.t-label { color: var(--text-tertiary); }
+
+.eyebrow {
+  display: inline-block;
+  padding: .25rem .5rem;
+  border-radius: var(--radius-xs);
+  background-image: var(--grad-brand);
+  color: var(--text-on-orange);
+}

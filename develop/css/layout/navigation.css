@@ -1,0 +1,99 @@
+/*
+ * Sticky site header (Figma: web nav bar · Desktop / Mobile / Mobile menu open).
+ * bg/base-deep at 72% with a background blur; solid while the menu is open.
+ */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: var(--bg-nav);
+  box-shadow: inset 0 -1px 0 var(--border-subtle); /* hairline inside the 64/80px bar, as in Figma */
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.nav:has(.nav__burger[aria-expanded="true"]) { background-color: var(--bg-base); }
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--nav-height);
+  padding-inline: max(var(--gutter), 1.5rem);
+  padding-bottom: 1px; /* Figma centres the content above the 1px bottom hairline */
+}
+
+.nav__logo img { width: auto; height: 1.4375rem; } /* 128.14 × 23 */
+
+.nav__links,
+.nav__actions { display: none; }
+
+.nav__link {
+  padding-block: .25rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-ui);
+  font-weight: 500;
+  --lh: var(--lh-ui);
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+.nav__link[href]:hover { color: var(--text-primary); }
+
+/* Menu button: secondary icon button L */
+.nav__burger {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--border-solid);
+  border-radius: var(--radius-md);
+  background-color: var(--tint);
+}
+.nav__burger img { grid-area: 1 / 1; width: 1.25rem; height: 1.25rem; }
+.nav__burger[aria-expanded="false"] .nav__burger-close,
+.nav__burger[aria-expanded="true"] .nav__burger-open { visibility: hidden; }
+
+/* Drop-down under the bar (web mobile menu) */
+.nav__menu {
+  position: absolute;
+  inset: 100% 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: .75rem max(var(--gutter), 1.5rem) 1.5rem;
+  background-color: var(--bg-base);
+}
+.nav__menu[hidden] { display: none; }
+
+.nav__menu-links { display: flex; flex-direction: column; }
+
+.nav__menu-link {
+  padding-block: .75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  font-size: var(--fs-body-l);
+  font-weight: 500;
+  --lh: var(--lh-ui);
+}
+
+.nav__menu-lang {
+  margin-top: -1.25rem; /* sits right under the links in Figma, inside their group */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0 .25rem;
+  color: var(--text-tertiary);
+  font-size: var(--fs-meta);
+}
+
+.nav__menu .btn { width: 100%; }
+
+@media (min-width: 900px) {
+  .nav__bar { padding-inline: var(--gutter); max-width: calc(var(--content-max) + var(--gutter) * 2); margin-inline: auto; }
+
+  .nav__links { display: flex; gap: 1.5rem; }
+
+  .nav__actions { display: flex; align-items: center; gap: 1rem; }
+
+  .nav__burger,
+  .nav__menu { display: none; }
+}

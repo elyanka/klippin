@@ -1,0 +1,31 @@
+/*
+ * Layout tokens. Breakpoints (CSS custom properties cannot be used inside
+ * @media, so these are the literal values every file uses):
+ *   640px  — tablet: desktop hero composition, footer/menu spacing
+ *   900px  — 3-column steps and earnings, desktop nav, desktop footer
+ *   1200px — two-column hero
+ */
+:root {
+  --content-max: 70.5rem;  /* 1128 */
+  --gutter: 1rem;          /* 16 on mobile */
+  --section-pad: 4rem;     /* 64 on mobile */
+  --nav-height: 4rem;      /* 64 on mobile */
+
+  --radius-xs: .25rem;     /* 4 eyebrow */
+  --radius-sm: .5rem;      /* 8 button M, icon tile */
+  --radius-md: .75rem;     /* 12 button L */
+  --radius-lg: 1rem;       /* 16 cards */
+  --radius-pill: 999px;
+}
+
+@media (min-width: 640px) {
+  :root { --gutter: 2rem; }
+}
+
+@media (min-width: 900px) {
+  :root {
+    --gutter: 2.5rem;
+    --section-pad: 6rem;   /* 96 */
+    --nav-height: 5rem;    /* 80 */
+  }
+}

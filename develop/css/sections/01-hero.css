@@ -1,0 +1,98 @@
+/*
+ * Hero. Mobile and tablet: copy centred above the visual.
+ * ≥1200px: Figma desktop — copy left, visual absolutely placed to the right
+ * (563px from the page edge at 1440, tracking the 1128 container above that).
+ */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: 2.5rem 3rem;
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+}
+
+.hero__copy {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 35rem;
+  text-align: center;
+}
+
+.hero__headline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .75rem;
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  --lh: .94;
+  letter-spacing: var(--ls-display);
+}
+
+.hero__lead {
+  color: var(--text-secondary);
+  /* body/lead in the hero: 16 → 18 */
+  font-size: clamp(1rem, .9536rem + .1905vw, 1.125rem);
+  --lh: var(--lh-body);
+}
+.hero__lead strong { color: var(--text-primary); }
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .875rem;
+}
+
+.hero__visual { width: 100%; }
+
+@media (min-width: 640px) {
+  .hero__actions { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: .75rem; }
+  .hero__visual { max-width: 56.25rem; }
+}
+
+@media (min-width: 1200px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: clamp(47.9rem, 63.9vw, 57.5rem); /* 920 at 1440 */
+    padding-block: 0;
+  }
+
+  .hero__inner { align-items: flex-start; }
+
+  .hero__copy {
+    align-items: flex-start;
+    gap: 2rem;
+    width: clamp(31.9375rem, 38.89vw, 35rem); /* 511 (one-row actions) → 560 */
+    max-width: none;
+    text-align: left;
+  }
+
+  .hero__headline { align-items: flex-start; }
+
+  .hero__actions { justify-content: flex-start; flex-wrap: nowrap; }
+
+  .hero__copy .perks { justify-content: flex-start; }
+
+  .hero__visual {
+    position: absolute;
+    top: 50%;
+    left: max(39.097vw, 50vw - 9.8125rem);
+    width: clamp(46.875rem, 62.5vw, 56.25rem);
+    max-width: none;
+    transform: translateY(-50%);
+  }
+}
