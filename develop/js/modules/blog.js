@@ -144,6 +144,17 @@ function initTopicFilter(search) {
   };
 
   for (const chip of chips) on(chip, 'click', () => { topic = chip.dataset.topic; render(); });
+  // a post's tag is a link to its topic: on the index it filters in place
+  for (const tag of $$('a.post-tag')) {
+    on(tag, 'click', (e) => {
+      const t = new URL(tag.href).searchParams.get('topic');
+      if (!chips.some((c) => c.dataset.topic === t)) return;
+      e.preventDefault();
+      topic = t;
+      render();
+      $('#latest')?.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+    });
+  }
   search?.onInput((value) => { query = value; render(); });
 
   const params = new URLSearchParams(location.search);

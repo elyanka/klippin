@@ -1,0 +1,66 @@
+/*
+ * Hover and press, one rule per kind of control (review 20.11). Loaded last
+ * (utilities layer) by the landing, the blog and the legal pages.
+ *
+ *   Text links (nav, footer, menu, back, contents)  hover: grey → white
+ *   Accent links (orange)                           hover: underline
+ *   Links with an arrow or caret                    hover: the icon nudges its way
+ *   Primary button                                  hover: a touch brighter
+ *   Outlined controls (outline button, icon         hover: outline one step brighter
+ *     buttons, topic chips, store badges)                  + faint white fill
+ *   Selected toggle (EN/FR, topic)                  no hover change
+ *   Cards: step cards and article cards rim,        (see rim-card.css, blog.css)
+ *     blog index cards outline + shadow, FAQ fill
+ *
+ *   Press: anything shaped like a button shrinks to 97% while held (the
+ *   primary one also darkens a little); links dim to 70%. Cards don't press.
+ *   Keyboard focus: the orange 2px outline everywhere (base/a11y.css).
+ */
+
+/* Our own press feedback replaces the grey tap flash on phones. */
+html { -webkit-tap-highlight-color: transparent; }
+
+/* ---- Button-shaped controls --------------------------------------------- */
+:where(.btn, .icon-btn, .nav__burger, .store-badge, .topic, .lang__option) {
+  transition:
+    color var(--dur-fast) var(--ease-standard),
+    background-color var(--dur-fast) var(--ease-standard),
+    border-color var(--dur-fast) var(--ease-standard),
+    filter var(--dur-fast) var(--ease-standard),
+    scale var(--dur-fast) var(--ease-standard);
+}
+
+@media (hover: hover) {
+  :where(.icon-btn, .nav__burger):hover {
+    border-color: var(--border-strong);
+    background-color: var(--tint-strong);
+  }
+  .topic:not([aria-pressed="true"]):hover { background-color: var(--tint); }
+}
+
+:where(.btn[href], .icon-btn, .nav__burger, .store-badge[href], .topic, .lang__option):active {
+  scale: .97;
+  transition-duration: 60ms;
+}
+.btn--primary[href]:active { filter: brightness(.94); }
+
+/* ---- Links -------------------------------------------------------------- */
+:where(.nav__link, .nav__menu-link, .footer__col a, .footer__legal a, .footer__clients a,
+       .blog-nav__site, .blog-menu__link, .back-link, .legal-nav__back, .toc__link, a.post-tag,
+       .prose a, .posts__query button)[href]:active,
+.posts__query button:active {
+  opacity: .7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :where(.btn, .icon-btn, .nav__burger, .store-badge, .topic, .lang__option):active { scale: none; }
+}
+
+/* The search toggle sits inside the open field: no outline there. */
+@media (hover: hover) {
+  .blog-search.is-open .blog-search__toggle:hover {
+    border-color: transparent;
+    background-color: transparent;
+    color: var(--text-primary);
+  }
+}

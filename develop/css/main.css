@@ -14,3 +14,5 @@
 @import url("sections/04-earnings.css")      layer(sections);
 @import url("sections/05-faq.css")           layer(sections);
 @import url("sections/06-get-started.css")   layer(sections);
+
+@import url("components/interaction.css")    layer(utilities);

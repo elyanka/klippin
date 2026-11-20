@@ -36,8 +36,6 @@
    (.eyebrow, as on "Klippin for clippers"): 11px Plus Jakarta Sans 800 caps. */
 .blog-nav__brand { display: flex; align-items: center; gap: .625rem; flex: none; }
 .blog-nav__brand img { width: auto; height: 1.25rem; }
-.blog-nav__word { transition: filter var(--dur-fast) var(--ease-standard); }
-.blog-nav__brand:hover .blog-nav__word { filter: brightness(1.08); }
 
 @media (min-width: 640px) {
   .blog-nav__brand { gap: .75rem; }
@@ -177,13 +175,13 @@
   gap: .375rem;
   padding-block: .75rem;
   border-bottom: 1px solid var(--border-subtle);
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: var(--fs-body-l);
   font-weight: 500;
   transition: color var(--dur-fast) var(--ease-standard);
 }
-.blog-menu__link:hover { color: var(--brand); }
-.blog-menu__link--site { color: var(--text-secondary); }
+/* Same as the nav links: grey, white on hover. Orange is kept for accent links. */
+.blog-menu__link:hover { color: var(--text-primary); }
 
 @media (prefers-reduced-motion: reduce) {
   .blog-menu,
@@ -245,6 +243,7 @@
 }
 .posts__query strong { color: var(--text-primary); }
 .posts__query button { margin-left: .5rem; color: var(--brand); font-weight: 600; }
+.posts__query button:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 
 /* Topic filter: one row of chips, scrolls sideways on narrow phones. */
@@ -280,10 +279,11 @@
 }
 .topic:hover { border-color: var(--border-strong); color: var(--text-primary); }
 
-/* Selected: the coming-soon chip's tint (brand outline + 10% fill). */
+/* Selected: the language switch's selected option (neutral fill, white
+   label). The orange tint pill is kept for status ("Coming soon"). */
 .topic[aria-pressed="true"] {
-  border-color: rgb(255 104 57 / .45);
-  background-color: rgb(255 104 57 / .10);
+  border-color: transparent;
+  background-color: var(--tint-strong);
   color: var(--text-primary);
 }
 
@@ -292,7 +292,7 @@
   color: var(--text-tertiary);
   font-size: var(--fs-caption);
 }
-.topic[aria-pressed="true"] .topic__count { color: var(--brand); }
+.topic[aria-pressed="true"] .topic__count { color: var(--text-secondary); }
 
 
 /* ---------------------------------------------------------------------------
@@ -362,6 +362,7 @@
 @media (min-width: 900px) { .posts { grid-template-columns: repeat(3, 1fr); } }
 
 .post-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   padding: .375rem;
@@ -399,6 +400,10 @@
   letter-spacing: var(--ls-eyebrow);
   text-transform: uppercase;
 }
+/* The tag links to its topic (blog.html?topic=…); it sits above the card's
+   stretched title link. Hover = the accent link's underline. */
+a.post-tag { position: relative; z-index: 3; }
+a.post-tag:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 .post-card__title {
   font-size: var(--fs-title);
@@ -489,6 +494,43 @@
   .post-card--featured .cover { aspect-ratio: auto; height: 100%; min-height: 26rem; }
   .post-card--featured .post-card__body { padding: 2.5rem 2.75rem; }
 }
+
+
+/* ---------------------------------------------------------------------------
+ * Blog index cards (Elya 20.11: calmer hover, more contrast). The article
+ * page keeps the .rim-card hover on its cards.
+ *   - Elevation: the card is a step lighter than the page, with a hairline
+ *     top highlight and a soft dark shadow, so it sits above the background;
+ *     the darker cover tile inside reads as an inset.
+ *   - Hover: no lift, no orange rim or glow. The outline brightens a little,
+ *     the shadow deepens and the illustration rises a few pixels.
+ * ------------------------------------------------------------------------ */
+.blog-index .post-card {
+  border-color: rgb(255 255 255 / .08);
+  background-image: linear-gradient(180deg, #161618 0%, #111113 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / .04),
+    0 1px 2px rgb(0 0 0 / .5),
+    0 1rem 2rem -1rem rgb(0 0 0 / .7);
+  transition:
+    border-color var(--dur-base) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-standard);
+}
+
+.blog-index .cover { box-shadow: inset 0 0 0 1px rgb(255 255 255 / .03); }
+
+@media (hover: hover) {
+  .blog-index .post-card:hover {
+    border-color: rgb(255 255 255 / .16);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / .06),
+      0 1px 2px rgb(0 0 0 / .5),
+      0 1.5rem 2.5rem -1rem rgb(0 0 0 / .8);
+  }
+  .blog-index .post-card:hover .cover img { translate: 0 -.25rem; scale: 1; }
+}
+
+.blog-index .post-card:has(.post-card__title a:focus-visible) { border-color: rgb(255 255 255 / .16); }
 
 .author {
   display: flex;
@@ -777,7 +819,7 @@
 .callout.rim-card::after { opacity: 1; }
 .callout.rim-card:hover { translate: none; }
 
-.prose .callout__label {
+.prose .callout p.callout__label {
   display: inline-block;
   margin-bottom: .625rem;
   color: var(--text-on-orange);

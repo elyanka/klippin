@@ -55,9 +55,31 @@
   background-color: var(--bg-raised);
 }
 
-.legal-nav__actions { display: flex; gap: .5rem; }
+/* Header (20.11): a back link like the blog's "All posts" (grey text link,
+   caret nudges back on hover) and the landing's EN/FR switch. Pages are
+   separate per language, so the switch holds links; the current one is the
+   selected option. */
+.legal-nav__actions { display: flex; align-items: center; gap: 1.25rem; }
 
-/* Logo + back + language overflow narrow phones; there the logo alone links home. */
+.legal-nav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: .375rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-ui);
+  font-weight: 500;
+  transition: color var(--dur-fast) var(--ease-standard);
+}
+.legal-nav__back img { width: 1rem; height: 1rem; rotate: 180deg; transition: translate var(--dur-base) var(--ease-out); }
+.legal-nav__back:hover { color: var(--text-primary); }
+.legal-nav__back:hover img { translate: -.25rem 0; }
+
+.lang__option[aria-current="true"] {
+  background-color: var(--tint-strong);
+  color: var(--text-primary);
+}
+
+/* Phones: logo + back + switch crowd the bar; there the logo alone links home. */
 @media (max-width: 479px) { .legal-nav__back { display: none; } }
 
 .footer--legal { padding-top: 0; }
