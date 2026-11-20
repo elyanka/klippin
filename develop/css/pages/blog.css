@@ -497,19 +497,22 @@ a.post-tag:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 
 /* ---------------------------------------------------------------------------
- * Blog index cards (Elya 20.11: calmer hover, more contrast). The article
- * page keeps the .rim-card hover on its cards.
+ * Post cards on the blog and in the article's "Keep reading" (20.11: calmer
+ * hover, more contrast). The article's Tip box keeps the .rim-card rim.
  *   - Elevation: the card is a step lighter than the page, with a hairline
  *     top highlight and a soft dark shadow, so it sits above the background;
  *     the darker cover tile inside reads as an inset.
- *   - Hover: no lift, no orange rim or glow. The outline brightens a little,
- *     the shadow deepens and the illustration rises a few pixels.
+ *   - Hover: no lift, no orange rim or glow, and nothing that depends on the
+ *     cover art (it may become photos): the outline brightens, the card's
+ *     fill lifts a little (an inset shadow, so it can ease), the shadow
+ *     deepens and the cover image zooms 4% inside its tile.
  * ------------------------------------------------------------------------ */
-.blog-index .post-card {
+.blog-page .post-card {
   border-color: rgb(255 255 255 / .08);
   background-image: linear-gradient(180deg, #161618 0%, #111113 100%);
   box-shadow:
     inset 0 1px 0 rgb(255 255 255 / .04),
+    inset 0 0 0 100vmax rgb(255 255 255 / 0),
     0 1px 2px rgb(0 0 0 / .5),
     0 1rem 2rem -1rem rgb(0 0 0 / .7);
   transition:
@@ -517,20 +520,23 @@ a.post-tag:hover { text-decoration: underline; text-underline-offset: 3px; }
     box-shadow var(--dur-base) var(--ease-standard);
 }
 
-.blog-index .cover { box-shadow: inset 0 0 0 1px rgb(255 255 255 / .03); }
+.blog-page .post-card .cover img { transition: scale .6s var(--ease-out); }
+
+.blog-page .post-card .cover { box-shadow: inset 0 0 0 1px rgb(255 255 255 / .03); }
 
 @media (hover: hover) {
-  .blog-index .post-card:hover {
-    border-color: rgb(255 255 255 / .16);
+  .blog-page .post-card:hover {
+    border-color: rgb(255 255 255 / .22);
     box-shadow:
-      inset 0 1px 0 rgb(255 255 255 / .06),
+      inset 0 1px 0 rgb(255 255 255 / .08),
+      inset 0 0 0 100vmax rgb(255 255 255 / .03),
       0 1px 2px rgb(0 0 0 / .5),
-      0 1.5rem 2.5rem -1rem rgb(0 0 0 / .8);
+      0 1.75rem 3rem -1rem rgb(0 0 0 / .85);
   }
-  .blog-index .post-card:hover .cover img { translate: 0 -.25rem; scale: 1; }
+  .blog-page .post-card:hover .cover img { translate: none; scale: 1.04; }
 }
 
-.blog-index .post-card:has(.post-card__title a:focus-visible) { border-color: rgb(255 255 255 / .16); }
+.blog-page .post-card:has(.post-card__title a:focus-visible) { border-color: rgb(255 255 255 / .22); }
 
 .author {
   display: flex;
